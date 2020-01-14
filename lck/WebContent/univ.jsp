@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -83,13 +87,13 @@
 
         <nav class="main-nav float-right d-none d-lg-block">
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="service.html">Services</a></li>
-            <li><a href="index.html#team">Team</a></li>
-            <li class="active"><a href="univ.html">University</a></li>
-            <li><a href="index.html#footer">Contact Us</a></li>
-            <li><a href="forum.html">Forum</a></li>
+            <li><a href="index.jsp">Home</a></li>
+            <li><a href="aboutus.jsp">About Us</a></li>
+            <li><a href="service.jsp">Services</a></li>
+            <li><a href="index.jsp#team">Team</a></li>
+            <li class="active"><a href="univ.jsp">University</a></li>
+            <li><a href="index.jsp#footer">Contact Us</a></li>
+            <li><a href="forum.jsp">Forum</a></li>
           </ul>
         </nav>
         <!-- .main-nav -->

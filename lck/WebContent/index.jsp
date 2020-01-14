@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,12 +78,12 @@
         <nav class="main-nav float-right d-none d-lg-block">
           <ul>
             <li class="active"><a href="#intro">Home</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="service.html">Services</a></li>
+            <li><a href="aboutus.jsp">About Us</a></li>
+            <li><a href="service.jsp">Services</a></li>
             <li><a href="#team">Team</a></li>
-            <li><a href="univ.html">University</a></li>
+            <li><a href="univ.jsp">University</a></li>
             <li><a href="#footer">Contact Us</a></li>
-            <li><a href="forum.html">Forum</a></li>
+            <li><a href="forum.jsp">Forum</a></li>
           </ul>
         </nav>
         <!-- .main-nav -->
@@ -96,7 +100,7 @@
           <div class="col-md-6 intro-info order-md-first order-last">
             <h2>Welcome to<br /><span>LCK Language Center!</span></h2>
             <div>
-              <a href="forum.html" class="btn-get-started scrollto"
+              <a href="forum.jsp" class="btn-get-started scrollto"
                 >Get Started</a
               >
             </div>
@@ -183,10 +187,10 @@
       <section id="team" class="section-bg">
         <div class="container">
           <div class="section-header">
-            <h3>임원진</h3>
+            <h3>ììì§</h3>
             <p>
-              학생 여러분들의 안전하고 성공적인 유학생활을 책임질 <br />믿음직한
-              LCK 임원진들을 소개합니다.
+              íì ì¬ë¬ë¶ë¤ì ìì íê³  ì±ê³µì ì¸ ì íìíì ì±ìì§ <br />ë¯¿ìì§í
+              LCK ììì§ë¤ì ìê°í©ëë¤.
             </p>
           </div>
 
@@ -196,8 +200,8 @@
                 <img src="img/instructor_4.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>최봉길</h4>
-                    <span>대표 이사</span>
+                    <h4>ìµë´ê¸¸</h4>
+                    <span>ëí ì´ì¬</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -214,8 +218,8 @@
                 <img src="img/instructor_1.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>김진규</h4>
-                    <span>부사장 / 수석 강사</span>
+                    <h4>ê¹ì§ê·</h4>
+                    <span>ë¶ì¬ì¥ / ìì ê°ì¬</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -232,8 +236,8 @@
                 <img src="img/instructor_2.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>김진기</h4>
-                    <span>부장</span>
+                    <h4>ê¹ì§ê¸°</h4>
+                    <span>ë¶ì¥</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -250,8 +254,8 @@
                 <img src="img/instructor_3.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>최새민</h4>
-                    <span>재무 관리자</span>
+                    <h4>ìµìë¯¼</h4>
+                    <span>ì¬ë¬´ ê´ë¦¬ì</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -268,8 +272,8 @@
                 <img src="img/team-4.jpg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>경동수</h4>
-                    <span>실장</span>
+                    <h4>ê²½ëì</h4>
+                    <span>ì¤ì¥</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -286,8 +290,8 @@
                 <img src="img/team-6.jpg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>롬</h4>
-                    <span>상담 매니저</span>
+                    <h4>ë¡¬</h4>
+                    <span>ìë´ ë§¤ëì </span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -386,7 +390,7 @@
               <div class="form">
                 <h4>Send us a message</h4>
                 <p>
-                  언제든 궁금한 사항이 있으시면 문의하실 수 있습니다.
+                  ì¸ì ë  ê¶ê¸í ì¬í­ì´ ìì¼ìë©´ ë¬¸ìíì¤ ì ììµëë¤.
                 </p>
                 <form action="" method="post" role="form" class="contactForm">
                   <div class="form-group">

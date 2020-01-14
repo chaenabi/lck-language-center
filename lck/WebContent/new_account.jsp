@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -51,7 +54,7 @@
             <div class="headernav">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="forum.html"><img src="./images/logo.jpg" alt=""  /></a></div>
+                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="forum.jsp"><img src="./images/logo.jpg" alt=""  /></a></div>
                         <div class="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
                             <div class="dropdown">
                                 <a data-toggle="dropdown" href="#">Borderlands 2</a> <b class="caret"></b>
@@ -74,11 +77,11 @@
                         </div>
                         <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
                             <div class="stnt pull-left">                            
-                                <!-- 잠시 보류 -->
-                                <!-- <form action="03_new_topic.html" method="post" class="form">
+                                <!-- ���� 蹂대� -->
+                                <!-- <form action="03_new_topic.jsp" method="post" class="form">
                                     <button class="btn btn-primary">Start New Topic</button>
                                 </form> -->
-                                <a class="btn btn-primary" href="03_new_topic.html">Start New Topic</a>
+                                <a class="btn btn-primary" href="03_new_topic.jsp">Start New Topic</a>
 
                             </div>
                             <div class="env pull-left"><i class="fa fa-envelope"></i></div>
@@ -90,7 +93,7 @@
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Inbox</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-3" href="#">Log Out</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-4" href="04_new_account.html">Create account</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-4" href="new_account.jsp">Create account</a></li>
                                 </ul>
                             </div>
                             <div class="clearfix"></div>

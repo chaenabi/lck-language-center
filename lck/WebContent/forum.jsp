@@ -1,9 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Forum :: Home Page</title>
+        <title>LCK Language Center</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -76,21 +80,21 @@
       <div class="logo float-left">
         <!-- Uncomment below if you prefer to use an image logo -->
         <h1 class="text-light">
-          <a href="index.html" class="scrollto" style="font-size: 36px;"><span>LCK</span></a>
+          <a href="index.jsp" class="scrollto" style="font-size: 36px;"><span>LCK</span></a>
         </h1>
         <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="aboutus.html">About Us</a></li>
-          <li><a href="service.html">Services</a></li>
+          <li><a href="index.jsp">Home</a></li>
+          <li><a href="aboutus.jsp">About Us</a></li>
+          <li><a href="service.jsp">Services</a></li>
           
-          <li><a href="index.html#team">Team</a></li>
-          <li><a href="univ.html">University</a></li>
-          <li><a href="index.html#footer">Contact Us</a></li>
-          <li class="active"><a href="forum.html">Forum</a></li>
+          <li><a href="index.jsp#team">Team</a></li>
+          <li><a href="univ.jsp">University</a></li>
+          <li><a href="index.jsp#footer">Contact Us</a></li>
+          <li class="active"><a href="forum.jsp">Forum</a></li>
         </ul>
       </nav>
       <!-- .main-nav -->
@@ -102,7 +106,7 @@
   <!-- #header -->
   <div class="container-fluid">
       
-    <!-- 배경 보류 -->
+    <!-- ë°°ê²½ ë³´ë¥ -->
             <!-- Slider -->
            <div class="tp-banner-container">
                 <div class="tp-banner">
@@ -117,7 +121,7 @@
             <div class="headernav">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="index.html"><img src="images/logo.jpg" alt=""  /></a></div>
+                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="index.jsp"><img src="images/logo.jpg" alt=""  /></a></div>
                         <div class="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
                             <div class="dropdown">
                                 <a data-toggle="dropdown" href="#" >Regions</a> <b class="caret"></b>
@@ -140,7 +144,7 @@
                         </div>
                         <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
                             <div class="stnt pull-left">                            
-                                <form action="03_new_topic.html" method="post" class="form">
+                                <form action="03_new_topic.jsp" method="post" class="form">
                                     <button class="btn btn-primary">Start New Topic</button>
                                 </form>
                             </div>
@@ -153,7 +157,7 @@
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Inbox</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-3" href="#">Log Out</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-4" href="04_new_account.html">Create account</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-4" href="new_account.jsp">Create account</a></li>
                                 </ul>
                             </div>
                             
@@ -198,7 +202,7 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-8">
                             <!-- POST -->
-                            <div class="post">
+                             <div class="post">
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
@@ -211,7 +215,7 @@
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
-                                        <h2><a href="02_topic.html">This is your new promotion</a></h2>
+                                        <h2><a href="02_topic.jsp"></a></h2>
                                         <p>It's one thing to subject yourself to be workers.</p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -228,11 +232,11 @@
                                     <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>                                    
                                 </div>
                                 <div class="clearfix"></div>
-                            </div><!-- POST -->
+                            </div> <!-- POST -->
 
 
                             <!-- POST -->
-                            <div class="post">
+                            <!-- <div class="post">
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
@@ -245,7 +249,7 @@
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
-                                        <h2><a href="02_topic.html">What Instagram Ads Will Look Like</a></h2>
+                                        <h2><a href="02_topic.jsp">What Instagram Ads Will Look Like</a></h2>
                                         <p>Instagram offered a first glimpse at what its ads will look like in a blog post Thursday. The sample ad, which you can see below.</p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -262,10 +266,10 @@
                                     <div class="time"><i class="fa fa-clock-o"></i> 15 min</div>                                    
                                 </div>
                                 <div class="clearfix"></div>
-                            </div><!-- POST -->
+                            </div>POST
 
 
-                            <!-- POST -->
+                            POST
                             <div class="post">
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
@@ -279,7 +283,7 @@
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
-                                        <h2><a href="02_topic.html">The Future of Magazines Is on Tablets</a></h2>
+                                        <h2><a href="02_topic.jsp">The Future of Magazines Is on Tablets</a></h2>
                                         <p>Eric Schmidt has seen the future of magazines, and it's on the tablet. At a Magazine Publishers Association.</p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -296,10 +300,10 @@
                                     <div class="time"><i class="fa fa-clock-o"></i> 2 days</div>                                    
                                 </div>
                                 <div class="clearfix"></div>
-                            </div><!-- POST -->
+                            </div>POST
 
 
-                            <!-- POST -->
+                            POST
                             <div class="post">
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
@@ -313,7 +317,7 @@
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
-                                        <h2><a href="02_topic.html">Pinterest Now Worth $3.8 Billion</a></h2>
+                                        <h2><a href="02_topic.jsp">Pinterest Now Worth $3.8 Billion</a></h2>
                                         <p>Pinterest's valuation is closing in on $4 billion after its latest funding round of $225 million, according to a report.</p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -330,11 +334,11 @@
                                     <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>                                    
                                 </div>
                                 <div class="clearfix"></div>
-                            </div><!-- POST -->
+                            </div>POST
 
 
 
-                            <!-- POST -->
+                            POST
                             <div class="post">
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
@@ -348,7 +352,7 @@
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
-                                        <h2><a href="02_topic.html">10 Kids Unaware of Their Halloween Costume</a></h2>
+                                        <h2><a href="02_topic.jsp">10 Kids Unaware of Their Halloween Costume</a></h2>
                                         <p>It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.</p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -365,10 +369,10 @@
                                     <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>                                    
                                 </div>
                                 <div class="clearfix"></div>
-                            </div><!-- POST -->
+                            </div>POST
 
 
-                            <!-- POST -->
+                            POST
                             <div class="post">
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
@@ -382,7 +386,7 @@
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
-                                        <h2><a href="02_topic.html">What Instagram Ads Will Look Like</a></h2>
+                                        <h2><a href="02_topic.jsp">What Instagram Ads Will Look Like</a></h2>
                                         <p>Instagram offered a first glimpse at what its ads will look like in a blog post Thursday. The sample ad, which you can see below.</p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -399,10 +403,10 @@
                                     <div class="time"><i class="fa fa-clock-o"></i> 15 min</div>                                    
                                 </div>
                                 <div class="clearfix"></div>
-                            </div><!-- POST -->
+                            </div>POST
 
 
-                            <!-- POST -->
+                            POST
                             <div class="post">
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
@@ -416,7 +420,7 @@
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
-                                        <h2><a href="02_topic.html">The Future of Magazines Is on Tablets</a></h2>
+                                        <h2><a href="02_topic.jsp">The Future of Magazines Is on Tablets</a></h2>
                                         <p>Eric Schmidt has seen the future of magazines, and it's on the tablet. At a Magazine Publishers Association.</p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -433,8 +437,8 @@
                                     <div class="time"><i class="fa fa-clock-o"></i> 2 days</div>                                    
                                 </div>
                                 <div class="clearfix"></div>
-                            </div><!-- POST -->
-
+                            </div>POST
+ -->
                         </div>
                         <div class="col-lg-4 col-md-4">
 
