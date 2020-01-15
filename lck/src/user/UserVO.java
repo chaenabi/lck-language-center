@@ -9,7 +9,7 @@ public class UserVO {
 	
 	private String name; // 관리자명
 	private String password; //관리자 비밀번호
-	private final String phone = "+82 10"; // 관리자전화번호
+	private String phone = "+82 10"; // 관리자전화번호
 	private String phonemid; // 관리자전화번호
 	private String phoneend; // 관리자전화번호
 	private String position; //관리자직급
@@ -31,7 +31,12 @@ public class UserVO {
 		this.name = name;
 	}
 	
-	
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public String getPhonemid() {
 		return phonemid;
 	}
@@ -80,6 +85,7 @@ public class UserVO {
 				+ ", phoneend=" + phoneend + ", position=" + position + ", address=" + address + ", identityPhoto="
 				+ identityPhoto + ", regDate=" + regDate + "]";
 	}
+	
 	
 	
 }

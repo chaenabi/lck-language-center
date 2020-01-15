@@ -2,13 +2,7 @@ package common;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,143 +10,67 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
-import com.google.gson.Gson;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 /**
- * 브라우저로부터 전달받은 파일을 저장.
- * 요청정보 및 파일정보를 JSON형태로 응답.
+ * 브라우저로부터 전달받은 파일을 저장. 요청정보 및 파일정보를 JSON형태로 응답.
  */
-@WebServlet("/FileUploadServlet") 
+@WebServlet("/FileUploadServlet")
 public class FileUploadServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    
-    @Override
-    protected void doPost(
-            HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        request.setCharacterEncoding("UTF-8");
- 
-        //응답콘텐츠타입을 JSON형태로 지정 
-        //TODO: Iframe을 통한 JSON형태의 결과를 받을때 다운로드 창이 뜨는 문제. 
-        //response.setContentType("application/json; charset=UTF-8"); 
-        //response.setContentType("text/plain; charset=UTF-8");
-        
-        //Iframe 기반으로된 업로드방식은 응답 콘테츠 타입이 application/json일 경우 
-        //원하지 않는 다운로드 대화상자를 볼수있습니다.
-        //그래서 Content-type 이 text/plain or text/html 형식이어야합니다. 
-        //참고: http://javaking75.blog.me/220073311435
-        
-        //System.out.println(request.getHeader("accept"));
-        if (request.getHeader("accept").indexOf("application/json") != -1) {
-            response.setContentType("application/json; charset=UTF-8");
-        } else {
-            // IE workaround
-            response.setContentType("text/plain; charset=UTF-8");
-        }        
-        
-        PrintWriter out = response.getWriter();
-        
-        RequestFile model = new RequestFile();
-        
-        try {
-            //디스크상의 실제 경로 얻기
-            String contextRootPath = this.getServletContext().getRealPath("/");
-            
-            //1. 메모리나 파일로 업로드 파일 보관하는 FileItem의 Factory설정
-            DiskFileItemFactory diskFactory = new DiskFileItemFactory(); 
-            //임시 저장폴더
-            diskFactory.setRepository(new File(contextRootPath + "/WEB-INF/temp"));
-            
-            //2. 업로드 요청을 처리하는 ServletFileUpload 생성
-            ServletFileUpload upload = new ServletFileUpload(diskFactory); 
-            upload.setSizeMax(100 * 1024 * 1024); //100MB : 전체 최대 업로드 파일 크기
-            //upload.setFileSizeMax(100 * 1024 * 1024); //100MB : 파일하나당 최대 업로드 파일 크기
-            
-            //3. 업로드 요청 파싱해서 FileItem 목록 구함
-            @SuppressWarnings("unchecked")
-            List<FileItem> items = upload.parseRequest(request); 
-            
-            for(FileItem item : items) {
-                
-                //5. FileItem이 폼입력 항목인지 여부에 따라 알맞은 처리
-                if (item.isFormField()) { //파일이 아닌경우                    
-                    processFormField(model, item);                            
-                } else { //파일인 경우
-                    if(item.getSize()!=0) { //업로드된 파일이 있을경우에만 처리
-                        processUploadFile(model, item, contextRootPath);    
-                    }                                                        
-                }            
-            }
-         
-            
-            //값 객체(VO,DTO)를 JSON형태로 문자열로 변환하기 위핸 Gson객체 생성.
-            Gson gson = new Gson();
-            String outString = gson.toJson(model);
-            //System.out.println(outString);
-            out.print(outString);    
-            System.out.println(contextRootPath);
-            System.out.println(model);
-            
-            
-        } catch(Exception e) {    
-            
-            e.printStackTrace();
-            
-            out.print("{\"result\":\"500\"");
-            out.print(",\"msg\":\""+e.getMessage());            
-            out.print("\"}");                
-        }
-    }
+	private static final long serialVersionUID = 1L;
 
-    //파일 양식 처리
-    private void processUploadFile(
-            RequestFile model, FileItem item, String contextRootPath) throws Exception {
-        
-        String name = item.getFieldName(); //필드 이름 얻기
-        String fileName = item.getName(); //파일명 얻기
-        String contentType = item.getContentType(); //컨텐츠 타입 얻기
-        long fileSize = item.getSize(); //파일의 크기 얻기
-        
-        //업로드 파일명을 현재시간으로 변경후 저장
-        //String uploadedFileName = System.currentTimeMillis() 
-        //                             +fileName.substring(fileName.lastIndexOf("."));
-        String uploadedFileName = System.currentTimeMillis() 
-                + UUID.randomUUID().toString() +fileName.substring(fileName.lastIndexOf("."));;
-        //저장할 절대경로로 파일 객체 생성
-        File uploadedFile = new File(contextRootPath + "/upload/" + uploadedFileName); 
-        item.write(uploadedFile); //파일 저장
-                        
-        FileInfoModel fileInfoModel = new FileInfoModel(name, fileName, 
-                                                       uploadedFileName, fileSize, contentType);
-         
-        if("photo".equals(name)) {
-            List<FileInfoModel> photoList = model.getPhoto();
-            if(photoList == null ) photoList = new ArrayList<FileInfoModel>();
-            photoList.add(fileInfoModel);
-            model.setPhoto(photoList);
-        } else if("file".equals(name)) {
-            model.setFile(fileInfoModel);
-        }    
-        item.delete(); //파일과 관련된 자원을 제거한다.
-    }
-    
-    //일반 양식 처리
-    private void processFormField(RequestFile model, FileItem item) throws Exception{
-        String name = item.getFieldName();
-        String value = item.getString("UTF-8");
-        
-        //요청파라미터의 이름에 따라 값객체(RequestFile)에 값 할당.
-        if("title".equals(name)) {
-            model.setTitle(value);
-        } else if("description".equals(name)) {
-            model.setDescription(value);
-        }
-    }
-    
-    
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		 // 실제로 서버에 저장되는 path
+	    String path = request.getSession().getServletContext().getRealPath("uploadedProfile");
+	    //PrintWriter out = response.getWriter();
+	    //System.out.println("절대 경로 : " + path + "<br/>");
+	    
+	    int size = 1024 * 1024 * 100; // 파일 사이즈 설정 : 100M
+	    String fileName = "";    // 업로드한 파일 이름
+	    String originalFileName = "";    //  서버에 중복된 파일 이름이 존재할 경우 처리하기 위해
+	    
+	    // cos.jar라이브러리 클래스를 가지고 실제 파일을 업로드하는 과정
+	    try{
+	    	//uploadedProfile 폴더가 없으면 생성하도록 한다.
+	    	File Folder = new File(path);
+	    	if (!Folder.exists()) {
+	    		try{
+	    		    Folder.mkdir(); //폴더 생성합니다.
+	    		    //System.out.println("폴더가 생성되었습니다.");
+	    	        } 
+	    	        catch(Exception e){
+	    		    e.getStackTrace();
+	    		}        
+	             }else {
+	    		//System.out.println("이미 폴더가 생성되어 있습니다.");
+	    	}
+	    	
+	        // DefaultFileRenamePolicy 처리는 중복된 이름이 존재할 경우 처리할 때
+	        // request, 파일저장경로, 용량, 인코딩타입, 중복파일명에 대한 정책
+	        MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
+	        // 전송한 전체 파일이름들을 가져온다.
+	        Enumeration files = multi.getFileNames();
+	        String str = (String)files.nextElement();
+	        System.out.println(str);
+	        //파일명 중복이 발생했을 때 정책에 의해 뒤에 1,2,3 처럼 숫자가 붙어 고유 파일명을 생성한다.
+	        // 이때 생성된 이름을 FilesystemName이라고 하여 그 이름 정보를 가져온다. (중복 처리)
+	        fileName = multi.getFilesystemName(str);
+	        //실제 파일 이름을 가져온다.
+	        originalFileName = multi.getOriginalFileName(str);
+	        
+	    }catch(Exception e){
+	        e.printStackTrace();
+	    }
+
+
+	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
 }

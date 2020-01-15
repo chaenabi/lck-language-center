@@ -38,94 +38,86 @@
 
 <script src="lib/jquery/jquery.min.js"></script>
 <script>
-	function numberMaxLength(e) {
-		if (e.value.length > e.maxLength) {
-			e.value = e.value.slice(0, e.maxLength);
-		}
+    function numberMaxLength(e) {
+	if (e.value.length > e.maxLength) {
+	    e.value = e.value.slice(0, e.maxLength);
 	}
+    }
 </script>
 <script>
-	/* function ajaxFileUpload() {
+    // 프로필 이미지 등록
+    $(document)
+	    .ready(
+		    function(e) {
 
-	 var form = jQuery("#photoUpload")[0];
-	 var formData = new FormData(form);
-	 formData.append("message", "ajax로 프로필사진 전송하기");
-	 formData.append("file", jQuery("#ex_file")[0].files[0]);
+			// [1]
+			$("#ex_file")
+				.on(
+					"change",
+					function() {
+					    ext = $(this).val().split('.')
+						    .pop().toLowerCase(); //확장자
 
-	 jQuery.ajax({
-	 url : "/lck/FileUploadServlet"
-	 , type : "POST"
-	 , processData : false
-	 , contentType : false
-	 , data : formData
-	 , success:function(result, msg) {
-	 alert(result);
-	 alert(msg);
-	 }, error: function(err) {
-	 console.log(err);
-	 }
-	 });
-	 }
-	 */
-</script>
-<script>
-	$(document)
-			.ready(
-					function(e) {
-						$('#uploadsubmit').on('submit', (function(e) {
-							//e.preventDefault();
-							var form = jQuery("#photoUpload")[0];
-							var formData = new FormData(form);
-							$.ajax({
-								type : 'POST',
-								url : "/lck/FileUploadServlet",
-								data : formData,
-								cache : false,
-								contentType : false,
-								processData : false,
-								success : function(data) {
-									console.log("success");
-									console.log(data);
-								},
-								error : function(data) {
-									console.log("error");
-									console.log(data);
-								}
-							});
-						}));
-
-						$("#ex_file")
-								.on(
-										"change",
-										function() {
-											ext = $(this).val().split('.')
-													.pop().toLowerCase(); //확장자
-
-											//배열에 추출한 확장자가 존재하는지 체크
-											if ($.inArray(ext, [ 'gif', 'png',
-													'jpg', 'jpeg' ]) == -1) {
-												resetFormElement($(this)); //폼 초기화
-												window
-														.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능, 개발자 직접 문의바랍니다.)');
-											} else {
-												file = $('#ex_file').prop(
-														"files")[0];
-												blobURL = window.URL
-														.createObjectURL(file);
-												$('#profile_photo img')
-														.removeAttr('src');
-												$('#profile_photo img').attr({
-													src : blobURL,
-												}).css({
-													'height' : '37px',
-													'width' : '37px'
-												});
-
-											}
-											//비동기 업로딩을 위해 submit        
-											$("#uploadsubmit").submit();
-										});
+					    //배열에 추출한 확장자가 존재하는지 체크
+					    if ($.inArray(ext, [ 'gif', 'png',
+						    'jpg', 'jpeg' ]) == -1) {
+						resetFormElement($(this)); //폼 초기화
+						window
+							.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능, 개발자 직접 문의바랍니다.)');
+					    } else {
+						file = $('#ex_file').prop(
+							"files")[0];
+						blobURL = window.URL
+							.createObjectURL(file);
+						$('#profile_photo img')
+							.removeAttr('src');
+						$('#profile_photo img').attr({
+						    src : blobURL,
+						}).css({
+						    'height' : '37px',
+						    'width' : '37px'
+						});
+						
+						$('#profile').val(blobURL);
+					
+						//window.URL
+						//.revokeObjectURL(file);
+						
+					    }
+					    //비동기 업로딩을 위해 submit        
+					    $("#uploadsubmit").submit();
 					});
+
+			//[2]
+			$('#uploadsubmit').on('submit', (function(e) {
+			    //e.preventDefault();
+			    var file = document.getElementById("ex_file");
+			    var fileData = new FormData();
+			    fileData.append('profile_thumnail', file.files[0]);
+			    
+			    $.ajax({
+				type : 'POST',
+				url : "/lck/FileUploadServlet",
+				data : fileData,
+				cache : false,
+				contentType : false,
+				processData : false,
+				success : function(result, msg) {
+
+				},
+				error : function(error) {
+				    console.log("error");
+				    console.log(error);
+				}
+			    });
+			}));
+		    });
+
+    //관리자 등록
+    function AddUser() {
+	$('#action').val('add');
+	$('#addUser').submit();
+    }
 </script>
 
 
@@ -190,7 +182,9 @@
 
 						<!-- POST -->
 						<div class="post" style="margin-top: 10px; margin-left: 60px;">
-							<form action="#" class="form newtopic" method="post">
+							<form action="/lck/user" class="form newtopic" method="post"
+								id="addUser">
+								<input type="hidden" id="action" name="action">
 								<div class="postinfotop">
 									<h2 style="font-weight: bold;">Create New Manager</h2>
 								</div>
@@ -207,6 +201,7 @@
 											<div class="avatar" id="profile_photo">
 												<img src="images/avatar-blank.jpg" alt="" />
 												<div class="status green">&nbsp;</div>
+												<input type="hidden" id="profile" name="identityPhoto" />
 											</div>
 											<div class="imgsize">37 x 37</div>
 											<form action="FileUploadController" id="photoUpload"
@@ -214,7 +209,7 @@
 
 												<div class="filebox">
 													<label for="ex_file">업로드</label> <input type="file"
-														id="ex_file" />
+														id="ex_file" name="profile_thumnail" />
 													<button type="submit" id="uploadsubmit" hidden="hidden"></button>
 												</div>
 											</form>
@@ -286,7 +281,8 @@
 										<a href="#"><i class="fa fa-smile-o"></i></a>
 									</div>
 									<div class="pull-left">
-										<button type="submit" class="btn btn-primary">등록</button>
+										<button class="btn btn-primary"
+											onclick="javascript:AddUser();">등록</button>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -328,20 +324,20 @@
 
 	<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
 	<script type="text/javascript">
-		var revapi;
+	var revapi;
 
-		jQuery(document).ready(function() {
-			"use strict";
-			revapi = jQuery('.tp-banner').revolution({
-				delay : 15000,
-				startwidth : 1200,
-				startheight : 278,
-				hideThumbs : 10,
-				fullWidth : "on"
-			});
+	jQuery(document).ready(function() {
+	    "use strict";
+	    revapi = jQuery('.tp-banner').revolution({
+		delay : 15000,
+		startwidth : 1200,
+		startheight : 278,
+		hideThumbs : 10,
+		fullWidth : "on"
+	    });
 
-		}); //ready
-	</script>
+	}); //ready
+    </script>
 
 	<!-- END REVOLUTION SLIDER -->
 </body>
