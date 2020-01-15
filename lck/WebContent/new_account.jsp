@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -45,7 +45,7 @@
     }
 </script>
 <script>
-    // 프로필 이미지 등록
+    // 비동기 업로드 js
     $(document)
 	    .ready(
 		    function(e) {
@@ -56,14 +56,13 @@
 					"change",
 					function() {
 					    ext = $(this).val().split('.')
-						    .pop().toLowerCase(); //확장자
-
-					    //배열에 추출한 확장자가 존재하는지 체크
+						    .pop().toLowerCase();
+					    
 					    if ($.inArray(ext, [ 'gif', 'png',
 						    'jpg', 'jpeg' ]) == -1) {
-						resetFormElement($(this)); //폼 초기화
-						window
-							.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능, 개발자 직접 문의바랍니다.)');
+						resetFormElement($(this));						
+							window
+							.alert('등록불가! (gif, png, jpg, jpeg 확장자만 등록가능합니다.)');
 					    } else {
 						file = $('#ex_file').prop(
 							"files")[0];
@@ -84,7 +83,7 @@
 						//.revokeObjectURL(file);
 						
 					    }
-					    //비동기 업로딩을 위해 submit        
+					    //비동기 업로드를 위해 submit        
 					    $("#uploadsubmit").submit();
 					});
 
@@ -116,7 +115,7 @@
 			}));
 		    });
 
-    //관리자 등록
+    //愿由ъ옄 ?깅줉
     function AddUser() {
 	$('#action').val('add');
 	$('#addUser').submit();
@@ -196,7 +195,7 @@
 								<div class="accsection">
 									<!-- <div class="acccap">
                              <div class="userinfo pull-left">&nbsp;</div>
-                             <div class="posttext pull-left"><h3>필수 항목</h3></div>
+                             <div class="posttext pull-left"><h3>?꾩닔 ??ぉ</h3></div>
                              <div class="clearfix"></div>
                          </div> -->
 									<div class="topwrap">
@@ -207,11 +206,10 @@
 												<input type="hidden" id="profile" name="identityPhoto" />
 											</div>
 											<div class="imgsize">37 x 37</div>
-											<form action="FileUploadController" id="photoUpload"
-												method="post" enctype="multipart/form-data">
+											<form action="FileUploadController" id="photoUpload" method="post" enctype="multipart/form-data">
 
 												<div class="filebox">
-													<label for="ex_file">업로드</label> <input type="file"
+													<label for="ex_file">?낅줈??</label> <input type="file"
 														id="ex_file" name="profile_thumnail" />
 													<button type="submit" id="uploadsubmit" hidden="hidden"></button>
 												</div>
@@ -258,14 +256,14 @@
 											</div>
 											<div class="row">
 												<div class="col-lg-8 col-md-6">
-													<input type="text" name="address" placeholder="관리자 주소"
+													<input type="text" name="address" placeholder="愿由ъ옄 二쇱냼"
 														class="form-control" />
 												</div>
 
 											</div>
 											<div class="row">
 												<div class="col-lg-8 col-md-6">
-													<input type="text" name="position" placeholder="관리자 직급"
+													<input type="text" name="position" placeholder="愿由ъ옄 吏곴툒"
 														class="form-control" />
 												</div>
 
@@ -302,6 +300,8 @@
 
 						<img alt="" src="./img/team-1.jpg" style="max-width: 135%;">
 
+					</div>
+					</div>
 					</div>
 		</section>
 

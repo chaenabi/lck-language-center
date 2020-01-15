@@ -22,7 +22,7 @@ public class DBManager {
 
 	public static Connection getConnection() {
 		try {
-			// 1. ?쒕씪?대쾭濡쒕뵫
+			// 1. 드라이버 설정
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			String ip = "localhost";
@@ -30,7 +30,7 @@ public class DBManager {
 			String id = "root";
 			String pw = "mysql";
 
-			// 2. DB ?곌껐
+			// 2. DB 연결
 			//String url = "jdbc:oracle:thin:@" + ip + ":" + port + ":xe";
 			String url = "jdbc:mysql:// "+ip+":"+port+"/databasename?useSSL=false";
 
@@ -38,9 +38,9 @@ public class DBManager {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("?곗씠?곕쿋?댁뒪 ?묒냽 ?ㅽ뙣");
+			System.out.println("데이터베이스 연결 오류");
 		}
-		System.out.print("?묒냽 ?깃났");
+		System.out.print("");
 		return db.conn;
 	}
 

@@ -5,17 +5,17 @@ import java.sql.Date;
 public class UserVO {
 
 	// this column is applied as autoIncrement property
-	//private int userId; //������ ���̵�
+	//private int userId; //
 	
-	private String name; // �����ڸ�
-	private String password; //������ ��й�ȣ
-	private String phone = "+82 10"; // ��������ȭ��ȣ
-	private String phonemid; // ��������ȭ��ȣ
-	private String phoneend; // ��������ȭ��ȣ
-	private String position; //����������
-	private String address; //�������ּ�
-	private String identityPhoto; //�����ڽĺ�����
-	private Date regDate; // ��������
+	private String name; // manager name
+	private String password; // manager password
+	private String phone = "+82 10"; // manager connector
+	private String phonemid; // middle telnumber
+	private String phoneend; // last telnumber
+	private String position; // what work manager do
+	private String address; // manager address
+	private String identityPhoto; // manager identifying photo
+	private Date regDate; // register date
 	
 //	public int getUserId() {
 //		return userId;

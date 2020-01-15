@@ -33,7 +33,7 @@ public class UserController extends HttpServlet {
 		 UserVO uvo = new UserVO();
 		 UserDAO mdao = new UserDAO();
 
-		// �Ķ���͸� DO�� ����
+		
 		try {
 			BeanUtils.copyProperties(uvo, request.getParameterMap());
 		} catch (IllegalAccessException e) {
@@ -43,8 +43,8 @@ public class UserController extends HttpServlet {
 		}
 		String action = request.getParameter("action");
 		if (action.equals("")) {
-			out.println("[�ɰ�] ��� ������ ó���� �� �������ϴ�.");
-			out.println("������ ���� ���");
+			out.println("[심각] 어떠한 정보도 처리 할수 없었습니다.");
+			out.println("관리자 문의 요망");
 		} else if (action.equals("selectOne")) {
 		
 			
@@ -59,7 +59,7 @@ public class UserController extends HttpServlet {
 			System.out.println(uvo.getPosition());
 			System.out.println(uvo.getAddress());
 			
-			System.out.println("add �غ�Ϸ�");
+			System.out.println("add 준비완료");
 			
 			request.getRequestDispatcher("forum.jsp").forward(request, response);
 		} else if (action.equals("edit")) {
@@ -71,7 +71,7 @@ public class UserController extends HttpServlet {
 		}
 
 		else {
-			out.println("[�ɰ�] ���� ����. ������ ����");
+			out.println("[심각] 에러 발생");
 		}
 
 	}

@@ -6,12 +6,12 @@ public class ForumVO {
 	//this column is applied as autoIncrement property
 	//private int forumNum;
 	
-	private String postId; // ?묒꽦??愿由ъ옄) ?꾩씠??
-	private String postSubject; //寃뚯떆臾??쒕ぉ
-	private String postContent; //寃뚯떆臾??댁슜
-	private String postFile; //泥⑤??뚯씪紐?
-	private int SawCount; //議고쉶??
-	private Date postDate; //寃뚯떆?좎쭨
+	private String postId; // manager id
+	private String postSubject; // post title
+	private String postContent; // post content
+	private String postFile; // added file name
+	private int SawCount; // how many people see post.
+	private Date postDate; // write post date
 	
 //	public int getForumNum() {
 //		return forumNum;

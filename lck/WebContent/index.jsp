@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 
@@ -190,10 +190,9 @@
       <section id="team" class="section-bg">
         <div class="container">
           <div class="section-header">
-            <h3>ììì§</h3>
+            <h3>LCK 임원진</h3>
             <p>
-              íì ì¬ë¬ë¶ë¤ì ìì íê³  ì±ê³µì ì¸ ì íìíì ì±ìì§ <br />ë¯¿ìì§í
-              LCK ììì§ë¤ì ìê°í©ëë¤.
+         		여러분을 이끌어줄 믿음직한 LCK의 임원진들을 소개합니다. 
             </p>
           </div>
 
@@ -203,8 +202,8 @@
                 <img src="img/instructor_4.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>ìµë´ê¸¸</h4>
-                    <span>ëí ì´ì¬</span>
+                    <h4>최봉길</h4>
+                    <span>대표 이사</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -221,8 +220,8 @@
                 <img src="img/instructor_1.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>ê¹ì§ê·</h4>
-                    <span>ë¶ì¬ì¥ / ìì ê°ì¬</span>
+                    <h4>김진규</h4>
+                    <span>부사장 / 수석 강사</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -239,8 +238,8 @@
                 <img src="img/instructor_2.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>ê¹ì§ê¸°</h4>
-                    <span>ë¶ì¥</span>
+                    <h4>김진기</h4>
+                    <span>부장</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -257,8 +256,8 @@
                 <img src="img/instructor_3.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>ìµìë¯¼</h4>
-                    <span>ì¬ë¬´ ê´ë¦¬ì</span>
+                    <h4>최새민</h4>
+                    <span>재무 관리자</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -275,8 +274,8 @@
                 <img src="img/team-4.jpg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>ê²½ëì</h4>
-                    <span>ì¤ì¥</span>
+                    <h4>경동수</h4>
+                    <span>실장</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -293,8 +292,8 @@
                 <img src="img/team-6.jpg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>ë¡¬</h4>
-                    <span>ìë´ ë§¤ëì </span>
+                    <h4>롬</h4>
+                    <span>상담 매니저</span>
                     <div class="social">
                       <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
@@ -393,7 +392,7 @@
               <div class="form">
                 <h4>Send us a message</h4>
                 <p>
-                  ì¸ì ë  ê¶ê¸í ì¬í­ì´ ìì¼ìë©´ ë¬¸ìíì¤ ì ììµëë¤.
+                  챙혯쨍챙혻혵챘혫혻 챗쨋혖챗쨍혞챠혮혵 챙혗짭챠혮짯챙혶쨈 챙혷혞챙혵쩌챙혢혵챘짤쨈 챘짭쨍챙혶혱챠혮혱챙혢짚 챙혞혱 챙혷혞챙혡쨉챘혢혞챘혢짚.
                 </p>
                 <form action="" method="post" role="form" class="contactForm">
                   <div class="form-group">
