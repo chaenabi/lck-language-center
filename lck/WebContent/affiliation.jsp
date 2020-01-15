@@ -35,6 +35,9 @@
 <link href="css/style.css" rel="stylesheet" />
 <!-- Custom styles for this template -->
 <link href="css/agency.min.css" rel="stylesheet" />
+
+<script src="lib/jquery/jquery.min.js"></script>
+
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <!-- =======================================================
     Theme Name: Rapid
@@ -150,12 +153,12 @@
 			</div>
 		</div>
 
-	<br>
+		<br>
 
 		<div class="container">
-		<header class="section-header">
-          <h3 style="text-align: center;">Our Clients</h3>
-        </header>
+			<header class="section-header">
+				<h3 style="text-align: center;">Our Clients</h3>
+			</header>
 			<div class="row counters">
 				<div class="col-lg-3 col-6 text-center">
 					<span data-toggle="counter-up">274</span>
@@ -185,15 +188,17 @@
 			</header>
 			<br>
 			<div class="row">
-				<div class="col-lg-4 col-md-4 col-4 text-center"></div>
+				<div class="col-lg-4 col-md-4 col-4 text-center">
+					<a id="kakao-login-btn"></a> <a
+						href="http://developers.kakao.com/logout"></a>
+				</div>
 				<div id="kakao-talk-channel-chat-button"
 					class="col-lg-4 col-md-4 col-4 text-center"></div>
 				<div class="col-lg-4 col-md-4 col-4 text-center"></div>
 			</div>
-			<script src="js/kchat.js" type='text/javascript'/>
-	
-			<br>
-			<br>
+			<script src="js/kchat.js" type='text/javascript' />
+
+			<br> <br>
 
 
 		</div>
@@ -218,6 +223,7 @@
 
 
 
+	<!-- #affiliation -->
 	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 	<!-- Uncomment below i you want to use a preloader -->
 	<!-- <div id="preloader"></div> -->
