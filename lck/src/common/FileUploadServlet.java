@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-/**
- * 釉뚮씪?곗?濡쒕????꾨떖諛쏆? ?뚯씪????? ?붿껌?뺣낫 諛??뚯씪?뺣낫瑜?JSON?뺥깭濡??묐떟.
- */
 @WebServlet("/FileUploadServlet")
 public class FileUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,42 +21,56 @@ public class FileUploadServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		 // ?ㅼ젣濡??쒕쾭????λ릺??path
+		 // // 실제로 서버에 저장되는 path
 	    String path = request.getSession().getServletContext().getRealPath("uploadedProfile");
 	    //PrintWriter out = response.getWriter();
-	    //System.out.println("?덈? 寃쎈줈 : " + path + "<br/>");
+	    System.out.println("절대 경로: " + path);
 	    
-	    int size = 1024 * 1024 * 100; // ?뚯씪 ?ъ씠利??ㅼ젙 : 100M
-	    String fileName = "";    // ?낅줈?쒗븳 ?뚯씪 ?대쫫
-	    String originalFileName = "";    //  ?쒕쾭??以묐났???뚯씪 ?대쫫??議댁옱??寃쎌슦 泥섎━?섍린 ?꾪빐
+	    int size = 1024 * 1024 * 100; // // 실제로 서버에 저장되는 path
+	    String fileName = "";    // 업로드한 파일 이름
+	    String originalFileName = "";    //  서버에 중복된 파일 이름이 존재할 경우 처리하기 위해
 	    
-	    // cos.jar?쇱씠釉뚮윭由??대옒?ㅻ? 媛吏怨??ㅼ젣 ?뚯씪???낅줈?쒗븯??怨쇱젙
+	    // cos.jar라이브러리 클래스를 가지고 실제 파일을 업로드하는 과정
+
 	    try{
-	    	//uploadedProfile ?대뜑媛 ?놁쑝硫??앹꽦?섎룄濡??쒕떎.
+	    	//uploadedProfile 폴더가 존재하지 않으면 생성한다.
 	    	File Folder = new File(path);
 	    	if (!Folder.exists()) {
 	    		try{
-	    		    Folder.mkdir(); //?대뜑 ?앹꽦?⑸땲??
-	    		    //System.out.println("?대뜑媛 ?앹꽦?섏뿀?듬땲??");
+	    		    Folder.mkdir(); //폴더 생성.
+	    		    //System.out.println("폴더가 만들어졌습니다.");
 	    	        } 
 	    	        catch(Exception e){
 	    		    e.getStackTrace();
 	    		}        
 	             }else {
-	    		//System.out.println("?대? ?대뜑媛 ?앹꽦?섏뼱 ?덉뒿?덈떎.");
+	    		//System.out.println("이미 폴더가 존재합니다.");
 	    	}
 	    	
-	        // DefaultFileRenamePolicy 泥섎━??以묐났???대쫫??議댁옱??寃쎌슦 泥섎━????
-	        // request, ?뚯씪??κ꼍濡? ?⑸웾, ?몄퐫?⑺??? 以묐났?뚯씪紐낆뿉 ????뺤콉
+	    	// DefaultFileRenamePolicy 처리는 중복된 이름이 존재할 경우 처리할 때
+	        // request, 파일저장경로, 용량, 인코딩타입, 중복파일명에 대한 정책
+	       
 	        MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
-	        // ?꾩넚???꾩껜 ?뚯씪?대쫫?ㅼ쓣 媛?몄삩??
+	        System.out.print("업로딩한 파일의 이름: ");
+	        String profile_name = (String) multi.getParameter("profile_thumnail_filename");
+	        
+	        System.out.println(profile_name);
+	        
+	        String substringFileName = "C:\\fakepath\\" + profile_name;
+	        String result = substringFileName.substring(substringFileName.lastIndexOf("\\")+1);
+	        
+	        //순수한 파일 이름
+	        System.out.print("순수한 파일 이름: ");
+	        System.out.println(result); 
+	        
+	        
+	     // 전송한 전체 파일이름들을 가져온다.
 	        Enumeration files = multi.getFileNames();
 	        String str = (String)files.nextElement();
-	        System.out.println(str);
-	        //?뚯씪紐?以묐났??諛쒖깮?덉쓣 ???뺤콉???섑빐 ?ㅼ뿉 1,2,3 泥섎읆 ?レ옄媛 遺숈뼱 怨좎쑀 ?뚯씪紐낆쓣 ?앹꽦?쒕떎.
-	        // ?대븣 ?앹꽦???대쫫??FilesystemName?대씪怨??섏뿬 洹??대쫫 ?뺣낫瑜?媛?몄삩?? (以묐났 泥섎━)
-	        fileName = multi.getFilesystemName(str);
-	        //?ㅼ젣 ?뚯씪 ?대쫫??媛?몄삩??
+
+	        //파일명 중복이 발생했을 때 정책에 의해 뒤에 1,2,3 처럼 숫자가 붙어 고유 파일명을 생성한다.
+	        // 이때 생성된 이름을 FilesystemName이라고 하여 그 이름 정보를 가져온다. (중복 처리)
+	        //실제 파일 이름을 가져온다.
 	        originalFileName = multi.getOriginalFileName(str);
 	        
 	    }catch(Exception e){

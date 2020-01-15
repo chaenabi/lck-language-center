@@ -93,7 +93,10 @@
 			    //e.preventDefault();
 			    var file = document.getElementById("ex_file");
 			    var fileData = new FormData();
+			    console.log(file.value);
+			    
 			    fileData.append('profile_thumnail', file.files[0]);
+			    fileData.append('profile_thumnail_filename', file.value);
 			    
 			    $.ajax({
 				type : 'POST',
