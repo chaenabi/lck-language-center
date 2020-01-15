@@ -1,4 +1,4 @@
-package common;
+ï»¿package common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,7 +22,7 @@ public class DBManager {
 
 	public static Connection getConnection() {
 		try {
-			// 1. µå¶óÀÌ¹ö·Îµù
+			// 1. ?ì’•ì”ª?ëŒ€ì¾­æ¿¡ì’•ëµ«
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			String ip = "localhost";
@@ -30,7 +30,7 @@ public class DBManager {
 			String id = "root";
 			String pw = "mysql";
 
-			// 2. DB ¿¬°á
+			// 2. DB ?ê³Œê»
 			//String url = "jdbc:oracle:thin:@" + ip + ":" + port + ":xe";
 			String url = "jdbc:mysql:// "+ip+":"+port+"/databasename?useSSL=false";
 
@@ -38,9 +38,9 @@ public class DBManager {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("µ¥ÀÌÅÍº£ÀÌ½º Á¢¼Ó ½ÇÆĞ");
+			System.out.println("?ê³—ì” ?ê³•ì¿‹?ëŒë’ª ?ë¬’ëƒ½ ?ã…½ë™£");
 		}
-		System.out.print("Á¢¼Ó ¼º°ø");
+		System.out.print("?ë¬’ëƒ½ ?ê¹ƒë‚¬");
 		return db.conn;
 	}
 

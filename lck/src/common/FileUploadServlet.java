@@ -1,4 +1,4 @@
-package common;
+ï»¿package common;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 /**
- * ºê¶ó¿ìÀú·ÎºÎÅÍ Àü´Ş¹ŞÀº ÆÄÀÏÀ» ÀúÀå. ¿äÃ»Á¤º¸ ¹× ÆÄÀÏÁ¤º¸¸¦ JSONÇüÅÂ·Î ÀÀ´ä.
+ * é‡‰ëš®ì”ª?ê³—?æ¿¡ì’•????ê¾¨ë––è«›ì†? ?ëš¯ì”ª???Â€?? ?ë¶¿ê»Œ?ëº£ë‚« è«›??ëš¯ì”ª?ëº£ë‚«ç‘œ?JSON?ëº¥ê¹­æ¿¡??ë¬ë–Ÿ.
  */
 @WebServlet("/FileUploadServlet")
 public class FileUploadServlet extends HttpServlet {
@@ -24,42 +24,42 @@ public class FileUploadServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		 // ½ÇÁ¦·Î ¼­¹ö¿¡ ÀúÀåµÇ´Â path
+		 // ?ã…¼ì £æ¿¡??ì’•ì¾­???Â€?Î»ë¦º??path
 	    String path = request.getSession().getServletContext().getRealPath("uploadedProfile");
 	    //PrintWriter out = response.getWriter();
-	    //System.out.println("Àı´ë °æ·Î : " + path + "<br/>");
+	    //System.out.println("?ëˆ? å¯ƒìˆì¤ˆ : " + path + "<br/>");
 	    
-	    int size = 1024 * 1024 * 100; // ÆÄÀÏ »çÀÌÁî ¼³Á¤ : 100M
-	    String fileName = "";    // ¾÷·ÎµåÇÑ ÆÄÀÏ ÀÌ¸§
-	    String originalFileName = "";    //  ¼­¹ö¿¡ Áßº¹µÈ ÆÄÀÏ ÀÌ¸§ÀÌ Á¸ÀçÇÒ °æ¿ì Ã³¸®ÇÏ±â À§ÇØ
+	    int size = 1024 * 1024 * 100; // ?ëš¯ì”ª ?ÑŠì” ï§??ã…¼ì ™ : 100M
+	    String fileName = "";    // ?ë‚…ì¤ˆ?ì’—ë¸³ ?ëš¯ì”ª ?ëŒ€ì««
+	    String originalFileName = "";    //  ?ì’•ì¾­??ä»¥ë¬ë‚¬???ëš¯ì”ª ?ëŒ€ì««??è­°ëŒì˜±??å¯ƒìŒìŠ¦ ï§£ì„â”?ì„ë¦° ?ê¾ªë¹
 	    
-	    // cos.jar¶óÀÌºê·¯¸® Å¬·¡½º¸¦ °¡Áö°í ½ÇÁ¦ ÆÄÀÏÀ» ¾÷·ÎµåÇÏ´Â °úÁ¤
+	    // cos.jar?ì‡±ì” é‡‰ëš®ìœ­ç”±??ëŒ€ì˜’?ã…»? åª›Â€ï§Â€æ€¨??ã…¼ì £ ?ëš¯ì”ª???ë‚…ì¤ˆ?ì’—ë¸¯??æ€¨ì‡±ì ™
 	    try{
-	    	//uploadedProfile Æú´õ°¡ ¾øÀ¸¸é »ı¼ºÇÏµµ·Ï ÇÑ´Ù.
+	    	//uploadedProfile ?ëŒ€ëœ‘åª›Â€ ?ë†ì‘ï§??ì•¹ê½¦?ì„ë£„æ¿¡??ì’•ë–.
 	    	File Folder = new File(path);
 	    	if (!Folder.exists()) {
 	    		try{
-	    		    Folder.mkdir(); //Æú´õ »ı¼ºÇÕ´Ï´Ù.
-	    		    //System.out.println("Æú´õ°¡ »ı¼ºµÇ¾ú½À´Ï´Ù.");
+	    		    Folder.mkdir(); //?ëŒ€ëœ‘ ?ì•¹ê½¦?â‘¸ë•²??
+	    		    //System.out.println("?ëŒ€ëœ‘åª›Â€ ?ì•¹ê½¦?ì„ë¿€?ë“¬ë•²??");
 	    	        } 
 	    	        catch(Exception e){
 	    		    e.getStackTrace();
 	    		}        
 	             }else {
-	    		//System.out.println("ÀÌ¹Ì Æú´õ°¡ »ı¼ºµÇ¾î ÀÖ½À´Ï´Ù.");
+	    		//System.out.println("?ëŒ€? ?ëŒ€ëœ‘åª›Â€ ?ì•¹ê½¦?ì„ë¼± ?ë‰ë’¿?ëˆë–.");
 	    	}
 	    	
-	        // DefaultFileRenamePolicy Ã³¸®´Â Áßº¹µÈ ÀÌ¸§ÀÌ Á¸ÀçÇÒ °æ¿ì Ã³¸®ÇÒ ¶§
-	        // request, ÆÄÀÏÀúÀå°æ·Î, ¿ë·®, ÀÎÄÚµùÅ¸ÀÔ, Áßº¹ÆÄÀÏ¸í¿¡ ´ëÇÑ Á¤Ã¥
+	        // DefaultFileRenamePolicy ï§£ì„â”??ä»¥ë¬ë‚¬???ëŒ€ì««??è­°ëŒì˜±??å¯ƒìŒìŠ¦ ï§£ì„â”????
+	        // request, ?ëš¯ì”ª?Â€?Îºê¼æ¿¡? ?â‘¸ì›¾, ?ëª„í«?â‘º??? ä»¥ë¬ë‚¬?ëš¯ì”ªï§ë‚†ë¿‰ ?Â€???ëº¤ì½‰
 	        MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
-	        // Àü¼ÛÇÑ ÀüÃ¼ ÆÄÀÏÀÌ¸§µéÀ» °¡Á®¿Â´Ù.
+	        // ?ê¾©ë„š???ê¾©ê»œ ?ëš¯ì”ª?ëŒ€ì««?ã…¼ì“£ åª›Â€?ëª„ì‚©??
 	        Enumeration files = multi.getFileNames();
 	        String str = (String)files.nextElement();
 	        System.out.println(str);
-	        //ÆÄÀÏ¸í Áßº¹ÀÌ ¹ß»ıÇßÀ» ¶§ Á¤Ã¥¿¡ ÀÇÇØ µÚ¿¡ 1,2,3 Ã³·³ ¼ıÀÚ°¡ ºÙ¾î °íÀ¯ ÆÄÀÏ¸íÀ» »ı¼ºÇÑ´Ù.
-	        // ÀÌ¶§ »ı¼ºµÈ ÀÌ¸§À» FilesystemNameÀÌ¶ó°í ÇÏ¿© ±× ÀÌ¸§ Á¤º¸¸¦ °¡Á®¿Â´Ù. (Áßº¹ Ã³¸®)
+	        //?ëš¯ì”ªï§?ä»¥ë¬ë‚¬??è«›ì’–ê¹®?ë‰ì“£ ???ëº¤ì½‰???ì„‘ë¹ ?ã…¼ë¿‰ 1,2,3 ï§£ì„ì† ?ãƒ¬ì˜„åª›Â€ éºìˆˆë¼± æ€¨ì¢ì‘€ ?ëš¯ì”ªï§ë‚†ì“£ ?ì•¹ê½¦?ì’•ë–.
+	        // ?ëŒ€ë¸£ ?ì•¹ê½¦???ëŒ€ì««??FilesystemName?ëŒ€ì”ªæ€¨??ì„ë¿¬ æ´¹??ëŒ€ì«« ?ëº£ë‚«ç‘œ?åª›Â€?ëª„ì‚©?? (ä»¥ë¬ë‚¬ ï§£ì„â”)
 	        fileName = multi.getFilesystemName(str);
-	        //½ÇÁ¦ ÆÄÀÏ ÀÌ¸§À» °¡Á®¿Â´Ù.
+	        //?ã…¼ì £ ?ëš¯ì”ª ?ëŒ€ì««??åª›Â€?ëª„ì‚©??
 	        originalFileName = multi.getOriginalFileName(str);
 	        
 	    }catch(Exception e){

@@ -1,5 +1,4 @@
-package common;
-
+﻿package common;
 public class FileInfoModel {
     
     private String name;

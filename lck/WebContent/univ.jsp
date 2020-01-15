@@ -94,6 +94,7 @@
             <li class="active"><a href="univ.jsp">University</a></li>
             <li><a href="index.jsp#footer">Contact Us</a></li>
             <li><a href="forum.jsp">Forum</a></li>
+                   <li><a href="affiliation.jsp">affiliation</a></li>
           </ul>
         </nav>
         <!-- .main-nav -->

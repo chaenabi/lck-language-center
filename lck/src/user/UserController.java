@@ -1,4 +1,4 @@
-package user;
+ï»¿package user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,7 +33,7 @@ public class UserController extends HttpServlet {
 		 UserVO uvo = new UserVO();
 		 UserDAO mdao = new UserDAO();
 
-		// ÆÄ¶ó¹ÌÅÍ¸¦ DO¿¡ ¸ÅÇÎ
+		// ï¿½Ä¶ï¿½ï¿½ï¿½Í¸ï¿½ DOï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		try {
 			BeanUtils.copyProperties(uvo, request.getParameterMap());
 		} catch (IllegalAccessException e) {
@@ -43,8 +43,8 @@ public class UserController extends HttpServlet {
 		}
 		String action = request.getParameter("action");
 		if (action.equals("")) {
-			out.println("[½É°¢] ¾î¶°ÇÑ Á¤º¸µµ Ã³¸®ÇÒ ¼ö ¾ø¾ú½À´Ï´Ù.");
-			out.println("°ü¸®ÀÚ ¹®ÀÇ ¿ä¸Á");
+			out.println("[ï¿½É°ï¿½] ï¿½î¶°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
+			out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½");
 		} else if (action.equals("selectOne")) {
 		
 			
@@ -59,7 +59,7 @@ public class UserController extends HttpServlet {
 			System.out.println(uvo.getPosition());
 			System.out.println(uvo.getAddress());
 			
-			System.out.println("add ÁØºñ¿Ï·á");
+			System.out.println("add ï¿½Øºï¿½Ï·ï¿½");
 			
 			request.getRequestDispatcher("forum.jsp").forward(request, response);
 		} else if (action.equals("edit")) {
@@ -71,7 +71,7 @@ public class UserController extends HttpServlet {
 		}
 
 		else {
-			out.println("[½É°¢] ¿¡·¯ °¨Áö. °ü¸®ÀÚ ¹®ÀÇ");
+			out.println("[ï¿½É°ï¿½] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 
 	}

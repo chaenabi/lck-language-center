@@ -1,16 +1,16 @@
-package common;
+ï»¿package common;
 
 public class Paging {
-	int page = 1; // ÇöÀç ÆäÀÌÁö (get)
-	private int totalCount; // row ÀüÃ¼ÀÇ ¼ö (get)
-	private int beginPage; // Ãâ·Â ½ÃÀÛ
-	private int endPage; // Ãâ·Â ³¡
-	private int displayRow = 10; // ÇÑ ÆäÀÌÁö¿¡ ¸î °³ÀÇ ¿­ (¼±ÅÃ set)
-	private int displayPage = 30; // ÇÑ ÆäÀÌÁö¿¡ ¸î °³ÀÇ ÆäÀÌÁö (¼±ÅÃ set)
+	int page = 1; // ?ê¾©ì˜± ?ì„ì” ï§Â€ (get)
+	private int totalCount; // row ?ê¾©ê»œ????(get)
+	private int beginPage; // ç•°ì’•ì ° ?ì’–ì˜‰
+	private int endPage; // ç•°ì’•ì ° ??
+	private int displayRow = 10; // ???ì„ì” ï§Â€??ï§?åª›ì’–ì“½ ??(?ì¢ê¹® set)
+	private int displayPage = 30; // ???ì„ì” ï§Â€??ï§?åª›ì’–ì“½ ?ì„ì” ï§Â€ (?ì¢ê¹® set)
     private int startNum;//(page-1)*displayRow+1
 	private int endNum;//page*displayRow;
-	boolean prev; // prev ¹öÆ°ÀÌ º¸ÀÏ°ÇÁö ¾Èº¸ÀÏ°ÇÁö
-	boolean next; // next ¹öÆ°ÀÌ º¸ÀÏ°ÇÁö ¾Èº¸ÀÏ°ÇÁö
+	boolean prev; // prev è¸°ê¾ªë“‰??è¹‚ëŒì”ªå«„ëŒ? ?ëˆë‚«?ì‡¨êµ”ï§Â€
+	boolean next; // next è¸°ê¾ªë“‰??è¹‚ëŒì”ªå«„ëŒ? ?ëˆë‚«?ì‡¨êµ”ï§Â€
 	
 	public int getStartNum() {
 		return startNum;
@@ -33,8 +33,8 @@ public class Paging {
 	}
 
 	public void setTotalCount(int totalCount) {
-		// setTotalCount()¸¦ ²À È£ÃâÇØ¾ß pagingÀÌ µÇ±â ¶§¹®¿¡
-		// paging()ÇÔ¼ö¸¦ setTotalCount()¸¦ È£ÃâÇßÀ» ¶§ ÀÚµ¿À¸·Î È£ÃâµÇ°Ô ÇÑ´Ù.
+		// setTotalCount()ç‘œ?ç‘—??ëª„í…§?ëŒë¹ paging???ì„ë¦° ?ëš®Ğ¦??
+		// paging()?â‘¥ë‹”ç‘œ?setTotalCount()ç‘œ??ëª„í…§?ë‰ì“£ ???ë¨®ë£?ì‡°ì¤ˆ ?ëª„í…§?ì„ì¾¶ ?ì’•ë–.
 		this.totalCount = totalCount;
 		paging();
 	}
@@ -72,25 +72,25 @@ public class Paging {
 	}
 
 	private void paging() {
-		// prev, next, beginPage, endPage¸¦ °è»êÇØ¼­ ¸¸µç´Ù.
+		// prev, next, beginPage, endPageç‘œ?æ€¨ê¾©ê¶›?ëŒê½Œ ï§ëš®ë±º??
 		// 2+9 = 11, 11/10 = 1, 1*10 = 10
 		// 10+9 = 19, 19/10 = 1, 1*10 = 10
 		// 11+9 = 20, 20/10 = 2, 2*10 = 20
 		// 20+9 = 29, 29/10 = 2, 2*10 = 20
 		// 111+9 = 120 120/10 = 12, 12*10 = 120
 
-		// (2+9)/10 * 10 (1¹ø ¹æ¹ı)
+		// (2+9)/10 * 10 (1è¸°?è«›â‘¸ì¾¿)
 		// endPage = ((page+(displayPage-1))/displayPage)*displayPage;
 
-		// 1/10 0.1(¿Ã¸²) 1 (2¹ø ¹æ¹ı)
+		// 1/10 0.1(?Ñ‰â”) 1 (2è¸°?è«›â‘¸ì¾¿)
 		endPage = ((int) Math.ceil(page / (double) displayPage)) * displayPage;
 		//System.out.println("endPage : " + endPage);
 
 		beginPage = endPage - (displayPage - 1);
 		//System.out.println("beginPage : " + beginPage);
 
-		// ±Û 32°³
-		// 32/10 = 3.2 (¿Ã¸²) 4ÆäÀÌÁö
+		// æ¹²Â€ 32åª›?
+		// 32/10 = 3.2 (?Ñ‰â”) 4?ì„ì” ï§Â€
 		// 2=? 2/10
 		int totalPage = (int) Math.ceil(totalCount / (double) displayRow);
 		
@@ -100,7 +100,7 @@ public class Paging {
 		} else {
 			next = true;
 		}
-		prev = (beginPage == 1) ? false : true;// page°¡ 11ÀÌ»ó¿¡¸¸ ³ª¿Â´Ù.
+		prev = (beginPage == 1) ? false : true;// pageåª›Â€ 11?ëŒê¸½?ë¨®ì­” ?ì„ì‚©??
 		//System.out.println("endPage : " + endPage);
 		//System.out.println("totalPage : " + totalPage);
 		startNum = (page-1)*displayRow+1;

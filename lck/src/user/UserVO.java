@@ -1,21 +1,21 @@
-package user;
+ï»¿package user;
 
 import java.sql.Date;
 
 public class UserVO {
 
 	// this column is applied as autoIncrement property
-	//private int userId; //°ü¸®ÀÚ ¾ÆÀÌµğ
+	//private int userId; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 	
-	private String name; // °ü¸®ÀÚ¸í
-	private String password; //°ü¸®ÀÚ ºñ¹Ğ¹øÈ£
-	private String phone = "+82 10"; // °ü¸®ÀÚÀüÈ­¹øÈ£
-	private String phonemid; // °ü¸®ÀÚÀüÈ­¹øÈ£
-	private String phoneend; // °ü¸®ÀÚÀüÈ­¹øÈ£
-	private String position; //°ü¸®ÀÚÁ÷±Ş
-	private String address; //°ü¸®ÀÚÁÖ¼Ò
-	private String identityPhoto; //°ü¸®ÀÚ½Äº°»çÁø
-	private Date regDate; // °¡ÀÔÀÏÀÚ
+	private String name; // ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
+	private String password; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ğ¹ï¿½È£
+	private String phone = "+82 10"; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½È£
+	private String phonemid; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½È£
+	private String phoneend; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½È£
+	private String position; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String address; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½
+	private String identityPhoto; //ï¿½ï¿½ï¿½ï¿½ï¿½Ú½Äºï¿½ï¿½ï¿½ï¿½ï¿½
+	private Date regDate; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 //	public int getUserId() {
 //		return userId;

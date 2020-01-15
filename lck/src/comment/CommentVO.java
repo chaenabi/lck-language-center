@@ -1,4 +1,4 @@
-package comment;
+ï»¿package comment;
 
 import java.sql.Date;
 
@@ -6,11 +6,11 @@ public class CommentVO {
 	//this column is applied as autoIncrement property
 	//private int commentNum;
 	
-	private int commentPost; // °Ô½Ã¹° ¹øÈ£(´ñ±Û ½Äº°)
-	private String CommentId; // ´ñ±ÛÀÚ ¾ÆÀÌµð
-	private Date CommentDate; // ´ñ±Ûµî·Ï³¯Â¥
-	private int CommentParent; // ºÎ¸ð´ñ±Û
-	private String commentContent; //´ñ±Û³»¿ë
+	private int commentPost; // post id for identifying nested comment
+	private String CommentId; // comment writer id
+	private Date CommentDate; // register date
+	private int CommentParent; // parent commentÂ€
+	private String commentContent; // comment content
 	
 //	public int getCommentNum() {
 //		return commentNum;

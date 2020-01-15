@@ -1,4 +1,4 @@
-package forum;
+ï»¿package forum;
 
 import java.sql.Date;
 
@@ -6,12 +6,12 @@ public class ForumVO {
 	//this column is applied as autoIncrement property
 	//private int forumNum;
 	
-	private String postId; // ÀÛ¼ºÀÚ(°ü¸®ÀÚ) ¾ÆÀÌµğ
-	private String postSubject; //°Ô½Ã¹° Á¦¸ñ
-	private String postContent; //°Ô½Ã¹° ³»¿ë
-	private String postFile; //Ã·ºÎÆÄÀÏ¸í
-	private int SawCount; //Á¶È¸¼ö
-	private Date postDate; //°Ô½Ã³¯Â¥
+	private String postId; // ?ë¬’ê½¦??æ„¿Â€ç”±ÑŠì˜„) ?ê¾©ì” ??
+	private String postSubject; //å¯ƒëš¯ë–†è‡¾??ì’•ã‰
+	private String postContent; //å¯ƒëš¯ë–†è‡¾??ëŒìŠœ
+	private String postFile; //ï§£â‘¤??ëš¯ì”ªï§?
+	private int SawCount; //è­°ê³ ì‰¶??
+	private Date postDate; //å¯ƒëš¯ë–†?ì¢ì­¨
 	
 //	public int getForumNum() {
 //		return forumNum;

@@ -1,4 +1,4 @@
-package common;
+ï»¿package common;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -30,7 +30,7 @@ public class FileDownloadServlet extends HttpServlet{
         
         String filename = request.getParameter("f");        
         //String filename = new String(fname.getBytes("iso-8859-1"),"UTF-8");
-        String of = request.getParameter("of"); //ÀÎÄÚµù ¼­¹ö ±âº»°ª ("iso-8859-1")
+        String of = request.getParameter("of"); //?ëª„í«???ì’•ì¾­ æ¹²ê³•ë‚¯åª›?("iso-8859-1")
         
         System.out.println("filename="+filename);
         System.out.println("uploadedFilneName="+of);
@@ -39,7 +39,7 @@ public class FileDownloadServlet extends HttpServlet{
             return;
         }
         
-        //¾÷·Îµå µğ·ºÅä¸®ÀÇ Àı´ë°æ·Î ¾ò±â
+        //?ë‚…ì¤ˆ???ë¶¾ì †?ì¢Šâ”???ëˆ?å¯ƒìˆì¤ˆ ?ì‚°ë¦°
         String uploadPath = null;
         HttpSession ses = request.getSession();
         ServletContext ctx = ses.getServletContext();
@@ -48,25 +48,25 @@ public class FileDownloadServlet extends HttpServlet{
         //uploadPath = getServletContext().getRealPath("upload");
         //uploadPath = request.getServletContext().getRealPath("upload");
         
-        //¾÷·Îµå °æ·Î¿Í ÆÄÀÏÀÌ¸§À» °¡Áö°í FileÀÎ½ºÅÏ½º »ı¼º
+        //?ë‚…ì¤ˆ??å¯ƒìˆì¤ˆ?Â€ ?ëš¯ì”ª?ëŒ€ì««??åª›Â€ï§Â€æ€¨?File?ëª„ë’ª?ëŒë’ª ?ì•¹ê½¦
         File downloadFile = new File(uploadPath+"/"+filename);
         
         String userAgent = request.getHeader("User-Agent");
         //System.out.println(userAgent);
         
         //boolean ie = userAgent.indexOf("MSIE") > -1;
-        //boolean ie = userAgent.indexOf("Trident") > -1; // IE11 ¹®ÀÚ¿­ ±úÁü ¹æÁö
-        //Âü°í : http://javaking75.blog.me/220073352593
+        //boolean ie = userAgent.indexOf("Trident") > -1; // IE11 è‡¾ëª„ì˜„??æºâ‘¥ì­š è«›â‘¹?
+        //ï§¡ë©¸í€¬ : http://javaking75.blog.me/220073352593
         boolean ie = (userAgent.indexOf("MSIE") > -1) || (userAgent.indexOf("Trident") > -1); 
         if (ie) of = URLEncoder.encode(of, "iso-8859-1").replaceAll("\\+", "%20");
 
-        //À¥ºê¶ó¿ìÀú°¡ ÆÄÀÏÀ» ´Ù¿î·Îµå ¹Ş·Î·Ï ÇÏ·Á¸é ´ÙÀ½°ú °°ÀÌ ÄÁÅ×Ã÷Å¸ÀÔÁöÁ¤
+        //?ë°¸íˆ•?ì‡±ìŠ¦?Â€åª›Â€ ?ëš¯ì”ª???ã…¼ìŠ«æ¿¡ì’•ë±¶ è«›ì…ì¤ˆæ¿¡??ì„ì ®ï§??ã…¼ì“¬æ€¨?åª›ìˆˆì”  è€Œâ‘¦ë€’ï§¥ì¢??ë‚†???
         response.setContentType("application/octet-stream");
         //response.setContentType("application/download; charset=utf-8");         
-        response.setContentLength((int)downloadFile.length());//ÄÜÅÙÆ® Å©±â ÁöÁ¤
-        //Content-DispositionÇì´õ¸¦ ÀÌ¿ëÇØ¼­ Àü¼ÛµÇ´Â ÆÄÀÏÀÇ ÀÌ¸§À» ¸í½Ã
+        response.setContentLength((int)downloadFile.length());//è‚„ì„‘ë€—???Ñˆë¦° ï§Â€??
+        //Content-Disposition?ã…»ëœ‘ç‘œ??ëŒìŠœ?ëŒê½Œ ?ê¾©ë„š?ì„ë’— ?ëš¯ì”ª???ëŒ€ì««??ï§ë‚†ë–†
         response.setHeader("Content-Disposition", "attachment; filename=\""+ of +"\"");
-        //Àü¼ÛµÇ´Â µ¥ÀÌÅÍÀÇ ÀÎÄÚµùÀÌ ¹ÙÀÌ³Ê¸® Å¸ÀÔÀÌ¶ó´Â°ÍÀ» ¸í½Ã
+        //?ê¾©ë„š?ì„ë’— ?ê³—ì” ?ê³—ì“½ ?ëª„í«?â‘¹ì”  è«›ë¶¿ì” ?ëˆâ” ?Â€?ë‚†ì” ?ì‡°ë’—å¯ƒê»‹ì“£ ï§ë‚†ë–†
         response.setHeader("Content-Transfer-Encoding","binary");
         response.setHeader("Pragma",  "no-cache;");
         response.setHeader("Expires", "-1;");
