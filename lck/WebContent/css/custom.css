@@ -457,7 +457,7 @@ td.chbox {
 
 .post .avatar {
     width: 37px;
-    margin-left: 5px;
+    margin-left: 15px;
 }
 
 .post .icons {
@@ -739,7 +739,7 @@ a.down:hover {
     background-color: #f1f1f1;
     padding: 20px;
     font-size: 14px;
-    color: #989c9e;
+    color: #000000;
     font-family: 'Open Sans Light', sans-serif; 
     margin-bottom: 20px;
     height: 50px;
@@ -965,12 +965,51 @@ a.down:hover {
     color:#989c9e;
     font-size: 12px;
     font-family: 'Open Sans Regular', sans-serif;
-    margin: 10px 0;
+    margin: 5px 0px 5px 13px;
 }
 
 .accsection input[type=password] {
     margin-bottom: 0;
 }
+
+/*
+# user file upload	
+*/
+
+.filebox label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #fff;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #5cb85c;
+  cursor: pointer;
+  border: 1px solid #4cae4c;
+  border-radius: .25em;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.filebox label:hover {
+  background-color: #6ed36e;
+}
+
+.filebox label:active {
+  background-color: #367c36;
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 
 
 /*-----------------------------------------------------------------*/
