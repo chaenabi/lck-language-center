@@ -24,13 +24,13 @@
 
         <!-- fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="font-awesome-4.0.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
 
         <!-- CSS STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 
         <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-        <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="assets/rs-plugin/css/settings.css" media="screen" />
 
     </head>
     <body>
@@ -44,7 +44,7 @@
                         <!-- SLIDE  -->
                         <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
                             <!-- MAIN IMAGE -->
-                            <img src="images/slide.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                            <img src="assets/img/slide.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                             <!-- LAYERS -->
                         </li>
                     </ul>
@@ -55,7 +55,7 @@
             <div class="headernav">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="forum.jsp"><img src="images/logo.jpg" alt=""  /></a></div>
+                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="forum.jsp"><img src="assets/img/logo.jpg" alt=""  /></a></div>
                         <div class="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
                             <div class="dropdown">
                                 <a data-toggle="dropdown" href="#">Borderlands 2</a> <b class="caret"></b>
@@ -85,7 +85,7 @@
                             <div class="env pull-left"><i class="fa fa-envelope"></i></div>
 
                             <div class="avatar pull-left dropdown">
-                                <a data-toggle="dropdown" href="#"><img src="images/avatar.jpg" alt="" /></a> <b class="caret"></b>
+                                <a data-toggle="dropdown" href="#"><img src="assets/img/avatar.jpg" alt="" /></a> <b class="caret"></b>
                                 <div class="status green">&nbsp;</div>
                                 <ul class="dropdown-menu" role="menu" >
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
@@ -124,12 +124,12 @@
                                     <div class="topwrap">
                                         <div class="userinfo pull-left">
                                             <div class="avatar">
-                                                <img src="images/avatar4.jpg" alt="" />
+                                                <img src="assets/img/avatar4.jpg" alt="" />
                                                 <div class="status red">&nbsp;</div>
                                             </div>
 
                                             <div class="icons">
-                                                <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />
+                                                <img src="assets/img/icon3.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="img/icon5.jpg" alt="" /><img src="img/icon6.jpg" alt="" />
                                             </div>
                                         </div>
                                         <div class="posttext pull-left">
@@ -245,12 +245,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar.jpg" alt="" />
+                                            <img src="assets/img/avatar.jpg" alt="" />
                                             <div class="status green">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" />
+                                            <img src="assets/img/icon1.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -279,12 +279,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar2.jpg" alt="" />
+                                            <img src="assets/img/avatar2.jpg" alt="" />
                                             <div class="status red">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />
+                                            <img src="assets/img/icon3.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="img/icon5.jpg" alt="" /><img src="img/icon6.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -313,12 +313,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar3.jpg" alt="" />
+                                            <img src="assets/img/avatar3.jpg" alt="" />
                                             <div class="status red">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon2.jpg" alt="" /><img src="images/icon4.jpg" alt="" />
+                                            <img src="iassets/mg/icon2.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -485,8 +485,8 @@
             <footer>
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-1 col-xs-3 col-sm-2 logo "><a href="#"><img src="images/logo.jpg" alt=""  /></a></div>
-                        <div class="col-lg-8 col-xs-9 col-sm-5 ">Copyrights 2014, websitename.com</div>
+                        <div class="col-lg-1 col-xs-3 col-sm-2 logo "><a href="#"><img src="assets/img/logo.jpg" alt=""  /></a></div>
+                        <div class="col-lg-8 col-xs-9 col-sm-5 ">Copyrights 2020, websitename.com</div>
                         <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
                             <ul class="socialicons">
                                 <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
@@ -506,8 +506,8 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
 
         <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
-        <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-        <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="assets/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+        <script type="text/javascript" src="assets/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <!-- Include all compiled plugins (below), or include individual files as needed -->

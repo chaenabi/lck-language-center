@@ -26,17 +26,17 @@
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet"
-	href="font-awesome-4.0.3/css/font-awesome.min.css">
+	href="assets/fonts/css/font-awesome.min.css">
 
 <!-- CSS STYLE-->
-<link rel="stylesheet" type="text/css" href="css/style.css"
+<link rel="stylesheet" type="text/css" href="assets/css/style.css"
 	media="screen" />
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-<link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css"
+<link rel="stylesheet" type="text/css" href="assets/rs-plugin/css/settings.css"
 	media="screen" />
 
-<script src="lib/jquery/jquery.min.js"></script>
+<script src="assets/lib/jquery/jquery.min.js"></script>
 <script>
     function numberMaxLength(e) {
 	if (e.value.length > e.maxLength) {
@@ -137,7 +137,7 @@
 					<li data-transition="fade" data-slotamount="7"
 						data-masterspeed="1500">
 						<!-- MAIN IMAGE --> <img id="profilePhoto"
-						src="img/forum/background_2.jpg" alt="slidebg1" data-bgfit="cover"
+						src="assets/img/forum/background_2.jpg" alt="slidebg1" data-bgfit="cover"
 						data-bgposition="left top" data-bgrepeat="no-repeat"> <!-- LAYERS -->
 					</li>
 				</ul>
@@ -149,7 +149,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo ">
-						<a href="forum.jsp"><img src="./images/logo.jpg" alt="" /></a>
+						<a href="forum.jsp"><img src="./img/logo.jpg" alt="" /></a>
 					</div>
 
 
@@ -201,7 +201,7 @@
 									<div class="topwrap">
 										<div class="userinfo pull-left">
 											<div class="avatar" id="profile_photo">
-												<img src="images/avatar-blank.jpg" alt="" />
+												<img src="assets/img/avatar-blank.jpg" alt="" />
 												<div class="status green">&nbsp;</div>
 												<input type="hidden" id="profile" name="identityPhoto" />
 											</div>
@@ -298,7 +298,7 @@
 
 					<div class="col-lg-4 col-md-4">
 
-						<img alt="" src="./img/team-1.jpg" style="max-width: 135%;">
+						<img alt="" src="./assets/img/team-1.jpg" style="max-width: 135%;">
 
 					</div>
 					</div>
@@ -316,9 +316,9 @@
 
 	<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
 	<script type="text/javascript"
-		src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+		src="assets/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
 	<script type="text/javascript"
-		src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+		src="assets/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!-- Include all compiled plugins (below), or include individual files as needed -->

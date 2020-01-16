@@ -21,20 +21,20 @@
 	rel="stylesheet" />
 
 <!-- Bootstrap CSS File -->
-<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- Libraries CSS Files -->
-<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-<link href="lib/animate/animate.min.css" rel="stylesheet" />
-<link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
-<link href="lib/owlcarousel/assets/owl.carousel.min.css"
+<link href="assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="assets/lib/animate/animate.min.css" rel="stylesheet" />
+<link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+<link href="assets/lib/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet" />
-<link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+<link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
 <!-- Main Stylesheet File -->
-<link href="css/style.css" rel="stylesheet" />
+<link href="assets/css/style.css" rel="stylesheet" />
 <!-- Custom styles for this template -->
-<link href="css/agency.min.css" rel="stylesheet" />
+<link href="assets/css/agency.min.css" rel="stylesheet" />
 
 <!-- =======================================================
     Theme Name: Rapid
@@ -62,7 +62,7 @@
 				<h1 class="text-light">
 					<a href="index.jsp" class="scrollto"><span>LCK</span></a>
 				</h1>
-				<!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+				<!-- <a href="#header" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
 			</div>
 
 			<nav class="main-nav float-right d-none d-lg-block">
@@ -95,7 +95,7 @@
 			<div class="row">
 				<div class="col-lg-5 col-md-6">
 					<div class="about-img">
-						<img src="img/about-img.jpg" alt="" />
+						<img src="assets/img/about-img.jpg" alt="" />
 					</div>
 				</div>
 
@@ -147,17 +147,17 @@
 	<!-- <div id="preloader"></div> -->
 
 	<!-- JavaScript Libraries -->
-	<script src="lib/jquery/jquery.min.js"></script>
-	<script src="lib/jquery/jquery-migrate.min.js"></script>
-	<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="lib/easing/easing.min.js"></script>
-	<script src="lib/mobile-nav/mobile-nav.js"></script>
-	<script src="lib/wow/wow.min.js"></script>
-	<script src="lib/waypoints/waypoints.min.js"></script>
-	<script src="lib/counterup/counterup.min.js"></script>
-	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-	<script src="lib/isotope/isotope.pkgd.min.js"></script>
-	<script src="lib/lightbox/js/lightbox.min.js"></script>
+	<script src="assets/lib/jquery/jquery.min.js"></script>
+	<script src="assets/lib/jquery/jquery-migrate.min.js"></script>
+	<script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/lib/easing/easing.min.js"></script>
+	<script src="assets/lib/mobile-nav/mobile-nav.js"></script>
+	<script src="assets/lib/wow/wow.min.js"></script>
+	<script src="assets/lib/waypoints/waypoints.min.js"></script>
+	<script src="assets/lib/counterup/counterup.min.js"></script>
+	<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
+	<script src="assets/lib/lightbox/js/lightbox.min.js"></script>
 	<!-- Contact Form JavaScript File -->
 	<script src="contactform/contactform.js"></script>
 

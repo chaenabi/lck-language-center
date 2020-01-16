@@ -10,10 +10,10 @@
         <title>LCK Language Center</title>
 
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom -->
-        <link href="css/custom.css" rel="stylesheet">
+        <link href="assets/css/custom.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,26 +24,26 @@
 
 
     <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Libraries CSS Files -->
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
         <!-- fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
        
 
-        <link rel="stylesheet" href="font-awesome-4.0.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/fonts/css/font-awesome.min.css">
 
         <!-- CSS STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
 
         <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-        <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="assets/rs-plugin/css/settings.css" media="screen" />
 
 
         <style>
@@ -82,7 +82,7 @@
         <h1 class="text-light">
           <a href="index.jsp" class="scrollto" style="font-size: 36px;"><span>LCK</span></a>
         </h1>
-        <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+        <!-- <a href="#header" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
@@ -112,7 +112,7 @@
            <div class="tp-banner-container">
                 <div class="tp-banner">
                  
-                            <img src="img/forum/background_1.png"  
+                            <img src="assets/img/forum/background_1.png"  
                             data-bgrepeat="no-repeat"  style="width: 100%; max-height: 480px;">
                   
                 </div>
@@ -122,7 +122,7 @@
             <div class="headernav">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="index.jsp"><img src="images/logo.jpg" alt=""  /></a></div>
+                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="index.jsp"><img src="assets/img/logo.jpg" alt=""  /></a></div>
                         <div class="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
                             <div class="dropdown">
                                 <a data-toggle="dropdown" href="#" >Regions</a> <b class="caret"></b>
@@ -152,7 +152,7 @@
                             <div class="env pull-left"><i class="fa fa-envelope"></i></div>
 
                             <div class="avatar pull-left dropdown">
-                                <a data-toggle="dropdown" href="#"><img src="images/avatar.jpg" alt="" /></a> <b class="caret"></b>
+                                <a data-toggle="dropdown" href="#"><img src="assets/img/avatar.jpg" alt="" /></a> <b class="caret"></b>
                                 <div class="status green">&nbsp;</div>
                                 <ul class="dropdown-menu" role="menu">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
@@ -207,12 +207,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar.jpg" alt="" />
+                                            <img src="assets/img/avatar.jpg" alt="" />
                                             <div class="status green">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" />
+                                            <img src="assets/img/icon1.jpg" alt="" /><img src="img/icon4.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -241,12 +241,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar2.jpg" alt="" />
+                                            <img src="assets/img/avatar2.jpg" alt="" />
                                             <div class="status red">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />
+                                            <img src="assets/img/icon3.jpg" alt="" /><img src="img/icon4.jpg" alt="" /><img src="img/icon5.jpg" alt="" /><img src="img/icon6.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -275,12 +275,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar3.jpg" alt="" />
+                                            <img src="assets/img/avatar3.jpg" alt="" />
                                             <div class="status red">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon2.jpg" alt="" /><img src="images/icon4.jpg" alt="" />
+                                            <img src="assets/img/icon2.jpg" alt="" /><img src="img/icon4.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -309,12 +309,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar4.jpg" alt="" />
+                                            <img src="assets/img/avatar4.jpg" alt="" />
                                             <div class="status yellow">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon6.jpg" alt="" />
+                                            <img src="assets/img/icon1.jpg" alt="" /><img src="img/icon4.jpg" alt="" /><img src="img/icon6.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -344,12 +344,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar.jpg" alt="" />
+                                            <img src="assets/img/avatar.jpg" alt="" />
                                             <div class="status green">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" />
+                                            <img src="assets/img/icon1.jpg" alt="" /><img src="img/icon4.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -378,12 +378,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar2.jpg" alt="" />
+                                            <img src="assets/img/avatar2.jpg" alt="" />
                                             <div class="status red">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />
+                                            <img src="assets/img/icon3.jpg" alt="" /><img src="img/icon4.jpg" alt="" /><img src="img/icon5.jpg" alt="" /><img src="img/icon6.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -412,12 +412,12 @@
                                 <div class="wrap-ut pull-left">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar3.jpg" alt="" />
+                                            <img src="assets/img/avatar3.jpg" alt="" />
                                             <div class="status red">&nbsp;</div>
                                         </div>
 
                                         <div class="icons">
-                                            <img src="images/icon2.jpg" alt="" /><img src="images/icon4.jpg" alt="" />
+                                            <img src="assets/img/icon2.jpg" alt="" /><img src="img/icon4.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -579,7 +579,7 @@
             <footer>
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-1 col-xs-3 col-sm-2 logo "><a href="#"><img src="images/logo.jpg" alt=""  /></a></div>
+                        <div class="col-lg-1 col-xs-3 col-sm-2 logo "><a href="#"><img src="assets/img/logo.jpg" alt=""  /></a></div>
                         <div class="col-lg-8 col-xs-9 col-sm-5 ">Copyrights 2020, websitename.com</div>
                         <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
                             <ul class="socialicons">
@@ -601,8 +601,8 @@
  
 
         <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
-        <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-        <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="assets/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+        <script type="text/javascript" src="assets/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
         <script src="js/bootstrap.min.js"></script>
 
@@ -634,17 +634,17 @@
         <!-- <div id="preloader"></div> -->
     
         <!-- JavaScript Libraries -->
-        <script src="lib/jquery/jquery.min.js"></script>
-        <script src="lib/jquery/jquery-migrate.min.js"></script>
-        <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/mobile-nav/mobile-nav.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/isotope/isotope.pkgd.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        <script src="assets/lib/jquery/jquery.min.js"></script>
+        <script src="assets/lib/jquery/jquery-migrate.min.js"></script>
+        <script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/lib/easing/easing.min.js"></script>
+        <script src="assets/lib/mobile-nav/mobile-nav.js"></script>
+        <script src="assets/lib/wow/wow.min.js"></script>
+        <script src="assets/lib/waypoints/waypoints.min.js"></script>
+        <script src="assets/lib/counterup/counterup.min.js"></script>
+        <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="assets/lib/lightbox/js/lightbox.min.js"></script>
         <!-- Contact Form JavaScript File -->
         <script src="contactform/contactform.js"></script>
     

@@ -12,8 +12,8 @@
     <meta content="" name="description" />
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon" />
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
     <link
@@ -22,19 +22,19 @@
     />
 
     <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Libraries CSS Files -->
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
     <!-- Main Stylesheet File -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="css/agency.min.css" rel="stylesheet" />
+    <link href="assets/css/agency.min.css" rel="stylesheet" />
 
     <!-- =======================================================
     Theme Name: Rapid
@@ -72,7 +72,7 @@
           <h1 class="text-light">
             <a href="#intro" class="scrollto"><span>LCK</span></a>
           </h1>
-          <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+          <!-- <a href="#header" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
         </div>
 
         <nav class="main-nav float-right d-none d-lg-block">
@@ -110,7 +110,7 @@
           </div>
 
           <div class="col-md-6 intro-img order-md-last order-first">
-            <img src="img/intro-img.svg" alt="" class="img-fluid" />
+            <img src="assets/img/intro-img.svg" alt="" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -143,7 +143,7 @@
         <div class="container">
           <div class="row feature-item">
             <div class="col-lg-6 wow fadeInUp">
-              <img src="img/portfolio/web1.jpg" class="img-fluid" alt="" />
+              <img src="assets/img/portfolio/web1.jpg" class="img-fluid" alt="" />
             </div>
             <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
               <h4>We support you by various social network</h4>
@@ -164,7 +164,7 @@
 
           <!-- <div class="row feature-item mt-5 pt-5">
           <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
-            <img src="img/features-2.svg" class="img-fluid" alt="">
+            <img src="assets/img/features-2.svg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
             <h4>Neque saepe temporibus repellat ea ipsum et. Id vel et quia tempora facere reprehenderit.</h4>
@@ -199,7 +199,7 @@
           <div class="row">
             <div class="col-lg-3 col-md-6 wow fadeInUp">
               <div class="member">
-                <img src="img/instructor_4.jpeg" class="img-fluid" alt="" />
+                <img src="assets/img/instructor_4.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>최봉길</h4>
@@ -217,7 +217,7 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
               <div class="member">
-                <img src="img/instructor_1.jpeg" class="img-fluid" alt="" />
+                <img src="assets/img/instructor_1.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>김진규</h4>
@@ -235,7 +235,7 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
               <div class="member">
-                <img src="img/instructor_2.jpeg" class="img-fluid" alt="" />
+                <img src="assets/img/instructor_2.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>김진기</h4>
@@ -253,7 +253,7 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
               <div class="member">
-                <img src="img/instructor_3.jpeg" class="img-fluid" alt="" />
+                <img src="assets/img/instructor_3.jpeg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>최새민</h4>
@@ -271,7 +271,7 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
               <div class="member">
-                <img src="img/team-4.jpg" class="img-fluid" alt="" />
+                <img src="assets/img/team-4.jpg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>경동수</h4>
@@ -289,7 +289,7 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
               <div class="member">
-                <img src="img/team-6.jpg" class="img-fluid" alt="" />
+                <img src="assets/img/team-6.jpg" class="img-fluid" alt="" />
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>롬</h4>
@@ -482,17 +482,17 @@
     <!-- <div id="preloader"></div> -->
 
     <!-- JavaScript Libraries -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery/jquery-migrate.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/mobile-nav/mobile-nav.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="assets/lib/jquery/jquery.min.js"></script>
+    <script src="assets/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/lib/easing/easing.min.js"></script>
+    <script src="assets/lib/mobile-nav/mobile-nav.js"></script>
+    <script src="assets/lib/wow/wow.min.js"></script>
+    <script src="assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="assets/lib/counterup/counterup.min.js"></script>
+    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="assets/lib/lightbox/js/lightbox.min.js"></script>
     <!-- Contact Form JavaScript File -->
     <script src="contactform/contactform.js"></script>
 
