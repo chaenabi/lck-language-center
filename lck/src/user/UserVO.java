@@ -6,7 +6,8 @@ public class UserVO {
 
 	// this column is applied as autoIncrement property
 	//private int userId; //
-	
+	private static UserVO single_instance = null;
+
 	private String name; // manager name
 	private String password; // manager password
 	private String phone = "+82 10"; // manager connector
@@ -17,6 +18,14 @@ public class UserVO {
 	private String identityPhoto; // manager identifying photo
 	private Date regDate; // register date
 	
+	public static UserVO getInstance() {
+		 if(single_instance == null) {
+	            single_instance = new UserVO();
+	        }
+
+		return single_instance;
+	}
+	
 //	public int getUserId() {
 //		return userId;
 //	}
@@ -24,6 +33,9 @@ public class UserVO {
 //		this.userId = userId;
 //	}
 
+	
+	
+	
 	public String getName() {
 		return name;
 	}

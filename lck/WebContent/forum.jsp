@@ -45,6 +45,15 @@
         <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
         <link rel="stylesheet" type="text/css" href="assets/rs-plugin/css/settings.css" media="screen" />
 
+<script type="text/javascript">
+//엔터키로 submit 하는것을 방지한다.
+document.addEventListener('keydown', function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+    };
+  }, true);
+</script>
+
 
         <style>
             

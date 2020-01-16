@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,8 +31,8 @@ public class UserController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		// HttpSession session = request.getSession();
 		
-		 UserVO uvo = new UserVO();
-		 UserDAO mdao = new UserDAO();
+		 UserVO uvo = UserVO.getInstance();
+		 UserDAO udao = new UserDAO();
 
 		
 		try {
@@ -50,18 +51,25 @@ public class UserController extends HttpServlet {
 			
 			
 		} else if (action.equals("add")) {
-			System.out.println(uvo.getName());
-			System.out.println(uvo.getPassword());
-			System.out.println(uvo.getIdentityPhoto());
-			System.out.println(uvo.getPhone());
-			System.out.println(uvo.getPhonemid());
-			System.out.println(uvo.getPhoneend());
-			System.out.println(uvo.getPosition());
-			System.out.println(uvo.getAddress());
+			System.out.println("name: "+ uvo.getName());
+			System.out.println("password: "+ uvo.getPassword());
+			System.out.println("photo: "+ uvo.getIdentityPhoto());
+			System.out.println("phone: "+ uvo.getPhone());
+			System.out.println("mid: "+ uvo.getPhonemid());
+			System.out.println("end: "+ uvo.getPhoneend());
+			System.out.println("position: "+ uvo.getPosition());
+			System.out.println("address: "+ uvo.getAddress());
 			
-			System.out.println("add 준비완료");
+			System.out.println("관리자 추가 준비완료 ...");
 			
-			request.getRequestDispatcher("forum.jsp").forward(request, response);
+			try {
+				udao.insert(uvo);
+				System.out.println("관리자 추가 완료 ...!");
+				request.getRequestDispatcher("forum.jsp").forward(request, response);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
 		} else if (action.equals("edit")) {
 
 			request.getRequestDispatcher("forum.jsp").forward(request, response);

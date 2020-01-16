@@ -127,7 +127,7 @@
                                         </div>
 
                                         <div class="icons">
-                                            <img src="assets/img/icon1.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="img/icon5.jpg" alt="" /><img src="img/icon6.jpg" alt="" />
+                                            <img src="assets/img/icon1.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="assets/img/icon5.jpg" alt="" /><img src="assets/img/icon6.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
@@ -193,7 +193,7 @@
                                         </div>
 
                                         <div class="icons">
-                                            <img src="assets/img/icon3.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="img/icon5.jpg" alt="" /><img src="img/icon6.jpg" alt="" />
+                                            <img src="assets/img/icon3.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="assets/img/icon5.jpg" alt="" /><img src="assets/img/icon6.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">

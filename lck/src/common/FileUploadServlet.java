@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import user.UserVO;
+
 @WebServlet("/FileUploadServlet")
 public class FileUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,23 +23,25 @@ public class FileUploadServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		 // // 실제로 서버에 저장되는 path
-	    String path = request.getSession().getServletContext().getRealPath("uploadedProfile");
-	    //PrintWriter out = response.getWriter();
-	    System.out.println("절대 경로: " + path);
-	    
-	    int size = 1024 * 1024 * 100; // // 실제로 서버에 저장되는 path
+		// .getRealPath("") 시 실제로 서버에 저장되는 path, 현재 프로젝트명의 폴더명까지만 가지고 온다
+		//(예시: rootpath.../.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/lck)
+		String AbsolutePath = request.getSession().getServletContext().getRealPath("profiles");
+		// 실제로 서버에 저장되는 path
+		System.out.println("절대 경로: " + AbsolutePath);
+
+	    int size = 1024 * 1024 * 100; // 파일 크기 제한. 100Mb
 	    String fileName = "";    // 업로드한 파일 이름
 	    String originalFileName = "";    //  서버에 중복된 파일 이름이 존재할 경우 처리하기 위해
 	    
 	    // cos.jar라이브러리 클래스를 가지고 실제 파일을 업로드하는 과정
 
 	    try{
-	    	//uploadedProfile 폴더가 존재하지 않으면 생성한다.
-	    	File Folder = new File(path);
-	    	if (!Folder.exists()) {
+	    	// profiles 폴더가 존재하지 않으면 생성한다.
+	    	File folder = new File(AbsolutePath);
+	    	
+	    	if (!folder.exists()) {
 	    		try{
-	    		    Folder.mkdir(); //폴더 생성.
+	    			folder.mkdir(); //폴더 생성.
 	    		    //System.out.println("폴더가 만들어졌습니다.");
 	    	        } 
 	    	        catch(Exception e){
@@ -50,19 +54,20 @@ public class FileUploadServlet extends HttpServlet {
 	    	// DefaultFileRenamePolicy 처리는 중복된 이름이 존재할 경우 처리할 때
 	        // request, 파일저장경로, 용량, 인코딩타입, 중복파일명에 대한 정책
 	       
-	        MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
+	        MultipartRequest multi = new MultipartRequest(request, AbsolutePath, size, "UTF-8", new DefaultFileRenamePolicy());
 	        System.out.print("업로딩한 파일의 이름: ");
 	        String profile_name = (String) multi.getParameter("profile_thumnail_filename");
-	        
-	        System.out.println(profile_name);
-	        
+	    	System.out.println(profile_name);
 	        String substringFileName = "C:\\fakepath\\" + profile_name;
 	        String result = substringFileName.substring(substringFileName.lastIndexOf("\\")+1);
 	        
 	        //순수한 파일 이름
 	        System.out.print("순수한 파일 이름: ");
-	        System.out.println(result); 
+	        System.out.println(result);
 	        
+	        //파일 경로를 저장한다.
+	        UserVO uvo = UserVO.getInstance();
+	        uvo.setIdentityPhoto("/profiles/"+result);
 	        
 	     // 전송한 전체 파일이름들을 가져온다.
 	        Enumeration files = multi.getFileNames();

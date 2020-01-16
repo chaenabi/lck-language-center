@@ -9,10 +9,10 @@
 <title>LCK Language Center</title>
 
 <!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom -->
-<link href="css/custom.css" rel="stylesheet">
+<link href="assets/css/custom.css" rel="stylesheet">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,16 +25,15 @@
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<link rel="stylesheet"
-	href="assets/fonts/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/fonts/css/font-awesome.min.css">
 
 <!-- CSS STYLE-->
 <link rel="stylesheet" type="text/css" href="assets/css/style.css"
 	media="screen" />
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-<link rel="stylesheet" type="text/css" href="assets/rs-plugin/css/settings.css"
-	media="screen" />
+<link rel="stylesheet" type="text/css"
+	href="assets/rs-plugin/css/settings.css" media="screen" />
 
 <script src="assets/lib/jquery/jquery.min.js"></script>
 <script>
@@ -44,76 +43,75 @@
 	}
     }
 </script>
+<script type="text/javascript">
+    //엔터키로 submit 하는것을 방지한다.
+    document.addEventListener('keydown', function(event) {
+	if (event.keyCode === 13) {
+	    event.preventDefault();
+	}
+	;
+    }, true);
+</script>
 <script>
     // 비동기 업로드 js
-    $(document)
-	    .ready(
-		    function(e) {
+    $(document).ready(function(e) {
+	
 
-			// [1]
-			$("#ex_file")
-				.on(
-					"change",
-					function() {
-					    ext = $(this).val().split('.')
-						    .pop().toLowerCase();
-					    
-					    if ($.inArray(ext, [ 'gif', 'png',
-						    'jpg', 'jpeg' ]) == -1) {
-						resetFormElement($(this));						
-							window
-							.alert('등록불가! (gif, png, jpg, jpeg 확장자만 등록가능합니다.)');
-					    } else {
-						file = $('#ex_file').prop(
-							"files")[0];
-						blobURL = window.URL
-							.createObjectURL(file);
-						$('#profile_photo img')
-							.removeAttr('src');
-						$('#profile_photo img').attr({
-						    src : blobURL,
-						}).css({
-						    'height' : '37px',
-						    'width' : '37px'
-						});
-						
-						$('#profile').val(blobURL);
-					
-						//window.URL
-						//.revokeObjectURL(file);
-						
-					    }
-					    //비동기 업로드를 위해 submit        
-					    $("#uploadsubmit").submit();
-					});
+	// [1]
+	$("#ex_file").on("change", function() {
+	    ext = $(this).val().split('.').pop().toLowerCase();
 
-			//[2]
-			$('#uploadsubmit').on('submit', (function(e) {
-			    //e.preventDefault();
-			    var file = document.getElementById("ex_file");
-			    var fileData = new FormData();
-			    console.log(file.value);
-			    
-			    fileData.append('profile_thumnail', file.files[0]);
-			    fileData.append('profile_thumnail_filename', file.value);
-			    
-			    $.ajax({
-				type : 'POST',
-				url : "/lck/FileUploadServlet",
-				data : fileData,
-				cache : false,
-				contentType : false,
-				processData : false,
-				success : function(result, msg) {
+	    if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg' ]) == -1) {
+		resetFormElement($(this));
+		window.alert('등록불가! (gif, png, jpg, jpeg 확장자만 등록가능합니다.)');
+	    } else {
+		file = $('#ex_file').prop("files")[0];
+		blobURL = window.URL.createObjectURL(file);
+		$('#profile_photo img').removeAttr('src');
+		$('#profile_photo img').attr({
+		    src : blobURL,
+		}).css({
+		    'height' : '37px',
+		    'width' : '37px'
+		});
 
-				},
-				error : function(error) {
-				    console.log("error");
-				    console.log(error);
-				}
-			    });
-			}));
-		    });
+		$('#profile').val(blobURL);
+
+		//window.URL
+		//.revokeObjectURL(file);
+
+	    }
+	    //비동기 업로드를 위해 submit        
+	    $("#uploadsubmit").submit();
+	});
+
+	//[2]
+	$('#uploadsubmit').on('submit', (function(e) {
+	    //e.preventDefault();
+	    var file = document.getElementById("ex_file");
+	    var fileData = new FormData();
+	    console.log(file.value);
+
+	    fileData.append('profile_thumnail', file.files[0]);
+	    fileData.append('profile_thumnail_filename', file.value);
+
+	    $.ajax({
+		type : 'POST',
+		url : "/lck/FileUploadServlet",
+		data : fileData,
+		cache : false,
+		contentType : false,
+		processData : false,
+		success : function(result, msg) {
+
+		},
+		error : function(error) {
+		    console.log("error");
+		    console.log(error);
+		}
+	    });
+	}));
+    });
 
     //愿由ъ옄 ?깅줉
     function AddUser() {
@@ -137,8 +135,9 @@
 					<li data-transition="fade" data-slotamount="7"
 						data-masterspeed="1500">
 						<!-- MAIN IMAGE --> <img id="profilePhoto"
-						src="assets/img/forum/background_2.jpg" alt="slidebg1" data-bgfit="cover"
-						data-bgposition="left top" data-bgrepeat="no-repeat"> <!-- LAYERS -->
+						src="assets/img/forum/background_2.jpg" alt="slidebg1"
+						data-bgfit="cover" data-bgposition="left top"
+						data-bgrepeat="no-repeat"> <!-- LAYERS -->
 					</li>
 				</ul>
 			</div>
@@ -149,7 +148,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo ">
-						<a href="forum.jsp"><img src="./img/logo.jpg" alt="" /></a>
+						<a href="forum.jsp"><img src="assets/img/logo.jpg" alt="" /></a>
 					</div>
 
 
@@ -203,13 +202,14 @@
 											<div class="avatar" id="profile_photo">
 												<img src="assets/img/avatar-blank.jpg" alt="" />
 												<div class="status green">&nbsp;</div>
-												<input type="hidden" id="profile" name="identityPhoto" />
+												<input type="hidden" id="profile" />
 											</div>
 											<div class="imgsize">37 x 37</div>
-											<form action="FileUploadController" id="photoUpload" method="post" enctype="multipart/form-data">
+											<form action="FileUploadController" id="photoUpload"
+												method="post" enctype="multipart/form-data">
 
 												<div class="filebox">
-													<label for="ex_file">?낅줈??</label> <input type="file"
+													<label for="ex_file">업로드</label> <input type="file"
 														id="ex_file" name="profile_thumnail" />
 													<button type="submit" id="uploadsubmit" hidden="hidden"></button>
 												</div>
@@ -256,14 +256,14 @@
 											</div>
 											<div class="row">
 												<div class="col-lg-8 col-md-6">
-													<input type="text" name="address" placeholder="愿由ъ옄 二쇱냼"
+													<input type="text" name="address" placeholder="서울시 강남구 역삼동"
 														class="form-control" />
 												</div>
 
 											</div>
 											<div class="row">
 												<div class="col-lg-8 col-md-6">
-													<input type="text" name="position" placeholder="愿由ъ옄 吏곴툒"
+													<input type="text" name="position" placeholder="대표 이사"
 														class="form-control" />
 												</div>
 
@@ -301,8 +301,8 @@
 						<img alt="" src="./assets/img/team-1.jpg" style="max-width: 135%;">
 
 					</div>
-					</div>
-					</div>
+				</div>
+			</div>
 		</section>
 
 

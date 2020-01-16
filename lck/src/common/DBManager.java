@@ -10,12 +10,12 @@ import java.sql.Statement;
 public class DBManager {
 
 	private static DBManager dbConnect = new DBManager();
-	private static DBManager db = DBManager.getInstance();
+
 	public static DBManager getInstance() {
 		return dbConnect;
 	}
 
-	public Connection conn = null;
+	public static Connection conn = null;
 	public Statement stmt = null;
 	public PreparedStatement pstmt = null;
 	public ResultSet rs = null;
@@ -23,25 +23,23 @@ public class DBManager {
 	public static Connection getConnection() {
 		try {
 			// 1. 드라이버 설정
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 
-			String ip = "localhost";
+			String ip = "127.0.0.1";
 			String port = "3306";
 			String id = "root";
 			String pw = "mysql";
+	
+				// 2. DB 연결
+			String url = "jdbc:mysql://localhost/lckdb?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 
-			// 2. DB 연결
-			//String url = "jdbc:oracle:thin:@" + ip + ":" + port + ":xe";
-			String url = "jdbc:mysql:// "+ip+":"+port+"/databasename?useSSL=false";
-
-			db.conn = DriverManager.getConnection(url, id, pw);
+			conn = DriverManager.getConnection(url, id, pw);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("데이터베이스 연결 오류");
 		}
-		System.out.print("");
-		return db.conn;
+		return conn;
 	}
 
 	public static void close(Connection conn) {
