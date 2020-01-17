@@ -69,6 +69,12 @@ h6 {
   color: #fff;
 }
 
+
+/* Page Title : LCK */
+#Page_title {
+	font-size: 100px;
+}
+
 /* Prelaoder */
 
 #preloader {
@@ -179,6 +185,20 @@ h6 {
 #header.header-pages #topbar {
   display: none;
 }
+
+
+/* by charlie */
+/* 2020-01-17 */
+/* change font-size of "LCK" text when scroll down in Index.jsp */
+#header.header-scrolled #Page_title {
+	font-size: 36px;
+}
+/* end */
+
+#service_p_tag p {
+	padding-bottom: 10px;
+}
+
 
 #header .logo h1 {
   font-size: 36px;
@@ -1575,6 +1595,13 @@ h6 {
 @media (max-width: 574px) {
   #footer .footer-top .social-links a {
     margin-bottom: 25px;
+  }
+  
+  /* by charlie */
+  /* 2020-01-17 */
+  /* font-size must be small in mobile */
+  #Page_title {
+  	font-size: 36px;
   }
 }
 

@@ -179,8 +179,8 @@ body a {
 
 						<c:if test="${empty sessionScope.username }">
 							<div class="pull-left ml-3">
-								<button class="btn btn-light">
-									<a href="login.jsp" style="color: white;">Sign in</a>
+								<button class="btn btn-light" onclick="location.href='login.jsp'">
+									Sign in
 								</button>
 							</div>
 						</c:if>
@@ -269,10 +269,11 @@ body a {
                                         </div> -->
 								</div>
 								<div class="posttext pull-left">
-									<h2>
-										<a href="02_topic.jsp"></a>
-									</h2>
-									<p>It's one thing to subject yourself to be workers.</p>
+								<a href="topic.jsp">	<h2>
+										LCK가 알려드리는 한국 취업의 현실과 방안
+									</h2></a>
+									
+								
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -309,9 +310,17 @@ body a {
 								</div>
 								<div class="posttext pull-left">
 									<h2>
-										<a href="02_topic.jsp"></a>
+									    	비자 종류 및 비자 전환 과정
 									</h2>
-									<p>It's one thing to subject yourself to be workers.</p>
+									<p>D4: 한국 어학 비자, 최대 2년
+D2: 전문대학(2,3년) 혹은 대학교(4년) 비자
+D10: 전문대 혹은 대학교 졸업 하면 나오는 비자, 취업가능 비자 
+E7: D10비자로 취업 했을 경우 전환되는 비자. 최대 4년에서 5년간 취업 가능. 가족초청 가능
+F2-7: F2비자를 받기 위한 비자
+F2: 거주비자. 한국에서 일하면서 장기간 거주 가능(거의 무기한). 직계가족 누구든 자동으로 똑같은 비자 받아서 한국에서 일하면서 거주 가능.</p>
+<h4>비자 전환 과정</h4>								
+ D4 =>  한국어 익힌 후 D2 => 졸업 후 D10. 취업 => 취업하면자동으로 E7으로 전환
+						 <br> => 1년간 일하고나면 F2-7비자 발급 => 3년간 일하고나면 F2비자 발급 	
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -464,9 +473,10 @@ body a {
                             <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
                             <div class="clearfix"></div>
                         </div>
+                         -->
                     </div>
                 </div>
- -->
+
 		</section>
 
 		<footer>
