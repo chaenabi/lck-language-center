@@ -97,7 +97,7 @@
 
 	    $.ajax({
 		type : 'POST',
-		url : "/lck/FileUploadServlet",
+		url : "FileUploadServlet",
 		data : fileData,
 		cache : false,
 		contentType : false,
@@ -113,7 +113,7 @@
 	}));
     });
 
-    //愿由ъ옄 ?깅줉
+    //관리자 등록 서브밋 
     function AddUser() {
 	$('#action').val('add');
 	$('#addUser').submit();
@@ -183,7 +183,7 @@
 
 						<!-- POST -->
 						<div class="post" style="margin-top: 10px; margin-left: 60px;">
-							<form action="/lck/user" class="form newtopic" method="post"
+							<form action="user" class="form newtopic" method="post"
 								id="addUser">
 								<input type="hidden" id="action" name="action">
 								<div class="postinfotop">
@@ -205,15 +205,15 @@
 												<input type="hidden" id="profile" />
 											</div>
 											<div class="imgsize">37 x 37</div>
-											<form action="FileUploadController" id="photoUpload"
+											<!-- <form action="FileUploadServlet" id="photoUpload"
 												method="post" enctype="multipart/form-data">
-
+ -->
 												<div class="filebox">
 													<label for="ex_file">업로드</label> <input type="file"
 														id="ex_file" name="profile_thumnail" />
 													<button type="submit" id="uploadsubmit" hidden="hidden"></button>
 												</div>
-											</form>
+											<!-- </form> -->
 										</div>
 										<div class="posttext pull-left">
 											<div class="row">

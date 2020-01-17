@@ -154,7 +154,7 @@ document.addEventListener('keydown', function(event) {
                         </div>
                         <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
                             <div class="stnt pull-left">                            
-                                <form action="03_new_topic.jsp" method="post" class="form">
+                                <form action="new_topic.jsp" method="post" class="form">
                                     <button class="btn btn-primary">Start New Topic</button>
                                 </form>
                             </div>
@@ -221,7 +221,7 @@ document.addEventListener('keydown', function(event) {
                                         </div>
 
                                         <div class="icons">
-                                            <img src="assets/img/icon1.jpg" alt="" /><img src="img/icon4.jpg" alt="" />
+                                            <img src="assets/img/icon1.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
