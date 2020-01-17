@@ -23,13 +23,10 @@ public class DBManager {
 	public static Connection getConnection() {
 		try {
 			// 1. 드라이버 설정
-			//Class.forName("com.mysql.jdbc.Driver");
-			
-			//for MAC mysql..
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			String ip = "127.0.0.1";
-			String port = "3306";
+			//String ip = "127.0.0.1";
+			//String port = "3306";
 			String id = "root";
 			String pw = "mysql";
 	

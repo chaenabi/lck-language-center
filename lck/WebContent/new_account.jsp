@@ -37,6 +37,7 @@
 
 <script src="assets/lib/jquery/jquery.min.js"></script>
 <script>
+//핸드폰 4자리수 강제
     function numberMaxLength(e) {
 	if (e.value.length > e.maxLength) {
 	    e.value = e.value.slice(0, e.maxLength);
@@ -200,7 +201,7 @@
 									<div class="topwrap">
 										<div class="userinfo pull-left">
 											<div class="avatar" id="profile_photo">
-												<img src="assets/img/avatar-blank.jpg" alt="" />
+												<img src="assets/img/avatar-blank.jpg"/>
 												<div class="status green">&nbsp;</div>
 												<input type="hidden" id="profile" />
 											</div>
