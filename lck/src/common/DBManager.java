@@ -33,11 +33,17 @@ public class DBManager {
 			String id = "root";
 			String pw = "mysql";
 	
-				// 2. DB 연결
+			// 2. DB 연결
+			// deprecated url.
 			//String url = "jdbc:mysql://localhost/lckdb?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 			
-			//for MAC mysql..
-			String url = "jdbc:mysql://localhost:3306/lck?characterEncoding=UTF-8&serverTimezone=UTC";
+			
+			// databasename must be defined first ...
+			// mac : lck
+			// win : lckdb
+			String databasename = "lckdb";
+			
+			String url = "jdbc:mysql://localhost:3306/"+databasename+"?characterEncoding=UTF-8&serverTimezone=UTC";
 			
 			
 			conn = DriverManager.getConnection(url, id, pw);
