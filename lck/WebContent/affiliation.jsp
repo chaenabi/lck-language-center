@@ -4,8 +4,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<%
+response.setHeader("Access-Control-Allow-Origin","*");
+%>
+
 <meta charset="utf-8" />
 <title>LCK Language Center</title>
+<!-- <meta http-equiv="Content-Security-Policy: 'https://www.facebook.com'" http-equiv="X-Frame-Options: SAMEORIGIN"/> -->
 <meta name="viewport"
 	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <meta content="" name="keywords" />
@@ -189,15 +195,29 @@
 			</header>
 			<br>
 			<div class="row">
-				<div class="col-lg-4 col-md-4 col-4 text-center">
-					<a id="kakao-login-btn"></a> <a
-						href="http://developers.kakao.com/logout"></a>
-				</div>
+				<!-- empty -->
+				<div class="col-lg-4 col-md-4 col-4 text-center"></div>
+				<!-- kakao -->
 				<div id="kakao-talk-channel-chat-button"
 					class="col-lg-4 col-md-4 col-4 text-center"></div>
-				<div class="col-lg-4 col-md-4 col-4 text-center"></div>
+
+				<script src="js/kchat.js"></script>
+				<!-- facebook -->
+				<div class="col-lg-4 col-md-4 col-4 text-center">
+					<!-- Load Facebook SDK for JavaScript -->
+
+			<script src="js/facebook.chat.js"></script>
+					<!-- Your customer chat code -->
+					<div id="fb-root"></div>
+					<!-- Your customer chat code -->
+					<div class="fb-customerchat" attribution=setup_tool
+						page_id="101334981419373" theme_color="#0084ff"></div>
+		
+				</div>
 			</div>
-			<script src="js/kchat.js"></script>
+			<!-- Load Facebook SDK for JavaScript -->
+
+
 
 			<br> <br>
 
