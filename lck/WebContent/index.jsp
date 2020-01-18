@@ -70,7 +70,9 @@
         <div class="logo float-left">
           <!-- Uncomment below if you prefer to use an image logo -->
           <h1 class="text-light">
-            <a href="#intro" class="scrollto"><span>LCK</span></a>
+          
+          <!--  todo List : font-size re-rendering  -->
+            <a href="index.jsp" class="scrollto" id="Page_title">LCK</a>
           </h1>
           <!-- <a href="#header" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
         </div>
@@ -146,18 +148,17 @@
               <img src="assets/img/portfolio/web1.jpg" class="img-fluid" alt="" />
             </div>
             <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-              <h4>We support you by various social network</h4>
+              <h4>  LCK Language Center 사이트를 방문해 주셔서 감사합니다.</h4>
               <p>
-                Ipsum in aspernatur ut possimus sint. Quia omnis est occaecati
-                possimus ea. Quas molestiae perspiciatis occaecati qui rerum.
-                Deleniti quod porro sed quisquam saepe. Numquam mollitia
-                recusandae non ad at et a.
+             </p><p>
+저희 베트남 지점은 호치민에 위치하고 있으며 그곳에서 한국어 수업 및 유학 코스를 밟으실 수 있습니다.<br>
+이 사이트를 통해 다양한 정보들과 저희 LCK가 가지고있는 특별한 장점들을 알아보시기 바랍니다.<br> 상담 문의도 언제든 환영합니다.
+</p>
               </p>
               <p>
-                Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti.
-                Odit qui asperiores ea corporis deserunt veritatis quidem
-                expedita perferendis. Qui rerum eligendi ex doloribus quia sit.
-                Porro rerum eum eum.
+               저희 센터를 통해 안전하고 성공적인 유학생활을 하실 수 있으며 
+학생 여러분들의<br> 빛나는 꿈을 활짝 펼치시길 바랍니다.
+
               </p>
             </div>
           </div>
@@ -289,16 +290,14 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
               <div class="member">
-                <img src="assets/img/team-6.jpg" class="img-fluid" alt="" />
+                <img src="assets/img/instructor_5.jpeg" class="img-fluid" alt="" style="height: 255px; width: 255px;" />
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>롬</h4>
                     <span>상담 매니저</span>
                     <div class="social">
-                      <a href=""><i class="fa fa-twitter"></i></a>
                       <a href=""><i class="fa fa-facebook"></i></a>
-                      <a href=""><i class="fa fa-google-plus"></i></a>
-                      <a href=""><i class="fa fa-linkedin"></i></a>
+                       <a href="mailto:sam70411@gmail.com"><i class="fa fa-envelope"></i></a>
                     </div>
                   </div>
                 </div>
@@ -319,35 +318,9 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="row">
-                <div class="col-sm-6">
-                  <div class="footer-info">
-                    <h3>Rapid</h3>
-                    <p>
-                      Cras fermentum odio eu feugiat lide par naso tierra. Justo
-                      eget nada terra videa magna derita valies darta donna mare
-                      fermentum iaculis eu non diam phasellus. Scelerisque felis
-                      imperdiet proin fermentum leo. Amet volutpat consequat
-                      mauris nunc congue.
-                    </p>
-                  </div>
-
-                  <div class="footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>
-                      Tamen quem nulla quae legam multos aute sint culpa legam
-                      noster magna veniam enim veniam illum dolore legam minim
-                      quorum culpa amet magna export quem.
-                    </p>
-                    <form action="" method="post">
-                      <input type="email" name="email" /><input
-                        type="submit"
-                        value="Subscribe"
-                      />
-                    </form>
-                  </div>
-                </div>
-
-                <div class="col-sm-6">
+            	<div class="col-sm-4"></div>    
+			
+                <div class="col-sm-5">
                   <div class="footer-links">
                     <h4>Useful Links</h4>
                     <ul>
@@ -388,11 +361,11 @@
               </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-4">
               <div class="form">
                 <h4>Send us a message</h4>
                 <p>
-                  챙혯쨍챙혻혵챘혫혻 챗쨋혖챗쨍혞챠혮혵 챙혗짭챠혮짯챙혶쨈 챙혷혞챙혵쩌챙혢혵챘짤쨈 챘짭쨍챙혶혱챠혮혱챙혢짚 챙혞혱 챙혷혞챙혡쨉챘혢혞챘혢짚.
+                궁금한 점이 있으시거나 상담하길 원하신다면 이 곳에 메세지 남겨주시기 바랍니다. 
                 </p>
                 <form action="" method="post" role="form" class="contactForm">
                   <div class="form-group">

@@ -106,7 +106,7 @@
 						<p>LCK 유학원 초대 운영팀은 일찍이 한국에 대학교에서 한국어를 가르치고 법률사무소에서 외국인 비자 및
 							취업과 관련해서 많은 일을 하였고 경험을 많이 쌓아왔다. 그러던 중 많은 외국인들이 한국에서 공부하고 대학교에서
 							기술을 배우는 등, 경험을 쌓길 원한다는 것을 알게 되었다.</p>
-						<p>그래서 많은 베트남인들이 한국에서 공부하고 대학교에 들어갈 수 있는 체계적인 시스템을 구상하였고 그들이
+						<p style="margin-bottom: 10px;">그래서 많은 베트남인들이 한국에서 공부하고 대학교에 들어갈 수 있는 체계적인 시스템을 구상하였고 그들이
 							타국에 와서 큰 걱정없이 안정적이고 무사히 학업을 마칠 수 있게 관리해주는 시스템 역시 구상하였다. 그래서
 							2018.9월, LCK 대표단이 시험적으로 베트남 학생을 한국에 있는 영진전문대학에 입학 후 직원 1명이 한국에 잘
 							적응하도록 한국어를 가르쳐 주고 생활 여러 부면 에서 도움을 주기 시작하여 1년이 지난 지금, 그 학생이 잘 적응하여
@@ -126,7 +126,7 @@
 							할 수있도록 현지에서 필요한 도움을 지속적으로 베푸는 것, 또한 그 이후 비자 문제 및 취업문제까지 도움을 주는것이
 							우리 LCK 유학원의 목표이고 우리는 그 일을 해낼 능력과 시스템이 갖추어져 있다. 베트남학생들이 우리 유학원을 통해
 							멋있고 보람찬 미래를 위한 꿈과 희망을 펼치기를 진심으로 바란다.</p>
-						<ul>
+						<!-- <ul>
 							<li><i class="ion-android-checkmark-circle"></i> Ullamco
 								laboris nisi ut aliquip ex ea commodo consequat.</li>
 							<li><i class="ion-android-checkmark-circle"></i> Duis aute
@@ -135,7 +135,7 @@
 								laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
 								dolor in reprehenderit in voluptate trideta storacalaperda
 								mastiro dolore eu fugiat nulla pariatur.</li>
-						</ul>
+						</ul> -->
 					</div>
 				</div>
 			</div>
