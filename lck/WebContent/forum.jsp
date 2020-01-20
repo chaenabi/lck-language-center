@@ -61,6 +61,8 @@
     }, true);
 </script>
 
+
+
 <style>
 body a {
 	font-size: 14px;
@@ -73,7 +75,6 @@ body a {
 
 </head>
 <body>
-
 
 	<!--==========================
   Header
@@ -109,7 +110,7 @@ body a {
 					<li><a href="univ.jsp">University</a></li>
 					<li><a href="index.jsp#footer">Contact Us</a></li>
 					<li class="active"><a href="forum.jsp">Forum</a></li>
-					<li><a href="affiliation.jsp">affiliation</a></li>
+					<li><a href="affiliation.jsp">Affiliation</a></li>
 				</ul>
 			</nav>
 			<!-- .main-nav -->
@@ -241,20 +242,7 @@ body a {
 									<jsp:param value="${paging.prev}" name="prev" />
 									<jsp:param value="${paging.next}" name="next" />
 								</jsp:include>
-								<li class="hidden-xs"><a href="#">1</a></li>
-								<li class="hidden-xs"><a href="#">2</a></li>
-								<li class="hidden-xs"><a href="#">3</a></li>
-								<li class="hidden-xs"><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#" class="active">7</a></li>
-								<li><a href="#">8</a></li>
-								<li class="hidden-xs"><a href="#">9</a></li>
-								<li class="hidden-xs"><a href="#">10</a></li>
-								<li class="hidden-xs hidden-md"><a href="#">11</a></li>
-								<li class="hidden-xs hidden-md"><a href="#">12</a></li>
-								<li class="hidden-xs hidden-sm hidden-md"><a href="#">13</a></li>
-								<li><a href="#">1586</a></li>
+
 							</ul>
 						</div>
 						<div class="pull-left">
@@ -269,94 +257,15 @@ body a {
 
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-8 col-md-8">
-						<!-- POST -->
-						<div class="post">
-							<div class="wrap-ut pull-left">
-								<div class="userinfo pull-left">
-									<div class="avatar">
-										<img src="assets/img/avatar.jpg" alt="" />
-										<div class="status green">&nbsp;</div>
-									</div>
-
-									<!-- <div class="icons">
-                                            <img src="assets/img/icon1.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" />
-                                        </div> -->
-								</div>
-								<div class="posttext pull-left">
-
-
-										<h2>${requestScope.forumList[0].postSubject}</h2>
-					
-
-
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="postinfo pull-left">
-								<div class="comments">
-									<div class="commentbg">
-										560
-										<div class="mark"></div>
-									</div>
-
-								</div>
-								<div class="views">
-									<i class="fa fa-eye"></i> 1,568
-								</div>
-								<div class="time">
-									<i class="fa fa-clock-o"></i> 24 min
-								</div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<!-- POST -->
-						<!-- POST -->
-						<div class="post">
-							<div class="wrap-ut pull-left">
-								<div class="userinfo pull-left">
-									<div class="avatar">
-										<img src="assets/img/avatar.jpg" alt="" />
-										<div class="status green">&nbsp;</div>
-									</div>
-
-									<!--   <div class="icons">
-                                            <img src="assets/img/icon1.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" />
-                                        </div> -->
-								</div>
-								<div class="posttext pull-left">
-									<h2>비자 종류 및 비자 전환 과정</h2>
-									<p>D4: 한국 어학 비자, 최대 2년 D2: 전문대학(2,3년) 혹은 대학교(4년) 비자 D10:
-										전문대 혹은 대학교 졸업 하면 나오는 비자, 취업가능 비자 E7: D10비자로 취업 했을 경우 전환되는 비자.
-										최대 4년에서 5년간 취업 가능. 가족초청 가능 F2-7: F2비자를 받기 위한 비자 F2: 거주비자. 한국에서
-										일하면서 장기간 거주 가능(거의 무기한). 직계가족 누구든 자동으로 똑같은 비자 받아서 한국에서 일하면서 거주
-										가능.</p>
-									<h4>비자 전환 과정</h4>
-									D4 => 한국어 익힌 후 D2 => 졸업 후 D10. 취업 => 취업하면자동으로 E7으로 전환 <br>
-									=> 1년간 일하고나면 F2-7비자 발급 => 3년간 일하고나면 F2비자 발급
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="postinfo pull-left">
-								<div class="comments">
-									<div class="commentbg">
-										560
-										<div class="mark"></div>
-									</div>
-
-								</div>
-								<div class="views">
-									<i class="fa fa-eye"></i> 1,568
-								</div>
-								<div class="time">
-									<i class="fa fa-clock-o"></i> 24 min
-								</div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
+					<div class="col-lg-8 col-md-8" id="post">
 						<!-- POST -->
 
+						<!-- POST -->
 					</div>
+
+
+
+
 					<!--   <div class="col-lg-4 col-md-4">
 
                            
@@ -489,7 +398,31 @@ body a {
                          -->
 				</div>
 			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-xs-12 col-md-8">
+						<div class="pull-left">
+							<!-- <a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a> -->
+						</div>
+						<div class="pull-left">
+							<ul class="paginationforum">
+								<jsp:include page="paging.jsp">
+									<jsp:param value="${paging.page}" name="page" />
+									<jsp:param value="${paging.beginPage}" name="beginPage" />
+									<jsp:param value="${paging.endPage}" name="endPage" />
+									<jsp:param value="${paging.prev}" name="prev" />
+									<jsp:param value="${paging.next}" name="next" />
+								</jsp:include>
 
+							</ul>
+						</div>
+						<div class="pull-left">
+							<!-- <a href="#" class="prevnext last"><i
+								class="fa fa-angle-right"></i></a> -->
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 
 		<footer>
@@ -529,25 +462,44 @@ body a {
 	<script src="js/bootstrap.min.js"></script>
 
 
-	<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
-	<!--   <script type="text/javascript">
-            
-            var revapi;
+	<script>
+	var i = 0;
+	var list = ${requestScope.forumList};
+	var post = document.getElementById('post');
+	console.log(list);
+	for (i = 0; i < list.length; i++) {
 
-            jQuery(document).ready(function() {
-                "use strict";
-                revapi = $('.tp-banner').revolution(
-                        {
-                            delay: 15000,
-                            startwidth: 1200,
-                            startheight: 278,
-                            hideThumbs: 10,
-                            fullWidth: "on"
-                        });
+	    // list[i].postFile 에 대하여
+	    // 잘못 가져온 사진. 첨부파일의 사진이 아닌, 프로필 사진(IdentityPhoto)을 가져오도록 해야한다. 
 
-            });	//ready
+	    post.innerHTML += "<div class='post'>"
+		    + "<div class='wrap-ut pull-left'>"
+		    + "<div class='userinfo pull-left'>"
+		    + "<div class='avatar'>"
+		    + "<img style='height: 37px; width: 37px;' src="+list[i].identityPhoto +"></img>"
+		    + "</div>"
+		    + "</div>"
+		    + "<div class='posttext pull-left'>"
+		    + "<h2><a href='#' onClick='' style='color: black;'>" +list[i].postSubject +"</a></h2>"
+		    + "</div>"
+		    + "<div class='clearfix'></div>"
+		    + "</div>"
+		    + "<div class='postinfo pull-left'>"
+		    + "<div class='comments'>"
+		    + "<div class='commentbg'>560"
+		    + "<div class='mark'></div>"
+		    + "</div>"
+		    + "</div>"
+		    + "<div class='views'>"
+		    + "<i class='fa fa-eye'></i> 1,568"
+		    + "</div>"
+		    + "<div class='time'>"
+		    + "<i class='fa fa-clock-o'></i> <a href='#' onClick='event.preventDefault()' style='color: #9da6aa; cursor: default; font-size: 12px;'>"
+		    + list[i].postDate + "</a>" + "</div>" + "</div>"
+		    + "<div class='clearfix'></div>" + "</div>";
 
-        </script> -->
+	}
+    </script>
 
 	<!-- END REVOLUTION SLIDER -->
 

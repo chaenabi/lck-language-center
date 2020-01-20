@@ -20,7 +20,7 @@ public class ShowForumList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ForumVO fvo = ForumVO.getInstance();
+		//ForumVO fvo = ForumVO.getInstance();
 		ForumDAO fdao = new ForumDAO();
 		
 		int page = 1;

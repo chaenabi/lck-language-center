@@ -45,7 +45,7 @@ public class ForumController extends HttpServlet {
 		
 		
 		if (action.equals("")) {
-			out.println("[심각] 어떠한 정보도 처리 할수 없었습니다.");
+			out.println("[심각] 어떠한 정보도 처리 할 수 없었습니다.");
 			out.println("관리자 문의 요망");
 		} else if (action.equals("inputUserId")) {
 			String userId = request.getParameter("userId");
@@ -66,7 +66,7 @@ public class ForumController extends HttpServlet {
 				System.out.println(fvo.getPostContent());
 				
 				System.out.println("글 추가 완료!");
-				response.sendRedirect("forum.jsp");
+				response.sendRedirect("ShowForumList");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

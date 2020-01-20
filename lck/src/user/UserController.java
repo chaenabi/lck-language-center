@@ -49,9 +49,9 @@ public class UserController extends HttpServlet {
 			out.println("관리자 문의 요망");
 		} else if (action.equals("login")) {
 
-			System.out.println("userid: " + uvo.getUserId());
-			System.out.println("name: " + uvo.getName());
-			System.out.println("password: " + uvo.getPassword());
+//			System.out.println("userid: " + uvo.getUserId());
+//			System.out.println("name: " + uvo.getName());
+//			System.out.println("password: " + uvo.getPassword());
 
 			boolean flag = false;
 			try {
@@ -73,7 +73,7 @@ public class UserController extends HttpServlet {
 				session.setAttribute("phone", uvo.getPhone());
 				session.setAttribute("position", uvo.getPosition());
 
-				request.getRequestDispatcher("forum.jsp").forward(request, response);
+				request.getRequestDispatcher("ShowForumList").forward(request, response);
 			}
 		} else if (action.equals("selectOne")) {
 
@@ -82,7 +82,7 @@ public class UserController extends HttpServlet {
 			try {
 				udao.insert(uvo);
 				System.out.println("관리자 추가 완료!");
-				request.getRequestDispatcher("forum.jsp").forward(request, response);
+				request.getRequestDispatcher("ShowForumList").forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
