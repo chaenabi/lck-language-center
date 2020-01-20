@@ -98,7 +98,7 @@
 
 	    $.ajax({
 		type : 'POST',
-		url : "FileUploadServlet",
+		url : "ProfileUploadServlet",
 		data : fileData,
 		cache : false,
 		contentType : false,
@@ -128,7 +128,7 @@
 <c:if test="${empty sessionScope.username}">
 	<%@ include file="404.jsp" %>
 </c:if>
-<c:if test="${not empty sessionScope.username}">
+<c:if test="${not empty sessionScope.username && sessionScope.name eq '김진기'}">
 <body class="newaccountpage">
 
 	<div class="container-fluid">
@@ -153,14 +153,14 @@
 		<div class="headernav">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo ">
+					<div class="col-lg-1 col-xs-1 col-sm-1 col-md-1 logo ">
 						<a href="forum.jsp"><img src="assets/img/logo.jpg" alt="" /></a>
 					</div>
 
 
-					<div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
+					<div class="col-lg-4 col-xs-4 col-sm-4 col-md-4" style="padding-left:40px; margin-left: 10px;">
 						<div class="stnt pull-left"
-							style="font-weight: 900; text-align: center; padding-top: 10px;">
+							style="font-weight: 900; text-align: center; padding-top: 25px; margin-bottom: 0px;">
 
 							<p>관리자 생성 페이지</p>
 

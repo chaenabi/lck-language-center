@@ -167,31 +167,39 @@ body a {
 						</div>
 					</div>
 					<div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
+						<c:if test="${empty sessionScope.username}">
+							<div class="pull-left ml-3">
+								<button class="btn btn-light"
+									onclick="location.href='login.jsp'">Sign in</button>
+							</div>
+						</c:if>
 						<div class="stnt pull-left">
 
 							<c:if test="${not empty sessionScope.username}">
-								<form action="new_topic.jsp" method="post" class="form">
+								<form action="forum" method="post" class="form">
+									<div>
+										<!-- this input tag is used for identify post id (who wrote post) -->
+										<input type="hidden" name="action" value="inputUserId" /> <input
+											type="hidden" name="userId" value="${sessionScope.userId}" />
+										<!--  -->
+
+									</div>
 									<button class="btn btn-primary">Start New Topic</button>
 								</form>
 							</c:if>
 						</div>
 						<!--   <div class="env pull-left"><i class="fa fa-envelope"></i></div> -->
 
-						<c:if test="${empty sessionScope.username }">
-							<div class="pull-left ml-3">
-								<button class="btn btn-light" onclick="location.href='login.jsp'">
-									Sign in
-								</button>
-							</div>
-						</c:if>
 
 
 						<c:if test="${not empty sessionScope.username}">
+
 							<div class="avatar pull-left dropdown ml-5">
 								<a data-toggle="dropdown" href="#"><img
 									src="/lck/${request.getContextPath}${sessionScope.profile}"
 									style="height: 37px; width: 37px;" alt="" /></a> <b class="caret"></b>
 								<div class="status green">&nbsp;</div>
+
 								<ul class="dropdown-menu" role="menu">
 									<li role="presentation"><a role="menuitem" tabindex="-1"
 										href="#">My Profile</a></li>
@@ -222,10 +230,17 @@ body a {
 				<div class="row">
 					<div class="col-lg-8 col-xs-12 col-md-8">
 						<div class="pull-left">
-							<a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a>
+							<!-- <a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a> -->
 						</div>
 						<div class="pull-left">
 							<ul class="paginationforum">
+								<jsp:include page="paging.jsp">
+									<jsp:param value="${paging.page}" name="page" />
+									<jsp:param value="${paging.beginPage}" name="beginPage" />
+									<jsp:param value="${paging.endPage}" name="endPage" />
+									<jsp:param value="${paging.prev}" name="prev" />
+									<jsp:param value="${paging.next}" name="next" />
+								</jsp:include>
 								<li class="hidden-xs"><a href="#">1</a></li>
 								<li class="hidden-xs"><a href="#">2</a></li>
 								<li class="hidden-xs"><a href="#">3</a></li>
@@ -243,8 +258,8 @@ body a {
 							</ul>
 						</div>
 						<div class="pull-left">
-							<a href="#" class="prevnext last"><i
-								class="fa fa-angle-right"></i></a>
+							<!-- <a href="#" class="prevnext last"><i
+								class="fa fa-angle-right"></i></a> -->
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -269,11 +284,12 @@ body a {
                                         </div> -->
 								</div>
 								<div class="posttext pull-left">
-								<a href="topic.jsp">	<h2>
-										LCK가 알려드리는 한국 취업의 현실과 방안
-									</h2></a>
-									
-								
+
+
+										<h2>${requestScope.forumList[0].postSubject}</h2>
+					
+
+
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -309,18 +325,15 @@ body a {
                                         </div> -->
 								</div>
 								<div class="posttext pull-left">
-									<h2>
-									    	비자 종류 및 비자 전환 과정
-									</h2>
-									<p>D4: 한국 어학 비자, 최대 2년
-D2: 전문대학(2,3년) 혹은 대학교(4년) 비자
-D10: 전문대 혹은 대학교 졸업 하면 나오는 비자, 취업가능 비자 
-E7: D10비자로 취업 했을 경우 전환되는 비자. 최대 4년에서 5년간 취업 가능. 가족초청 가능
-F2-7: F2비자를 받기 위한 비자
-F2: 거주비자. 한국에서 일하면서 장기간 거주 가능(거의 무기한). 직계가족 누구든 자동으로 똑같은 비자 받아서 한국에서 일하면서 거주 가능.</p>
-<h4>비자 전환 과정</h4>								
- D4 =>  한국어 익힌 후 D2 => 졸업 후 D10. 취업 => 취업하면자동으로 E7으로 전환
-						 <br> => 1년간 일하고나면 F2-7비자 발급 => 3년간 일하고나면 F2비자 발급 	
+									<h2>비자 종류 및 비자 전환 과정</h2>
+									<p>D4: 한국 어학 비자, 최대 2년 D2: 전문대학(2,3년) 혹은 대학교(4년) 비자 D10:
+										전문대 혹은 대학교 졸업 하면 나오는 비자, 취업가능 비자 E7: D10비자로 취업 했을 경우 전환되는 비자.
+										최대 4년에서 5년간 취업 가능. 가족초청 가능 F2-7: F2비자를 받기 위한 비자 F2: 거주비자. 한국에서
+										일하면서 장기간 거주 가능(거의 무기한). 직계가족 누구든 자동으로 똑같은 비자 받아서 한국에서 일하면서 거주
+										가능.</p>
+									<h4>비자 전환 과정</h4>
+									D4 => 한국어 익힌 후 D2 => 졸업 후 D10. 취업 => 취업하면자동으로 E7으로 전환 <br>
+									=> 1년간 일하고나면 F2-7비자 발급 => 3년간 일하고나면 F2비자 발급
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -474,8 +487,8 @@ F2: 거주비자. 한국에서 일하면서 장기간 거주 가능(거의 무�
                             <div class="clearfix"></div>
                         </div>
                          -->
-                    </div>
-                </div>
+				</div>
+			</div>
 
 		</section>
 
@@ -559,11 +572,11 @@ F2: 거주비자. 한국에서 일하면서 장기간 거주 가능(거의 무�
 
 	<!-- Template Main Javascript File -->
 	<script src="js/main.js"></script>
-	
-	<script type="text/javascript"> 
-		document.getElementById("logout").onclick = function() {
-	    	document.user_logout.submit();
+
+	<script type="text/javascript">
+	document.getElementById("logout").onclick = function() {
+	    document.user_logout.submit();
 	}
-</script>
+    </script>
 </body>
 </html>

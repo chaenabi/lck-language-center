@@ -8,4 +8,19 @@
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	
+	
+	 <!-- 1. aliases 설정 -->
+    <!-- <servlet>
+        <servlet-name>forum</servlet-name>
+        <servlet-class>forum.ShowForumList</servlet-class>
+    </servlet>
+
+    2. 매핑
+    <servlet-mapping>
+        <servlet-name>forum</servlet-name>
+        <url-pattern>/forum.jsp</url-pattern>
+    </servlet-mapping>
+     -->
+    
 </web-app>

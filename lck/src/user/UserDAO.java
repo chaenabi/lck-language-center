@@ -35,7 +35,8 @@ public class UserDAO {
 			// 유저 정보가 없으면
 			if (!rs.next())
 				return false;
-			else //있으면 유저 이름을 매핑하고, UserController에서 selectOne를 호출하여 재활용한다.
+			else //있으면 유저 이름과 유저의 ID를 매핑하고, UserController에서 selectOne를 호출하여 재활용한다.
+				uvo.setUserId(rs.getInt("userid"));;
 				uvo.setName(rs.getString("name"));
 				
 		} catch (Exception e) {

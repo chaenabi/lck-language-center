@@ -5,9 +5,9 @@
 <html lang="en">
 <head>
 
-<%
+<%-- <%
 response.setHeader("Access-Control-Allow-Origin","*");
-%>
+%> --%>
 
 <meta charset="utf-8" />
 <title>LCK Language Center</title>
@@ -210,8 +210,7 @@ response.setHeader("Access-Control-Allow-Origin","*");
 					<!-- Your customer chat code -->
 					<div id="fb-root"></div>
 					<!-- Your customer chat code -->
-					<div class="fb-customerchat" attribution=setup_tool
-						page_id="101334981419373" theme_color="#0084ff"></div>
+					<div class="fb-customerchat" id="fb-customerchat"></div>
 		
 				</div>
 			</div>

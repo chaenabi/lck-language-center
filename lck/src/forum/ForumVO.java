@@ -2,16 +2,31 @@
 
 import java.sql.Date;
 
+import user.UserVO;
+
 public class ForumVO {
+	
+
+	private static ForumVO single_instance = null;
+	
 	//this column is applied as autoIncrement property
 	//private int forumNum;
 	
-	private String postId; // manager id
+	
+	private int postId; // manager id
 	private String postSubject; // post title
 	private String postContent; // post content
 	private String postFile; // added file name
 	private int SawCount; // how many people see post.
 	private Date postDate; // write post date
+	
+	public static ForumVO getInstance() {
+		 if(single_instance == null) {
+	            single_instance = new ForumVO();
+	        }
+
+		return single_instance;
+	}
 	
 //	public int getForumNum() {
 //		return forumNum;
@@ -21,10 +36,10 @@ public class ForumVO {
 //		this.forumNum = forumNum;
 //	}
 
-	public String getPostId() {
+	public int getPostId() {
 		return postId;
 	}
-	public void setPostId(String postId) {
+	public void setPostId(int postId) {
 		this.postId = postId;
 	}
 	public String getPostSubject() {

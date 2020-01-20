@@ -38,7 +38,7 @@ public class DBManager {
 			// databasename must be defined first ...
 			// mac : lck
 			// win : lckdb
-			String databasename = "lck";
+			String databasename = "lckdb";
 			
 			String url = "jdbc:mysql://localhost:3306/"+databasename+"?characterEncoding=UTF-8&serverTimezone=UTC";
 			

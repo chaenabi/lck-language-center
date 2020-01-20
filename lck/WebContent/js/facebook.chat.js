@@ -1,4 +1,12 @@
 
+//window.onload = function() {
+//    
+//    f_id = document.getElementById("fb-customerchat"); 
+//    f_id.setAttribute("page_id", "101334981419373");
+//    f_id.setAttribute("theme_color", "0084ff");
+//
+//};
+
 
 window.fbAsyncInit = function() {
     FB.init({

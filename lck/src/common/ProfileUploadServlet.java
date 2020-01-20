@@ -15,8 +15,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import user.UserVO;
 
-@WebServlet("/FileUploadServlet")
-public class FileUploadServlet extends HttpServlet {
+@WebServlet("/ProfileUploadServlet")
+public class ProfileUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override

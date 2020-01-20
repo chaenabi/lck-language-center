@@ -5,7 +5,7 @@ import java.sql.Date;
 public class UserVO {
 
 	// this column is applied as autoIncrement property
-	//private int userId; //
+	private int userId;
 	private static UserVO single_instance = null;
 
 	private String name; // manager name
@@ -26,15 +26,12 @@ public class UserVO {
 		return single_instance;
 	}
 	
-//	public int getUserId() {
-//		return userId;
-//	}
-//	public void setUserId(int userId) {
-//		this.userId = userId;
-//	}
-
-	
-	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	
 	public String getName() {
 		return name;

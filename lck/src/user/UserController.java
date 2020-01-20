@@ -49,6 +49,7 @@ public class UserController extends HttpServlet {
 			out.println("관리자 문의 요망");
 		} else if (action.equals("login")) {
 
+			System.out.println("userid: " + uvo.getUserId());
 			System.out.println("name: " + uvo.getName());
 			System.out.println("password: " + uvo.getPassword());
 
@@ -59,13 +60,14 @@ public class UserController extends HttpServlet {
 				e.printStackTrace();
 			}
 			if (!flag) {
-				request.getRequestDispatcher("login.jsp").forward(request, response);
+				response.sendRedirect("login.jsp");
 			} else {
 				try {
 					udao.selectOne(uvo);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+				session.setAttribute("userId", uvo.getUserId());
 				session.setAttribute("username", uvo.getName());
 				session.setAttribute("profile", uvo.getIdentityPhoto());
 				session.setAttribute("phone", uvo.getPhone());
