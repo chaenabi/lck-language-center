@@ -46,6 +46,7 @@ public class ShowForumList extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		
+		
 		request.setAttribute("forumList", list);
 		request.setAttribute("paging", paging);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("forum.jsp");

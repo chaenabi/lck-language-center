@@ -11,10 +11,10 @@
 
 
 	<div class="pull-left">
-		<c:if test="${param.prev}">
-			<a href="${action}?page=${param.beginPage-1}" class="prevnext"><i
+		<%-- <c:if test="${param.isPrev}"> --%>
+			<a href="${action}?page=${param.page-1}" class="prevnext"><i
 				class="fa fa-angle-left"></i></a>
-		</c:if>
+		<%-- </c:if> --%>
 	</div>
 	<div class="pull-left">
 		<ul class="paginationforum">
@@ -37,10 +37,10 @@
 		</ul>
 	</div>
 	<div class="pull-left">
-		<c:if test="${param.next}">
-			<a href="${action}?page=${param.endPage+1}" class="prevnext last"><i
+		<%-- <c:if test="${param.isNext}"> --%>
+			<a href="${action}?page=${param.page+1}" class="prevnext last"><i
 				class="fa fa-angle-right"></i></a>
-		</c:if>
+		<%-- </c:if> --%>
 	</div>
 	<div class="clearfix"></div>
 
