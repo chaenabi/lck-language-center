@@ -64,11 +64,11 @@
 					<div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo ">
 						<a href="index.jsp"><img src="assets/img/logo.jpg" alt="" /></a>
 					</div>
-					<div class="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
-
+					<div class="col-lg-7 col-sm-7 col-md-7 selecttopic">
+						<h3 style="padding-top: 20px; margin: 0px;">
+							${requestScope.postSubject}</h3>
 					</div>
-					<div class="col-lg-4 search hidden-xs hidden-sm col-md-3"></div>
-
+					<div class="hidden-lg hidden-md col-1">&nbsp;</div>
 					<c:if test="${not empty sessionScope.username}">
 						<div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
 							<div class="stnt pull-left">
@@ -82,7 +82,7 @@
 								<a data-toggle="dropdown" href="#"><img
 									src="/lck/${request.getContextPath}${sessionScope.profile}"
 									style="height: 37px; width: 37px;" alt="" /></a> <b class="caret"></b>
-								<div class="status green">&nbsp;</div>
+								
 								<ul class="dropdown-menu" role="menu">
 									<li role="presentation"><a role="menuitem" tabindex="-1"
 										href="#">My Profile</a></li>
@@ -143,187 +143,56 @@
 								</div>
 								<div class="clearfix"></div>
 							</div>
-							<!--                             
-                                <div class="postinfobot">
 
-                                    <div class="likeblock pull-left">
-                                        <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>25</a>
-                                        <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>3</a>
-                                    </div>
+							<div class="postinfobot">
+								<div class="clearfix"></div>
+							</div>
+						</div>
 
-                                    <div class="prev pull-left">                                        
-                                        <a href="#"><i class="fa fa-reply"></i></a>
-                                    </div>
+						&nbsp;
+						<div id="makeCommentListBox"></div>
+			
+						<div class="post">
+							<form action="comment" class="form" method="post">
+								<input type="hidden" name="action" value="addComment"/>
+								<div class="topwrap">
+									<div class="row">
+									<div class="col-md-1">&nbsp;</div>
+										<div class="col-md-10">
+										<input type="hidden" name="commentPost" value="${requestScope.postId}"/>
+											<div class="posttext" style="margin: 0px; width: 100%;">
 
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : 20 Nov @ 9:30am</div>
+												<input name="commentId" class="form-control" id="commentId"
+													placeholder="Type your name here" />
 
-                                    <div class="next pull-right">                                        
-                                        <a href="#"><i class="fa fa-share"></i></a>
+											</div>
+											<div class="posttext" style="margin: 0px; width: 100%;">
+												<div class="textwraper" style="height: 340px;">
+												
+													<textarea name="commentContent" id="reply"
+														placeholder="Type your message here" style="height: 300px;"></textarea>
+												</div>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<div class="postinfobot">
 
-                                        <a href="#"><i class="fa fa-flag"></i></a>
-                                    </div>
+											<div class="pull-right postreply">
+												<div class="pull-left smile">
+													<a href="#"><i class="fa fa-smile-o"></i></a>
+												</div>
+												<div class="pull-left" style="margin-right: 4vw;">
+													<button type="submit" class="btn btn-primary">Post
+														Reply</button>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
 
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>POST
-
-                            <div class="paginationf">
-                                <div class="pull-left"><a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a></div>
-                                <div class="pull-left">
-                                    <ul class="paginationforum">
-                                        <li class="hidden-xs"><a href="#">1</a></li>
-                                        <li class="hidden-xs"><a href="#">2</a></li>
-                                        <li class="hidden-xs"><a href="#">3</a></li>
-                                        <li class="hidden-xs"><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#">6</a></li>
-                                        <li><a href="#" class="active">7</a></li>
-                                        <li><a href="#">8</a></li>
-                                        <li class="hidden-xs"><a href="#">9</a></li>
-                                        <li class="hidden-xs"><a href="#">10</a></li>
-                                        <li class="hidden-xs hidden-md"><a href="#">11</a></li>
-                                        <li class="hidden-xs hidden-md"><a href="#">12</a></li>
-                                        <li class="hidden-xs hidden-sm hidden-md"><a href="#">13</a></li>
-                                        <li><a href="#">1586</a></li>
-                                    </ul>
-                                </div>
-                                <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
-                                <div class="clearfix"></div>
-                            </div>
-
-                            POST
-                            <div class="post">
-                                <div class="topwrap">
-                                    <div class="userinfo pull-left">
-                                        <div class="avatar">
-                                            <img src="assets/img/avatar2.jpg" alt="" />
-                                            <div class="status red">&nbsp;</div>
-                                        </div>
-
-                                        <div class="icons">
-                                            <img src="assets/img/icon3.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="assets/img/icon5.jpg" alt="" /><img src="assets/img/icon6.jpg" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="posttext pull-left">
-                                        <p>Typography helps you engage your audience and establish a distinct, unique personality on your website. Knowing how to use fonts to build character in your design is a powerful skill, and exploring the history and use of typefaces, as well as typogra...</p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>                              
-                                <div class="postinfobot">
-
-                                    <div class="likeblock pull-left">
-                                        <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>10</a>
-                                        <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>1</a>
-                                    </div>
-
-                                    <div class="prev pull-left">                                        
-                                        <a href="#"><i class="fa fa-reply"></i></a>
-                                    </div>
-
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : 20 Nov @ 9:45am</div>
-
-                                    <div class="next pull-right">                                        
-                                        <a href="#"><i class="fa fa-share"></i></a>
-
-                                        <a href="#"><i class="fa fa-flag"></i></a>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>POST
-
-
-
-                            POST
-                            <div class="post">
-                                <div class="topwrap">
-                                    <div class="userinfo pull-left">
-                                        <div class="avatar">
-                                            <img src="assets/img/avatar3.jpg" alt="" />
-                                            <div class="status red">&nbsp;</div>
-                                        </div>
-
-                                        <div class="icons">
-                                            <img src="assets/img/icon3.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="assets/img/icon5.jpg" alt="" /><img src="assets/img/icon6.jpg" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="posttext pull-left">
-
-                                        <blockquote>
-                                            <span class="original">Original Posted by - theguy_21:</span>
-                                            Did you see that Dove ad pop up in your Facebook feed this year? How about the Geico camel one? 
-                                        </blockquote>
-                                        <p>Toronto Mayor Rob Ford does not have a bigger fan than "Anchorman's" Ron Burgundy. In fact, Burgundy wants Ford to be re-elected so much, that he agreed to sing the campaign song Brien. The tune in question ...</p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>                              
-                                <div class="postinfobot">
-
-                                    <div class="likeblock pull-left">
-                                        <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>55</a>
-                                        <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>12</a>
-                                    </div>
-
-                                    <div class="prev pull-left">                                        
-                                        <a href="#"><i class="fa fa-reply"></i></a>
-                                    </div>
-
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : 20 Nov @ 9:50am</div>
-
-                                    <div class="next pull-right">                                        
-                                        <a href="#"><i class="fa fa-share"></i></a>
-
-                                        <a href="#"><i class="fa fa-flag"></i></a>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>POST
-
-
-
-                            POST
-                            <div class="post">
-                                <form action="#" class="form" method="post">
-                                    <div class="topwrap">
-                                        <div class="userinfo pull-left">
-                                            <div class="avatar">
-                                                <img src="assets/img/avatar4.jpg" alt="" />
-                                                <div class="status red">&nbsp;</div>
-                                            </div>
-
-                                            <div class="icons">
-                                                <img src="assets/img/icon3.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="assets/img/icon5.jpg" alt="" /><img src="assets/img/icon6.jpg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="posttext pull-left">
-                                            <div class="textwraper">
-                                                <div class="postreply">Post a Reply</div>
-                                                <textarea name="reply" id="reply" placeholder="Type your message here"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>                              
-                                    <div class="postinfobot">
-
-                                        <div class="notechbox pull-left">
-                                            <input type="checkbox" name="note" id="note" class="form-control" />
-                                        </div>
-
-                                        <div class="pull-left">
-                                            <label for="note"> Email me when some one post a reply</label>
-                                        </div>
-
-                                        <div class="pull-right postreply">
-                                            <div class="pull-left smile"><a href="#"><i class="fa fa-smile-o"></i></a></div>
-                                            <div class="pull-left"><button type="submit" class="btn btn-primary">Post Reply</button></div>
-                                            <div class="clearfix"></div>
-                                        </div>
-
-
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </form>-->
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</form>
 						</div>
 						<!-- POST -->
 					</div>
@@ -462,7 +331,7 @@
 			<div class="container">&nbsp;</div>
 			<div class="clearfix"></div>
 		</section>
-		<br> <br> <br>
+		<br>
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -474,11 +343,11 @@
 					<div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
 						<ul class="socialicons">
 							<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 							<li><a href="#"><i class="fa fa-cloud"></i></a></li>
-							<li><a href="#"><i class="fa fa-rss"></i></a></li>
+							<li><a href="#"><i class="fa fa-rss"></i></a></li> -->
 						</ul>
 					</div>
 				</div>
@@ -501,6 +370,28 @@
 	<script src="js/bootstrap.min.js"></script>
 
 	<script>
+	var post=document.getElementById("makeCommentListBox");
+	var commentlist = ${requestScope.comments};
+	console.log(commentlist);
+	for(var i = 0; i < commentlist.length; i++) {
+	post.innerHTML += "<div class='post'>" 
+	    		   + "<div class='topwrap'>"
+				   + "<div class='userinfo pull-left' style='padding: 25px 0px 0px 10px;'>"
+				   + "<div class='avatar'>"
+				   + "<p style='margin: 0px;'>"+commentlist[i].CommentId+"</p>"
+				   + "</div>"
+				   + "</div>"
+				   + "<div class='posttext pull-left'>"
+				   + "<p>"+commentlist[i].commentContent+"</p>"
+				   + "</div>"
+				   + "<div class='clearfix'></div>"
+				   + "</div>"
+				   + "<div class='postinfobot'>"
+				   + "<div class='clearfix'></div>"
+				   + "</div>"
+				   + "</div>"
+				   + "</div>";
+	}
 	
     </script>
 

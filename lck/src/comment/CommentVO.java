@@ -52,8 +52,8 @@ public class CommentVO {
 	
 	@Override
 	public String toString() {
-		return "CommentVO [commentPost=" + commentPost + ", CommentId=" + CommentId + ", CommentDate=" + CommentDate
-				+ ", CommentParent=" + CommentParent + ", commentContent=" + commentContent + "]";
+		return "{commentPost:\"" + commentPost + "\""+ ", CommentId:\"" + CommentId + "\""+ ", CommentDate:\"" + CommentDate
+				+ "\""+", CommentParent:\"" + CommentParent + "\""+ ", commentContent:\"" + commentContent + "\"}";
 	}
 	
 	

@@ -42,8 +42,8 @@ public class ForumController extends HttpServlet {
 			e.printStackTrace();
 		}
 		String action = request.getParameter("action");
-		
-		
+	
+	
 		if (action.equals("")) {
 			out.println("[심각] 어떠한 정보도 처리 할 수 없었습니다.");
 			out.println("관리자 문의 요망");
@@ -56,10 +56,10 @@ public class ForumController extends HttpServlet {
 		} else if (action.equals("selectOne")) {
 
 			//int forumNum = Integer.parseInt(String.valueOf(request.getAttribute("forumNum")));
-			
 			int forumNum = Integer.parseInt(request.getParameter("forumNum"));
-			
+	
 			try {
+				
 				fvo = fdao.selectOne(forumNum);
 				
 				request.setAttribute("postId", fvo.getPostId());
@@ -68,7 +68,9 @@ public class ForumController extends HttpServlet {
 				request.setAttribute("postFile", fvo.getPostFile());
 				request.setAttribute("postSubject", fvo.getPostSubject());
 				request.setAttribute("postContent", fvo.getPostContent());
-				request.setAttribute("sawCount", fvo.getSawCount());
+				request.setAttribute("sawCount", fvo.getSawCount());	
+				request.setAttribute("comments", fvo.getComment());
+			
 				
 			} catch (SQLException e) {
 				e.printStackTrace();

@@ -38,9 +38,9 @@
 	$("#ex_file").on("change", function() {
 	    ext = $(this).val().split('.').pop().toLowerCase();
 
-	    if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg' ]) == -1) {
+	    if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg', 'mov', 'avi', 'mpg', 'mpeg', 'wmv', 'flv' ]) == -1) {
 		resetFormElement($(this));
-		window.alert('등록불가! (gif, png, jpg, jpeg 확장자만 등록가능합니다.)');
+		window.alert('등록불가! (gif, png, jpg, jpeg 확장자, 혹은 mov, avi, mpg, mpeg, wmv, flv 확장자만 등록가능합니다.)');
 	    } else {
 		file = $('#ex_file').prop("files")[0];
 		blobURL = window.URL.createObjectURL(file);
