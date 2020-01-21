@@ -76,16 +76,8 @@ public class ForumController extends HttpServlet {
 			request.getRequestDispatcher("topic.jsp").forward(request, response);
 			
 		} else if (action.equals("addpost")) {
-			System.out.println("콘텐츠 추가 준비완료 ...");
 			try {
 				fdao.insert(fvo);
-				
-				System.out.println(fvo.getPostId());
-				System.out.println(fvo.getPostSubject());
-				System.out.println(fvo.getPostFile());
-				System.out.println(fvo.getPostContent());
-				
-				System.out.println("글 추가 완료!");
 				response.sendRedirect("ShowForumList");
 			} catch (SQLException e) {
 				e.printStackTrace();

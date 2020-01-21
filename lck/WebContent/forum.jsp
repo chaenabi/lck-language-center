@@ -338,7 +338,7 @@ body a {
 	var list = ${requestScope.forumList};
 	var post = document.getElementById('post');
 	
-	console.log(list);
+	//console.log(list);
 	for (i = 0; i < list.length; i++) {
 
 	    // list[i].postFile 에 대하여
