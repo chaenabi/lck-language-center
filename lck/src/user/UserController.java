@@ -89,12 +89,11 @@ public class UserController extends HttpServlet {
 
 		} else if (action.equals("edit")) {
 
-			request.getRequestDispatcher("forum.jsp").forward(request, response);
+			request.getRequestDispatcher("ShowForumList").forward(request, response);
 		} else if (action.equals("del")) {
 
-			request.getRequestDispatcher("forum.jsp").forward(request, response);
+			request.getRequestDispatcher("ShowForumList").forward(request, response);
 		} else if (action.equals("logout")) {
-
 			request.getSession(true).invalidate();
 			request.getRequestDispatcher("ShowForumList").forward(request, response);
 		}
