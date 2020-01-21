@@ -78,6 +78,8 @@ response.setHeader("Access-Control-Allow-Origin","*");
 				<!-- <a href="#header" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
 			</div>
 
+			<form action="ShowForumList" method="post" id="forumList">
+			
 			<nav class="main-nav float-right d-none d-lg-block">
 				<ul>
 					<li><a href="index.jsp">Home</a></li>
@@ -86,10 +88,11 @@ response.setHeader("Access-Control-Allow-Origin","*");
 					<li><a href="photo.jsp">Photos</a></li>
 					<li><a href="index.jsp#team">Team</a></li>
 					<li><a href="index.jsp#footer">Contact Us</a></li>
-					<li><a href="forum.jsp">Forum</a></li>
+					<li><a href="#" onclick="document.getElementById('forumList').submit()">Forum</a></li>
 					<li class="active"><a href="affiliation.jsp">affiliation</a></li>
 				</ul>
 			</nav>
+			</form>
 			<!-- .main-nav -->
 		</div>
 	</header>

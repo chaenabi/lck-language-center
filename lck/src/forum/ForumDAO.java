@@ -20,14 +20,17 @@ public class ForumDAO {
 		ResultSet rs;
 
 		// 글 리스트 순차조회+페이징 처리
-		public ArrayList<ForumVO> getForumList(Paging paging) throws SQLException {
+		public ArrayList<ForumVO> getForumList(Paging paging, int page) throws SQLException {
 			ArrayList<ForumVO> list = new ArrayList<ForumVO>();
 			try {
 				conn = DBManager.getConnection();
 				// 1번 페이지 1~10
 				// 2번 페이지 11~20
-				int startNum = paging.getStartNum();
-				int pageRow = paging.getEndNum();
+				int startNum = (page-1)*10+1;
+		        int pageRow = page*10;
+
+				//int startNum = paging.getStartNum();
+				//int pageRow = paging.getEndNum();
 				
 				//System.out.println("startNum: " +startNum);
 				// System.out.println("pageRow: " +pageRow);
@@ -45,6 +48,7 @@ public class ForumDAO {
 				
 				while (rs.next()) {
 					ForumVO fvo = new ForumVO();
+					fvo.setForumNum(rs.getInt("forum_num"));
 					fvo.setPostId(rs.getInt("post_id"));
 					fvo.setIdentityPhoto(rs.getString("photo"));
 					fvo.setPostSubject(rs.getString("post_subject"));
@@ -81,6 +85,36 @@ public class ForumDAO {
 			}
 			return count;
 		}
+		
+	public ForumVO selectOne(int forum_num) throws SQLException {
+		ForumVO fvo = new ForumVO();
+		String sql = "SELECT forum.*, user.identity_photo as photo FROM forum, user WHERE forum_num = ? AND forum.post_id = user.userid";
+		try {
+					
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, forum_num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			fvo.setForumNum(rs.getInt("forum_num"));
+			fvo.setPostId(rs.getInt("post_id"));
+			fvo.setIdentityPhoto(rs.getString("photo"));
+			fvo.setPostSubject(rs.getString("post_subject"));
+			fvo.setPostContent(rs.getString("post_content"));
+			fvo.setPostFile(rs.getString("post_file"));
+			fvo.setSawCount(rs.getInt("saw_count"));
+			fvo.setPostDate(rs.getDate("post_date"));
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBclose();
+		}
+
+		return fvo;
+	}
+		
 		
 		
 	// 글 추가

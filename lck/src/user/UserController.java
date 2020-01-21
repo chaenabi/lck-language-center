@@ -96,7 +96,7 @@ public class UserController extends HttpServlet {
 		} else if (action.equals("logout")) {
 
 			request.getSession(true).invalidate();
-			request.getRequestDispatcher("forum.jsp").forward(request, response);
+			request.getRequestDispatcher("ShowForumList").forward(request, response);
 		}
 
 		else {

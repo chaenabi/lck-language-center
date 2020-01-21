@@ -31,7 +31,7 @@ public class ForumController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 
-		ForumVO fvo = ForumVO.getInstance();
+		ForumVO fvo = new ForumVO();
 		ForumDAO fdao = new ForumDAO();
 
 		try {
@@ -55,6 +55,26 @@ public class ForumController extends HttpServlet {
 			
 		} else if (action.equals("selectOne")) {
 
+			//int forumNum = Integer.parseInt(String.valueOf(request.getAttribute("forumNum")));
+			
+			int forumNum = Integer.parseInt(request.getParameter("forumNum"));
+			
+			try {
+				fvo = fdao.selectOne(forumNum);
+				
+				request.setAttribute("postId", fvo.getPostId());
+				request.setAttribute("forumNum", fvo.getForumNum());
+				request.setAttribute("profile", fvo.getIdentityPhoto());
+				request.setAttribute("postFile", fvo.getPostFile());
+				request.setAttribute("postSubject", fvo.getPostSubject());
+				request.setAttribute("postContent", fvo.getPostContent());
+				request.setAttribute("sawCount", fvo.getSawCount());
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			request.getRequestDispatcher("topic.jsp").forward(request, response);
+			
 		} else if (action.equals("addpost")) {
 			System.out.println("콘텐츠 추가 준비완료 ...");
 			try {

@@ -42,7 +42,7 @@ public class ShowForumList extends HttpServlet {
 		
 		ArrayList<ForumVO> list = new ArrayList<ForumVO>();
 		try {
-			list = fdao.getForumList(paging);
+			list = fdao.getForumList(paging, page);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		

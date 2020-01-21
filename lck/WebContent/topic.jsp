@@ -1,4 +1,5 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -22,14 +23,18 @@
           <![endif]-->
 
 <!-- fonts -->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="assets/fonts/css/font-awesome.min.css">
 
 <!-- CSS STYLE-->
-<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/style.css"
+	media="screen" />
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-<link rel="stylesheet" type="text/css" href="assets/rs-plugin/css/settings.css" media="screen" />
+<link rel="stylesheet" type="text/css"
+	href="assets/rs-plugin/css/settings.css" media="screen" />
 
 </head>
 <body class="topic">
@@ -41,8 +46,11 @@
 			<div class="tp-banner">
 				<ul>
 					<!-- SLIDE  -->
-					<li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
-						<!-- MAIN IMAGE --> <img src="assets/img/slide.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"> <!-- LAYERS -->
+					<li data-transition="fade" data-slotamount="7"
+						data-masterspeed="1500">
+						<!-- MAIN IMAGE --> <img src="assets/img/slide.jpg" alt="slidebg1"
+						data-bgfit="cover" data-bgposition="left top"
+						data-bgrepeat="no-repeat"> <!-- LAYERS -->
 					</li>
 				</ul>
 			</div>
@@ -57,57 +65,54 @@
 						<a href="index.jsp"><img src="assets/img/logo.jpg" alt="" /></a>
 					</div>
 					<div class="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
-						
-					</div>
-					<div class="col-lg-4 search hidden-xs hidden-sm col-md-3">
-						<div class="wrap">
-							<form action="#" method="post" class="form">
-								<div class="pull-left txt">
-									<input type="text" class="form-control" placeholder="Search Topics">
-								</div>
-								<div class="pull-right">
-									<button class="btn btn-default" type="button">
-										<i class="fa fa-search"></i>
-									</button>
-								</div>
-								<div class="clearfix"></div>
-							</form>
-						</div>
-					</div>
-					<div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
-						<div class="stnt pull-left">
-							<form action="new_topic.jsp" method="post" class="form">
-								<button class="btn btn-primary">Start New Topic</button>
-							</form>
-						</div>
-						<div class="env pull-left">
-							<i class="fa fa-envelope"></i>
-						</div>
 
-						<div class="avatar pull-left dropdown">
-							<a data-toggle="dropdown" href="#"><img src="assets/img/avatar.jpg" alt="" /></a> <b class="caret"></b>
-							<div class="status green">&nbsp;</div>
-							<ul class="dropdown-menu" role="menu">
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-2" href="#">Inbox</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-3" href="#">Log Out</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-4" href="new_account.jsp">Create account</a></li>
-							</ul>
-						</div>
-						<div class="clearfix"></div>
 					</div>
+					<div class="col-lg-4 search hidden-xs hidden-sm col-md-3"></div>
+
+					<c:if test="${not empty sessionScope.username}">
+						<div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
+							<div class="stnt pull-left">
+								<form action="new_topic.jsp" method="post" class="form">
+									<button class="btn btn-primary">Start New Topic</button>
+								</form>
+							</div>
+							<div class="env pull-left">&nbsp;</div>
+
+							<div class="avatar pull-left dropdown ml-5">
+								<a data-toggle="dropdown" href="#"><img
+									src="/lck/${request.getContextPath}${sessionScope.profile}"
+									style="height: 37px; width: 37px;" alt="" /></a> <b class="caret"></b>
+								<div class="status green">&nbsp;</div>
+								<ul class="dropdown-menu" role="menu">
+									<li role="presentation"><a role="menuitem" tabindex="-1"
+										href="#">My Profile</a></li>
+
+									<li role="presentation"><a role="menuitem" tabindex="-3"
+										id="logout" href="#">Log Out</a></li>
+									<c:if test="${sessionScope.username eq '김진기' }">
+										<li role="presentation"><a role="menuitem" tabindex="-4"
+											href="new_account.jsp">Create account</a></li>
+									</c:if>
+								</ul>
+							</div>
+
+							<div class="clearfix"></div>
+							<!--  log out -->
+							<form name="user_logout" action="user" method="post">
+								<input type="hidden" name="action" value="logout">
+							</form>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>
+		<!-- logout -->
+
 
 
 
 		<section class="content">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 breadcrumbf"></div>
-				</div>
-			</div>
+			<div class="container">&nbsp;</div>
 
 
 			<div class="container">
@@ -119,18 +124,22 @@
 							<div class="topwrap">
 								<div class="userinfo pull-left">
 									<div class="avatar">
-										<img src="assets/img/avatar.jpg" alt="" />
+										<img src="/lck/${requestScope.profile}"
+											style="height: 37px; width: 37px;" alt="" />
 										<div class="status green">&nbsp;</div>
 									</div>
 
-									<div class="icons">
-										<img src="assets/img/icon1.jpg" alt="" /><img src="assets/img/icon4.jpg" alt="" /><img src="assets/img/icon5.jpg" alt="" /><img src="assets/img/icon6.jpg" alt="" />
-									</div>
+									<!-- <div class="icons">
+										<img src="assets/img/icon1.jpg" alt="" /><img
+											src="assets/img/icon4.jpg" alt="" /><img
+											src="assets/img/icon5.jpg" alt="" /><img
+											src="assets/img/icon6.jpg" alt="" />
+									</div> -->
 								</div>
 								<div class="posttext pull-left">
-									<h2>LCK가 알려드리는 한국 취업의 현실과 방안</h2>
-									<p>한국에서 일할 수 있는 기본 워킹비자(E9)는 어업과 생산파트에서만 일할 수 있고 기간 연장을 한 번만 할 수 있다. 한국에서는 업종 변경도 불가능하고(고국에 돌아가야 함) 업종 변경도 쉽지 않다. 기간이 끝나고 E9비자를 재취득하기란 현실적으로 거의 불가능하다. 또한 처음부터 워킹비자(E9비자)를 받는 것은 매우 힘들고 경쟁이 너무 심하다. 인맥이 필요하고 관리자들에게 몰래 돈도 많이 주어야 한다. 그러면 어떻게 하는 것이 좋을까? 이런 외국인들의 고민을 해결하고자 LCK유학센터가 최상의 코스를 구성하였다. 먼저 한국 어학비자 D4를 받거나 한국어가 어느 정도 된다면 학사비자 D2를 받는다. 이 비자는 LCK팀을 통해서 확실히 받을 수 있다. 물론 처음에 비용은 들지만 열심히 한국어를 공부해서 토픽자격증을 따면 최소 6개월 후에 바로 파트타임으로 일할 수 있고 충분히 생활비를 벌 수 있다. 또한 토픽 3급을 따면 장학금을 받으면서 대학교를 다닐 수 있다. 이 과정 이후에 대학교를 졸업하면 바로 워킹비자(E7)를 받을 수 있다. 그러면 워킹비자 E9과 E7비자의 차이점은 무엇인가? E9은 처음에 말한 여러가지 단점이 존재한다. 하지만 E7은 1년만 일하면 F2비자를 받을 수 있다는 사실이 정말 엄청난 혜택이고 JK유학센터가 권장하는 궁극의 비자이다. E7비자로 1년만 일하면 F2-7 비자를 취득할 수 있는데 F2-7비자로 3년간 일하면 F2 비자를 받을 수 있다. F2비자는 그야말로 최고의 비자이다. 한국과 고국을 마음대로 드나들 수 있으며 거의 무기한 한국에서 거주할 수 있다. 자유롭게 일할 수 있다. 또한 최고의 혜택은 고국에 있는 가족구성원 누구에게나 똑같은 F2비자를 바로 지급해 줄 수 있다는 점이다. 그러면 가족들 모두 누구나 똑같이 한국에 와서 거주하면서 자유롭게 일할 수 있고 거주할 수 있다. 현재 많은 외국인들이 이러한 정보와 코스를 모르고 있다. 물론 워킹비자를 받기까지 어학 및 대학교 공부를 해야 하기 때문에
-										시간이 걸린다.(최소 2년에서 4년, 본인이 기간결정) 하지만 공부하는 기간동한 파트타임 일을 할 수 있고 학교 방학기간에는 풀타임으로 일할 수 있다. 즉 충분히 생활비를 벌 수 있고 JK팀이 지켜본 결과 모두가 큰 문제없이 생활하고 있다. 최소 2년간 공부한 당신은 이제 정식으로 워킹비자를 받고 취업할 수 있다. 일반 워킹비자가 아니라 아까 언급한 F2거주비자를 얻을 수 있는 워킹비자이다. 우리 LCK팀은 최종적으로 당신이 이 F2비자를 받아서 당신과 당신 가족모두 자유롭게 한국에서 일하면서 생활할 수 있기를 바란다. 최종 요약 2년에서 4년간 대학교 공부, 하지만 6개월부터 일하면서 생활비 벌 수 있음. 대학교 졸업 후 바로 취업 가능. 취업하면 E7비자 자동 취득. 1년간 일하면 F2-7 비자 취득. 3년간 일하면 F2비자 취득 가능.</p>
+
+									<h2>${requestScope.postSubject}</h2>
+									<p>${requestScope.postContent}</p>
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -450,18 +459,18 @@
                                      -->
 				</div>
 			</div>
+			<div class="container">&nbsp;</div>
 			<div class="clearfix"></div>
 		</section>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<footer>
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-1 col-xs-3 col-sm-2 logo ">
 						<a href="#"><img src="assets/img/logo.jpg" alt="" /></a>
 					</div>
-					<div class="col-lg-8 col-xs-9 col-sm-5 ">Copyrights 2020, websitename.com</div>
+					<div class="col-lg-8 col-xs-9 col-sm-5 ">Copyrights 2020,
+						websitename.com</div>
 					<div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
 						<ul class="socialicons">
 							<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
@@ -478,34 +487,45 @@
 	</div>
 
 	<!-- get jQuery from the google apis -->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+	<script type="text/javascript"
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
 
 	<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
-	<script type="text/javascript" src="assets/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-	<script type="text/javascript" src="assets/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script type="text/javascript"
+		src="assets/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+	<script type="text/javascript"
+		src="assets/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 
+	<script>
+	
+    </script>
+
 
 	<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
 	<script type="text/javascript">
-		var revapi;
+	var revapi;
 
-		jQuery(document).ready(function() {
-			"use strict";
-			revapi = jQuery('.tp-banner').revolution({
-				delay : 15000,
-				startwidth : 1200,
-				startheight : 278,
-				hideThumbs : 10,
-				fullWidth : "on"
-			});
+	jQuery(document).ready(function() {
+	    "use strict";
+	    revapi = jQuery('.tp-banner').revolution({
+		delay : 15000,
+		startwidth : 1200,
+		startheight : 278,
+		hideThumbs : 10,
+		fullWidth : "on"
+	    });
 
-		}); //ready
-	</script>
-
+	}); //ready
+    </script>
+	<script type="text/javascript">
+	document.getElementById("logout").onclick = function() {
+	    document.user_logout.submit();
+	}
+    </script>
 	<!-- END REVOLUTION SLIDER -->
 </body>
 </html>

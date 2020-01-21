@@ -11,10 +11,11 @@
 
 
 	<div class="pull-left">
-		<%-- <c:if test="${param.isPrev}"> --%>
+		<c:if test="${param.page ne 1}">
+			<%-- <c:if test="${param.prev}"> --%>
 			<a href="${action}?page=${param.page-1}" class="prevnext"><i
 				class="fa fa-angle-left"></i></a>
-		<%-- </c:if> --%>
+		</c:if>
 	</div>
 	<div class="pull-left">
 		<ul class="paginationforum">
@@ -23,12 +24,14 @@
 				var="index">
 
 				<c:choose>
+
 					<c:when test="${param.page==index}">
 						<li class="active"><a href="#" class="active">${index}</a></li>
 					</c:when>
 
 					<c:otherwise>
-						<li class=""><a href="${action}?page=${index}">${index}</a></li>
+						<li class=""><a href="${action}?page=${index}"> ${index}
+						</a></li>
 					</c:otherwise>
 				</c:choose>
 
@@ -37,12 +40,15 @@
 		</ul>
 	</div>
 	<div class="pull-left">
-		<%-- <c:if test="${param.isNext}"> --%>
+		<c:if test="${requestScope.forumList.size() >= 10}">
+
+			<%-- <c:if test="${param.next}"> --%>
 			<a href="${action}?page=${param.page+1}" class="prevnext last"><i
 				class="fa fa-angle-right"></i></a>
-		<%-- </c:if> --%>
+		</c:if>
 	</div>
 	<div class="clearfix"></div>
+
 
 </body>
 </html>

@@ -111,7 +111,7 @@
 						<span>LCK Language Center!</span>
 					</h2>
 					<div>
-						<a href="forum.jsp" class="btn-get-started scrollto">Get
+						<a href="#" onclick="document.getElementById('forumList').submit()" class="btn-get-started scrollto">Get
 							Started</a>
 					</div>
 				</div>

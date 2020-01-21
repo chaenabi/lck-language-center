@@ -9,7 +9,7 @@ public class ForumVO {
 	private static ForumVO single_instance = null;
 
 	// this column is applied as autoIncrement property
-	// private int forumNum;
+	private int forumNum;
 
 	private int postId; // manager id
 	private String postSubject; // post title
@@ -27,13 +27,13 @@ public class ForumVO {
 		return single_instance;
 	}
 
-//	public int getForumNum() {
-//		return forumNum;
-//	}
-//
-//	public void setForumNum(int forumNum) {
-//		this.forumNum = forumNum;
-//	}
+	public int getForumNum() {
+		return forumNum;
+	}
+
+	public void setForumNum(int forumNum) {
+		this.forumNum = forumNum;
+	}
 
 	public int getPostId() {
 		return postId;
@@ -93,7 +93,7 @@ public class ForumVO {
 
 	@Override
 	public String toString() {
-		return "{postId:" + postId + "," + "identityPhoto:" + "\"/lck" + identityPhoto + "\"" + ", postSubject:" + "\""
+		return "{forumNum:\""+ forumNum +"\""+", postId:" + postId + "," + "identityPhoto:" + "\"/lck" + identityPhoto + "\"" + ", postSubject:" + "\""
 				+ postSubject + "\"" + ", postContent:" + "\"" + postContent + "\"," + "postFile:" + "\"" + postFile
 				+ "\"" + ", SawCount:" + SawCount + ", postDate:" + "\"" + postDate + "\"" + "}";
 	}

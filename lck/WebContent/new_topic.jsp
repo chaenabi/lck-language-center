@@ -173,7 +173,7 @@
 									<div class="topwrap">
 										<div class="userinfo pull-left">
 											<div class="avatar">
-												<img src="assets/img/avatar4.jpg" alt="" />
+												<img src="/lck/${request.getContextPath}${sessionScope.profile}" style="height: 37px; width: 37px;" alt="" />
 												<div class="status red">&nbsp;</div>
 											</div>
 
