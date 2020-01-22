@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 
 @WebServlet("/comment")
@@ -45,7 +47,6 @@ public class CommentController extends HttpServlet {
 		}
 		String action = request.getParameter("action");
 		
-		
 		if (action.equals("")) {
 			out.println("[심각] 어떠한 정보도 처리 할 수 없었습니다.");
 			out.println("관리자 문의 요망");
@@ -54,21 +55,36 @@ public class CommentController extends HttpServlet {
 			int postIdforComment = Integer.parseInt(request.getParameter("commentPost"));
 			
 			try {
-				cdao.insert(cvo, postIdforComment);
-				
-				
+				cdao.insert(cvo, postIdforComment);	
 				//todo: after write comment, call the page placed comment form
-				
 				request.getRequestDispatcher("ShowForumList").forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 
-		} else if (action.equals("edit")) {
+		} else if (action.equals("validate")) {
+			
+			int commentnum = Integer.parseInt(request.getParameter("commentnum"));
+			String password = request.getParameter("password");
+			String commentid = request.getParameter("commentid");
+			
 
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			boolean flag = false;
+			try {
+				flag = cdao.IsThereValidData(commentnum, password, commentid);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			if(flag) sendSuccessMsg(response);
+			
 		} else if (action.equals("del")) {
-
+			String commentnum = request.getParameter("commentnum");
+			String password = request.getParameter("password");
+			System.out.println(commentnum);
+			System.out.println(password);
+			
+			
 			request.getRequestDispatcher("ShowForumList").forward(request, response);
 		} else if (action.equals("logout")) {
 			request.getSession(true).invalidate();
@@ -85,5 +101,17 @@ public class CommentController extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
 	}
+	
+	public void sendSuccessMsg(HttpServletResponse resp) throws IOException {
+		//req.setCharacterEncoding("UTF-8");
+		//resp.setContentType("application/json");
+		resp.setContentType("text/plain");
+		
+		PrintWriter out = resp.getWriter();
+		String result = "validated";
+		// out.println 을 쓰면 반드시 ajax에서 응답값을 trim 해주어야한다. (\n 포함되어서 넘어감)
+	    out.print(result);
+	}
+	
 }
 	

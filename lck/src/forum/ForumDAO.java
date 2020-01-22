@@ -122,6 +122,7 @@ public class ForumDAO {
 			while (rs.next()) {
 
 				CommentVO cvo = new CommentVO();
+				cvo.setCommentNum(rs.getInt("comment_num"));
 				cvo.setCommentPost(rs.getInt("comment_post"));
 				cvo.setCommentContent(rs.getString("comment_content"));
 				cvo.setCommentId(rs.getString("comment_id"));

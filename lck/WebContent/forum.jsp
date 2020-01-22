@@ -349,6 +349,7 @@ body a {
 		    + "<div class='userinfo pull-left'>"
 		    + "<div class='avatar'>"
 		    + "<img style='height: 37px; width: 37px;' src="+list[i].identityPhoto +"></img>"
+		   
 		    + "</div>"
 		    + "</div>"
 		    + "<div class='posttext pull-left'>"

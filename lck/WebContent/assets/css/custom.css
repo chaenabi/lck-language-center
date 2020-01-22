@@ -1114,7 +1114,7 @@ a.down:hover {
     }
 
     .textwraper textarea {
-        width: 175px;
+        width: 100%;
     }
 
     footer ul.socialicons {

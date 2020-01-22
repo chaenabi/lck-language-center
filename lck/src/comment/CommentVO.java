@@ -4,20 +4,22 @@ import java.sql.Date;
 
 public class CommentVO {
 	//this column is applied as autoIncrement property
-	//private int commentNum;
+	private int commentNum;
 	
 	private int commentPost; // post id for identifying nested comment
 	private String CommentId; // comment writer id
 	private Date CommentDate; // register date
 	private int CommentParent; // parent comment
 	private String commentContent; // comment content
+	private String commentPassword;
 	
-//	public int getCommentNum() {
-//		return commentNum;
-//	}
-//	public void setCommentNum(int commentNum) {
-//		this.commentNum = commentNum;
-//	}
+	
+	public int getCommentNum() {
+		return commentNum;
+	}
+	public void setCommentNum(int commentNum) {
+		this.commentNum = commentNum;
+	}
 	
 	public int getCommentPost() {
 		return commentPost;
@@ -50,10 +52,17 @@ public class CommentVO {
 		this.commentContent = commentContent;
 	}
 	
+	public String getCommentPassword() {
+		return commentPassword;
+	}
+	public void setCommentPassword(String commentPassword) {
+		this.commentPassword = commentPassword;
+	}
+	
 	@Override
 	public String toString() {
-		return "{commentPost:\"" + commentPost + "\""+ ", CommentId:\"" + CommentId + "\""+ ", CommentDate:\"" + CommentDate
-				+ "\""+", CommentParent:\"" + CommentParent + "\""+ ", commentContent:\"" + commentContent + "\"}";
+		return "{commentNum:\""+ commentNum +"\""+", commentPost:\"" + commentPost + "\""+ ", CommentId:\"" + CommentId + "\""+ ", CommentDate:\"" + CommentDate
+				+ "\""+", CommentParent:\"" + CommentParent + "\""+ ", commentContent:\"" + commentContent + "\""+"}";
 	}
 	
 	

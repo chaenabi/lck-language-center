@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Forum :: Topic</title>
+<title>LCK Language Center</title>
 
 <!-- Bootstrap -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -157,16 +157,22 @@
 								<input type="hidden" name="action" value="addComment"/>
 								<div class="topwrap">
 									<div class="row">
-									<div class="col-md-1">&nbsp;</div>
-										<div class="col-md-10">
+									<div class="col-1 col-md-1">&nbsp;</div>
+										<div class="col-md-10 col-10">
 										<input type="hidden" name="commentPost" value="${requestScope.postId}"/>
-											<div class="posttext" style="margin: 0px; width: 100%;">
+											<div class="posttext" style="margin: 0px; padding-left:15px; width: 270px;">
 
 												<input name="commentId" class="form-control" id="commentId"
 													placeholder="Type your name here" />
 
 											</div>
-											<div class="posttext" style="margin: 0px; width: 100%;">
+											<div class="posttext" style="margin: 0px; padding-left:15px; width: 270px;">
+
+												<input name="commentPassword" type="password" class="form-control" id="commentPassword"
+													placeholder="Type your password here" />
+
+											</div>
+											<div class="posttext" style="margin: 0px; padding-left:15px; width: 100%;">
 												<div class="textwraper" style="height: 340px;">
 												
 													<textarea name="commentContent" id="reply"
@@ -198,135 +204,17 @@
 					</div>
 
 				</div>
-				<div class="col-lg-4 col-md-4">
-
-					<!-- -->
-					<!-- <div class="sidebarblock">
-                                <h3>Categories</h3>
-                                <div class="divline"></div>
-                                <div class="blocktxt">
-                                    <ul class="cats">
-                                        <li><a href="#">Trading for Money <span class="badge pull-right">20</span></a></li>
-                                        <li><a href="#">Vault Keys Giveway <span class="badge pull-right">10</span></a></li>
-                                        <li><a href="#">Misc Guns Locations <span class="badge pull-right">50</span></a></li>
-                                        <li><a href="#">Looking for Players <span class="badge pull-right">36</span></a></li>
-                                        <li><a href="#">Stupid Bugs &amp; Solves <span class="badge pull-right">41</span></a></li>
-                                        <li><a href="#">Video &amp; Audio Drivers <span class="badge pull-right">11</span></a></li>
-                                        <li><a href="#">2K Official Forums <span class="badge pull-right">5</span></a></li>
-                                    </ul>
-                                </div>
-                            </div> -->
-
-					<!-- -->
-					<!--  <div class="sidebarblock">
-                                <h3>Poll of the Week</h3>
-                                <div class="divline"></div>
-                                <div class="blocktxt">
-                                    <p>Which game you are playing this week?</p>
-                                    <form action="#" method="post" class="form">
-                                        <table class="poll">
-                                            <tr>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar color1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                                            Call of Duty Ghosts
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="chbox">
-                                                    <input id="opt1" type="radio" name="opt" value="1">  
-                                                    <label for="opt1"></label>  
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar color2" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 63%">
-                                                            Titanfall
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="chbox">
-                                                    <input id="opt2" type="radio" name="opt" value="2" checked>  
-                                                    <label for="opt2"></label>  
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar color3" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-                                                            Battlefield 4
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="chbox">
-                                                    <input id="opt3" type="radio" name="opt" value="3">  
-                                                    <label for="opt3"></label>  
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </form>
-                                    <p class="smal">Voting ends on 19th of October</p>
-                                </div>
-                            </div>
-
-                           
-                            <div class="sidebarblock">
-                                <h3>My Active Threads</h3>
-                                <div class="divline"></div>
-                                <div class="blocktxt">
-                                    <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
-                                </div>
-                                <div class="divline"></div>
-                                <div class="blocktxt">
-                                    <a href="#">Who Wins in the Battle for Power on the Internet?</a>
-                                </div>
-                                <div class="divline"></div>
-                                <div class="blocktxt">
-                                    <a href="#">Sony QX10: A Funky, Overpriced Lens Camera for Your Smartphone</a>
-                                </div>
-                                <div class="divline"></div>
-                                <div class="blocktxt">
-                                    <a href="#">FedEx Simplifies Shipping for Small Businesses</a>
-                                </div>
-                                <div class="divline"></div>
-                                <div class="blocktxt">
-                                    <a href="#">Loud and Brave: Saudi Women Set to Protest Driving Ban</a>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="pull-left"><a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a></div>
-                            <div class="pull-left">
-                                <ul class="paginationforum">
-                                    <li class="hidden-xs"><a href="#">1</a></li>
-                                    <li class="hidden-xs"><a href="#">2</a></li>
-                                    <li class="hidden-xs"><a href="#">3</a></li>
-                                    <li class="hidden-xs"><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">6</a></li>
-                                    <li><a href="#" class="active">7</a></li>
-                                    <li><a href="#">8</a></li>
-                                    <li class="hidden-xs"><a href="#">9</a></li>
-                                    <li class="hidden-xs"><a href="#">10</a></li>
-                                    <li class="hidden-xs hidden-md"><a href="#">11</a></li>
-                                    <li class="hidden-xs hidden-md"><a href="#">12</a></li>
-                                    <li class="hidden-xs hidden-sm hidden-md"><a href="#">13</a></li>
-                                    <li><a href="#">1586</a></li>
-                                </ul>
-                            </div>
-                            <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
-                                     -->
-				</div>
+				
+				<!-- 댓글 수정 삭제용 form -->
+				<form action="comment" id="commentForm" method="post">
+					<input type="hidden" id="action" name="action">
+					<input type="hidden" id="password" name="password">
+					<input type="hidden" id="commentnum" name="commentnum">		
+					<input type="hidden" id="commentid" name="commentid">
+					<input type="hidden" id="commentcontent" name="commentcontent">
+				</form>
+				
+				<div class="col-lg-4 col-md-4"></div>
 			</div>
 			<div class="container">&nbsp;</div>
 			<div class="clearfix"></div>
@@ -372,29 +260,131 @@
 	<script>
 	var post=document.getElementById("makeCommentListBox");
 	var commentlist = ${requestScope.comments};
-	console.log(commentlist);
+	
+	
 	for(var i = 0; i < commentlist.length; i++) {
 	post.innerHTML += "<div class='post'>" 
-	    		   + "<div class='topwrap'>"
-				   + "<div class='userinfo pull-left' style='padding: 25px 0px 0px 10px;'>"
-				   + "<div class='avatar'>"
-				   + "<p style='margin: 0px;'>"+commentlist[i].CommentId+"</p>"
-				   + "</div>"
-				   + "</div>"
-				   + "<div class='posttext pull-left'>"
-				   + "<p>"+commentlist[i].commentContent+"</p>"
-				   + "</div>"
-				   + "<div class='clearfix'></div>"
-				   + "</div>"
+	    		   + "	<div class='topwrap'>"
+				   + "		<div class='userinfo pull-left' style='padding: 25px 0px 0px 10px;'>"
+				   + "			<div class='avatar' style='margin: 0px 0px 15px 5px; width: 60px;'>"
+				   + "			<p id='cid"+i+"' style='margin: 0px;'>"+commentlist[i].CommentId+"</p>"
+				   + "			<hr/>"
+				   + "			<a id='aedit"+i+"' onClick=\"postEdit("+ String(commentlist[i].commentNum) + ", " + String(commentlist[i].CommentId) + ", " + String(commentlist[i].commentContent) + ", "+ i + ")"+ "\" style='color:#F7BE81'><i class='fa fa-edit' style='font-size: 20px;'></i></a>"	
+				   + "&nbsp; &nbsp; &nbsp;"
+				   + "			<a id='adel"+i+"' onClick=\"postEdit("+ String(commentlist[i].commentNum) + ", " + String(commentlist[i].CommentId) + ", " + String(commentlist[i].commentContent) + ", "+ i + ")"+ "\" style='color: #989c9e'><i class='fa fa-times' style='font-size: 20px;'></i></a>"
+				   + "			</div>"
+				   + "		</div>"
+				   + "	<div class='posttext pull-left'>"
+				   + "		<p id='ccon"+i+"' class='commentContent' style='margin: 0px;'>"+commentlist[i].commentContent+"</p>"
+				   + "	</div>"
+				   + "	<div class='clearfix'></div>"
+				   + "	</div>"
 				   + "<div class='postinfobot'>"
 				   + "<div class='clearfix'></div>"
-				   + "</div>"
 				   + "</div>"
 				   + "</div>";
 	}
 	
+	
+	
     </script>
 
+	<script>
+	// parameters for clearly specify clicked tag
+	function postEdit(cnum, cid, ccon, i) {
+		var pass = "";
+	    var postId = "";
+		pass = prompt('글 수정을 위해 암호를 입력해주세요.');
+		
+ 			// add data for giving server
+		 $('#commentnum').val(cnum);
+		 $('#commentid').val(cid);
+		 
+	     $('#password').val(pass);
+	     $('#action').val('validate');
+	    
+	    
+	  $.ajax({
+		   
+		    type : 'POST',
+			url : "comment",
+			data : $('#commentForm').serialize(),
+			success : function(result, msg) {
+
+					if(result == "validated") {
+					   
+					    modifyContent = document.getElementById('ccon' +i);
+					    modifyContent.innerHTML = "";
+					    modifyContent.innerHTML = "<textarea id='ta"+i+"' style='width: 100%; height: 100px;'>"+ccon+"</textarea>";
+					    			    
+					    // change Pedit icon, onclick event, style
+					    document.getElementById('aedit' +i).setAttribute('onClick', 'confirmEdit('+ $('#ta'+i).val() +')');
+					    document.getElementById('aedit' +i).setAttribute('style', 'green');
+					    document.getElementById('aedit' +i).firstChild.setAttribute('class', 'fa fa-check');
+					    
+					    // change Pdelete onclick event, style
+					    document.getElementById('adel' +i).setAttribute('onClick', 'cancelChange()');
+					    document.getElementById('adel' +i).setAttribute('style', 'color:black');
+					    
+					}
+					else { 
+					   alert("password is invalid. please check again.");
+					}
+					
+			},
+			error : function(error) {
+			    console.log("error: ");
+			    console.log(error);
+			}
+		    });
+	    
+	} 
+	
+	function postDelete(cnum, cid, ccon, i) {
+	    var pass = "";
+	    var postId = "";
+		pass = prompt('글 삭제를 위해 암호를 입력해주세요.');
+		
+ 			// add data for giving server
+		 $('#commentnum').val(cnum);
+		 $('#commentid').val(cid);
+		 
+	     $('#password').val(pass);
+	     $('#action').val('validate');
+ 
+	  $.ajax({
+		   
+		    type : 'POST',
+			url : "comment",
+			data : $('#commentForm').serialize(),
+			success : function(result, msg) {
+					console.log("success");
+					//delete function 
+					
+					//$('#commentcontent').val(ccon);
+					
+			},
+			error : function(error) {
+			    console.log("error");
+			    console.log(error);
+			}
+		    });
+	    
+	}
+	</script>
+	<script>
+		function confirmEdit(textareaTag) {
+	    
+		    console.log(textareaTag);
+		    // TODO :: textareaTag 값을 서블릿으로 넘겨서, 수정하게 한다. 
+		    
+		}
+		
+		function cancelEdit() {
+		    
+		}
+	</script>
+	
 
 	<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
 	<script type="text/javascript">
