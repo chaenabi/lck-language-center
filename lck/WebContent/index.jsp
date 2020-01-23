@@ -1,7 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page errorPage="500.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,18 +37,6 @@
 <!-- Custom styles for this template -->
 <link href="assets/css/agency.min.css" rel="stylesheet" />
 
-<!-- =======================================================
-    Theme Name: Rapid
-    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
-<style>
-/* .img-fluid {
-        width: 255px;
-        height: 255px;
-      } */
-</style>
 </head>
 
 <body>
@@ -124,7 +112,7 @@
 	</section>
 	<!-- #intro -->
 
-	<main id="main"> <!--==========================
+	<!--==========================
       Call To Action Section
     ============================--> <!-- <section id="call-to-action" class="wow fadeInUp">
       <div class="container">
@@ -155,7 +143,7 @@
 						이 사이트를 통해 다양한 정보들과 저희 LCK가 가지고있는 특별한 장점들을 알아보시기 바랍니다.<br> 상담
 						문의도 언제든 환영합니다.
 					</p>
-					</p>
+				
 					<p>
 						저희 센터를 통해 안전하고 성공적인 유학생활을 하실 수 있으며 학생 여러분들의<br> 빛나는 꿈을 활짝
 						펼치시길 바랍니다.
@@ -184,6 +172,7 @@
         </div> -->
 		</div>
 	</section>
+	</main>
 	<!-- #about --> <!--==========================
       Team Section
     ============================-->
@@ -303,8 +292,9 @@
 				</div>
 			</div>
 		</div>
+		
 	</section>
-	<!-- #team --> </main>
+	<!-- #team -->
 
 	<!--==========================
     Footer
@@ -339,11 +329,11 @@
 								</div>
 
 								<div class="social-links">
-									<a href="#" class="twitter"><i
-										class="fa fa-twitter"></i></a> <a href="#" class="facebook"><i
-										class="fa fa-facebook"></i></a> <a href="#" class="instagram"><i
+									<a href="#" class="facebook"><i
+										class="fa fa-facebook"></i></a> <!-- <a href="#" class="instagram"><i
 										class="fa fa-instagram"></i></a> <a href="#" class="linkedin"><i
-										class="fa fa-linkedin"></i></a>
+										class="fa fa-linkedin"></i></a><a href="#" class="twitter"><i
+										class="fa fa-twitter"></i></a>  -->
 								</div>
 							</div>
 						</div>
@@ -396,16 +386,10 @@
 
 		<div class="container">
 			<div class="copyright">
-				<!-- &copy; Copyright <strong>Rapid</strong>. All Rights Reserved -->
+				<!-- &copy; Copyright <strong>LCK LANGUAGE CENTER</strong>. All Rights Reserved -->
 			</div>
 			<div class="credits">
-				<!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
-        -->
-				<!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+				
 			</div>
 		</div>
 	</footer>

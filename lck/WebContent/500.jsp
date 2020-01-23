@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>ERROR 404</title>
+<title>ERROR 500</title>
 
 <!-- Custom fonts for this template-->
  <link href="assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -34,9 +34,9 @@
 		<br><br><br><br><br>
 		<div class="text-center">
 			
-				<div class="error mx-auto" data-text="404">404</div>
-				<p class="lead text-gray-800 mb-5">Page Not Found</p>
-				<p class="text-gray-500 mb-0"> Please try to change URL.</p>
+				<div class="error mx-auto" data-text="500">500</div>
+				<p class="lead text-gray-800 mb-5">Error. Work Failed</p>
+				<p class="text-gray-500 mb-0"> Call the Manager Please.</p>
 				<br/>
 				<a href="forum.jsp">&larr; return to forum page</a>
 		</div>

@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page errorPage="500.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,12 +47,7 @@ response.setHeader("Access-Control-Allow-Origin","*");
 <script src="assets/lib/jquery/jquery.min.js"></script>
 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<!-- =======================================================
-    Theme Name: Rapid
-    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+
 </head>
 <body>
 	<!--==========================
@@ -61,10 +57,7 @@ response.setHeader("Access-Control-Allow-Origin","*");
 		<div id="topbar">
 			<div class="container">
 				<div class="social-links">
-					<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-						href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
-						href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a
-						href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+					<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
 				</div>
 			</div>
 		</div>
@@ -230,16 +223,10 @@ response.setHeader("Access-Control-Allow-Origin","*");
 	<footer id="footer">
 		<div class="container">
 			<div class="copyright">
-				<!-- &copy; Copyright <strong>Rapid</strong>. All Rights Reserved -->
+				<!-- &copy; Copyright <strong>LCK LANGUAGE CENTER</strong>. All Rights Reserved -->
 			</div>
 			<div class="credits">
-				<!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
-        -->
-				<!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+		
 			</div>
 		</div>
 	</footer>

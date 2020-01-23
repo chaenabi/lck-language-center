@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page errorPage="500.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,22 +36,13 @@
 <!-- Custom styles for this template -->
 <link href="assets/css/agency.min.css" rel="stylesheet" />
 
-<!-- =======================================================
-    Theme Name: Rapid
-    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 <body>
 	<header id="header">
 		<div id="topbar">
 			<div class="container">
 				<div class="social-links">
-					<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-						href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
-						href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a
-						href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+			 <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
 				</div>
 			</div>
 		</div>
@@ -62,7 +53,6 @@
 				<h1 class="text-light">
 					<a href="index.jsp" class="scrollto"><span>LCK</span></a>
 				</h1>
-				<!-- <a href="#header" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
 			</div>
 <form action="ShowForumList" method="post" id="forumList">
 			<nav class="main-nav float-right d-none d-lg-block">
@@ -127,16 +117,6 @@
 							할 수있도록 현지에서 필요한 도움을 지속적으로 베푸는 것, 또한 그 이후 비자 문제 및 취업문제까지 도움을 주는것이
 							우리 LCK 유학원의 목표이고 우리는 그 일을 해낼 능력과 시스템이 갖추어져 있다. 베트남학생들이 우리 유학원을 통해
 							멋있고 보람찬 미래를 위한 꿈과 희망을 펼치기를 진심으로 바란다.</p>
-						<!-- <ul>
-							<li><i class="ion-android-checkmark-circle"></i> Ullamco
-								laboris nisi ut aliquip ex ea commodo consequat.</li>
-							<li><i class="ion-android-checkmark-circle"></i> Duis aute
-								irure dolor in reprehenderit in voluptate velit.</li>
-							<li><i class="ion-android-checkmark-circle"></i> Ullamco
-								laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-								dolor in reprehenderit in voluptate trideta storacalaperda
-								mastiro dolore eu fugiat nulla pariatur.</li>
-						</ul> -->
 					</div>
 				</div>
 			</div>

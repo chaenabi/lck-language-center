@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page errorPage="500.jsp" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,10 +84,7 @@ body a {
 		<div id="topbar">
 			<div class="container">
 				<div class="social-links">
-					<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-						href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
-						href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a
-						href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+			<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
 				</div>
 			</div>
 		</div>
@@ -284,8 +282,6 @@ body a {
 							</ul>
 						</div>
 						<div class="pull-left">
-							<!-- <a href="#" class="prevnext last"><i
-								class="fa fa-angle-right"></i></a> -->
 						</div>
 					</div>
 				</div>
@@ -379,7 +375,6 @@ body a {
 	<!-- END REVOLUTION SLIDER -->
 
 	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-	<!-- Uncomment below i you want to use a preloader -->
 	<!-- <div id="preloader"></div> -->
 
 	<!-- JavaScript Libraries -->
