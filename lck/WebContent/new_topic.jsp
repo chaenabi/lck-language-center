@@ -174,7 +174,7 @@
 										<div class="userinfo pull-left">
 											<div class="avatar">
 												<img src="/lck/${request.getContextPath}${sessionScope.profile}" style="height: 37px; width: 37px;" alt="" />
-												<div class="status red">&nbsp;</div>
+												<div class="status green">&nbsp;</div>
 											</div>
 
 											<!-- <div class="icons">
