@@ -191,8 +191,6 @@ body a {
 								</form>
 							</c:if>
 						</div>
-						<!--   <div class="env pull-left"><i class="fa fa-envelope"></i></div> -->
-
 
 
 						<c:if test="${not empty sessionScope.username}">
@@ -240,7 +238,7 @@ body a {
 				<div class="row">
 					<div class="col-lg-8 col-xs-12 col-md-8">
 						<div class="pull-left">
-							<!-- <a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a> -->
+		
 						</div>
 						<div class="pull-left">
 							<ul class="paginationforum">
@@ -255,8 +253,6 @@ body a {
 							</ul>
 						</div>
 						<div class="pull-left">
-							<!-- <a href="#" class="prevnext last"><i
-								class="fa fa-angle-right"></i></a> -->
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -273,7 +269,7 @@ body a {
 				<div class="row">
 					<div class="col-lg-8 col-xs-12 col-md-8">
 						<div class="pull-left">
-							<!-- <a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a> -->
+		
 						</div>
 						<div class="pull-left">
 							<ul class="paginationforum">
@@ -307,11 +303,7 @@ body a {
 					<div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
 						<ul class="socialicons">
 							<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-							<!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cloud"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss"></i></a></li> -->
+	
 						</ul>
 					</div>
 				</div>

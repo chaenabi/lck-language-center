@@ -75,7 +75,7 @@
 								<a data-toggle="dropdown" href="#"><img
 									src="/lck/${request.getContextPath}${sessionScope.profile}"
 									style="height: 37px; width: 37px;" alt="" /></a> <b class="caret"></b>
-								
+
 								<ul class="dropdown-menu" role="menu">
 									<li role="presentation"><a role="menuitem" tabindex="-1"
 										href="#">My Profile</a></li>
@@ -111,94 +111,130 @@
 						<div class="post beforepagination">
 							<div class="topwrap">
 								<div class="userinfo pull-left">
-									<div class="avatar">
+									<div class="avatar"
+										style="margin: 0px 0px 15px 5px; width: 60px;">
 										<img src="/lck/${requestScope.profile}"
 											style="height: 37px; width: 37px;" alt="" />
-										<div class="status green">&nbsp;</div>
+
+										<hr />
+										<c:if test="${not empty sessionScope.username}">
+											<a id="theEditPostId"
+												onClick="contentEdit()" style="color: #F7BE81"><i class="fa fa-edit"
+												style="font-size: 20px;"></i></a>
+					   &nbsp; &nbsp;
+					  			<a id="theDelPostId" onClick="contentDel()"
+												style="color: #989c9e"><i class="fa fa-times"
+												style="font-size: 20px;"></i></a>
+										</c:if>
 									</div>
-
-					
 								</div>
-								<div class="posttext pull-left">
+								<div class='post'>
 
-									<h2>${requestScope.postSubject}</h2>
-									<p>${requestScope.postContent}</p>
+
+									<div class="posttext pull-left">
+
+										<h2 id="editContentSubject">${requestScope.postSubject}</h2>
+										<p id="editContent" style="margin-bottom: 0px;">${requestScope.postContent}</p>
+									</div>
+									<div class="clearfix"></div>
 								</div>
-								<div class="clearfix"></div>
+
+								<div class="postinfobot">
+									<div class="clearfix"></div>
+								</div>
 							</div>
 
-							<div class="postinfobot">
-								<div class="clearfix"></div>
-							</div>
-						</div>
+							&nbsp;
+							<div id="makeCommentListBox"></div>
 
-						&nbsp;
-						<div id="makeCommentListBox"></div>
-			
-						<div class="post">
-							<form action="comment" class="form" method="post">
-								<input type="hidden" name="action" value="addComment"/>
-								<div class="topwrap">
-									<div class="row">
-									<div class="col-1 col-md-1">&nbsp;</div>
-										<div class="col-md-10 col-10">
-										
-										<input type="hidden" name="commentPost" value="${requestScope.forumNum}"/>
-											<div class="posttext" style="margin: 0px; padding-left:15px; width: 270px;">
 
-												<input name="commentId" class="form-control" id="commentId"
-													placeholder="Type your name here" />
 
-											</div>
-											<div class="posttext" style="margin: 0px; padding-left:15px; width: 270px;">
 
-												<input name="commentPassword" type="password" class="form-control" id="commentPassword"
-													placeholder="Type your password here" />
 
-											</div>
-											<div class="posttext" style="margin: 0px; padding-left:15px; width: 100%;">
-												<div class="textwraper" style="height: 340px;">
-												
-													<textarea name="commentContent" id="reply"
-														placeholder="Type your message here" style="height: 300px;"></textarea>
+							<div class="post">
+								<form action="comment" class="form" method="post">
+									<input type="hidden" name="action" value="addComment" />
+									<div class="topwrap">
+										<div class="row">
+											<div class="col-1 col-md-1">&nbsp;</div>
+											<div class="col-md-10 col-10">
+
+												<input type="hidden" name="commentPost"
+													value="${requestScope.forumNum}" />
+												<div class="posttext"
+													style="margin: 0px; padding-left: 15px; width: 270px;">
+
+													<input name="commentId" class="form-control" id="commentId"
+														placeholder="Type your name here" />
+
 												</div>
-											</div>
-											<div class="clearfix"></div>
-										</div>
-										<div class="postinfobot">
+												<div class="posttext"
+													style="margin: 0px; padding-left: 15px; width: 270px;">
 
-											<div class="pull-right postreply">
-												<div class="pull-left smile">
-													<a href="#"><i class="fa fa-smile-o"></i></a>
+													<input name="commentPassword" type="password"
+														class="form-control" id="commentPassword"
+														placeholder="Type your password here" />
+
 												</div>
-												<div class="pull-left" style="margin-right: 4vw;">
-													<button type="submit" class="btn btn-primary">Post
-														Reply</button>
+												<div class="posttext"
+													style="margin: 0px; padding-left: 15px; width: 100%;">
+													<div class="textwraper" style="height: 340px;">
+
+														<textarea name="commentContent" id="reply"
+															placeholder="Type your message here"
+															style="height: 300px;"></textarea>
+													</div>
 												</div>
 												<div class="clearfix"></div>
 											</div>
-										</div>
+											<div class="postinfobot">
 
-										<div class="clearfix"></div>
+												<div class="pull-right postreply">
+													<div class="pull-left smile">
+														<a href="#"><i class="fa fa-smile-o"></i></a>
+													</div>
+													<div class="pull-left" style="margin-right: 4vw;">
+														<button type="submit" class="btn btn-primary">Post
+															Reply</button>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+											</div>
+
+											<div class="clearfix"></div>
+										</div>
 									</div>
-								</div>
-							</form>
+								</form>
+							</div>
+							<!-- POST -->
 						</div>
-						<!-- POST -->
+
 					</div>
 
+
+					<!--  게시글 수정 삭제용 form -->
+					<form action="forum" class="form" id="contentEditForm"
+						method="post">
+						<input type="hidden" id="forum_action" name="action" />
+						<input type="hidden" id="postId" name="postId" />
+						<input type="hidden" id="postNum" name="postNum" />
+						<input type="hidden" id="postContentSub" name="postContentSub" />
+						<input type="hidden" id="postContentText" name="postContentText" />	
+							
+					</form>
+
+
+					<!-- 댓글 수정 삭제용 form -->
+					<form action="comment" id="commentForm" method="post">
+						<input type="hidden" id="action" name="action"> <input
+							type="hidden" id="password" name="password"> <input
+							type="hidden" id="commentnum" name="commentnum"> <input
+							type="hidden" id="commentid" name="commentid"> <input
+							type="hidden" id="commentcontent" name="commentcontent">
+					</form>
+
+					<div class="col-lg-4 col-md-4"></div>
 				</div>
-				
-				<!-- 댓글 수정 삭제용 form -->
-				<form action="comment" id="commentForm" method="post">
-					<input type="hidden" id="action" name="action">
-					<input type="hidden" id="password" name="password">
-					<input type="hidden" id="commentnum" name="commentnum">		
-					<input type="hidden" id="commentid" name="commentid">
-					<input type="hidden" id="commentcontent" name="commentcontent">
-				</form>
-				
-				<div class="col-lg-4 col-md-4"></div>
 			</div>
 			<div class="container">&nbsp;</div>
 			<div class="clearfix"></div>
@@ -385,11 +421,13 @@
 		}
 		
 		function cancelEdit() {
-		    window.location.reload();
+		    if(confirm("are you sure cancel modifying this post?") == true) {
+		    	window.location.reload();
+		    }
 		}
 
 	</script>
-	
+
 
 	<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
 	<script type="text/javascript">
@@ -407,6 +445,97 @@
 
 	}); //ready
     </script>
+
+
+	<script>
+    function contentEdit() {
+		loginId = ${sessionScope.userId};
+		postId = ${requestScope.postId};
+		
+		if(loginId == postId) {
+		    
+		    editContentSubject = document.getElementById('editContentSubject');
+		    saveOriginSubject = editContentSubject.innerHTML;
+		    
+		    editContentSubject.innerHTML = "";
+		    editContentSubject.innerHTML = "<input class='form-control' type='text' id='ContentSub'/>";
+		    $('#ContentSub').val(saveOriginSubject);
+		    
+		    editContent = document.getElementById('editContent');
+			saveOriginContent = editContent.innerHTML;
+ 
+		    editContent.innerHTML = "";
+		    editContent.innerHTML = "<textarea id='ContentText' style='width: 100%; height: 100px;'>"+ saveOriginContent +"</textarea>";
+			
+		    
+			
+		    // change Pedit icon, onclick event, style                             
+		    document.getElementById('theEditPostId').setAttribute('onClick', 'confirmPostEdit()');
+		    document.getElementById('theEditPostId').setAttribute('style', 'green');
+		    document.getElementById('theEditPostId').firstChild.setAttribute('class', 'fa fa-check');
+		    
+		    // change Pdelete onclick event, style
+		    document.getElementById('theDelPostId').setAttribute('onClick', 'cancelEdit()');
+		    document.getElementById('theDelPostId').setAttribute('style', 'color:black');
+		} else {
+		    alert('you do not have any grants to modify this post! please call the writer who wrote this post.');
+		}
+    }
+    
+    </script>
+    
+    <script>
+    function contentDel() {
+	loginId = ${sessionScope.userId};
+	postId = ${requestScope.postId};
+	
+	if(loginId == postId) {
+	    if(confirm("are you sure delete this post?") == true) {
+	    postNum = ${requestScope.forumNum};
+		$('#postNum').val(postNum); 
+		$('#forum_action').val('del');     
+		$('#contentEditForm').submit();
+		 
+	} else {
+	    alert('you do not have any grants to modify this post! please call the writer who wrote this post.');
+	}
+}
+    
+    </script>
+    
+    <script>
+    
+    function confirmPostEdit() {
+	if(confirm("did you finish modify this post?") == true) {
+	     postId = ${requestScope.postId};
+		 postNum = ${requestScope.forumNum};
+	     
+		 $('#postId').val(postId); 
+		 $('#postNum').val(postNum); 
+		    
+		 
+	     contentSub = $('#ContentSub').val();
+	     contentText = $('#ContentText').val();
+	     
+	     $('#postContentSub').val(contentSub);
+	     $('#postContentText').val(contentText);
+	     
+	     console.log($('#postContentSub').val());
+	     console.log($('#postContentText').val());
+	     
+	     $('#forum_action').val('edit');
+	     
+	     $('#contentEditForm').submit();
+	}
+	  
+	
+     
+     
+    
+    }
+    </script>
+    
+
 	<script type="text/javascript">
 	document.getElementById("logout").onclick = function() {
 	    document.user_logout.submit();

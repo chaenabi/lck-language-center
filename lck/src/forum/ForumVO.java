@@ -51,6 +51,8 @@ public class ForumVO {
 	}
 
 	public void setPostSubject(String postSubject) {
+
+		postSubject = postSubject.replace("\r\n","<br>");
 		this.postSubject = postSubject;
 	}
 
@@ -59,6 +61,7 @@ public class ForumVO {
 	}
 
 	public void setPostContent(String postContent) {
+		postContent = postContent.replace("\r\n","<br>");
 		this.postContent = postContent;
 	}
 

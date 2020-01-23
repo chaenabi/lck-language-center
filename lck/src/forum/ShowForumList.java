@@ -20,7 +20,6 @@ public class ShowForumList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//ForumVO fvo = ForumVO.getInstance();
 		ForumDAO fdao = new ForumDAO();
 		
 		int page = 1;
@@ -32,11 +31,9 @@ public class ShowForumList extends HttpServlet {
 		int count = 351;
 		try {
 			count = fdao.getAllCount();
-			//System.out.println("count: " +count);
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-		//System.out.println(page);
 		paging.setPage(page);	
 		paging.setTotalCount(count);
 		

@@ -42,9 +42,7 @@ public class CommentDAO {
 
 	// 댓글 수정
 	public boolean update(int cnum, String ccon) throws SQLException {
-			//boolean flag = IsThereValidData(commentnum, password, cid);			
-			//if(!flag) {return false;}
-			//else {
+			
 				try {
 		
 					conn = DBManager.getConnection();
@@ -64,7 +62,7 @@ public class CommentDAO {
 				}
 
 			return true;
-			//}
+	
 		}
 
 	public boolean IsThereValidData(int commentnum, String password, String cid) throws SQLException {
@@ -88,7 +86,6 @@ public class CommentDAO {
 		} finally {
 			DBclose();
 		}
-
 		return true;
 	}
 

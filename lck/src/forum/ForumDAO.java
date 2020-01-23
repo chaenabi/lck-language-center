@@ -141,6 +141,9 @@ public class ForumDAO {
 
 		return fvo;
 	}
+	
+
+	
 
 	// 글 추가
 	public void insert(ForumVO fvo) throws SQLException {
@@ -165,6 +168,50 @@ public class ForumDAO {
 			DBclose();
 		}
 	}
+	
+	// 글 추가
+		public void update(int postNum, String postContentSub, String postContentText) throws SQLException {
+
+			try {
+				conn = DBManager.getConnection();
+				stmt = conn.createStatement();
+				String sql = "UPDATE FORUM SET post_subject = ?, post_content = ? WHERE forum_num = ?";
+
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, postContentSub);
+				pstmt.setString(2, postContentText);
+				pstmt.setInt(3, postNum);
+
+				pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBclose();
+			}
+		}
+		
+		// 글 추가
+		public void delete(int postNum) throws SQLException {
+
+			try {
+				conn = DBManager.getConnection();
+				stmt = conn.createStatement();
+				String sql = "DELETE FROM FORUM WHERE forum_num = ?";
+
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, postNum);
+
+				pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBclose();
+			}
+		}
+	
+	
 
 	private void DBclose() throws SQLException {
 		DBManager.close(conn);
