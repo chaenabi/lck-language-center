@@ -78,11 +78,34 @@ public class CommentController extends HttpServlet {
 			
 			if(flag) sendSuccessMsg(response);
 			
-		} else if (action.equals("del")) {
-			String commentnum = request.getParameter("commentnum");
-			String password = request.getParameter("password");
+		} else if (action.equals("edit")) {
+			
+			int commentnum = Integer.parseInt(request.getParameter("commentnum"));
+			String commentContent = request.getParameter("commentcontent");
+
 			System.out.println(commentnum);
-			System.out.println(password);
+			System.out.println(commentContent);
+
+			try {
+				cdao.update(commentnum, commentContent);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			response.sendRedirect("ShowForumList");
+			
+		}else if (action.equals("del")) {
+			int commentnum = Integer.parseInt(request.getParameter("commentnum"));
+			String commentid = request.getParameter("commentid");
+			System.out.println(commentnum);
+			System.out.println(commentid);
+			
+			try {
+				cdao.delete(commentnum, commentid);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			
 			
 			
 			request.getRequestDispatcher("ShowForumList").forward(request, response);

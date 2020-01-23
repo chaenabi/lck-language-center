@@ -41,7 +41,7 @@ public class CommentDAO {
 	}
 
 	// 댓글 수정
-	public boolean update(int commentnum, String password, String cid) throws SQLException {
+	public boolean update(int cnum, String ccon) throws SQLException {
 			//boolean flag = IsThereValidData(commentnum, password, cid);			
 			//if(!flag) {return false;}
 			//else {
@@ -49,19 +49,13 @@ public class CommentDAO {
 		
 					conn = DBManager.getConnection();
 					
-					String sql = "UPDATE comment SET comment_content = ? WHERE comment_num = ? AND comment_password = ?";
+					String sql = "UPDATE comment SET comment_content = ? WHERE comment_num = ?";
 					pstmt = conn.prepareStatement(sql);
 	
-//					pstmt.setString(1, cvo.get());
-//					pstmt.setString(2, cvo.getAddress());
-//					pstmt.setInt(3, cvo.getTelNumber());
+					pstmt.setString(1, ccon);
+					pstmt.setInt(2, cnum);
 
-	
 					pstmt.executeUpdate();
-					
-					while(rs.next()) {
-						
-					}
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -99,28 +93,19 @@ public class CommentDAO {
 	}
 
 	// 댓글 삭제
-	public boolean delete(int midForDelete) throws SQLException {
+	public boolean delete(int cnum, String cid) throws SQLException {
 		// 이름과 전화번호가 일치한 멤버를 삭제한다. (null 처리)
 		// 그러나 이름은 null 처리하지 않는다
 		try {
 			conn = DBManager.getConnection();
-			String sql = "UPDATE member SET address = ?, tel_number = ?, tel_number2 = ?, tel_number3 = ?, baptized_date = ?, "
-					+ "birthday = ?, gender = ?, m_status = ?, m_class = ?, reg_date = ?, anointed = ? "
-					+ "where m_id ='" + midForDelete + "'";
+			String sql = "DELETE FROM COMMENT WHERE comment_num = ? AND comment_id = ?";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, null);
-			pstmt.setString(2, null);
-			pstmt.setString(3, null);
-			pstmt.setString(4, null);
-			pstmt.setDate(5, null);
-			pstmt.setDate(6, null);
-			pstmt.setString(7, null);
-			pstmt.setString(8, null);
-			pstmt.setString(9, null);
-			pstmt.setDate(10, null);
-			pstmt.setString(11, null);
+			pstmt.setInt(1, cnum);
+			pstmt.setString(2, cid);
+			
 			pstmt.executeUpdate();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

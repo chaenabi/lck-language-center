@@ -15,13 +15,6 @@
 <!-- Custom -->
 <link href="assets/css/custom.css" rel="stylesheet">
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-          <![endif]-->
-
 <!-- fonts -->
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -108,13 +101,8 @@
 		</div>
 		<!-- logout -->
 
-
-
-
 		<section class="content">
 			<div class="container">&nbsp;</div>
-
-
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-md-8">
@@ -129,12 +117,7 @@
 										<div class="status green">&nbsp;</div>
 									</div>
 
-									<!-- <div class="icons">
-										<img src="assets/img/icon1.jpg" alt="" /><img
-											src="assets/img/icon4.jpg" alt="" /><img
-											src="assets/img/icon5.jpg" alt="" /><img
-											src="assets/img/icon6.jpg" alt="" />
-									</div> -->
+					
 								</div>
 								<div class="posttext pull-left">
 
@@ -231,11 +214,6 @@
 					<div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
 						<ul class="socialicons">
 							<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-							<!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-cloud"></i></a></li>
-							<li><a href="#"><i class="fa fa-rss"></i></a></li> -->
 						</ul>
 					</div>
 				</div>
@@ -263,29 +241,34 @@
 	
 	
 	for(var i = 0; i < commentlist.length; i++) {
-	post.innerHTML += "<div class='post'>" 
-	    		   + "	<div class='topwrap'>"
-				   + "		<div class='userinfo pull-left' style='padding: 25px 0px 0px 10px;'>"
-				   + "			<div class='avatar' style='margin: 0px 0px 15px 5px; width: 60px;'>"
-				   + "			<p id='cid"+i+"' style='margin: 0px;'>"+commentlist[i].CommentId+"</p>"
-				   + "			<hr/>"
-				   + "			<a id='aedit"+i+"' onClick=\"postEdit("+ String(commentlist[i].commentNum) + ", " + String(commentlist[i].CommentId) + ", " + String(commentlist[i].commentContent) + ", "+ i + ")"+ "\" style='color:#F7BE81'><i class='fa fa-edit' style='font-size: 20px;'></i></a>"	
-				   + "&nbsp; &nbsp; &nbsp;"
-				   + "			<a id='adel"+i+"' onClick=\"postEdit("+ String(commentlist[i].commentNum) + ", " + String(commentlist[i].CommentId) + ", " + String(commentlist[i].commentContent) + ", "+ i + ")"+ "\" style='color: #989c9e'><i class='fa fa-times' style='font-size: 20px;'></i></a>"
-				   + "			</div>"
-				   + "		</div>"
-				   + "	<div class='posttext pull-left'>"
-				   + "		<p id='ccon"+i+"' class='commentContent' style='margin: 0px;'>"+commentlist[i].commentContent+"</p>"
-				   + "	</div>"
-				   + "	<div class='clearfix'></div>"
-				   + "	</div>"
-				   + "<div class='postinfobot'>"
-				   + "<div class='clearfix'></div>"
-				   + "</div>"
-				   + "</div>";
+	
+
+	    if(commentlist[i].commentContent == "") {
+		    commentlist[i].commentContent = "empty comment";
+		}
+	  
+	    
+		post.innerHTML += "<div class='post'>" 
+		    		   + "	<div class='topwrap'>"
+					   + "		<div class='userinfo pull-left' style='padding: 25px 0px 0px 10px;'>"
+					   + "			<div class='avatar' style='margin: 0px 0px 15px 5px; width: 60px;'>"
+					   + "			<p id='cid"+String(commentlist[i].commentNum)+"' style='margin: 0px;'>"+commentlist[i].CommentId+"</p>"
+					   + "			<hr/>"
+					   + "			<a id='aedit"+i+"' onClick=\"postEdit("+ String(commentlist[i].commentNum) + ", "+ "\'"+  String(commentlist[i].CommentId) + "\', "+ "\'"+ String(commentlist[i].commentContent) + "\', "+ i + ")"+"\" style='color:#F7BE81'><i class='fa fa-edit' style='font-size: 20px;'></i></a>"	
+					   + "&nbsp; &nbsp; &nbsp;"
+					   + "			<a id='adel"+i+"' onClick=\"postDelete("+ String(commentlist[i].commentNum) + ", "+ "\'"+  String(commentlist[i].CommentId) + "\', "+ "\'"+ String(commentlist[i].commentContent) + "\', "+ i + ")"+"\" style='color: #989c9e'><i class='fa fa-times' style='font-size: 20px;'></i></a>"
+					   + "			</div>"
+					   + "		</div>"
+					   + "	<div class='posttext pull-left'>"
+					   + "		<p id='ccon"+i+"' class='commentContent' style='margin: 0px;'>"+commentlist[i].commentContent+"</p>"
+					   + "	</div>"
+					   + "	<div class='clearfix'></div>"
+					   + "	</div>"
+					   + "<div class='postinfobot'>"
+					   + "<div class='clearfix'></div>"
+					   + "</div>"
+					   + "</div>";
 	}
-	
-	
 	
     </script>
 
@@ -316,14 +299,17 @@
 					    modifyContent = document.getElementById('ccon' +i);
 					    modifyContent.innerHTML = "";
 					    modifyContent.innerHTML = "<textarea id='ta"+i+"' style='width: 100%; height: 100px;'>"+ccon+"</textarea>";
-					    			    
-					    // change Pedit icon, onclick event, style
-					    document.getElementById('aedit' +i).setAttribute('onClick', 'confirmEdit('+ $('#ta'+i).val() +')');
+					    	
+					    //only filtered id value                      
+					    cnumber = JSON.stringify(document.getElementById('cid' + cnum).getAttribute('id'));
+				
+					    // change Pedit icon, onclick event, style                             
+					    document.getElementById('aedit' +i).setAttribute('onClick', 'confirmEdit('+cnumber+', '+i+')');
 					    document.getElementById('aedit' +i).setAttribute('style', 'green');
 					    document.getElementById('aedit' +i).firstChild.setAttribute('class', 'fa fa-check');
 					    
 					    // change Pdelete onclick event, style
-					    document.getElementById('adel' +i).setAttribute('onClick', 'cancelChange()');
+					    document.getElementById('adel' +i).setAttribute('onClick', 'cancelEdit()');
 					    document.getElementById('adel' +i).setAttribute('style', 'color:black');
 					    
 					}
@@ -358,10 +344,21 @@
 			url : "comment",
 			data : $('#commentForm').serialize(),
 			success : function(result, msg) {
-					console.log("success");
 					//delete function 
-					
-					//$('#commentcontent').val(ccon);
+					if(result == "validated") {
+						if(confirm("are you sure to delete comment?") == true) {
+						 
+						    $('#commentnum').val(cnum);
+						    $('#commentid').val(cid);
+						    $('#action').val('del');
+				    
+						    $('#commentForm').submit();
+						}
+					}
+					else { 
+						   alert("password is invalid. please check again.");
+					}
+
 					
 			},
 			error : function(error) {
@@ -373,16 +370,23 @@
 	}
 	</script>
 	<script>
-		function confirmEdit(textareaTag) {
-	    
-		    console.log(textareaTag);
-		    // TODO :: textareaTag 값을 서블릿으로 넘겨서, 수정하게 한다. 
-		    
+		function confirmEdit(cnum, i) {
+	   
+		    //수정된 textareaContent와 contentnum을 서버로 넘겨서 수정하게 한다. 	
+		    cnum = cnum.trim().replace(/[^0-9]/g, "");
+			
+	    	$('#commentnum').val(cnum);
+		    $('#commentcontent').val($('#ta'+i).val());
+		    $('#action').val('edit');
+    
+		    $('#commentForm').submit();
+		    		    
 		}
 		
 		function cancelEdit() {
-		    
+		    window.location.reload();
 		}
+
 	</script>
 	
 
