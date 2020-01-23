@@ -142,7 +142,8 @@
 									<div class="row">
 									<div class="col-1 col-md-1">&nbsp;</div>
 										<div class="col-md-10 col-10">
-										<input type="hidden" name="commentPost" value="${requestScope.postId}"/>
+										
+										<input type="hidden" name="commentPost" value="${requestScope.forumNum}"/>
 											<div class="posttext" style="margin: 0px; padding-left:15px; width: 270px;">
 
 												<input name="commentId" class="form-control" id="commentId"
