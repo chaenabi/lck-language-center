@@ -20,6 +20,38 @@ public class ForumDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 
+	public ArrayList<ForumVO> search(String postSubject) throws SQLException {
+		ArrayList<ForumVO> flist = new ArrayList<ForumVO>();
+		try {
+			conn = DBManager.getConnection();
+			String sql = "SELECT DISTINCT forum.*, USER.identity_photo as photo FROM forum, user WHERE post_subject LIKE ?"
+					+ "ORDER BY forum.forum_num desc";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + postSubject + "%");
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				ForumVO fvo = new ForumVO();
+				fvo.setForumNum(rs.getInt("forum_num"));
+				fvo.setPostId(rs.getInt("post_id"));
+				fvo.setIdentityPhoto(rs.getString("photo"));
+				fvo.setPostSubject(rs.getString("post_subject"));
+				fvo.setPostContent(rs.getString("post_content"));
+				fvo.setPostFile(rs.getString("post_file"));
+				fvo.setSawCount(rs.getInt("saw_count"));
+				fvo.setPostDate(rs.getDate("post_date"));
+				flist.add(fvo);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBclose();
+		}
+		return flist;
+	}
+	
+	
 	// 글 리스트 순차조회+페이징 처리
 	public ArrayList<ForumVO> getForumList(Paging paging, int page) throws SQLException {
 		ArrayList<ForumVO> list = new ArrayList<ForumVO>();
@@ -36,7 +68,7 @@ public class ForumDAO {
 			// System.out.println("startNum: " +startNum);
 			// System.out.println("pageRow: " +pageRow);
 
-			String sql = "SELECT F1.*, USER.identity_photo as photo "
+			String sql = "SELECT distinct F1.*, USER.identity_photo as photo "
 					+ "FROM USER, (SELECT * FROM Forum order by post_date asc) F1 " + "WHERE USER.userid = post_id "
 					+ "LIMIT ? OFFSET ?"; // LIMIT 10페이지씩, 0번째부터.
 
@@ -85,6 +117,36 @@ public class ForumDAO {
 		}
 		return count;
 	}
+	
+	public int increaseSawCnt(int cnt, int forumNum) throws SQLException {
+		
+		++cnt;
+		
+		String updateSql = "UPDATE FORUM SET saw_count = ? where forum_num = ?";
+		String selectSql = "SELECT saw_count FROM FORUM WHERE forum_num = ?";
+		try {
+
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(updateSql);
+			pstmt.setInt(1, cnt);
+			pstmt.setInt(2, forumNum);
+			pstmt.executeUpdate();
+			
+			pstmt = conn.prepareStatement(selectSql);
+			pstmt.setInt(1, forumNum);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			cnt = rs.getInt("saw_count");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBclose();
+		}
+		return cnt;
+	}
+	
 
 	public ForumVO selectOne(int forum_num) throws SQLException {
 		ForumVO fvo = new ForumVO();

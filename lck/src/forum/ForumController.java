@@ -5,7 +5,9 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,8 +44,7 @@ public class ForumController extends HttpServlet {
 			e.printStackTrace();
 		}
 		String action = request.getParameter("action");
-	
-	
+		System.out.println(action);
 		if (action.equals("")) {
 			out.println("[심각] 어떠한 정보도 처리 할 수 없었습니다.");
 			out.println("관리자 문의 요망");
@@ -53,29 +54,14 @@ public class ForumController extends HttpServlet {
 			session.setAttribute("userId", userId);
 			request.getRequestDispatcher("new_topic.jsp").forward(request, response);
 			
-		} else if (action.equals("selectOne")) {
+		} else if (action.equals("searchPost")) {
 
-			//int forumNum = Integer.parseInt(String.valueOf(request.getAttribute("forumNum")));
-			int forumNum = Integer.parseInt(request.getParameter("forumNum"));
-	
+			String postSubject = request.getParameter("postSubject");
 			try {
-				
-				fvo = fdao.selectOne(forumNum);
-				
-				request.setAttribute("postId", fvo.getPostId());
-				request.setAttribute("forumNum", fvo.getForumNum());
-				request.setAttribute("profile", fvo.getIdentityPhoto());
-				request.setAttribute("postFile", fvo.getPostFile());
-				request.setAttribute("postSubject", fvo.getPostSubject());
-				request.setAttribute("postContent", fvo.getPostContent());
-				request.setAttribute("sawCount", fvo.getSawCount());	
-				request.setAttribute("comments", fvo.getComment());
-			
-				
+				response.getWriter().write(getJson(postSubject));
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}
-			request.getRequestDispatcher("topic.jsp").forward(request, response);
+			}	
 			
 		} else if (action.equals("addpost")) {
 			try {
@@ -86,23 +72,16 @@ public class ForumController extends HttpServlet {
 			}
 
 		} else if (action.equals("edit")) {
-			int postId = Integer.parseInt(request.getParameter("postId"));
+			//int postId = Integer.parseInt(request.getParameter("postId"));
 			int postNum = Integer.parseInt(request.getParameter("postNum"));
 			String postContentSub = request.getParameter("postContentSub");
 			String postContentText = request.getParameter("postContentText");
-
-			System.out.println(postId);
-			System.out.println(postNum);
-			System.out.println(postContentSub);
-			System.out.println(postContentText);
-			
 			
 			try {
 				fdao.update(postNum, postContentSub, postContentText);
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}
-			
+			}		
 			request.getRequestDispatcher("ShowForumList").forward(request, response);
 		} else if (action.equals("del")) {
 			int postNum = Integer.parseInt(request.getParameter("postNum"));
@@ -111,24 +90,53 @@ public class ForumController extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			
-			
 			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			
 		} else if (action.equals("logout")) {
 
 			request.getSession(true).invalidate();
 			request.getRequestDispatcher("ShowForumList").forward(request, response);
 		}
-
+		
 		else {
 			out.println("[심각] 에러 발생");
 		}
 
 	}
+	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
 	}
 	
+	
+	public String getJson(String postSubject) throws SQLException {
+		if(postSubject == null) postSubject = "";
+		StringBuffer result = new StringBuffer("");
+		result.append("{\"result\":[");
+		ForumDAO fdao = new ForumDAO();
+		ArrayList<ForumVO> flist = fdao.search(postSubject);
+		for(int i = 0; i < flist.size(); i++) {	
+
+			
+			result.append("[{\"value\": \"" + flist.get(i).getForumNum() + "\"},");
+			result.append("{\"value\": \"" + flist.get(i).getPostId() + "\"},");		
+			result.append("{\"value\": \"" + flist.get(i).getIdentityPhoto() + "\"},");
+			result.append("{\"value\": \"" + flist.get(i).getPostSubject() + "\"},");
+			result.append("{\"value\": \"" + flist.get(i).getPostContent() + "\"},");
+			result.append("{\"value\": \"" + flist.get(i).getPostFile() + "\"},");
+			result.append("{\"value\": \"" + flist.get(i).getSawCount() + "\"},");
+			result.append("{\"value\": \"" + flist.get(i).getPostDate());
+			
+		    if(i == flist.size()-1) {
+		    	 result.append("\"}]");
+		    }
+		    else {
+		     	 result.append("\"}],");
+		    }
+		}
+		result.append("]}");
+		return result.toString();
+	}
 	
 	
 }

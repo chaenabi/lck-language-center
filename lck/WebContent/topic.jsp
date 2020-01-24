@@ -1,6 +1,5 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page errorPage="500.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -528,10 +527,7 @@
 	     
 	     $('#contentEditForm').submit();
 	}
-	  
-	
-     
-     
+  
     
     }
     </script>
@@ -542,6 +538,5 @@
 	    document.user_logout.submit();
 	}
     </script>
-	<!-- END REVOLUTION SLIDER -->
 </body>
 </html>
