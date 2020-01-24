@@ -325,7 +325,7 @@ body a {
 	var i = 0;
 	var list = ${requestScope.forumList};
 	var post = document.getElementById('post');
-	console.log(list);
+	//console.log(list);
 	for (i = 0; i < list.length; i++) {
 
 	    // list[i].postFile 에 대하여
@@ -346,12 +346,12 @@ body a {
 		    + "</div>"
 		    + "<div class='postinfo pull-left'>"
 		    + "<div class='comments'>"
-		    + "<div class='commentbg'>560"
+		    + "<div class='commentbg' style='min-width: 55px;'>" + list[i].howmanycomments
 		    + "<div class='mark'></div>"
 		    + "</div>"
 		    + "</div>"
-		    + "<div class='views'>" + list[i].SawCount +
-		    + "<i class='fa fa-eye'></i>"
+		    + "<div class='views'>"
+		    + "<i class='fa fa-eye'></i>&emsp;" + list[i].SawCount
 		    + "</div>"
 		    + "<div class='time'>"
 		    + "<i class='fa fa-clock-o'></i> <a href='#' onClick='event.preventDefault()' style='color: #9da6aa; cursor: default; font-size: 12px;'>"
@@ -372,6 +372,11 @@ body a {
 	</script>
 	
 	<script>
+
+	// choose one of two below
+	//for onkeyup event
+	//searchPost = document.getElementById("searchPost"); // event like keyup needs. do not use change event.
+
 	//for onclick event
 	searchPostBtn = document.getElementById("searchPostBtn");
 	
@@ -386,68 +391,55 @@ body a {
 				forumForm.innerHTML = "";
 				
 				if(request.readyState == 4 && request.status == 200) {
-				    
-				    // paging prevent
+				    object = eval('(' + request.responseText + ')');	
+					result = object.result;	
+
+					// paging prevent
 				    pagingForumPageUp = document.getElementById("pagingForumPageUp");
 				    pagingForumPageDown = document.getElementById("pagingForumPageDown");
 				    pagingForumPageUp.innerHTML = "";
 				    pagingForumPageDown.innerHTML = "";
-
-					object = eval('(' + request.responseText + ')');	
-
-					object3 = JSON.parse(request.responseText);	
-
-					console.log("4:"+object3);
-					result = object.result;
-					
-					console.log(result);
-
-					console.log("forumNum[0][0]: "+ result[0][0].forumNum);
-					console.log("postSubject[0][3]: "+ result[0][3].postSubject);
-					console.log("postContent[0][4]: "+ result[0][4].postContent);
-					 
-					console.log("forumNum[1][0]: "+ result[1][0].forumNum);
-					console.log("postSubject[1][3]: "+ result[1][3].postSubject);
-					console.log("postContent[1][4]: "+ result[1][4].postContent);
-					
-					var post = document.getElementById('post');
-					post.innerHTML = "";
-					
-					 for(var i = 0; i < result.length; i++ ) {
 				
-						    
-						    post.innerHTML += "<div class='post'>"
-							    + "<div class='wrap-ut pull-left'>"
-							    + "<div class='userinfo pull-left'>"
-							    + "<div class='avatar'>"
-							    + "<img style='height: 37px; width: 37px;' src='/lck/"+result[i][2].value +"'></img>"
-							   
-							    + "</div>"
-							    + "</div>"
-							    + "<div class='posttext pull-left'>"
-							    + "<h2><a href='#' onClick='javascript:selectPostOne(" + result[i][0].value  +");' style='color: black;'>" +result[i][3].value +"</a></h2>"
-							    + "</div>"
-							    + "<div class='clearfix'></div>"
-							    + "</div>"
-							    + "<div class='postinfo pull-left'>"
-							    + "<div class='comments'>"
-							    + "<div class='commentbg'>560"
-							    + "<div class='mark'></div>"
-							    + "</div>"
-							    + "</div>"
-							    + "<div class='views'>"
-							    + "<i class='fa fa-eye'></i>" + result[i][6].value +
-							    + "</div>"
-							    + "<div class='time'>"
-							    + "<i class='fa fa-clock-o'></i> <a href='#' onClick='event.preventDefault()' style='color: #9da6aa; cursor: default; font-size: 12px;'>"
-							    + result[i][7].value + "</a>" + "</div>" + "</div>"
-							    + "<div class='clearfix'></div>" + "</div>";
-					     
-						} 
-					}  
-				}
+					var post = document.getElementById('post');
 
-	        });
+					post.innerHTML = "";
+					// if object is empty
+				     if(object.length = 0) {
+						post.innerHTML += "<p>검색 결과가 없습니다. </p>";
+				    }
+				    else {		
+						 for(var i = 0; i < result.length; i++ ) {		    
+							    post.innerHTML += "<div class='post'>"
+								    + "<div class='wrap-ut pull-left'>"
+								    + "<div class='userinfo pull-left'>"
+								    + "<div class='avatar'>"
+								    + "<img style='height: 37px; width: 37px;' src='/lck/"+result[i][2].value +"'></img>"				   
+								    + "</div>"
+								    + "</div>"
+								    + "<div class='posttext pull-left'>"
+								    + "<h2><a href='#' onClick='javascript:selectPostOne(" + result[i][0].value  +");' style='color: black;'>" +result[i][3].value +"</a></h2>"
+								    + "</div>"
+								    + "<div class='clearfix'></div>"
+								    + "</div>"
+								    + "<div class='postinfo pull-left'>"
+								    + "<div class='comments'>"
+								    + "<div class='commentbg' style='min-width:55px;'>" +result[i][8].value
+								    + "<div class='mark'></div>"
+								    + "</div>"
+								    + "</div>"
+								    + "<div class='views'>"
+								    + "<i class='fa fa-eye'></i>&emsp;" + result[i][6].value
+								    + "</div>"
+								    + "<div class='time'>"
+								    + "<i class='fa fa-clock-o'></i> <a href='#' onClick='event.preventDefault()' style='color: #9da6aa; cursor: default; font-size: 12px;'>"
+								    + result[i][7].value + "</a>" + "</div>" + "</div>"
+								    + "<div class='clearfix'></div>" + "</div>";	     
+							}
+					 }
+				}  
+			}
+
+	 });
 	</script>
 	
 

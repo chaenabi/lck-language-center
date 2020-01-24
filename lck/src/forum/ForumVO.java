@@ -20,7 +20,7 @@ public class ForumVO {
 	private Date postDate; // write post date
 	private String identityPhoto; // this is used for showing profile in forum list
 	private List<CommentVO> comment;
-	
+	private int howmanycomments;
 	
 	public static ForumVO getInstance() {
 		if (single_instance == null) {
@@ -104,12 +104,21 @@ public class ForumVO {
 	public void setComment(List<CommentVO> comment) {
 		this.comment = comment;
 	}
+	
+
+	public int getHowmanycomments() {
+		return howmanycomments;
+	}
+
+	public void setHowmanycomments(int howmanycomments) {
+		this.howmanycomments = howmanycomments;
+	}
 
 	@Override
 	public String toString() {
 		return "{forumNum:\""+ forumNum +"\""+", postId:" + postId + "," + "identityPhoto:" + "\"/lck" + identityPhoto + "\"" + ", postSubject:" + "\""
 				+ postSubject + "\"" + ", postContent:" + "\"" + postContent + "\"," + "postFile:" + "\"" + postFile
-				+ "\"" + ", SawCount:" + SawCount + ", postDate:" + "\"" + postDate + "\"" + ", comment:\""+ comment + "\"}";
+				+ "\"" + ", SawCount:" + SawCount + ", postDate:" + "\"" + postDate + "\"" + ", howmanycomments:" + "\"" + howmanycomments + "\"" + ", comment:\""+ comment + "\"}";
 	}
 
 }

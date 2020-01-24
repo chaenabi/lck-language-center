@@ -7,7 +7,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,13 +43,12 @@ public class ForumController extends HttpServlet {
 			e.printStackTrace();
 		}
 		String action = request.getParameter("action");
-		System.out.println(action);
+
 		if (action.equals("")) {
 			out.println("[심각] 어떠한 정보도 처리 할 수 없었습니다.");
 			out.println("관리자 문의 요망");
 		} else if (action.equals("inputUserId")) {
 			String userId = request.getParameter("userId");
-			System.out.println(userId);
 			session.setAttribute("userId", userId);
 			request.getRequestDispatcher("new_topic.jsp").forward(request, response);
 			
@@ -125,7 +123,8 @@ public class ForumController extends HttpServlet {
 			result.append("{\"value\": \"" + flist.get(i).getPostContent() + "\"},");
 			result.append("{\"value\": \"" + flist.get(i).getPostFile() + "\"},");
 			result.append("{\"value\": \"" + flist.get(i).getSawCount() + "\"},");
-			result.append("{\"value\": \"" + flist.get(i).getPostDate());
+			result.append("{\"value\": \"" + flist.get(i).getPostDate() + "\"},");
+			result.append("{\"value\": \"" + flist.get(0).getHowmanycomments());
 			
 		    if(i == flist.size()-1) {
 		    	 result.append("\"}]");

@@ -231,6 +231,7 @@
 							type="hidden" id="commentnum" name="commentnum"> <input
 							type="hidden" id="commentid" name="commentid"> <input
 							type="hidden" id="commentcontent" name="commentcontent">
+						<input type="hidden" id="postNumforcomment" name="postNumforcomment" />
 					</form>
 
 					<div class="col-lg-4 col-md-4"></div>
@@ -534,9 +535,9 @@
     
 
 	<script type="text/javascript">
-	document.getElementById("logout").onclick = function() {
+	/* document.getElementById("logout").onclick = function() {
 	    document.user_logout.submit();
-	}
+	} */
     </script>
 </body>
 </html>

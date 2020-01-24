@@ -43,6 +43,18 @@ public class ForumDAO {
 				flist.add(fvo);
 			}
 
+			String howmanycomments = "SELECT count(comment_post) as cnt "
+								   + "FROM COMMENT, forum "
+				         		   + "WHERE forum.forum_num = comment.comment_post";
+				pstmt.clearParameters();
+				pstmt = conn.prepareStatement(howmanycomments);
+				rs = pstmt.executeQuery();
+				rs.next();
+				int commentCnt = rs.getInt("cnt");
+				
+				flist.get(0).setHowmanycomments(commentCnt);
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -91,6 +103,20 @@ public class ForumDAO {
 
 				list.add(fvo);
 			}
+			
+			String howmanycomments = "SELECT count(comment_post) as cnt "
+								   + "FROM COMMENT, forum "
+		                		   + "WHERE forum.forum_num = comment.comment_post";
+			
+			
+			pstmt.clearParameters();
+			pstmt = conn.prepareStatement(howmanycomments);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int commentCnt = rs.getInt("cnt");
+			
+			list.get(0).setHowmanycomments(commentCnt);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -121,29 +147,32 @@ public class ForumDAO {
 	public int increaseSawCnt(int cnt, int forumNum) throws SQLException {
 		
 		++cnt;
+		conn = DBManager.getConnection();
 		
 		String updateSql = "UPDATE FORUM SET saw_count = ? where forum_num = ?";
-		String selectSql = "SELECT saw_count FROM FORUM WHERE forum_num = ?";
+		String selectSql = "SELECT saw_count "
+						 + "FROM FORUM, comment "
+						 + "WHERE forum_num = ? ";
 		try {
 
-			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(updateSql);
 			pstmt.setInt(1, cnt);
 			pstmt.setInt(2, forumNum);
 			pstmt.executeUpdate();
-			
+			pstmt.clearParameters();
 			pstmt = conn.prepareStatement(selectSql);
 			pstmt.setInt(1, forumNum);
 			rs = pstmt.executeQuery();
 			
 			rs.next();
 			cnt = rs.getInt("saw_count");
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBclose();
 		}
+		
 		return cnt;
 	}
 	
@@ -167,6 +196,7 @@ public class ForumDAO {
 
 			if (!rs.next()) { // if 0 row selected. meanwhile, if there's no any comment at the post.
 				sql = "SELECT forum.*, user.identity_photo as photo FROM forum, user WHERE forum_num = ? AND forum.post_id = user.userid";
+				pstmt.clearParameters();
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, forum_num);
 				rs = pstmt.executeQuery();

@@ -104,10 +104,7 @@ public class CommentController extends HttpServlet {
 				cdao.delete(commentnum, commentid);
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
-			
-			
+			}		
 			
 			request.getRequestDispatcher("ShowForumList").forward(request, response);
 		} else if (action.equals("logout")) {
