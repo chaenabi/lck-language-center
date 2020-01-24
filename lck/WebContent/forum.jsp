@@ -340,7 +340,7 @@ body a {
 		    + "</div>"
 		    + "</div>"
 		    + "<div class='posttext pull-left'>"
-		    + "<h2><a href='' onClick='javascript:selectPostOne(" + list[i].forumNum  +");' style='color: black;'>" +list[i].postSubject +"</a></h2>"
+		    + "<h2><a href='#' onClick='javascript:selectPostOne(" + list[i].forumNum  +");' style='color: black;'>" +list[i].postSubject +"</a></h2>"
 		    + "</div>"
 		    + "<div class='clearfix'></div>"
 		    + "</div>"

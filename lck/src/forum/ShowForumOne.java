@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,37 +49,34 @@ public class ShowForumOne extends HttpServlet {
 			int forumNum = Integer.parseInt(request.getParameter("forumNum"));
 	
 			try {
+				
 				fvo = fdao.selectOne(forumNum);
-				//System.out.println(fvo.toString());
+
+				System.out.println(fvo.toString());
 				int cnt = fdao.increaseSawCnt(fvo.getSawCount(), fvo.getForumNum());
 
 				fvo.setSawCount(cnt);
 
+				System.out.println("2 여기까지 도달하나?");
+				request.setAttribute("postId", fvo.getPostId());
+				request.setAttribute("forumNum", fvo.getForumNum());
+				request.setAttribute("profile", fvo.getIdentityPhoto());
+				request.setAttribute("postFile", fvo.getPostFile());
+				request.setAttribute("postSubject", fvo.getPostSubject());
+				request.setAttribute("postContent", fvo.getPostContent());
+				request.setAttribute("sawCount", fvo.getSawCount());	
+				request.setAttribute("comments", fvo.getComment());
+
 				
-				  request.setAttribute("postId", fvo.getPostId());
-				  request.setAttribute("forumNum", fvo.getForumNum());
-				  request.setAttribute("profile", fvo.getIdentityPhoto());
-				  request.setAttribute("postFile", fvo.getPostFile());
-				  request.setAttribute("postSubject", fvo.getPostSubject());
-				  request.setAttribute("postContent", fvo.getPostContent());
-				  request.setAttribute("sawCount", fvo.getSawCount());
-				  request.setAttribute("comments", fvo.getComment());
-				 
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} 
-
-			request.getRequestDispatcher("topic.jsp").forward(request, response);
-
-
+			RequestDispatcher dispatcher = request.getRequestDispatcher("topic.jsp");
+			dispatcher.forward(request, response);
 		}
-		
-		
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		doGet(request, response);
 	}
 
