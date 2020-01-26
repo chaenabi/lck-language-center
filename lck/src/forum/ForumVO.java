@@ -15,12 +15,13 @@ public class ForumVO {
 	private int postId; // manager id
 	private String postSubject; // post title
 	private String postContent; // post content
-	private String postFile; // added file name
 	private int SawCount; // how many people see post.
 	private Date postDate; // write post date
 	private String identityPhoto; // this is used for showing profile in forum list
 	private List<CommentVO> comment;
 	private int howmanycomments;
+	private String postPhoto;// added photo name
+	private String postVideo; //// added video name
 	
 	public static ForumVO getInstance() {
 		if (single_instance == null) {
@@ -65,13 +66,7 @@ public class ForumVO {
 		this.postContent = postContent;
 	}
 
-	public String getPostFile() {
-		return postFile;
-	}
-
-	public void setPostFile(String postFile) {
-		this.postFile = postFile;
-	}
+	
 
 	public int getSawCount() {
 		return SawCount;
@@ -114,11 +109,27 @@ public class ForumVO {
 		this.howmanycomments = howmanycomments;
 	}
 
+	public String getPostPhoto() {
+		return postPhoto;
+	}
+
+	public void setPostPhoto(String postPhoto) {
+		this.postPhoto = postPhoto;
+	}
+
+	public String getPostVideo() {
+		return postVideo;
+	}
+
+	public void setPostVideo(String postVideo) {
+		this.postVideo = postVideo;
+	}
+
 	@Override
 	public String toString() {
 		return "{forumNum:\""+ forumNum +"\""+", postId:" + postId + "," + "identityPhoto:" + "\"/lck" + identityPhoto + "\"" + ", postSubject:" + "\""
-				+ postSubject + "\"" + ", postContent:" + "\"" + postContent + "\"," + "postFile:" + "\"" + postFile
-				+ "\"" + ", SawCount:" + SawCount + ", postDate:" + "\"" + postDate + "\"" + ", howmanycomments:" + "\"" + howmanycomments + "\"" + ", comment:\""+ comment + "\"}";
+				+ postSubject + "\"" + ", postContent:" + "\"" + postContent + "\"," + "postPhoto:" + "\"" + postPhoto + "\"" 
+				+ ", postVideo:" + "\"" + postVideo + "\"" + ", SawCount:" + SawCount + ", postDate:" + "\"" + postDate + "\"" + ", howmanycomments:" + "\"" + howmanycomments + "\"" + ", comment:\""+ comment + "\"}";
 	}
 
 }

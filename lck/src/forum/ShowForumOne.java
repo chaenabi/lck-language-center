@@ -57,11 +57,11 @@ public class ShowForumOne extends HttpServlet {
 
 				fvo.setSawCount(cnt);
 
-				System.out.println("2 여기까지 도달하나?");
 				request.setAttribute("postId", fvo.getPostId());
 				request.setAttribute("forumNum", fvo.getForumNum());
 				request.setAttribute("profile", fvo.getIdentityPhoto());
-				request.setAttribute("postFile", fvo.getPostFile());
+				request.setAttribute("postPhoto", fvo.getPostPhoto());
+				request.setAttribute("postVideo", fvo.getPostVideo());
 				request.setAttribute("postSubject", fvo.getPostSubject());
 				request.setAttribute("postContent", fvo.getPostContent());
 				request.setAttribute("sawCount", fvo.getSawCount());	

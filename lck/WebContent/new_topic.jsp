@@ -31,6 +31,16 @@
 	href="assets/rs-plugin/css/settings.css" media="screen" />
 
 <script src="assets/lib/jquery/jquery.min.js"></script>
+<!-- <script>
+// video tag event
+window.onload = function() {
+    var videoSrc = $('#attachvideo').attr("src").trim();
+	if(videoSrc == '' || videoSrc == null) {
+	    $('#toggleHidden').attr('style', 'display:none;');
+	}
+}
+</script> -->
+
 <script>
     // 비동기 업로드 js
     $(document).ready(function(e) {
@@ -39,23 +49,51 @@
 	$("#ex_file").on("change", function() {
 	    ext = $(this).val().split('.').pop().toLowerCase();
 
-	    if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg', 'mov', 'avi', 'mpg', 'mpeg', 'wmv', 'flv' ]) == -1) {
+	    if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg', 'mov', 'avi', 'mpg', 'mp4', 'mpeg', 'wmv', 'flv' ]) == -1) {
 		resetFormElement($(this));
-		window.alert('등록불가! (gif, png, jpg, jpeg 확장자, 혹은 mov, avi, mpg, mpeg, wmv, flv 확장자만 등록가능합니다.)');
+		window.alert('등록불가! (그림파일은 gif, png, jpg, jpeg 확장자, 동영상은 mov, avi, mpg, mpeg, mp4, wmv, flv 확장자만 등록가능합니다.)');
 	    } else {
+
+		var fileidvalue = document.getElementById("ex_file").value;
 		file = $('#ex_file').prop("files")[0];
+		
+		//fake path cannot work with src display, so use createObjectURL.
 		blobURL = window.URL.createObjectURL(file);
-		/* $('#profile_photo img').removeAttr('src');
-		$('#profile_photo img').attr({
-		    src : blobURL,
-		}).css({
-		    'height' : '37px',
-		    'width' : '37px'
-		}); */
+		
+		ext = fileidvalue.split('.').pop().toLowerCase();
+		
+		if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg'])  != -1) {
+		    $('#attachphoto').removeAttr('src');
+			$('#attachphoto').attr({
+			    src : blobURL,
+			}).css({
+			    'height' : '37px',
+			    'width' : '37px'
+			}); 
+		} else {
+		   	fileidvalue = fileidvalue.substring(fileidvalue.lastIndexOf('\\')+1);
+
+		    $('#attachvideoname').attr('style', 'display: block;');
+		    isAttached = document.getElementById('isAttached');
+		    isAttached.innerHTML = fileidvalue +' has uploaded';
+		    
+		    postVideo = $('#postVideo');
+		    postVideo.value = fileidvalue;
+		    
+		    
+		    /* work with video tag 
+		   $('#attachvideo').removeAttr('src'); 
+		    $('#toggleHidden').attr('style', 'display:block;');
+		    $('#attachvideo').attr({	
+				src : blobURL,
+			}); */
+		}
+		
+		
+		
 
 		//window.URL
 		//.revokeObjectURL(file);
-		
 
 	    }
 	    //비동기 업로드를 위해 submit        
@@ -67,9 +105,8 @@
 	    //e.preventDefault();
 	    var file = document.getElementById("ex_file");
 	    var fileData = new FormData();
-	    //console.log(file.value);
-		
-	    fileData.append('Topic_content_file', file.files[0]);
+	    
+	    //fileData.append('Topic_content_file', file.files[0]);
 	    fileData.append('Topic_content_filename', file.value);
 
 	    $.ajax({
@@ -90,11 +127,6 @@
 	}));
     });
 
-    //관리자 등록 서브밋 
-    function AddUser() {
-	$('#action').val('add');
-	$('#addUser').submit();
-    }
 </script>
 
 
@@ -200,8 +232,19 @@
 								
 											<div class="filebox">
 												<label for="ex_file">파일 업로드</label> <input type="file"
-													id="ex_file" name="Topic_content_file" />
+													id="ex_file" name="postPhoto" />
 												<button type="submit" id="uploadsubmit" hidden="hidden"></button>
+												&emsp;
+												<img id="attachphoto"/>
+												<div id="attachvideoname" style="display: none;">
+												<b id="isAttached"></b>
+												<input type="hidden" id="postVideo" name="postVideo"/>
+												</div>
+												<!-- <div id="toggleHidden">
+												<video width="300" height="200" controls>
+  														<source id="attachvideo" src="">
+ 												</video>
+ 												</div> -->
 											</div>
 
 											<div class="row newtopcheckbox">

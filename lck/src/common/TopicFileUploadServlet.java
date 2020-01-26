@@ -65,9 +65,24 @@ public class TopicFileUploadServlet extends HttpServlet {
 	        System.out.print("순수한 파일 이름: ");
 	        System.out.println(result);
 	        
-	        //파일 경로를 저장한다.
+	        String extension = result.substring(result.lastIndexOf('.')+1);
+
 	        ForumVO fvo = ForumVO.getInstance();
-	        fvo.setPostFile("/contents/"+result);
+	        if(extension.equals("jpg")) {
+	        	//System.out.println("jpg runs");
+	        	
+	        	// 크리티컬: 에러 !
+	        	// 해야할 일: 현재 fvo getInstance에 setPostPhoto 등은 ForumController에서 fvo = new FORUMVO() 와 맞지 않아 파일의 이름이 디비에 제대로 저장되지못한다.
+	        	// 따라서 fvo.setPostPhoto()... 를 조정하여 ForumController의 new ForumVO()에 넣어주어야 한다.
+		        fvo.setPostPhoto("/contents/"+result);
+	        } else if(extension.equals("mov")) {
+	        	//System.out.println("mov runs");
+	        	fvo.setPostVideo("/contents/"+result);
+	        }
+	        
+	        
+	        
+	        //파일 경로를 저장한다.
 	        
 	     // 전송한 전체 파일이름들을 가져온다.
 	        Enumeration files = multi.getFileNames();

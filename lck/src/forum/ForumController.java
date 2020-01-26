@@ -62,6 +62,7 @@ public class ForumController extends HttpServlet {
 			}	
 			
 		} else if (action.equals("addpost")) {
+
 			try {
 				fdao.insert(fvo);
 				response.sendRedirect("ShowForumList");
@@ -121,7 +122,8 @@ public class ForumController extends HttpServlet {
 			result.append("{\"value\": \"" + flist.get(i).getIdentityPhoto() + "\"},");
 			result.append("{\"value\": \"" + flist.get(i).getPostSubject() + "\"},");
 			result.append("{\"value\": \"" + flist.get(i).getPostContent() + "\"},");
-			result.append("{\"value\": \"" + flist.get(i).getPostFile() + "\"},");
+			result.append("{\"value\": \"" + flist.get(i).getPostPhoto() + "\"},");
+			result.append("{\"value\": \"" + flist.get(i).getPostVideo() + "\"},");
 			result.append("{\"value\": \"" + flist.get(i).getSawCount() + "\"},");
 			result.append("{\"value\": \"" + flist.get(i).getPostDate() + "\"},");
 			result.append("{\"value\": \"" + flist.get(0).getHowmanycomments());

@@ -37,7 +37,8 @@ public class ForumDAO {
 				fvo.setIdentityPhoto(rs.getString("photo"));
 				fvo.setPostSubject(rs.getString("post_subject"));
 				fvo.setPostContent(rs.getString("post_content"));
-				fvo.setPostFile(rs.getString("post_file"));
+				fvo.setPostPhoto(rs.getString("post_photo"));
+				fvo.setPostVideo(rs.getString("post_video"));
 				fvo.setSawCount(rs.getInt("saw_count"));
 				fvo.setPostDate(rs.getDate("post_date"));
 				flist.add(fvo);
@@ -97,7 +98,8 @@ public class ForumDAO {
 				fvo.setIdentityPhoto(rs.getString("photo"));
 				fvo.setPostSubject(rs.getString("post_subject"));
 				fvo.setPostContent(rs.getString("post_content"));
-				fvo.setPostFile(rs.getString("post_file"));
+				fvo.setPostPhoto(rs.getString("post_photo"));
+				fvo.setPostVideo(rs.getString("post_video"));
 				fvo.setSawCount(rs.getInt("saw_count"));
 				fvo.setPostDate(rs.getDate("post_date"));
 
@@ -207,7 +209,8 @@ public class ForumDAO {
 			fvo.setIdentityPhoto(rs.getString("photo"));
 			fvo.setPostSubject(rs.getString("post_subject"));
 			fvo.setPostContent(rs.getString("post_content"));
-			fvo.setPostFile(rs.getString("post_file"));
+			fvo.setPostPhoto(rs.getString("post_photo"));
+			fvo.setPostVideo(rs.getString("post_video"));
 			fvo.setSawCount(rs.getInt("saw_count"));
 			fvo.setPostDate(rs.getDate("post_date"));
 
@@ -243,14 +246,15 @@ public class ForumDAO {
 		try {
 			conn = DBManager.getConnection();
 			stmt = conn.createStatement();
-			String sql = "INSERT INTO Forum(post_id, post_subject, post_content, post_file, post_date)"
-					+ " values(?,?,?,?,now())";
+			String sql = "INSERT INTO Forum(post_id, post_subject, post_content, post_photo, post_video, post_date)"
+					+ " values(?,?,?,?,?,now())";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, fvo.getPostId());
 			pstmt.setString(2, fvo.getPostSubject());
 			pstmt.setString(3, fvo.getPostContent());
-			pstmt.setString(4, fvo.getPostFile());
+			pstmt.setString(4, fvo.getPostPhoto());
+			pstmt.setString(5, fvo.getPostVideo());
 
 			pstmt.executeUpdate();
 

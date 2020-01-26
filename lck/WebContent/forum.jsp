@@ -423,16 +423,16 @@ body a {
 								    + "</div>"
 								    + "<div class='postinfo pull-left'>"
 								    + "<div class='comments'>"
-								    + "<div class='commentbg' style='min-width:55px;'>" +result[i][8].value
+								    + "<div class='commentbg' style='min-width:55px;'>" +result[i][9].value
 								    + "<div class='mark'></div>"
 								    + "</div>"
 								    + "</div>"
 								    + "<div class='views'>"
-								    + "<i class='fa fa-eye'></i>&emsp;" + result[i][6].value
+								    + "<i class='fa fa-eye'></i>&emsp;" + result[i][7].value
 								    + "</div>"
 								    + "<div class='time'>"
 								    + "<i class='fa fa-clock-o'></i> <a href='#' onClick='event.preventDefault()' style='color: #9da6aa; cursor: default; font-size: 12px;'>"
-								    + result[i][7].value + "</a>" + "</div>" + "</div>"
+								    + result[i][8].value + "</a>" + "</div>" + "</div>"
 								    + "<div class='clearfix'></div>" + "</div>";	     
 							}
 					 }
