@@ -31,8 +31,14 @@ public class ForumController extends HttpServlet {
 		translate(request, response);
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
-
-		ForumVO fvo = new ForumVO();
+		//ForumVO fvo = ForumVO.getInstance();
+		
+		String action = request.getParameter("action");
+		
+		//if(!action.equals("addpost")) {
+			//fvo = new ForumVO();		
+		//}
+		ForumVO fvo = new ForumVO();	
 		ForumDAO fdao = new ForumDAO();
 
 		try {
@@ -42,7 +48,6 @@ public class ForumController extends HttpServlet {
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
-		String action = request.getParameter("action");
 
 		if (action.equals("")) {
 			out.println("[심각] 어떠한 정보도 처리 할 수 없었습니다.");
@@ -62,7 +67,8 @@ public class ForumController extends HttpServlet {
 			}	
 			
 		} else if (action.equals("addpost")) {
-
+			// all of the fvo item is mapping by BeanUtils.copyProperties().
+			// if you'd trace data, see new_topic.jsp form tag first.
 			try {
 				fdao.insert(fvo);
 				response.sendRedirect("ShowForumList");

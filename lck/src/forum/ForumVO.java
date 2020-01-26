@@ -110,7 +110,8 @@ public class ForumVO {
 	}
 
 	public String getPostPhoto() {
-		return postPhoto;
+		if(postPhoto == null || postPhoto.contains("/contents/")) return postPhoto;
+		else return "/contents/" + postPhoto;
 	}
 
 	public void setPostPhoto(String postPhoto) {
@@ -118,7 +119,8 @@ public class ForumVO {
 	}
 
 	public String getPostVideo() {
-		return postVideo;
+		if(postPhoto == null || postPhoto.contains("/contents/")) return postVideo;
+		else return "/contents/" + postVideo;
 	}
 
 	public void setPostVideo(String postVideo) {

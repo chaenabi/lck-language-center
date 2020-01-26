@@ -44,7 +44,7 @@ public class ShowForumList extends HttpServlet {
 			e.printStackTrace();
 		}		
 		
-		System.out.println(list);
+		//System.out.println(list);
 		
 		request.setAttribute("forumList", list);
 		request.setAttribute("paging", paging);

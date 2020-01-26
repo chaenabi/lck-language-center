@@ -61,7 +61,12 @@ window.onload = function() {
 		blobURL = window.URL.createObjectURL(file);
 		
 		ext = fileidvalue.split('.').pop().toLowerCase();
-		
+
+		//get pure filename
+	   	fileidvalue = fileidvalue.substring(fileidvalue.lastIndexOf('\\')+1);
+	   	console.log("purefilename: " + fileidvalue);
+	   	
+	   	
 		if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg'])  != -1) {
 		    $('#attachphoto').removeAttr('src');
 			$('#attachphoto').attr({
@@ -70,16 +75,19 @@ window.onload = function() {
 			    'height' : '37px',
 			    'width' : '37px'
 			}); 
+			
+			$('#postPhoto').val(fileidvalue);
+			console.log("photo: " + $('#postPhoto').val());
+			
 		} else {
-		   	fileidvalue = fileidvalue.substring(fileidvalue.lastIndexOf('\\')+1);
 
 		    $('#attachvideoname').attr('style', 'display: block;');
 		    isAttached = document.getElementById('isAttached');
 		    isAttached.innerHTML = fileidvalue +' has uploaded';
 		    
-		    postVideo = $('#postVideo');
-		    postVideo.value = fileidvalue;
+		    $('#postVideo').val(fileidvalue);
 		    
+		    console.log("video: " + $('#postVideo').val());
 		    
 		    /* work with video tag 
 		   $('#attachvideo').removeAttr('src'); 
@@ -106,7 +114,7 @@ window.onload = function() {
 	    var file = document.getElementById("ex_file");
 	    var fileData = new FormData();
 	    
-	    //fileData.append('Topic_content_file', file.files[0]);
+	    fileData.append('Topic_content_file', file.files[0]);
 	    fileData.append('Topic_content_filename', file.value);
 
 	    $.ajax({
@@ -232,13 +240,14 @@ window.onload = function() {
 								
 											<div class="filebox">
 												<label for="ex_file">파일 업로드</label> <input type="file"
-													id="ex_file" name="postPhoto" />
+													id="ex_file" />
 												<button type="submit" id="uploadsubmit" hidden="hidden"></button>
 												&emsp;
 												<img id="attachphoto"/>
 												<div id="attachvideoname" style="display: none;">
 												<b id="isAttached"></b>
 												<input type="hidden" id="postVideo" name="postVideo"/>
+												<input type="hidden" id="postPhoto" name="postPhoto">
 												</div>
 												<!-- <div id="toggleHidden">
 												<video width="300" height="200" controls>

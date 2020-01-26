@@ -200,8 +200,8 @@ body a {
 								<div class="status green">&nbsp;</div>
 
 								<ul class="dropdown-menu" role="menu">
-									<li role="presentation"><a role="menuitem" tabindex="-1"
-										href="#">My Profile</a></li>
+									<!-- <li role="presentation"><a role="menuitem" tabindex="-1"
+										href="#">My Profile</a></li> -->
 									<c:if test="${sessionScope.username eq '김진기' }">
 										<li role="presentation"><a role="menuitem" tabindex="-4"
 											href="new_account.jsp">Create account</a></li>

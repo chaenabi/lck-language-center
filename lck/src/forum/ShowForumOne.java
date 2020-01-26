@@ -62,6 +62,7 @@ public class ShowForumOne extends HttpServlet {
 				request.setAttribute("profile", fvo.getIdentityPhoto());
 				request.setAttribute("postPhoto", fvo.getPostPhoto());
 				request.setAttribute("postVideo", fvo.getPostVideo());
+				
 				request.setAttribute("postSubject", fvo.getPostSubject());
 				request.setAttribute("postContent", fvo.getPostContent());
 				request.setAttribute("sawCount", fvo.getSawCount());	

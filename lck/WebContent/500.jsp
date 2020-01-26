@@ -38,7 +38,7 @@
 				<p class="lead text-gray-800 mb-5">Error. Work Failed</p>
 				<p class="text-gray-500 mb-0"> Call the Manager Please.</p>
 				<br/>
-				<a href="forum.jsp">&larr; return to forum page</a>
+				<a href="index.jsp">&larr; return to home page</a>
 		</div>
 
 	</div>

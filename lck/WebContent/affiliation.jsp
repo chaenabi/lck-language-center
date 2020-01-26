@@ -6,9 +6,6 @@
 <html lang="en">
 <head>
 
-<%-- <%
-response.setHeader("Access-Control-Allow-Origin","*");
-%> --%>
 
 <meta charset="utf-8" />
 <title>LCK Language Center</title>

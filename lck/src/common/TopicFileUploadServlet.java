@@ -69,14 +69,10 @@ public class TopicFileUploadServlet extends HttpServlet {
 
 	        ForumVO fvo = ForumVO.getInstance();
 	        if(extension.equals("jpg")) {
-	        	//System.out.println("jpg runs");
-	        	
-	        	// 크리티컬: 에러 !
-	        	// 해야할 일: 현재 fvo getInstance에 setPostPhoto 등은 ForumController에서 fvo = new FORUMVO() 와 맞지 않아 파일의 이름이 디비에 제대로 저장되지못한다.
-	        	// 따라서 fvo.setPostPhoto()... 를 조정하여 ForumController의 new ForumVO()에 넣어주어야 한다.
-		        fvo.setPostPhoto("/contents/"+result);
+	        	System.out.println("jpg runs");
+	        	fvo.setPostPhoto("/contents/"+result);
 	        } else if(extension.equals("mov")) {
-	        	//System.out.println("mov runs");
+	        	System.out.println("mov runs");
 	        	fvo.setPostVideo("/contents/"+result);
 	        }
 	        

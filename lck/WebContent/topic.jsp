@@ -77,8 +77,8 @@
 									style="height: 37px; width: 37px;" alt="" /></a> <b class="caret"></b>
 
 								<ul class="dropdown-menu" role="menu">
-									<li role="presentation"><a role="menuitem" tabindex="-1"
-										href="#">My Profile</a></li>
+									<!-- <li role="presentation"><a role="menuitem" tabindex="-1"
+										href="#">My Profile</a></li> -->
 
 									<li role="presentation"><a role="menuitem" tabindex="-3"
 										id="logout" href="#">Log Out</a></li>
@@ -99,7 +99,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- logout -->
 
 		<section class="content">
 			<div class="container">&nbsp;</div>
@@ -134,6 +133,15 @@
 									<div class="posttext pull-left">
 
 										<h2 id="editContentSubject">${requestScope.postSubject}</h2>
+										<br>
+										<c:if test="${not empty requestScope.postPhoto}">
+										<img style="width: 100%; height: 100%;" src="/lck/${requestScope.postPhoto}"/>
+										</c:if>
+										<c:if test="${not empty requestScope.postVideo}">
+										<video width="100%" height="100%" controls>
+ 											 <source src="/lck/${requestScope.postVideo}"/>
+										</video>
+										</c:if>
 										<p id="editContent" style="margin-bottom: 0px;">${requestScope.postContent}</p>
 									</div>
 									<div class="clearfix"></div>
