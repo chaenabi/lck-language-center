@@ -699,25 +699,35 @@
 	<script>
 	function confirmPostEdit() {
 	    if (confirm("did you finish modify this post?") == true) {
-		postId = ${requestScope.postId};
-		postNum = ${requestScope.forumNum};
 
-		$('#postId').val(postId);
-		$('#postNum').val(postNum);
+			postId = ${requestScope.postId};
+			postNum = ${requestScope.forumNum};
 
-		contentSub = $('#ContentSub').val();
-		contentText = $('#ContentText').val();
+			$('#postId').val(postId);
+			$('#postNum').val(postNum);
 
-		$('#postContentSub').val(contentSub);
-		$('#postContentText').val(contentText);
-
-		//console.log($('#postContentSub').val());
-		//console.log($('#postContentText').val());
-
-		$('#forum_action').val('edit');
-
-		$('#contentEditForm').submit();
-	    }
+			contentSub = $('#ContentSub').val();
+			contentText = $('#ContentText').val();
+		
+			if(contentSub == "") {
+			  
+			 	alert("제목은 필수 입력입니다.");  
+			 	contentSub.focus();     // postSubject 텍스트박스에 커서를 위치
+				return false;
+			 
+			}
+			
+		
+	
+			$('#postContentSub').val(contentSub);
+			$('#postContentText').val(contentText);
+	
+			//console.log($('#postContentSub').val());
+			//console.log($('#postContentText').val());
+	
+			$('#forum_action').val('edit');
+			$('#contentEditForm').submit();
+		}
 
 	}
     </script>

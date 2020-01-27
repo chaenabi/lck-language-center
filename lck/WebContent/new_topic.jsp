@@ -134,6 +134,25 @@ window.onload = function() {
 
 </script>
 
+<script>
+//관리자 등록 서브밋 
+function AddPost() {
+	
+    postSubject = document.getElementById("postSubject");
+	
+	
+	 if(postSubject.value==""){ //postSubject 값이 없을 경우
+	 	alert("제목은 필수 입력입니다.");    //메세지 경고창을 띄운 후
+	 	postSubject.focus();     // postSubject 텍스트박스에 커서를 위치
+	 return false;
+	 
+	 }
+		$('#addPost').submit();	
+	 
+	}
+
+</script>
+
 
 </head>
 <c:if test="${empty sessionScope.username}">
@@ -203,7 +222,7 @@ window.onload = function() {
 
 							<!-- POST -->
 							<div class="post">
-								<form action="forum" class="form newtopic" method="post">
+								<form action="forum" class="form newtopic" method="post" id="addPost" onsubmit="return AddPost();">
 									<input type="hidden" name="action" value="addpost"/>
 									
 									<input type="hidden" name="postId" value="${sessionScope.userId}"/>
@@ -226,7 +245,7 @@ window.onload = function() {
 
 											<div>
 												<input type="text" placeholder="제목" class="form-control"
-													name="postSubject" />
+													name="postSubject"  id="postSubject"/>
 											</div>
 
 
@@ -246,11 +265,7 @@ window.onload = function() {
 												<input type="hidden" id="postVideo" name="postVideo"/>
 												<input type="hidden" id="postPhoto" name="postPhoto">
 												</div>
-												<!-- <div id="toggleHidden">
-												<video width="300" height="200" controls>
-  														<source id="attachvideo" src="">
- 												</video>
- 												</div> -->
+		
 											</div>
 
 											<div class="row newtopcheckbox">
