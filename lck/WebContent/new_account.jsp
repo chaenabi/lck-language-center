@@ -117,9 +117,47 @@
 
     //관리자 등록 서브밋 
     function AddUser() {
-	$('#action').val('add');
-	$('#addUser').submit();
-    }
+	
+	managername = document.getElementById("managername");
+	password = document.getElementById("password");
+	pass2 = document.getElementById("pass2");
+	
+	console.log(managername);
+	console.log(password);
+	console.log(pass2);
+	
+	 if(managername.value==""){ //managername 값이 없을 경우
+	 	alert("이름을 입력하세요.");    //메세지 경고창을 띄운 후
+	 	managername.focus();     // managername 텍스트박스에 커서를 위치
+	 return false;
+	 
+	 }
+	 
+	 if(password.value==""){
+	 alert("비밀번호를 입력하세요.");
+		 password.focus();
+	 return false;
+	 
+	 }
+	 
+	 if(pass2.value==""){
+	 alert("비밀번호 확인을 입력하세요.");
+		 pass2.focus();
+	 return false;
+	 
+	 } 
+	 
+	 if(password.value!=pass2.value){
+	 //비밀번호와 비밀번호확인의 값이 다를 경우 
+	 alert("입력한 2개의 비밀번호가 일치하지 않습니다.");
+	 	pass2.focus();
+	 return false;
+	 
+	 } 
+		$('#action').val('add');
+		$('#addUser').submit();	
+	 
+	}
 </script>
 
 
@@ -192,7 +230,7 @@
 						<!-- POST -->
 						<div class="post" style="margin-top: 10px; margin-left: 60px;">
 							<form action="user" class="form newtopic" method="post"
-								id="addUser">
+								id="addUser" onsubmit="return AddUser();">
 								<input type="hidden" id="action" name="action">
 								<div class="postinfotop">
 									<h2 style="font-weight: bold;">Create New Manager</h2>
@@ -227,14 +265,14 @@
 											<div class="row">
 												<div class="col-lg-6 col-md-6">
 													<input type="text" placeholder="관리자 이름"
-														class="form-control" name="name" />
+														class="form-control" name="name" id="managername" />
 												</div>
 
 											</div>
 											<div class="row">
 												<div class="col-lg-6 col-md-6">
 													<input type="password" name="password" placeholder="비밀번호"
-														class="form-control" id="password" />
+														class="form-control" id="password"/>
 												</div>
 												<div class="col-lg-6 col-md-6">
 													<input type="password" placeholder="비밀번호 재입력"
@@ -264,14 +302,14 @@
 											</div>
 											<div class="row">
 												<div class="col-lg-8 col-md-6">
-													<input type="text" name="address" placeholder="서울시 강남구 역삼동"
+													<input type="text" name="address" placeholder="주소"
 														class="form-control" />
 												</div>
 
 											</div>
 											<div class="row">
 												<div class="col-lg-8 col-md-6">
-													<input type="text" name="position" placeholder="대표 이사"
+													<input type="text" name="position" placeholder="직급"
 														class="form-control" />
 												</div>
 
@@ -291,7 +329,7 @@
 									</div>
 									<div class="pull-left">
 										<button class="btn btn-primary"
-											onclick="javascript:AddUser();">등록</button>
+											type="submit">등록</button>
 									</div>
 									<div class="clearfix"></div>
 								</div>

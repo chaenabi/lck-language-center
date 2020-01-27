@@ -410,7 +410,7 @@ body a {
 						post.innerHTML += "<p>검색 결과가 없습니다. </p>";
 				    }
 				    else {		
-						 for(var i = 0; i < result.length-1; i++ ) {		    
+						 for(var i = 0; i < result.length; i++ ) {		    
 							    post.innerHTML += "<div class='post'>"
 								    + "<div class='wrap-ut pull-left'>"
 								    + "<div class='userinfo pull-left'>"

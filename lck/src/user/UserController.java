@@ -15,8 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import com.mysql.cj.Session;
-
 @WebServlet("/user")
 public class UserController extends HttpServlet {
 
@@ -78,10 +76,8 @@ public class UserController extends HttpServlet {
 		} else if (action.equals("selectOne")) {
 
 		} else if (action.equals("add")) {
-			System.out.println("관리자 추가 준비완료 ...");
 			try {
 				udao.insert(uvo);
-				System.out.println("관리자 추가 완료!");
 				response.sendRedirect("ShowForumList");
 			} catch (SQLException e) {
 				e.printStackTrace();

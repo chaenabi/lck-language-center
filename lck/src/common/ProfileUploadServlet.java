@@ -27,7 +27,7 @@ public class ProfileUploadServlet extends HttpServlet {
 		//(예시: rootpath.../.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/lck)
 		String AbsolutePath = request.getSession().getServletContext().getRealPath("profiles");
 		// 실제로 서버에 저장되는 path
-		System.out.println("절대 경로: " + AbsolutePath);
+		//System.out.println("절대 경로: " + AbsolutePath);
 
 	    int size = 1024 * 1024 * 100; // 파일 크기 제한. 100Mb
 	    String fileName = "";    // 업로드한 파일 이름
@@ -55,15 +55,15 @@ public class ProfileUploadServlet extends HttpServlet {
 	        // request, 파일저장경로, 용량, 인코딩타입, 중복파일명에 대한 정책
 	       
 	        MultipartRequest multi = new MultipartRequest(request, AbsolutePath, size, "UTF-8", new DefaultFileRenamePolicy());
-	        System.out.print("업로딩한 파일의 이름: ");
+	       // System.out.print("업로딩한 파일의 이름: ");
 	        String profile_name = (String) multi.getParameter("profile_thumnail_filename");
-	    	System.out.println(profile_name);
-	        String substringFileName = "C:\\fakepath\\" + profile_name;
+	    	//System.out.println(profile_name);
+	       String substringFileName = "C:\\fakepath\\" + profile_name;
 	        String result = substringFileName.substring(substringFileName.lastIndexOf("\\")+1);
 	        
 	        //순수한 파일 이름
-	        System.out.print("순수한 파일 이름: ");
-	        System.out.println(result);
+	       // System.out.print("순수한 파일 이름: ");
+	        //System.out.println(result);
 	        
 	        //파일 경로를 저장한다.
 	        UserVO uvo = UserVO.getInstance();

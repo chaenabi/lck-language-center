@@ -57,7 +57,8 @@
 					<div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo ">
 						<a href="index.jsp"><img src="assets/img/logo.jpg" alt="" /></a>
 					</div>
-					<div class="col-lg-7 col-sm-7 col-md-7 selecttopic" style="width:33%;">
+					<div class="col-lg-7 col-sm-7 col-md-7 selecttopic"
+						style="width: 33%;">
 						<h3 style="padding-top: 20px; margin: 0px; width: 200px;">
 							${requestScope.postSubject}</h3>
 					</div>
@@ -82,7 +83,7 @@
 
 									<li role="presentation"><a role="menuitem" tabindex="-3"
 										id="logout" href="#">Log Out</a></li>
-									<c:if test="${sessionScope.username eq '김진기' }">
+									<c:if test="${sessionScope.username eq '김진기'}">
 										<li role="presentation"><a role="menuitem" tabindex="-4"
 											href="new_account.jsp">Create account</a></li>
 									</c:if>
@@ -117,19 +118,16 @@
 
 										<hr />
 										<c:if test="${not empty sessionScope.username}">
-										
+											
 										<c:if test="${empty requestScope.postPhoto}">
 											<c:set var="emptyPhoto" value="emptyPhoto" />	
 										</c:if>
 										<c:if test="${empty requestScope.postVideo}">
 											<c:set var="emptyVideo" value="emptyVideo" />	
-										</c:if>
-										
-											<a id="theEditPostId"
-												onClick='contentEdit(" ${emptyPhoto}, ${emptyVideo} ")' style="color: #F7BE81"><i class="fa fa-edit"
-												style="font-size: 20px;"></i></a>
+										</c:if> 
+										<a id="theEditPostId" onClick='contentEdit(" ${emptyPhoto}, ${emptyVideo} ")' style="color: #F7BE81"><i class="fa fa-edit" style="font-size: 20px;"></i></a>				
 					   &nbsp; &nbsp;
-					  			<a id="theDelPostId" onClick="contentDel()"
+					  				<a id="theDelPostId" onClick="contentDel()"
 												style="color: #989c9e"><i class="fa fa-times"
 												style="font-size: 20px;"></i></a>
 										</c:if>
@@ -143,23 +141,24 @@
 										<h2 id="editContentSubject">${requestScope.postSubject}</h2>
 										<br>
 										<form action="forum" method="post">
-										
-										<div id="postPhotoTag">
-											<c:if test="${not empty requestScope.postPhoto}">
-												<img style="width: 100%; height: 100%;" src="/lck/${requestScope.postPhoto}"/>
-											</c:if>
-										</div>
-										
-										<div id="postVideoTag">
-											<c:if test="${not empty requestScope.postVideo}">
-												<video  width="100%" height="100%" controls>
-		 											 <source src="/lck/${requestScope.postVideo}"/>
-												</video>
-											</c:if>
-										</div>
-					
+
+											<div id="postPhotoTag">
+												<c:if test="${not empty requestScope.postPhoto}">
+													<img style="width: 100%; height: 100%;"
+														src="/lck/${requestScope.postPhoto}" />
+												</c:if>
+											</div>
+
+											<div id="postVideoTag">
+												<c:if test="${not empty requestScope.postVideo}">
+													<video width="100%" height="100%" controls>
+														<source src="/lck/${requestScope.postVideo}" />
+													</video>
+												</c:if>
+											</div>
+
 										</form>
-										
+
 										<p id="editContent" style="margin-bottom: 0px;">${requestScope.postContent}</p>
 									</div>
 									<div class="clearfix"></div>
@@ -241,13 +240,13 @@
 					<!--  게시글 수정 삭제용 form -->
 					<form action="forum" class="form" id="contentEditForm"
 						method="post">
-						<input type="hidden" id="forum_action" name="action" />
+						<input type="hidden" id="forum_action" name="action" /> 
 						<input type="hidden" id="postId" name="postId" />
 						<input type="hidden" id="postNum" name="postNum" />
-						<input type="hidden" id="postContentSub" name="postContentSub" />
-						<input type="hidden" id="postContentText" name="postContentText" />	
-						<input type="hidden" id="postVideo" name="postVideo"/>
-						<input type="hidden" id="postPhoto" name="postPhoto">
+						<input type="hidden" id="postContentSub" name="postContentSub" /> 
+						<input type="hidden" id="postContentText" name="postContentText" /> 
+							<input type="hidden" id="postPhoto" name="postPhoto" value="${requestScope.postPhoto}">
+							<input type="hidden" id="postVideo" name="postVideo" value="${requestScope.postVideo}"/> 
 					</form>
 
 
@@ -258,7 +257,8 @@
 							type="hidden" id="commentnum" name="commentnum"> <input
 							type="hidden" id="commentid" name="commentid"> <input
 							type="hidden" id="commentcontent" name="commentcontent">
-						<input type="hidden" id="postNumforcomment" name="postNumforcomment" />
+						<input type="hidden" id="postNumforcomment"
+							name="postNumforcomment" />
 					</form>
 
 					<div class="col-lg-4 col-md-4"></div>
@@ -300,158 +300,191 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 
-<script>
-	var post=document.getElementById("makeCommentListBox");
+	<script>
+	var post = document.getElementById("makeCommentListBox");
 	var commentlist = ${requestScope.comments};
-	
-	
-	for(var i = 0; i < commentlist.length; i++) {
-	
-	    if(commentlist[i].commentContent == "") {
-		    commentlist[i].commentContent = "empty comment";
-		}
-	  
-	    
-		post.innerHTML += "<div class='post'>" 
-		    		   + "	<div class='topwrap'>"
-					   + "		<div class='userinfo pull-left' style='padding: 25px 0px 0px 10px;'>"
-					   + "			<div class='avatar' style='margin: 0px 0px 15px 5px; width: 60px;'>"
-					   + "			<p id='cid"+String(commentlist[i].commentNum)+"' style='margin: 0px;'>"+commentlist[i].CommentId+"</p>"
-					   + "			<hr/>"
-					   + "			<a id='aedit"+i+"' onClick=\"postEdit("+ String(commentlist[i].commentNum) + ", "+ "\'"+  String(commentlist[i].CommentId) + "\', "+ "\'"+ String(commentlist[i].commentContent) + "\', "+ i + ")"+"\" style='color:#F7BE81'><i class='fa fa-edit' style='font-size: 20px;'></i></a>"	
-					   + "&nbsp; &nbsp; &nbsp;"
-					   + "			<a id='adel"+i+"' onClick=\"postDelete("+ String(commentlist[i].commentNum) + ", "+ "\'"+  String(commentlist[i].CommentId) + "\', "+ "\'"+ String(commentlist[i].commentContent) + "\', "+ i + ")"+"\" style='color: #989c9e'><i class='fa fa-times' style='font-size: 20px;'></i></a>"
-					   + "			</div>"
-					   + "		</div>"
-					   + "	<div class='posttext pull-left'>"
-					   + "		<p id='ccon"+i+"' class='commentContent' style='margin: 0px;'>"+commentlist[i].commentContent+"</p>"
-					   + "	</div>"
-					   + "	<div class='clearfix'></div>"
-					   + "	</div>"
-					   + "<div class='postinfobot'>"
-					   + "<div class='clearfix'></div>"
-					   + "</div>"
-					   + "</div>";
+
+	for (var i = 0; i < commentlist.length; i++) {
+
+	    if (commentlist[i].commentContent == "") {
+		commentlist[i].commentContent = "empty comment";
+	    }
+
+	    post.innerHTML += "<div class='post'>"
+		    + "	<div class='topwrap'>"
+		    + "		<div class='userinfo pull-left' style='padding: 25px 0px 0px 10px;'>"
+		    + "			<div class='avatar' style='margin: 0px 0px 15px 5px; width: 60px;'>"
+		    + "			<p id='cid"
+		    + String(commentlist[i].commentNum)
+		    + "' style='margin: 0px;'>"
+		    + commentlist[i].CommentId
+		    + "</p>"
+		    + "			<hr/>"
+		    + "			<a id='aedit"
+		    + i
+		    + "' onClick=\"postEdit("
+		    + String(commentlist[i].commentNum)
+		    + ", "
+		    + "\'"
+		    + String(commentlist[i].CommentId)
+		    + "\', "
+		    + "\'"
+		    + String(commentlist[i].commentContent)
+		    + "\', "
+		    + i
+		    + ")"
+		    + "\" style='color:#F7BE81'><i class='fa fa-edit' style='font-size: 20px;'></i></a>"
+		    + "&nbsp; &nbsp; &nbsp;"
+		    + "			<a id='adel"
+		    + i
+		    + "' onClick=\"postDelete("
+		    + String(commentlist[i].commentNum)
+		    + ", "
+		    + "\'"
+		    + String(commentlist[i].CommentId)
+		    + "\', "
+		    + "\'"
+		    + String(commentlist[i].commentContent)
+		    + "\', "
+		    + i
+		    + ")"
+		    + "\" style='color: #989c9e'><i class='fa fa-times' style='font-size: 20px;'></i></a>"
+		    + "			</div>"
+		    + "		</div>"
+		    + "	<div class='posttext pull-left'>"
+		    + "		<p id='ccon"+i+"' class='commentContent' style='margin: 0px;'>"
+		    + commentlist[i].commentContent
+		    + "</p>"
+		    + "	</div>"
+		    + "	<div class='clearfix'></div>"
+		    + "	</div>"
+		    + "<div class='postinfobot'>"
+		    + "<div class='clearfix'></div>" + "</div>" + "</div>";
 	}
-	
     </script>
 
 	<script>
 	// parameters for clearly specify clicked tag
 	// post~ function is all binding on comment .. sry for naming mistake.
 	function postEdit(cnum, cid, ccon, i) {
-		var pass = "";
+	    var pass = "";
 	    var postId = "";
-		pass = prompt('글 수정을 위해 암호를 입력해주세요.');
-		
- 			// add data for giving server
-		 $('#commentnum').val(cnum);
-		 $('#commentid').val(cid);
-		 
-	     $('#password').val(pass);
-	     $('#action').val('validate');
-	    
-	    
-	  $.ajax({
-		   
-		    type : 'POST',
-			url : "comment",
-			data : $('#commentForm').serialize(),
-			success : function(result, msg) {
-					if(result == "validated") {
-					   
-					    modifyContent = document.getElementById('ccon' +i);
-					    modifyContent.innerHTML = "";
-					    modifyContent.innerHTML = "<textarea id='ta"+i+"' style='width: 100%; height: 100px;'>"+ccon+"</textarea>";
-					    	
-					    //only filtered id value                      
-					    cnumber = JSON.stringify(document.getElementById('cid' + cnum).getAttribute('id'));
-				
-					    // change Pedit icon, onclick event, style                             
-					    document.getElementById('aedit' +i).setAttribute('onClick', 'confirmEdit('+cnumber+', '+i+')');
-					    document.getElementById('aedit' +i).setAttribute('style', 'green');
-					    document.getElementById('aedit' +i).firstChild.setAttribute('class', 'fa fa-check');
-					    
-					    // change Pdelete onclick event, style
-					    document.getElementById('adel' +i).setAttribute('onClick', 'cancelEdit()');
-					    document.getElementById('adel' +i).setAttribute('style', 'color:black');
-					    
-					}
-					else { 
-					   alert("password is invalid. please check again.");
-					}
-					
-			},
-			error : function(error) {
-			    console.log("error: ");
-			    console.log(error);
-			}
-		    });
-	    
-	} 
-	
+	    pass = prompt('글 수정을 위해 암호를 입력해주세요.');
+
+	    // add data for giving server
+	    $('#commentnum').val(cnum);
+	    $('#commentid').val(cid);
+
+	    $('#password').val(pass);
+	    $('#action').val('validate');
+
+	    $.ajax({
+
+		type : 'POST',
+		url : "comment",
+		data : $('#commentForm').serialize(),
+		success : function(result, msg) {
+		    if (result == "validated") {
+
+			modifyContent = document.getElementById('ccon' + i);
+			modifyContent.innerHTML = "";
+			modifyContent.innerHTML = "<textarea id='ta" + i
+				+ "' style='width: 100%; height: 100px;'>"
+				+ ccon + "</textarea>";
+
+			//only filtered id value                      
+			cnumber = JSON.stringify(document.getElementById(
+				'cid' + cnum).getAttribute('id'));
+
+			// change Pedit icon, onclick event, style                             
+			document.getElementById('aedit' + i).setAttribute(
+				'onClick',
+				'confirmEdit(' + cnumber + ', ' + i + ')');
+			document.getElementById('aedit' + i).setAttribute(
+				'style', 'green');
+			document.getElementById('aedit' + i).firstChild
+				.setAttribute('class', 'fa fa-check');
+
+			// change Pdelete onclick event, style
+			document.getElementById('adel' + i).setAttribute(
+				'onClick', 'cancelEdit()');
+			document.getElementById('adel' + i).setAttribute(
+				'style', 'color:black');
+
+		    } else {
+			alert("password is invalid. please check again.");
+		    }
+
+		},
+		error : function(error) {
+		    console.log("error: ");
+		    console.log(error);
+		}
+	    });
+
+	}
+
 	function postDelete(cnum, cid, ccon, i) {
 	    var pass = "";
 	    var postId = "";
-		pass = prompt('글 삭제를 위해 암호를 입력해주세요.');
-		
- 			// add data for giving server
-		 $('#commentnum').val(cnum);
-		 $('#commentid').val(cid);
-		 
-	     $('#password').val(pass);
-	     $('#action').val('validate');
- 
-	  $.ajax({
-		   
-		    type : 'post',
+	    pass = prompt('글 삭제를 위해 암호를 입력해주세요.');
+
+	    // add data for giving server
+	    $('#commentnum').val(cnum);
+	    $('#commentid').val(cid);
+
+	    $('#password').val(pass);
+	    $('#action').val('validate');
+
+	    $.ajax({
+
+			type : 'post',
 			url : "comment",
 			data : $('#commentForm').serialize(),
 			success : function(result, msg) {
-					//delete function 
-					if(result == "validated") {
-						if(confirm("are you sure to delete comment?") == true) {
-						 
-						    $('#commentnum').val(cnum);
-						    $('#commentid').val(cid);
-						    $('#action').val('del');
-				    
-						    $('#commentForm').submit();
-						}
-					}
-					else { 
-						   alert("password is invalid. please check again.");
-					}
-					
+			    //delete function 
+			    if (result == "validated") {
+				if (confirm("are you sure to delete comment?") == true) {
+
+				    $('#commentnum').val(cnum);
+				    $('#commentid').val(cid);
+				    $('#action').val('del');
+
+				    $('#commentForm').submit();
+				}
+			    } else {
+				alert("password is invalid. please check again.");
+			    }
+
 			},
 			error : function(error) {
 			    console.log("error");
 			    console.log(error);
 			}
 		    });
-	    
+
 	}
-	</script>
+    </script>
 	<script>
-		function confirmEdit(cnum, i) {
-	   
-		    //수정된 textareaContent와 contentnum을 서버로 넘겨서 수정하게 한다. 	
-		    cnum = cnum.trim().replace(/[^0-9]/g, "");
-			
-	    	$('#commentnum').val(cnum);
-		    $('#commentcontent').val($('#ta'+i).val());
-		    $('#action').val('edit');
-    
-		    $('#commentForm').submit();
-		    		    
-		}
-		
-		function cancelEdit() {
-		    if(confirm("are you sure cancel modifying this post?") == true) {
-		    	window.location.reload();
-		    }
-		}
-	</script>
+	function confirmEdit(cnum, i) {
+
+	    //수정된 textareaContent와 contentnum을 서버로 넘겨서 수정하게 한다. 	
+	    cnum = cnum.trim().replace(/[^0-9]/g, "");
+
+	    $('#commentnum').val(cnum);
+	    $('#commentcontent').val($('#ta' + i).val());
+	    $('#action').val('edit');
+
+	    $('#commentForm').submit();
+
+	}
+
+	function cancelEdit() {
+	    if (confirm("are you sure cancel modifying this post?") == true) {
+		window.location.reload();
+	    }
+	}
+    </script>
 
 
 	<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
@@ -471,83 +504,102 @@
 
 
 	<script>
-    function contentEdit(emptyPhotoVideo) {
-		loginId = ${sessionScope.userId};
-		postId = ${requestScope.postId};
+	function contentEdit(emptyPhotoVideo) {
+	    loginId = ${sessionScope.userId};
+	    postId = ${requestScope.postId};
 
-		
-		if(loginId == postId) {
-		    
-		    editContentSubject = document.getElementById('editContentSubject');
-		    saveOriginSubject = editContentSubject.innerHTML;
-		    
-		    editContentSubject.innerHTML = "";
-		    editContentSubject.innerHTML = "<input class='form-control' type='text' id='ContentSub'/>";
-		    $('#ContentSub').val(saveOriginSubject);
-		    
-		    editContent = document.getElementById('editContent');
-			saveOriginContent = editContent.innerHTML;
- 
-		    editContent.innerHTML = "";
-		    editContent.innerHTML = "<textarea id='ContentText' style='width: 100%; height: 100px;'>"+ saveOriginContent +"</textarea>";
-			
-			
-		    if(emptyPhotoVideo.includes("emptyPhoto")) {
-				postPhotoTag = document.getElementById('postPhotoTag');
-				postPhotoTag.innerHTML += "<label for='uploadPhoto' style='color: #04B431'><i class='fa fa-plus' style='font-size: 20px;'></i> Add Photo</label><input type='file' id='uploadPhoto'><button type=submit' id='uploadPhotoSubmit' hidden='hidden'></button>";
-			}
-			
-		    if(emptyPhotoVideo.includes("emptyVideo")) {
-				postVideoTag = document.getElementById('postVideoTag');
-				postVideoTag.innerHTML += "<br><label for='uploadVideo' style='color: #FF8000'><i class='fa fa-plus' style='font-size: 20px;'></i> Add Video</label><input type='file' id='uploadVideo'><button type=submit' id='uploadVideoSubmit' hidden='hidden'></button>";
-				$('#postVideoTag').after('<br>');
+	    if (loginId == postId) {
 
-		    }
-		    
-		    // change Pedit icon, onclick event, style                             
-		    document.getElementById('theEditPostId').setAttribute('onClick', 'confirmPostEdit()');
-		    document.getElementById('theEditPostId').setAttribute('style', 'green');
-		    document.getElementById('theEditPostId').firstChild.setAttribute('class', 'fa fa-check');
-		    
-		    // change Pdelete onclick event, style
-		    document.getElementById('theDelPostId').setAttribute('onClick', 'cancelEdit()');
-		    document.getElementById('theDelPostId').setAttribute('style', 'color:black');
+		editContentSubject = document
+			.getElementById('editContentSubject');
+		saveOriginSubject = editContentSubject.innerHTML;
+
+		editContentSubject.innerHTML = "";
+		editContentSubject.innerHTML = "<input class='form-control' type='text' id='ContentSub'/>";
+		$('#ContentSub').val(saveOriginSubject);
+
+		editContent = document.getElementById('editContent');
+		saveOriginContent = editContent.innerHTML;
+
+		editContent.innerHTML = "";
+		editContent.innerHTML = "<textarea id='ContentText' style='width: 100%; height: 100px;'>"
+			+ saveOriginContent + "</textarea>";
+
+		if (emptyPhotoVideo.includes("emptyPhoto")) {
+		    postPhotoTag = document.getElementById('postPhotoTag');
+		    postPhotoTag.innerHTML += "<label for='uploadPhoto' style='color: #04B431'><i class='fa fa-plus' style='font-size: 20px;'></i> Add Photo</label><input type='file' id='uploadPhoto'><button type=submit' id='uploadPhotoSubmit' hidden='hidden'></button>";
 		} else {
-		    alert('you do not have any grants to modify this post! please call the writer who wrote this post.');
+		    postPhotoTag = document.getElementById('postPhotoTag');
+		    postPhotoTag.innerHTML += "<label for='uploadPhoto' style='color: #04B431'><i class='fa fa-plus' style='font-size: 20px;'></i> Select Change Photo</label><input type='file' id='uploadPhoto'><button type=submit' id='uploadPhotoSubmit' hidden='hidden'></button>"; 
 		}
-    }
-    
+
+		if (emptyPhotoVideo.includes("emptyVideo")) {
+		    postVideoTag = document.getElementById('postVideoTag');
+		    postVideoTag.innerHTML += "<br><label for='uploadVideo' style='color: #FF8000'><i class='fa fa-plus' style='font-size: 20px;'></i> Add Video</label><input type='file' id='uploadVideo'><button type=submit' id='uploadVideoSubmit' hidden='hidden'></button>";
+		    $('#postVideoTag').after('<br>');
+
+		}else {
+		    postVideoTag = document.getElementById('postVideoTag');
+		    postVideoTag.innerHTML += "<label for='uploadVideo' style='color: #FF8000'><i class='fa fa-plus' style='font-size: 20px;'></i> Select Change Video</label><input type='file' id='uploadVideo'><button type=submit' id='uploadVideoSubmit' hidden='hidden'></button>"; 
+		    $('#postVideoTag').after('<br>');
+		}
+
+		// change Pedit icon, onclick event, style                             
+		document.getElementById('theEditPostId').setAttribute(
+			'onClick', 'confirmPostEdit()');
+		document.getElementById('theEditPostId').setAttribute('style',
+			'green');
+		document.getElementById('theEditPostId').firstChild
+			.setAttribute('class', 'fa fa-check');
+
+		// change Pdelete onclick event, style
+		document.getElementById('theDelPostId').setAttribute('onClick',
+			'cancelEdit()');
+		document.getElementById('theDelPostId').setAttribute('style',
+			'color:black');
+	    } else {
+		alert('you do not have any grants to modify this post! please call the writer who wrote this post.');
+	    }
+	}
     </script>
-    
-    <script>
 
-    //upload photo
-    $(document).on('change', "#uploadPhoto", function(){
-		//event.preventDefault();
-		ext = $(this).val().split('.').pop().toLowerCase();
-	    if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg' ]) == -1) {
-			resetFormElement($(this));
-			window.alert('등록불가! (그림파일은 gif, png, jpg, jpeg 확장자만 등록가능합니다.)');
-		} 		    
-		
-	   //비동기 업로드를 위해 submit        
-	   $("#uploadPhotoSubmit").submit();
-    });
-    
-    $(document).on('submit','#uploadPhotoSubmit', (function(e) {
-	    //e.preventDefault();
-	    var file = document.getElementById("uploadPhoto");
-	    var fileData = new FormData();
-	    
-	    var fileidvalue = $('#uploadPhoto').val();
-	  	//get pure filename
-	   	fileidvalue = fileidvalue.substring(fileidvalue.lastIndexOf('\\')+1);
-		$("#postPhoto").val(fileidvalue);
-		
-	    fileData.append('Topic_content_file', file.files[0]);
-	    fileData.append('Topic_content_filename', file.value);
+	<script>
+	//upload photo
+	$(document)
+		.on(
+			'change',
+			"#uploadPhoto",
+			function() {
+			    //event.preventDefault();
+			    ext = $(this).val().split('.').pop().toLowerCase();
+			    if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg' ]) == -1) {
+				resetFormElement($(this));
+				window
+					.alert('등록불가! (그림파일은 gif, png, jpg, jpeg 확장자만 등록가능합니다.)');
+			    }
 
-	    $.ajax({
+			    //비동기 업로드를 위해 submit        
+			    $("#uploadPhotoSubmit").submit();
+			});
+
+	$(document).on(
+		'submit',
+		'#uploadPhotoSubmit',
+		(function(e) {
+		    //e.preventDefault();
+		    var file = document.getElementById("uploadPhoto");
+		    var fileData = new FormData();
+
+		    var fileidvalue = $('#uploadPhoto').val();
+		    //get pure filename
+		    fileidvalue = fileidvalue.substring(fileidvalue
+			    .lastIndexOf('\\') + 1);
+		    $("#postPhoto").val(fileidvalue);
+
+		    fileData.append('Topic_content_file', file.files[0]);
+		    fileData.append('Topic_content_filename', file.value);
+
+		    $.ajax({
 			type : 'POST',
 			url : "TopicFileUploadServlet",
 			data : fileData,
@@ -560,118 +612,120 @@
 			    console.log("error");
 			    console.log(error);
 			}
-	    });
-	}));
+		    });
+		}));
 
-    function resetFormElement(e) {
+	function resetFormElement(e) {
 
-        e.wrap('<form>').closest('form').get(0).reset(); 
-        e.unwrap(); //감싼 <form> 태그를 제거
+	    e.wrap('<form>').closest('form').get(0).reset();
+	    e.unwrap(); //감싼 <form> 태그를 제거
 
-    }
+	}
 
-    
-    
-    //upload video
-    $(document).on('change',"#uploadVideo", function(){
-		ext = $(this).val().split('.').pop().toLowerCase();
-	//event.preventDefault();
-	  if ($.inArray(ext, ['mov', 'avi', 'mpg', 'mp4', 'mpeg', 'wmv', 'flv' ]) == -1) {
-		  resetFormElement($(this));
-		  window.alert('등록불가! (동영상은 mov, avi, mpg, mpeg, mp4, wmv, flv 확장자만 등록가능합니다.)');
-	  }
-	  
-	   //비동기 업로드를 위해 submit        
-	   $("#uploadVideoSubmit").submit();
-	});
-    
-    
-    $(document).on('submit','#uploadVideoSubmit', (function(e) {
-	    //e.preventDefault();
-	    var file = document.getElementById("uploadVideo");
-	    var fileData = new FormData();
-	    var fileidvalue = $('#uploadVideo').val();
+	//upload video
+	$(document)
+		.on(
+			'change',
+			"#uploadVideo",
+			function() {
+			    ext = $(this).val().split('.').pop().toLowerCase();
+			    //event.preventDefault();
+			    if ($.inArray(ext, [ 'mov', 'avi', 'mpg', 'mp4',
+				    'mpeg', 'wmv', 'flv' ]) == -1) {
+				resetFormElement($(this));
+				window
+					.alert('등록불가! (동영상은 mov, avi, mpg, mpeg, mp4, wmv, flv 확장자만 등록가능합니다.)');
+			    }
 
-	    //get pure filename
-	   	fileidvalue = fileidvalue.substring(fileidvalue.lastIndexOf('\\')+1);
-	  // 	console.log("purefilename: " + fileidvalue);
-	   	$("#postVideo").val(fileidvalue);
-	   	
-	    fileData.append('Topic_content_file', file.files[0]);
-	    fileData.append('Topic_content_filename', file.value);
+			    //비동기 업로드를 위해 submit        
+			    $("#uploadVideoSubmit").submit();
+			});
+
+	$(document).on(
+		'submit',
+		'#uploadVideoSubmit',
+		(function(e) {
+		    //e.preventDefault();
+		    var file = document.getElementById("uploadVideo");
+		    var fileData = new FormData();
+		    var fileidvalue = $('#uploadVideo').val();
+
+		    //get pure filename
+		    fileidvalue = fileidvalue.substring(fileidvalue
+			    .lastIndexOf('\\') + 1);
+		    // 	console.log("purefilename: " + fileidvalue);
+		    $("#postVideo").val(fileidvalue);
+
+		    fileData.append('Topic_content_file', file.files[0]);
+		    fileData.append('Topic_content_filename', file.value);
 
 		    $.ajax({
-				type : 'POST',
-				url : "TopicFileUploadServlet",
-				data : fileData,
-				cache : false,
-				contentType : false,
-				processData : false,
-				success : function(result, msg) {
-				},
-				error : function(error) {
-				    console.log("error");
-				    console.log(error);
-				}
+			type : 'POST',
+			url : "TopicFileUploadServlet",
+			data : fileData,
+			cache : false,
+			contentType : false,
+			processData : false,
+			success : function(result, msg) {
+			},
+			error : function(error) {
+			    console.log("error");
+			    console.log(error);
+			}
 		    });
-	}));
- 
+		}));
     </script>
-    
-    
-    <script>
-    function contentDel() {
-	loginId = ${sessionScope.userId};
-	postId = ${requestScope.postId};
-	
-	if(loginId == postId) {
-	    if(confirm("are you sure delete this post?") == true) {
-	    postNum = ${requestScope.forumNum};
-		$('#postNum').val(postNum); 
-		$('#forum_action').val('del');     
-		$('#contentEditForm').submit();
-		 
-	} 	else {
-	    	alert('you do not have any grants to modify this post! please call the writer who wrote this post.');
+
+
+	<script>
+	function contentDel() {
+	    loginId = ${sessionScope.userId};
+	    postId = ${requestScope.postId};
+
+	    if (loginId == postId) {
+		if (confirm("are you sure delete this post?") == true) {
+		    postNum = ${requestScope.forumNum};
+		    $('#postNum').val(postNum);
+		    $('#forum_action').val('del');
+		    $('#contentEditForm').submit();
+
+		} else {
+		    alert('you do not have any grants to modify this post! please call the writer who wrote this post.');
 		}
+	    }
 	}
-}
-    
     </script>
-    
-    <script>
-    
-    function confirmPostEdit() {
-	if(confirm("did you finish modify this post?") == true) {
-	     postId = ${requestScope.postId};
-		 postNum = ${requestScope.forumNum};
-	     
-		 $('#postId').val(postId); 
-		 $('#postNum').val(postNum); 
-		    
-		 
-	     contentSub = $('#ContentSub').val();
-	     contentText = $('#ContentText').val();
-	     
-	     $('#postContentSub').val(contentSub);
-	     $('#postContentText').val(contentText);
-	     
-	     console.log($('#postContentSub').val());
-	     console.log($('#postContentText').val());
-	     
-	     $('#forum_action').val('edit');
-	     
-	     $('#contentEditForm').submit();
+
+	<script>
+	function confirmPostEdit() {
+	    if (confirm("did you finish modify this post?") == true) {
+		postId = ${requestScope.postId};
+		postNum = ${requestScope.forumNum};
+
+		$('#postId').val(postId);
+		$('#postNum').val(postNum);
+
+		contentSub = $('#ContentSub').val();
+		contentText = $('#ContentText').val();
+
+		$('#postContentSub').val(contentSub);
+		$('#postContentText').val(contentText);
+
+		//console.log($('#postContentSub').val());
+		//console.log($('#postContentText').val());
+
+		$('#forum_action').val('edit');
+
+		$('#contentEditForm').submit();
+	    }
+
 	}
-  
-    
-    }
     </script>
-    
+
 	<script type="text/javascript">
-	/* document.getElementById("logout").onclick = function() {
-	    document.user_logout.submit();
-	} */
+	 document.getElementById("logout").onclick = function() {
+	   document.user_logout.submit();
+	} 
     </script>
 </body>
 </html>

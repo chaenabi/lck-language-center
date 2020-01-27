@@ -34,7 +34,6 @@ public class ForumController extends HttpServlet {
 		//ForumVO fvo = ForumVO.getInstance();
 		
 		String action = request.getParameter("action");
-		
 		//if(!action.equals("addpost")) {
 			//fvo = new ForumVO();		
 		//}
@@ -83,6 +82,13 @@ public class ForumController extends HttpServlet {
 			String postContentText = request.getParameter("postContentText");
 			String postPhoto = request.getParameter("postPhoto");
 			String postVideo = request.getParameter("postVideo");
+	
+			if(postPhoto.contains("contents")) {
+				postPhoto = postPhoto.substring(postPhoto.lastIndexOf("/") + 1);
+			}
+			if(postVideo.contains("contents")) {
+				postVideo = postVideo.substring(postVideo.lastIndexOf("/") + 1);
+			}
 			
 			try {
 				fdao.update(postNum, postContentSub, postContentText, postPhoto, postVideo);

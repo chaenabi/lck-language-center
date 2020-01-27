@@ -24,7 +24,8 @@ public class ForumDAO {
 		ArrayList<ForumVO> flist = new ArrayList<ForumVO>();
 		try {
 			conn = DBManager.getConnection();
-			String sql = "SELECT DISTINCT forum.*, USER.identity_photo as photo FROM forum, user WHERE post_subject LIKE ?"
+			String sql = "SELECT DISTINCT forum.*, USER.identity_photo as photo FROM forum, user WHERE post_subject LIKE ? "
+					+ "AND post_id = user.userid "
 					+ "ORDER BY forum.forum_num desc";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + postSubject + "%");
