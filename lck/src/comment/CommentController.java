@@ -58,7 +58,7 @@ public class CommentController extends HttpServlet {
 			try {
 				cdao.insert(cvo, postIdforComment);	
 				//todo: after write comment, call the page placed comment form
-				request.getRequestDispatcher("ShowForumList").forward(request, response);
+				response.sendRedirect("ShowForumList");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -106,10 +106,10 @@ public class CommentController extends HttpServlet {
 				e.printStackTrace();
 			}		
 			
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			response.sendRedirect("ShowForumList");
 		} else if (action.equals("logout")) {
 			request.getSession(true).invalidate();
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			response.sendRedirect("ShowForumList");
 		}
 
 		else {

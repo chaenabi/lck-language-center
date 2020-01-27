@@ -251,6 +251,8 @@ body a {
 							</ul>
 						</div>
 						<div class="pull-left">
+
+						
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -340,7 +342,7 @@ body a {
 		    + "</div>"
 		    + "</div>"
 		    + "<div class='posttext pull-left'>"
-		    + "<h2><a href='#' onClick='javascript:selectPostOne(" + list[i].forumNum  +");' style='color: black;'>" +list[i].postSubject +"</a></h2>"
+		    + "<h2><a href='#' onClick='javascript:selectPostOne(" + list[i].forumNum  +");return false;' style='color: black;'>" +list[i].postSubject +"</a></h2>"
 		    + "</div>"
 		    + "<div class='clearfix'></div>"
 		    + "</div>"
@@ -408,7 +410,7 @@ body a {
 						post.innerHTML += "<p>검색 결과가 없습니다. </p>";
 				    }
 				    else {		
-						 for(var i = 0; i < result.length; i++ ) {		    
+						 for(var i = 0; i < result.length-1; i++ ) {		    
 							    post.innerHTML += "<div class='post'>"
 								    + "<div class='wrap-ut pull-left'>"
 								    + "<div class='userinfo pull-left'>"

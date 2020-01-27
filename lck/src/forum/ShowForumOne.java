@@ -52,7 +52,7 @@ public class ShowForumOne extends HttpServlet {
 				
 				fvo = fdao.selectOne(forumNum);
 
-				System.out.println(fvo.toString());
+				//System.out.println(fvo.toString());
 				int cnt = fdao.increaseSawCnt(fvo.getSawCount(), fvo.getForumNum());
 
 				fvo.setSawCount(cnt);

@@ -47,6 +47,11 @@
 		<div id="topbar">
 			<div class="container">
 				<div class="social-links">
+					<c:if test="${not empty sessionScope.username}">
+						${sessionScope.username}님 로그인중
+					</c:if>
+				
+				
 					<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
 					<!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
             <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
@@ -172,7 +177,7 @@
         </div> -->
 		</div>
 	</section>
-	</main>
+	
 	<!-- #about --> <!--==========================
       Team Section
     ============================-->

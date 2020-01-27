@@ -73,7 +73,7 @@ public class UserController extends HttpServlet {
 				session.setAttribute("phone", uvo.getPhone());
 				session.setAttribute("position", uvo.getPosition());
 
-				request.getRequestDispatcher("ShowForumList").forward(request, response);
+				response.sendRedirect("ShowForumList");
 			}
 		} else if (action.equals("selectOne")) {
 
@@ -82,20 +82,20 @@ public class UserController extends HttpServlet {
 			try {
 				udao.insert(uvo);
 				System.out.println("관리자 추가 완료!");
-				request.getRequestDispatcher("ShowForumList").forward(request, response);
+				response.sendRedirect("ShowForumList");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 
 		} else if (action.equals("edit")) {
 
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			response.sendRedirect("ShowForumList");
 		} else if (action.equals("del")) {
 
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			response.sendRedirect("ShowForumList");
 		} else if (action.equals("logout")) {
 			request.getSession(true).invalidate();
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			response.sendRedirect("ShowForumList");
 		}
 
 		else {

@@ -57,8 +57,8 @@
 					<div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo ">
 						<a href="index.jsp"><img src="assets/img/logo.jpg" alt="" /></a>
 					</div>
-					<div class="col-lg-7 col-sm-7 col-md-7 selecttopic">
-						<h3 style="padding-top: 20px; margin: 0px;">
+					<div class="col-lg-7 col-sm-7 col-md-7 selecttopic" style="width:33%;">
+						<h3 style="padding-top: 20px; margin: 0px; width: 200px;">
 							${requestScope.postSubject}</h3>
 					</div>
 					<div class="hidden-lg hidden-md col-1">&nbsp;</div>
@@ -117,8 +117,16 @@
 
 										<hr />
 										<c:if test="${not empty sessionScope.username}">
+										
+										<c:if test="${empty requestScope.postPhoto}">
+											<c:set var="emptyPhoto" value="emptyPhoto" />	
+										</c:if>
+										<c:if test="${empty requestScope.postVideo}">
+											<c:set var="emptyVideo" value="emptyVideo" />	
+										</c:if>
+										
 											<a id="theEditPostId"
-												onClick="contentEdit()" style="color: #F7BE81"><i class="fa fa-edit"
+												onClick='contentEdit(" ${emptyPhoto}, ${emptyVideo} ")' style="color: #F7BE81"><i class="fa fa-edit"
 												style="font-size: 20px;"></i></a>
 					   &nbsp; &nbsp;
 					  			<a id="theDelPostId" onClick="contentDel()"
@@ -134,14 +142,24 @@
 
 										<h2 id="editContentSubject">${requestScope.postSubject}</h2>
 										<br>
-										<c:if test="${not empty requestScope.postPhoto}">
-										<img style="width: 100%; height: 100%;" src="/lck/${requestScope.postPhoto}"/>
-										</c:if>
-										<c:if test="${not empty requestScope.postVideo}">
-										<video width="100%" height="100%" controls>
- 											 <source src="/lck/${requestScope.postVideo}"/>
-										</video>
-										</c:if>
+										<form action="forum" method="post">
+										
+										<div id="postPhotoTag">
+											<c:if test="${not empty requestScope.postPhoto}">
+												<img style="width: 100%; height: 100%;" src="/lck/${requestScope.postPhoto}"/>
+											</c:if>
+										</div>
+										
+										<div id="postVideoTag">
+											<c:if test="${not empty requestScope.postVideo}">
+												<video  width="100%" height="100%" controls>
+		 											 <source src="/lck/${requestScope.postVideo}"/>
+												</video>
+											</c:if>
+										</div>
+					
+										</form>
+										
 										<p id="editContent" style="margin-bottom: 0px;">${requestScope.postContent}</p>
 									</div>
 									<div class="clearfix"></div>
@@ -228,7 +246,8 @@
 						<input type="hidden" id="postNum" name="postNum" />
 						<input type="hidden" id="postContentSub" name="postContentSub" />
 						<input type="hidden" id="postContentText" name="postContentText" />	
-							
+						<input type="hidden" id="postVideo" name="postVideo"/>
+						<input type="hidden" id="postPhoto" name="postPhoto">
 					</form>
 
 
@@ -281,14 +300,13 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 
-	<script>
+<script>
 	var post=document.getElementById("makeCommentListBox");
 	var commentlist = ${requestScope.comments};
 	
 	
 	for(var i = 0; i < commentlist.length; i++) {
 	
-
 	    if(commentlist[i].commentContent == "") {
 		    commentlist[i].commentContent = "empty comment";
 		}
@@ -320,6 +338,7 @@
 
 	<script>
 	// parameters for clearly specify clicked tag
+	// post~ function is all binding on comment .. sry for naming mistake.
 	function postEdit(cnum, cid, ccon, i) {
 		var pass = "";
 	    var postId = "";
@@ -339,7 +358,6 @@
 			url : "comment",
 			data : $('#commentForm').serialize(),
 			success : function(result, msg) {
-
 					if(result == "validated") {
 					   
 					    modifyContent = document.getElementById('ccon' +i);
@@ -386,7 +404,7 @@
  
 	  $.ajax({
 		   
-		    type : 'POST',
+		    type : 'post',
 			url : "comment",
 			data : $('#commentForm').serialize(),
 			success : function(result, msg) {
@@ -404,7 +422,6 @@
 					else { 
 						   alert("password is invalid. please check again.");
 					}
-
 					
 			},
 			error : function(error) {
@@ -434,14 +451,12 @@
 		    	window.location.reload();
 		    }
 		}
-
 	</script>
 
 
 	<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
 	<script type="text/javascript">
 	var revapi;
-
 	jQuery(document).ready(function() {
 	    "use strict";
 	    revapi = jQuery('.tp-banner').revolution({
@@ -451,15 +466,15 @@
 		hideThumbs : 10,
 		fullWidth : "on"
 	    });
-
 	}); //ready
     </script>
 
 
 	<script>
-    function contentEdit() {
+    function contentEdit(emptyPhotoVideo) {
 		loginId = ${sessionScope.userId};
 		postId = ${requestScope.postId};
+
 		
 		if(loginId == postId) {
 		    
@@ -476,8 +491,19 @@
 		    editContent.innerHTML = "";
 		    editContent.innerHTML = "<textarea id='ContentText' style='width: 100%; height: 100px;'>"+ saveOriginContent +"</textarea>";
 			
-		    
 			
+		    if(emptyPhotoVideo.includes("emptyPhoto")) {
+				postPhotoTag = document.getElementById('postPhotoTag');
+				postPhotoTag.innerHTML += "<label for='uploadPhoto' style='color: #04B431'><i class='fa fa-plus' style='font-size: 20px;'></i> Add Photo</label><input type='file' id='uploadPhoto'><button type=submit' id='uploadPhotoSubmit' hidden='hidden'></button>";
+			}
+			
+		    if(emptyPhotoVideo.includes("emptyVideo")) {
+				postVideoTag = document.getElementById('postVideoTag');
+				postVideoTag.innerHTML += "<br><label for='uploadVideo' style='color: #FF8000'><i class='fa fa-plus' style='font-size: 20px;'></i> Add Video</label><input type='file' id='uploadVideo'><button type=submit' id='uploadVideoSubmit' hidden='hidden'></button>";
+				$('#postVideoTag').after('<br>');
+
+		    }
+		    
 		    // change Pedit icon, onclick event, style                             
 		    document.getElementById('theEditPostId').setAttribute('onClick', 'confirmPostEdit()');
 		    document.getElementById('theEditPostId').setAttribute('style', 'green');
@@ -494,6 +520,106 @@
     </script>
     
     <script>
+
+    //upload photo
+    $(document).on('change', "#uploadPhoto", function(){
+		//event.preventDefault();
+		ext = $(this).val().split('.').pop().toLowerCase();
+	    if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg' ]) == -1) {
+			resetFormElement($(this));
+			window.alert('등록불가! (그림파일은 gif, png, jpg, jpeg 확장자만 등록가능합니다.)');
+		} 		    
+		
+	   //비동기 업로드를 위해 submit        
+	   $("#uploadPhotoSubmit").submit();
+    });
+    
+    $(document).on('submit','#uploadPhotoSubmit', (function(e) {
+	    //e.preventDefault();
+	    var file = document.getElementById("uploadPhoto");
+	    var fileData = new FormData();
+	    
+	    var fileidvalue = $('#uploadPhoto').val();
+	  	//get pure filename
+	   	fileidvalue = fileidvalue.substring(fileidvalue.lastIndexOf('\\')+1);
+		$("#postPhoto").val(fileidvalue);
+		
+	    fileData.append('Topic_content_file', file.files[0]);
+	    fileData.append('Topic_content_filename', file.value);
+
+	    $.ajax({
+			type : 'POST',
+			url : "TopicFileUploadServlet",
+			data : fileData,
+			cache : false,
+			contentType : false,
+			processData : false,
+			success : function(result, msg) {
+			},
+			error : function(error) {
+			    console.log("error");
+			    console.log(error);
+			}
+	    });
+	}));
+
+    function resetFormElement(e) {
+
+        e.wrap('<form>').closest('form').get(0).reset(); 
+        e.unwrap(); //감싼 <form> 태그를 제거
+
+    }
+
+    
+    
+    //upload video
+    $(document).on('change',"#uploadVideo", function(){
+		ext = $(this).val().split('.').pop().toLowerCase();
+	//event.preventDefault();
+	  if ($.inArray(ext, ['mov', 'avi', 'mpg', 'mp4', 'mpeg', 'wmv', 'flv' ]) == -1) {
+		  resetFormElement($(this));
+		  window.alert('등록불가! (동영상은 mov, avi, mpg, mpeg, mp4, wmv, flv 확장자만 등록가능합니다.)');
+	  }
+	  
+	   //비동기 업로드를 위해 submit        
+	   $("#uploadVideoSubmit").submit();
+	});
+    
+    
+    $(document).on('submit','#uploadVideoSubmit', (function(e) {
+	    //e.preventDefault();
+	    var file = document.getElementById("uploadVideo");
+	    var fileData = new FormData();
+	    var fileidvalue = $('#uploadVideo').val();
+
+	    //get pure filename
+	   	fileidvalue = fileidvalue.substring(fileidvalue.lastIndexOf('\\')+1);
+	  // 	console.log("purefilename: " + fileidvalue);
+	   	$("#postVideo").val(fileidvalue);
+	   	
+	    fileData.append('Topic_content_file', file.files[0]);
+	    fileData.append('Topic_content_filename', file.value);
+
+		    $.ajax({
+				type : 'POST',
+				url : "TopicFileUploadServlet",
+				data : fileData,
+				cache : false,
+				contentType : false,
+				processData : false,
+				success : function(result, msg) {
+				},
+				error : function(error) {
+				    console.log("error");
+				    console.log(error);
+				}
+		    });
+	}));
+ 
+    </script>
+    
+    
+    <script>
     function contentDel() {
 	loginId = ${sessionScope.userId};
 	postId = ${requestScope.postId};
@@ -505,8 +631,9 @@
 		$('#forum_action').val('del');     
 		$('#contentEditForm').submit();
 		 
-	} else {
-	    alert('you do not have any grants to modify this post! please call the writer who wrote this post.');
+	} 	else {
+	    	alert('you do not have any grants to modify this post! please call the writer who wrote this post.');
+		}
 	}
 }
     
@@ -541,7 +668,6 @@
     }
     </script>
     
-
 	<script type="text/javascript">
 	/* document.getElementById("logout").onclick = function() {
 	    document.user_logout.submit();

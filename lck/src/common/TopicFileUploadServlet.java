@@ -82,6 +82,7 @@ public class TopicFileUploadServlet extends HttpServlet {
 	        
 	     // 전송한 전체 파일이름들을 가져온다.
 	        Enumeration files = multi.getFileNames();
+
 	        String str = (String)files.nextElement();
 
 	        //파일명 중복이 발생했을 때 정책에 의해 뒤에 1,2,3 처럼 숫자가 붙어 고유 파일명을 생성한다.

@@ -81,13 +81,17 @@ public class ForumController extends HttpServlet {
 			int postNum = Integer.parseInt(request.getParameter("postNum"));
 			String postContentSub = request.getParameter("postContentSub");
 			String postContentText = request.getParameter("postContentText");
+			String postPhoto = request.getParameter("postPhoto");
+			String postVideo = request.getParameter("postVideo");
 			
 			try {
-				fdao.update(postNum, postContentSub, postContentText);
+				fdao.update(postNum, postContentSub, postContentText, postPhoto, postVideo);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}		
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			//request.getRequestDispatcher("ShowForumList").forward(request, response);
+			response.sendRedirect("ShowForumList");
+		
 		} else if (action.equals("del")) {
 			int postNum = Integer.parseInt(request.getParameter("postNum"));
 			try {
@@ -95,12 +99,12 @@ public class ForumController extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			response.sendRedirect("ShowForumList");
 			
 		} else if (action.equals("logout")) {
 
 			request.getSession(true).invalidate();
-			request.getRequestDispatcher("ShowForumList").forward(request, response);
+			response.sendRedirect("ShowForumList");
 		}
 		
 		else {

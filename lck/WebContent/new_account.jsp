@@ -127,9 +127,10 @@
 </head>
 
 <c:if test="${empty sessionScope.username}">
-	<%@ include file="404.jsp" %>
+	<jsp:include page="404.jsp" />
+
 </c:if>
-<c:if test="${not empty sessionScope.username && sessionScope.name eq '김진기'}">
+<c:if test="${not empty sessionScope.username && sessionScope.username eq '김진기'}">
 <body class="newaccountpage">
 
 	<div class="container-fluid">

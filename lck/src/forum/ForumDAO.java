@@ -266,18 +266,21 @@ public class ForumDAO {
 	}
 	
 	// 글 추가
-		public void update(int postNum, String postContentSub, String postContentText) throws SQLException {
+		public void update(int postNum, String postContentSub, String postContentText, String postPhoto, String postVideo) throws SQLException {
 
 			try {
 				conn = DBManager.getConnection();
 				stmt = conn.createStatement();
-				String sql = "UPDATE FORUM SET post_subject = ?, post_content = ? WHERE forum_num = ?";
+				String sql = "UPDATE FORUM SET post_subject = ?, post_content = ?, post_photo = ?, post_video = ? WHERE forum_num = ?";
 
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, postContentSub);
 				pstmt.setString(2, postContentText);
-				pstmt.setInt(3, postNum);
+				pstmt.setString(3, postPhoto);
+				pstmt.setString(4, postVideo);
 
+				pstmt.setInt(5, postNum);
+				
 				pstmt.executeUpdate();
 
 			} catch (Exception e) {

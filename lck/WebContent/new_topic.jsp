@@ -77,7 +77,6 @@ window.onload = function() {
 			}); 
 			
 			$('#postPhoto').val(fileidvalue);
-			console.log("photo: " + $('#postPhoto').val());
 			
 		} else {
 
@@ -86,8 +85,6 @@ window.onload = function() {
 		    isAttached.innerHTML = fileidvalue +' has uploaded';
 		    
 		    $('#postVideo').val(fileidvalue);
-		    
-		    console.log("video: " + $('#postVideo').val());
 		    
 		    /* work with video tag 
 		   $('#attachvideo').removeAttr('src'); 
