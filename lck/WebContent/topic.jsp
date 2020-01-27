@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +16,27 @@
 <!-- Custom -->
 <link href="assets/css/custom.css" rel="stylesheet">
 
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+          <![endif]-->
+
+
+<!-- Bootstrap CSS File -->
+<link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Libraries CSS Files -->
+<link href="assets/lib/animate/animate.min.css" rel="stylesheet" />
+<link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+<link href="assets/lib/owlcarousel/assets/owl.carousel.min.css"
+	rel="stylesheet" />
+<link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
 <!-- fonts -->
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-	rel='stylesheet' type='text/css'>
+
+
 <link rel="stylesheet" href="assets/fonts/css/font-awesome.min.css">
 
 <!-- CSS STYLE-->
@@ -32,20 +50,67 @@
 </head>
 <body class="topic">
 
+	<!--==========================
+  Header
+  ============================-->
+	<header id="header">
+		<div id="topbar">
+			<div class="container">
+				<div class="social-links">
+			<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="logo float-left">
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<h1 class="text-light">
+					<a href="#"  onclick="document.getElementById('forumList').submit()" class="scrollto" style="font-size: 36px;"><span>LCK</span></a>
+				</h1>
+				<!-- <a href="#header" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+			</div>
+			<form action="ShowForumList" method="post" id="forumList">
+			<nav class="main-nav float-right d-none d-lg-block">
+				<ul>
+					<li><a href="index.jsp">Home</a></li>
+					<li><a href="aboutus.jsp">About Us</a></li>
+					<li><a href="service.jsp">Services</a></li>
+
+					<li><a href="index.jsp#team">Team</a></li>
+					<li><a href="univ.jsp">University</a></li>
+					<li><a href="index.jsp#footer">Contact Us</a></li>
+					<li class="active"><a href="#" onclick="document.getElementById('forumList').submit()">Forum</a></li>
+					<li><a href="affiliation.jsp">Affiliation</a></li>
+				</ul>
+			</nav>
+			</form>
+			
+			<!-- .main-nav -->
+		</div>
+	</header>
+
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<!-- #header -->
 	<div class="container-fluid">
 
+		<!-- forum -->
 		<!-- Slider -->
 		<div class="tp-banner-container">
 			<div class="tp-banner">
-				<ul>
-					<!-- SLIDE  -->
-					<li data-transition="fade" data-slotamount="7"
-						data-masterspeed="1500">
-						<!-- MAIN IMAGE --> <img src="assets/img/slide.jpg" alt="slidebg1"
-						data-bgfit="cover" data-bgposition="left top"
-						data-bgrepeat="no-repeat"> <!-- LAYERS -->
-					</li>
-				</ul>
+
+				<img src="assets/img/forum/background_1.png"
+					data-bgrepeat="no-repeat" style="width: 100%; max-height: 480px;">
+
 			</div>
 		</div>
 		<!-- //Slider -->
@@ -54,17 +119,23 @@
 		<div class="headernav">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo ">
+					<%-- <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo ">
 						<a href="index.jsp"><img src="assets/img/logo.jpg" alt="" /></a>
 					</div>
-					<div class="col-lg-7 col-sm-7 col-md-7 selecttopic"
-						style="width: 33%;">
+					 <div class="col-lg-7 col-sm-7 col-md-7 selecttopic">
 						<h3 style="padding-top: 20px; margin: 0px; width: 200px;">
 							${requestScope.postSubject}</h3>
-					</div>
+					</div>  --%>
 					<div class="hidden-lg hidden-md col-1">&nbsp;</div>
+				</div>	
+					
 					<c:if test="${not empty sessionScope.username}">
-						<div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
+						 <div class="col-lg-7 col-sm-7 col-md-7 selecttopic">
+						<h3 style="padding-top: 20px; margin: 0px;">
+							${requestScope.postSubject}</h3>
+					</div> 
+						
+						<div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 avt">
 							<div class="stnt pull-left">
 								<form action="new_topic.jsp" method="post" class="form">
 									<button class="btn btn-primary">Start New Topic</button>
@@ -97,7 +168,7 @@
 							</form>
 						</div>
 					</c:if>
-				</div>
+				
 			</div>
 		</div>
 
@@ -119,12 +190,13 @@
 										<hr />
 										<c:if test="${not empty sessionScope.username}">
 											
-										<c:if test="${empty requestScope.postPhoto}">
-											<c:set var="emptyPhoto" value="emptyPhoto" />	
-										</c:if>
-										<c:if test="${empty requestScope.postVideo}">
-											<c:set var="emptyVideo" value="emptyVideo" />	
-										</c:if> 
+											<c:if test="${empty requestScope.postPhoto}">
+												<c:set var="emptyPhoto" value="emptyPhoto" />	
+											</c:if>
+											<c:if test="${empty requestScope.postVideo}">
+												<c:set var="emptyVideo" value="emptyVideo" />	
+											</c:if> 
+										
 										<a id="theEditPostId" onClick='contentEdit(" ${emptyPhoto}, ${emptyVideo} ")' style="color: #F7BE81"><i class="fa fa-edit" style="font-size: 20px;"></i></a>				
 					   &nbsp; &nbsp;
 					  				<a id="theDelPostId" onClick="contentDel()"
@@ -143,14 +215,15 @@
 										<form action="forum" method="post">
 
 											<div id="postPhotoTag">
-												<c:if test="${not empty requestScope.postPhoto}">
+											<c:set var="isNullPhoto" value="${requestScope.postPhoto}"/>
+												<c:if test="${not fn:containsIgnoreCase(isNullPhoto, 'null')}">
 													<img style="width: 100%; height: 100%;"
 														src="/lck/${requestScope.postPhoto}" />
 												</c:if>
 											</div>
-
-											<div id="postVideoTag">
-												<c:if test="${not empty requestScope.postVideo}">
+											<c:set var="isNullVideo" value="${requestScope.postVideo}"/>
+											<div id="postVideoTag">	
+												<c:if test="${not fn:contains(isNullVideo, 'null')}">
 													<video width="100%" height="100%" controls>
 														<source src="/lck/${requestScope.postVideo}" />
 													</video>
@@ -214,11 +287,11 @@
 											</div>
 											<div class="postinfobot">
 
-												<div class="pull-right postreply">
+												<div class="pull-right postreply" style="padding-left: 270px;">
 													<div class="pull-left smile">
 														<a href="#"><i class="fa fa-smile-o"></i></a>
 													</div>
-													<div class="pull-left" style="margin-right: 4vw;">
+													<div class="pull-left">
 														<button type="submit" class="btn btn-primary">Post
 															Reply</button>
 													</div>
@@ -310,56 +383,28 @@
 		commentlist[i].commentContent = "empty comment";
 	    }
 
-	    post.innerHTML += "<div class='post'>"
-		    + "	<div class='topwrap'>"
-		    + "		<div class='userinfo pull-left' style='padding: 25px 0px 0px 10px;'>"
-		    + "			<div class='avatar' style='margin: 0px 0px 15px 5px; width: 60px;'>"
-		    + "			<p id='cid"
-		    + String(commentlist[i].commentNum)
-		    + "' style='margin: 0px;'>"
-		    + commentlist[i].CommentId
-		    + "</p>"
-		    + "			<hr/>"
-		    + "			<a id='aedit"
-		    + i
-		    + "' onClick=\"postEdit("
-		    + String(commentlist[i].commentNum)
-		    + ", "
-		    + "\'"
-		    + String(commentlist[i].CommentId)
-		    + "\', "
-		    + "\'"
-		    + String(commentlist[i].commentContent)
-		    + "\', "
-		    + i
-		    + ")"
-		    + "\" style='color:#F7BE81'><i class='fa fa-edit' style='font-size: 20px;'></i></a>"
-		    + "&nbsp; &nbsp; &nbsp;"
-		    + "			<a id='adel"
-		    + i
-		    + "' onClick=\"postDelete("
-		    + String(commentlist[i].commentNum)
-		    + ", "
-		    + "\'"
-		    + String(commentlist[i].CommentId)
-		    + "\', "
-		    + "\'"
-		    + String(commentlist[i].commentContent)
-		    + "\', "
-		    + i
-		    + ")"
-		    + "\" style='color: #989c9e'><i class='fa fa-times' style='font-size: 20px;'></i></a>"
+	    post.innerHTML
+	    	+= "<div class='post'>"
+		    + "		<div class='topwrap'>"
+		    + "			<div class='userinfo pull-left' style='padding: 25px 0px 0px 10px;'>"
+		    + "				<div class='avatar' style='margin: 0px 0px 15px 5px; width: 60px;'>"
+		    + "					<p id='cid" + String(commentlist[i].commentNum) + "' style='margin: 0px;'>" + commentlist[i].CommentId + "</p>"
+		    + "					<hr/>"
+		    + "					<a id='aedit" + i + "' onClick=\"postEdit(" + String(commentlist[i].commentNum)+ ", "+ "\'"+ String(commentlist[i].CommentId)+ "\', " + "\'" + String(commentlist[i].commentContent) + "\', "+ i+ ")"+ "\" style='color:#F7BE81'><i class='fa fa-edit' style='font-size: 20px;'></i></a>"
+		    + " 					&nbsp; &nbsp; &nbsp;"
+		    + "					<a id='adel"+ i+ "' onClick=\"postDelete("+ String(commentlist[i].commentNum) + ", "+ "\'" + String(commentlist[i].CommentId)+ "\', "+ "\'"+ String(commentlist[i].commentContent)+ "\', "+ i + ")"+ "\" style='color: #989c9e'><i class='fa fa-times' style='font-size: 20px;'></i></a>"
+		    + "				</div>"
 		    + "			</div>"
+		    + "			<div class='posttext pull-left'>"
+		    + "				<p id='ccon"+i+"' class='commentContent' style='margin: 0px;'>" + commentlist[i].commentContent+ "</p>"
+		    + "			</div>"
+		    + "			<div class='clearfix'></div>"
 		    + "		</div>"
-		    + "	<div class='posttext pull-left'>"
-		    + "		<p id='ccon"+i+"' class='commentContent' style='margin: 0px;'>"
-		    + commentlist[i].commentContent
-		    + "</p>"
-		    + "	</div>"
-		    + "	<div class='clearfix'></div>"
-		    + "	</div>"
-		    + "<div class='postinfobot'>"
-		    + "<div class='clearfix'></div>" + "</div>" + "</div>";
+		    + "		<div class='postinfobot' style='padding-left:55vw;'>"
+		    + "			<div class='clearfix'></div>"
+		    + "		</div>"
+		    + "</div>";
+		    
 	}
     </script>
 
@@ -486,21 +531,6 @@
 	}
     </script>
 
-
-	<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
-	<script type="text/javascript">
-	var revapi;
-	jQuery(document).ready(function() {
-	    "use strict";
-	    revapi = jQuery('.tp-banner').revolution({
-		delay : 15000,
-		startwidth : 1200,
-		startheight : 278,
-		hideThumbs : 10,
-		fullWidth : "on"
-	    });
-	}); //ready
-    </script>
 
 
 	<script>
@@ -715,7 +745,7 @@
 			 	contentSub.focus();     // postSubject 텍스트박스에 커서를 위치
 				return false;
 			 
-			}
+			 }
 			
 		
 	
@@ -737,5 +767,29 @@
 	   document.user_logout.submit();
 	} 
     </script>
+    
+	<!-- END REVOLUTION SLIDER -->
+
+	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+	<!-- <div id="preloader"></div> -->
+
+	<!-- JavaScript Libraries -->
+	<script src="assets/lib/jquery/jquery.min.js"></script>
+	<script src="assets/lib/jquery/jquery-migrate.min.js"></script>
+	<script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/lib/easing/easing.min.js"></script>
+	<script src="assets/lib/mobile-nav/mobile-nav.js"></script>
+	<script src="assets/lib/wow/wow.min.js"></script>
+	<script src="assets/lib/waypoints/waypoints.min.js"></script>
+	<script src="assets/lib/counterup/counterup.min.js"></script>
+	<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
+	<script src="assets/lib/lightbox/js/lightbox.min.js"></script>
+	<!-- Contact Form JavaScript File -->
+	<script src="contactform/contactform.js"></script>
+
+	<!-- Template Main Javascript File -->
+	<script src="js/main.js"></script>
+    
 </body>
 </html>

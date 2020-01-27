@@ -202,7 +202,7 @@
 						<div class="stnt pull-left"
 							style="font-weight: 900; text-align: center; padding-top: 25px; margin-bottom: 0px;">
 
-							<p>관리자 생성 페이지</p>
+							<p>Create Manager</p>
 
 						</div>
 

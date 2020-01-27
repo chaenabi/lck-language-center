@@ -16,6 +16,33 @@
 <!-- Custom -->
 <link href="assets/css/custom.css" rel="stylesheet">
 
+<!-- Bootstrap CSS File -->
+<link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Libraries CSS Files -->
+<link href="assets/lib/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link href="assets/lib/animate/animate.min.css" rel="stylesheet" />
+<link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+<link href="assets/lib/owlcarousel/assets/owl.carousel.min.css"
+	rel="stylesheet" />
+<link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+<!-- fonts -->
+
+
+<link rel="stylesheet" href="assets/fonts/css/font-awesome.min.css">
+
+<!-- CSS STYLE-->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css"
+	media="screen" />
+
+<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+<link rel="stylesheet" type="text/css"
+	href="assets/rs-plugin/css/settings.css" media="screen" />
+
+
+
 <!-- fonts -->
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -162,38 +189,84 @@ function AddPost() {
 <c:if test="${not empty sessionScope.username}">
 	<body>
 
-		<div class="container-fluid">
-
-			<!-- Slider -->
-			<div class="tp-banner-container">
-				<div class="tp-banner">
-					<ul>
-						<!-- SLIDE  -->
-						<li data-transition="fade" data-slotamount="7"
-							data-masterspeed="1500">
-							<!-- MAIN IMAGE --> <img src="assets/img/forum/background_2.jpg"
-							alt="slidebg1" data-bgfit="cover" data-bgposition="left top"
-							data-bgrepeat="no-repeat"> <!-- LAYERS -->
-						</li>
-					</ul>
+		<!--==========================
+  Header
+  ============================-->
+	<header id="header">
+		<div id="topbar">
+			<div class="container">
+				<div class="social-links">
+			<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
 				</div>
 			</div>
-			<!-- //Slider -->
+		</div>
 
-			<div class="headernav">
+		<div class="container">
+			<div class="logo float-left">
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<h1 class="text-light">
+					<a href="#"  onclick="document.getElementById('forumList').submit()" class="scrollto" style="font-size: 36px;"><span>LCK</span></a>
+				</h1>
+				<!-- <a href="#header" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+			</div>
+			<form action="ShowForumList" method="post" id="forumList">
+			<nav class="main-nav float-right d-none d-lg-block">
+				<ul>
+					<li><a href="index.jsp">Home</a></li>
+					<li><a href="aboutus.jsp">About Us</a></li>
+					<li><a href="service.jsp">Services</a></li>
+
+					<li><a href="index.jsp#team">Team</a></li>
+					<li><a href="univ.jsp">University</a></li>
+					<li><a href="index.jsp#footer">Contact Us</a></li>
+					<li class="active"><a href="#" onclick="document.getElementById('forumList').submit()">Forum</a></li>
+					<li><a href="affiliation.jsp">Affiliation</a></li>
+				</ul>
+			</nav>
+			</form>
+			
+			<!-- .main-nav -->
+		</div>
+	</header>
+
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<!-- #header -->
+	<div class="container-fluid">
+
+		<!-- forum -->
+		<!-- Slider -->
+		<div class="tp-banner-container">
+			<div class="tp-banner">
+
+				<img src="assets/img/forum/background_1.png"
+					data-bgrepeat="no-repeat" style="width: 100%; max-height: 480px;">
+
+			</div>
+		</div>
+		<!-- //Slider -->
+
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-1 col-xs-1 col-sm-1 col-md-1 logo ">
+						<div class="col-lg-1 col-xs-1 col-1 col-sm-1 col-md-1 logo ">
 							<a href="forum.jsp"><img src="assets/img/logo.jpg" alt="" /></a>
 						</div>
 
 
-						<div class="col-lg-4 col-xs-4 col-sm-4 col-md-4"
+						<div class="col-lg-4 col-xs-4 col-sm-4 col-4 col-md-4"
 							style="padding-left: 40px; margin-left: 10px;">
 							<div class="stnt pull-left"
 								style="font-weight: 900; text-align: center; padding-top: 25px; margin-bottom: 0px;">
 
-								<p>새 글 쓰기</p>
+								<p style="font-size:16px;">새 글 쓰기</p>
 						
 							</div>
 
@@ -202,7 +275,7 @@ function AddPost() {
 						</div>
 					</div>
 				</div>
-			</div>
+	
 
 
 
@@ -406,25 +479,33 @@ function AddPost() {
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
 
+	<!-- END REVOLUTION SLIDER -->
 
-		<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
-		<script type="text/javascript">
-	    var revapi;
+	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+	<!-- <div id="preloader"></div> -->
 
-	    jQuery(document).ready(function() {
-		"use strict";
-		revapi = jQuery('.tp-banner').revolution({
-		    delay : 15000,
-		    startwidth : 1200,
-		    startheight : 278,
-		    hideThumbs : 10,
-		    fullWidth : "on"
-		});
+	<!-- JavaScript Libraries -->
+	<script src="assets/lib/jquery/jquery.min.js"></script>
+	<script src="assets/lib/jquery/jquery-migrate.min.js"></script>
+	<script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/lib/easing/easing.min.js"></script>
+	<script src="assets/lib/mobile-nav/mobile-nav.js"></script>
+	<script src="assets/lib/wow/wow.min.js"></script>
+	<script src="assets/lib/waypoints/waypoints.min.js"></script>
+	<script src="assets/lib/counterup/counterup.min.js"></script>
+	<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
+	<script src="assets/lib/lightbox/js/lightbox.min.js"></script>
+	<!-- Contact Form JavaScript File -->
+	<script src="contactform/contactform.js"></script>
 
-	    }); //ready
-	</script>
+	<!-- Template Main Javascript File -->
+	<script src="js/main.js"></script>
 
-		<!-- END REVOLUTION SLIDER -->
+		
+
+
+	
 
 	</body>
 </c:if>
