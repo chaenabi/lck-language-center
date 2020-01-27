@@ -348,7 +348,7 @@
 						<div class="form">
 							<h4>Send us a message</h4>
 							<p>궁금한 점이 있으시거나 상담하길 원하신다면 이 곳에 메세지 남겨주시기 바랍니다.</p>
-							<form action="" method="post" role="form" class="contactForm">
+							<form action="TakeEmailFromClient" method="post" role="form" class="contactForm">
 								<div class="form-group">
 									<input type="text" name="name" class="form-control" id="name"
 										placeholder="Your Name" data-rule="minlen:4"

@@ -1,7 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page errorPage="500.jsp" %>
+<%@ page errorPage="500.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,8 +43,6 @@
 
 <script src="assets/lib/jquery/jquery.min.js"></script>
 
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-
 </head>
 <body>
 	<!--==========================
@@ -69,19 +67,20 @@
 			</div>
 
 			<form action="ShowForumList" method="post" id="forumList">
-			
-			<nav class="main-nav float-right d-none d-lg-block">
-				<ul>
-					<li><a href="index.jsp">Home</a></li>
-					<li><a href="aboutus.jsp">About Us</a></li>
-					<li><a href="service.jsp">Services</a></li>
-					<li><a href="photo.jsp">Photos</a></li>
-					<li><a href="index.jsp#team">Team</a></li>
-					<li><a href="index.jsp#footer">Contact Us</a></li>
-					<li><a href="#" onclick="document.getElementById('forumList').submit()">Forum</a></li>
-					<li class="active"><a href="affiliation.jsp">affiliation</a></li>
-				</ul>
-			</nav>
+
+				<nav class="main-nav float-right d-none d-lg-block">
+					<ul>
+						<li><a href="index.jsp">Home</a></li>
+						<li><a href="aboutus.jsp">About Us</a></li>
+						<li><a href="service.jsp">Services</a></li>
+						<li><a href="photo.jsp">Photos</a></li>
+						<li><a href="index.jsp#team">Team</a></li>
+						<li><a href="index.jsp#footer">Contact Us</a></li>
+						<li><a href="#"
+							onclick="document.getElementById('forumList').submit()">Forum</a></li>
+						<li class="active"><a href="affiliation.jsp">affiliation</a></li>
+					</ul>
+				</nav>
 			</form>
 			<!-- .main-nav -->
 		</div>
@@ -191,20 +190,19 @@
 				<!-- empty -->
 				<div class="col-lg-4 col-md-4 col-4 text-center"></div>
 				<!-- kakao -->
-				<div id="kakao-talk-channel-chat-button"
+				<!-- <div id="kakao-talk-channel-chat-button"
 					class="col-lg-4 col-md-4 col-4 text-center"></div>
-
-				<script src="js/kchat.js"></script>
+				<script src="js/kchat.js"></script> -->
 				<!-- facebook -->
 				<div class="col-lg-4 col-md-4 col-4 text-center">
 					<!-- Load Facebook SDK for JavaScript -->
 
-			<script src="js/facebook.chat.js"></script>
+					<script src="js/facebook.chat.js"></script>
 					<!-- Your customer chat code -->
 					<div id="fb-root"></div>
 					<!-- Your customer chat code -->
 					<div class="fb-customerchat" id="fb-customerchat"></div>
-		
+
 				</div>
 			</div>
 			<!-- Load Facebook SDK for JavaScript -->
@@ -222,9 +220,7 @@
 			<div class="copyright">
 				<!-- &copy; Copyright <strong>LCK LANGUAGE CENTER</strong>. All Rights Reserved -->
 			</div>
-			<div class="credits">
-		
-			</div>
+			<div class="credits"></div>
 		</div>
 	</footer>
 
