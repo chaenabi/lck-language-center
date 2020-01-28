@@ -44,7 +44,10 @@
 		<div id="topbar">
 			<div class="container">
 				<div class="social-links">
-					<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+					<!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> -->
+					 <a href="https://www.facebook.com/lcklanguagecenter" class="facebook"><i class="fa fa-facebook"></i></a>
+					 <!--  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+					   <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> -->
 				</div>
 			</div>
 		</div>
@@ -309,7 +312,7 @@
 		<div class="container">
 			<header class="section-header">
 				<h3>Frequently Asked Questions</h3>
-				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+				<p></p>
 			</header>
 
 			<ul id="faq-list" class="wow fadeInUp">
@@ -323,25 +326,26 @@
 						<p>학생들이 한국에서 유학을 할 때 제일 중요한 것은 언어를 정확히 그리고 빠르게 배우는 것이 중요한데 현지 직원이 학생들을 방문하여 한국어 교육 과정을 살필 것이며, 필요하다면 개별적으로 수업도 할 것입니다. 그리고 생활하면서 필요한 정보(집 구하기, 물건 사기, 문화 체험 등)를 알려주며, 가이드가 되어 함께 갈 것입니다.</p>
 					</div></li>
 
-				<li><a data-toggle="collapse" href="#faq3" class="collapsed">일반대와 인증대의 차이는? <i class="ion-android-remove"></i></a>
+				<li><a data-toggle="collapse" href="#faq3" class="collapsed">일반대학교와 인증대학교의 차이는 무엇입니까? <i class="ion-android-remove"></i></a>
 					<div id="faq3" class="collapse" data-parent="#faq-list">
-						<p>대학교는 일반대와 인증대가 있습니다. 인증대는 토픽 필요없이 언제든지 지원이 가능합니다. 일반대는 토픽2급이 있어야 지원이 가능합니다. 인증대든 일반대든 학교에 제출해야 하는 서류 및 학비를 준비하여 비자를 받는데 보통 2-6개월 정도가 필요합니다. 그래서 학생이 유학 신청서를 제출함과 동시에 필요한 서류를 준비합니다. 신청서를 쓴 학생에 한해서 우리 어학원에서 혹은 고등학교에서 무료로 한국어를 가르쳐 줄것입니다. 일반대에 진학하려는 학생은 토픽이 필요하기 때문에 토픽 시험 준비도 같이 할 것입니다. 한국에 있는 출입국사무소에서 비자가 나오면 비행기 티켓을 예매할 것이며, 한국에 도착하면 현지 직원이 배웅할 것입니다. 
+						<p>대학교는 일반대와 인증대가 있습니다. 인증대는 토픽 필요없이 언제든지 지원이 가능합니다. 일반대의 경우 무조건 토픽 2급 이상이 있어야만 지원 가능하지만 1%와 인증대는 토픽없이도 지원은 가능합니다. 하지만 요즘의 추세는 토픽이 없다면 어학당에 입학하기가 어렵습니다. 왜냐하면 많은 학생들이 한국에 오기 전 토픽을 준비하여 보통 토픽 1급이나 2급을 가지고 있기 때문입니다. 
+						
 인증대에 진학한다면 한국에서 더 열심히 한국어를 공부해야하며, 일반대인 경우 토픽 2급이 있기 때문에 한국 생활 적응하는데 좀 더 유리합니다.</p>
 					</div></li>
 
-				<li><a data-toggle="collapse" href="#faq4" class="collapsed">한국에서 공부하며 일을 할 수 있나 <i class="ion-android-remove"></i></a>
+				<li><a data-toggle="collapse" href="#faq4" class="collapsed">한국에서 공부하며 일을 할 수 있을까요? <i class="ion-android-remove"></i></a>
 					<div id="faq4" class="collapse" data-parent="#faq-list">
-						<p>한국어 TOPIK 3급을 취득한다면 일하면서 학교 생활을 할 수 있습니다. LCK팀이 TOPIK을 취득하고 취업할 수 있게 도움을 아끼지 않을 것입니다.</p>
+						<p> 토픽 1-2급만 가지고 있어도 유학 생활 시작한지 6개월이 지나면 누구나 합법적으로 시간제 직장을 구할 수 있습니다. </p>
 					</div></li>
 
-				<li><a data-toggle="collapse" href="#faq5" class="collapsed">비자취득하는데 보통 어느정도 걸리나? <i class="ion-android-remove"></i></a>
+				<li><a data-toggle="collapse" href="#faq5" class="collapsed">비자취득하는데 보통 어느정도 걸리나요? <i class="ion-android-remove"></i></a>
 					<div id="faq5" class="collapse" data-parent="#faq-list">
-						<p>보통 저희가 일반적으로 작업 했을 때 한달 정도 소요될 것을 예상합니다. 하지만 상황에 따라서 2달이상 걸릴 때도 있습니다.</p>
+						<p>어학당에 입학하는 것과 대학교 본과에 입학하는 것은 다릅니다. 그래서 어학당에 입학을 신청하게 되면 보통 평균적으로 3-6개월정도 예상을 합니다. 하지만 우리 LCK에서는 그 보다 더 빨리 비자를 취득하기 위해서 노력할 것입니다. 본과에 입학할 때에는 그 보다 짧은 시간에 비자 취득이 가능합니다. 단 본과에 바로 입학하기 위해서는 토픽 3급 이상 혹은 영어점수가 필요할 것입니다.</p>
 					</div></li>
 
-				<li><a data-toggle="collapse" href="#faq6" class="collapsed">한국어 TOPIK을 필수적으로 취득하여야 하나. <i class="ion-android-remove"></i></a>
+				<li><a data-toggle="collapse" href="#faq6" class="collapsed">한국어 TOPIK을 필수적으로 취득하여야 하나요? <i class="ion-android-remove"></i></a>
 					<div id="faq6" class="collapse" data-parent="#faq-list">
-						<p>한국어 TOPIK이 있다면 학교 입학하는데 훨씬 수월합니다. 만약 없다면 IELTS와 같은 영어 능력 시험점수가 필요합니다. 둘 다 없다면 본과로 바로 들어갈 수 없으며 어학당 생활을 해야 합니다. TOPIK 존재 여부에 따라 비자취득에도 어느정도 영향을 줄 수 있으므로 미리 TOPIK을 공부 해두시기를 권합니다.</p>
+						<p>한국어 TOPIK이 있다면 학교 입학하는데 훨씬 수월합니다. 일반대 어학당에 입학하기 위해서 현재는 토픽이 필수입니다. 그리고 1%대학교, 인증대학교에서도 토픽이 있어야 입학이 수월해졌습니다. 토픽 존재 여부에 다라 비자 취득에 영향을 주므로 한국에 유학 오기 전 미리 토픽을 준비해야 합니다. 그렇지 않다면 본과로 바로 들어갈 수 없으며 어학당 생활을 해야 합니다. TOPIK 존재 여부에 따라 비자취득에도 어느정도 영향을 줄 수 있으므로 미리 TOPIK을 공부 해두시기를 권합니다.</p>
 					</div></li>
 			</ul>
 		</div>

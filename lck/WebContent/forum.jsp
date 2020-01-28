@@ -84,7 +84,7 @@ body a {
 		<div id="topbar">
 			<div class="container">
 				<div class="social-links">
-			<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+			<a href="https://www.facebook.com/lcklanguagecenter" class="facebook"><i class="fa fa-facebook"></i></a>
 				</div>
 			</div>
 		</div>
@@ -304,7 +304,7 @@ body a {
 						websitename.com</div>
 					<div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
 						<ul class="socialicons">
-							<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+							<li><a href="https://www.facebook.com/lcklanguagecenter"><i class="fa fa-facebook-square"></i></a></li>
 	
 						</ul>
 					</div>

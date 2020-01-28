@@ -52,7 +52,7 @@
 					</c:if>
 				
 				
-					<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.facebook.com/lcklanguagecenter" class="facebook"><i class="fa fa-facebook"></i></a>
 					<!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
             <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
             <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> -->
@@ -195,12 +195,12 @@
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>최봉길</h4>
-								<span>대표 이사</span>
+								<span>LCK 대표 및 법률 사무소 운영</span>
 								<div class="social">
-									<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									<!-- <a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
 										class="fa fa-facebook"></i></a> <a href=""><i
 										class="fa fa-google-plus"></i></a> <a href=""><i
-										class="fa fa-linkedin"></i></a>
+										class="fa fa-linkedin"></i></a> -->
 								</div>
 							</div>
 						</div>
@@ -213,12 +213,12 @@
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>김진규</h4>
-								<span>부사장 / 수석 강사</span>
+								<span>부대표 및 현직 한국어 강사</span>
 								<div class="social">
-									<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									<!-- <a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
 										class="fa fa-facebook"></i></a> <a href=""><i
 										class="fa fa-google-plus"></i></a> <a href=""><i
-										class="fa fa-linkedin"></i></a>
+										class="fa fa-linkedin"></i></a> -->
 								</div>
 							</div>
 						</div>
@@ -231,12 +231,12 @@
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>김진기</h4>
-								<span>부장</span>
+								<span>부장 및 학생 관리 담당</span>
 								<div class="social">
-									<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									<!-- <a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
 										class="fa fa-facebook"></i></a> <a href=""><i
 										class="fa fa-google-plus"></i></a> <a href=""><i
-										class="fa fa-linkedin"></i></a>
+										class="fa fa-linkedin"></i></a> -->
 								</div>
 							</div>
 						</div>
@@ -249,12 +249,12 @@
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>최새민</h4>
-								<span>재무 관리자</span>
+								<span>한국에서 베트남 학생들 담당 및  상담</span>
 								<div class="social">
-									<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									<!-- <a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
 										class="fa fa-facebook"></i></a> <a href=""><i
 										class="fa fa-google-plus"></i></a> <a href=""><i
-										class="fa fa-linkedin"></i></a>
+										class="fa fa-linkedin"></i></a> -->
 								</div>
 							</div>
 						</div>
@@ -269,11 +269,11 @@
 								<h4>경동수</h4>
 								<span>실장</span>
 								<div class="social">
-									<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									<!-- <a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
 										class="fa fa-facebook"></i></a> <a href=""><i
 										class="fa fa-google-plus"></i></a> <a href=""><i
 										class="fa fa-linkedin"></i></a>
-								</div>
+							 -->	</div>
 							</div>
 						</div>
 					</div>
@@ -286,7 +286,7 @@
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>롬</h4>
-								<span>상담 매니저</span>
+								<span>베트남 현지 상담 및 담당자</span>
 								<div class="social">
 									<a href=""><i class="fa fa-facebook"></i></a> <a
 										href="mailto:sam70411@gmail.com"><i class="fa fa-envelope"></i></a>
@@ -327,14 +327,14 @@
 								<div class="footer-links">
 									<h4>Contact Us</h4>
 									<p>
-										Doryang-dong 88 <br /> Gyeongsangbuk-do Gumi-si<br /> South
-										Korea <br /> <strong>Phone:</strong> +82 10 1234 5678<br />
-										<strong>Email:</strong> info@example.com<br />
+										Doryang-dong <br /> Gyeongsangbuk-do Gumi-si<br /> South
+										Korea <br /> <strong>Phone:</strong> +82 10 4067 8303<br />
+										<strong>Email:</strong> sweetchocho@gmail.com<br />
 									</p>
 								</div>
 
 								<div class="social-links">
-									<a href="#" class="facebook"><i
+									<a href="https://www.facebook.com/lcklanguagecenter" class="facebook"><i
 										class="fa fa-facebook"></i></a> <!-- <a href="#" class="instagram"><i
 										class="fa fa-instagram"></i></a> <a href="#" class="linkedin"><i
 										class="fa fa-linkedin"></i></a><a href="#" class="twitter"><i

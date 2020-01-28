@@ -52,7 +52,7 @@
 		<div id="topbar">
 			<div class="container">
 				<div class="social-links">
-					<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.facebook.com/lcklanguagecenter" class="facebook"><i class="fa fa-facebook"></i></a>
 				</div>
 			</div>
 		</div>

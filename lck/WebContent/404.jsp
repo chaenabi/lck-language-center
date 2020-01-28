@@ -38,7 +38,9 @@
 				<p class="lead text-gray-800 mb-5">Page Not Found</p>
 				<p class="text-gray-500 mb-0"> Please try to change URL.</p>
 				<br/>
-				<a href="index.jsp">&larr; return to home page</a>
+				<a href="index.jsp">&larr; return to home page</a> &emsp;
+				<br><br> or would you like to see our facebook page? 
+				<a href="https://www.facebook.com/lcklanguagecenter">&rarr;&nbsp;<i class="fa fa-facebook-square"></i></a>
 		</div>
 
 	</div>

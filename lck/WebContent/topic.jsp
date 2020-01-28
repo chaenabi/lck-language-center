@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +57,7 @@
 		<div id="topbar">
 			<div class="container">
 				<div class="social-links">
-			<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+			<a href="https://www.facebook.com/lcklanguagecenter" class="facebook"><i class="fa fa-facebook"></i></a>
 				</div>
 			</div>
 		</div>
@@ -216,22 +216,27 @@
 
 											<div id="postPhotoTag">
 											<c:set var="isNullPhoto" value="${requestScope.postPhoto}"/>
-												<c:if test="${not fn:containsIgnoreCase(isNullPhoto, 'null')}">
+											
+												<c:if test="${isNullPhoto != null}">
+												<c:if test="${not fn:containsIgnoreCase(isNullPhoto, 'null') && fn:containsIgnoreCase(isNullPhoto, 'contents')}">
 													<img style="width: 100%; height: 100%;"
-														src="/lck/${requestScope.postPhoto}" />
+														src="/lck/${isNullPhoto}" />
+												</c:if>
 												</c:if>
 											</div>
 											<c:set var="isNullVideo" value="${requestScope.postVideo}"/>
 											<div id="postVideoTag">	
-												<c:if test="${not fn:contains(isNullVideo, 'null')}">
+												<c:if test="${isNullVideo != null}">
+												<c:if test="${not fn:containsIgnoreCase(isNullVideo, 'null') && fn:containsIgnoreCase(isNullVideo, 'contents') }">
 													<video width="100%" height="100%" controls>
-														<source src="/lck/${requestScope.postVideo}" />
+														<source src="/lck/${isNullVideo}" />
 													</video>
+												</c:if>
 												</c:if>
 											</div>
 
 										</form>
-
+				
 										<p id="editContent" style="margin-bottom: 0px;">${requestScope.postContent}</p>
 									</div>
 									<div class="clearfix"></div>
@@ -351,7 +356,7 @@
 						websitename.com</div>
 					<div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
 						<ul class="socialicons">
-							<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+							<li><a href="https://www.facebook.com/lcklanguagecenter"><i class="fa fa-facebook-square"></i></a></li>
 						</ul>
 					</div>
 				</div>
