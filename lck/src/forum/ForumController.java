@@ -89,6 +89,15 @@ public class ForumController extends HttpServlet {
 			if(postVideo.contains("contents")) {
 				postVideo = postVideo.substring(postVideo.lastIndexOf("/") + 1);
 			}
+			if(postPhoto.contains("fakepath")) {
+				postPhoto = postPhoto.substring(postPhoto.lastIndexOf("\\") + 1);
+			}
+			if(postVideo.contains("fakepath")) {
+				postVideo = postVideo.substring(postVideo.lastIndexOf("\\") + 1);
+			}
+			
+			System.out.println(postPhoto);
+			System.out.println(postVideo);
 			
 			try {
 				fdao.update(postNum, postContentSub, postContentText, postPhoto, postVideo);

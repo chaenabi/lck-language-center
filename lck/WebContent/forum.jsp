@@ -144,7 +144,7 @@ body a {
 
 		<div class="headernav">
 			<div class="container">
-				<div class="row">
+				<div class="row justify-content-en">
 					<div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 col-2 pl-0 pr-0 logo">
 						<a href="index.jsp"><img src="assets/img/logo.jpg" alt="" /></a>
 					</div>
@@ -171,7 +171,7 @@ body a {
 					</div>
 					
 					
-					<div class="col-lg-3 col-xs-3 col-sm-3 col-3 col-md-3 pl-4 avt">
+					<div class="col-lg-3 col-xs-3 col-sm-5 col-4 col-md-4 pl-4 avt">
 						<c:if test="${empty sessionScope.username}">
 							<div class="ml-2">
 								<button class="btn btn-light"
@@ -189,7 +189,7 @@ body a {
 										<!--  -->
 
 									</div>
-									<button class="btn btn-primary">Start New Topic</button>
+									<button class="btn btn-primary">New Topic</button>
 								</form>
 							</c:if>
 						</div>
@@ -197,7 +197,7 @@ body a {
 
 						<c:if test="${not empty sessionScope.username}">
 
-							<div class="avatar pull-left dropdown ml-5">
+							<div class="avatar pull-right dropdown ml-3 mt-sm-0 mt-4">
 								<a data-toggle="dropdown" href="#"><img
 									src="/lck/${request.getContextPath}${sessionScope.profile}"
 									style="height: 37px; width: 37px;" alt="" /></a> <b class="caret"></b>

@@ -98,7 +98,7 @@
 	<section id="why-us" class="wow fadeIn">
 		<div class="container-fluid">
 			<header class="section-header">
-				<h3>Would you like to join with us?</h3>
+				<h3>Would you like to join us?</h3>
 				<p>Laudem latine persequeris id sed, ex fabulas delectus quo. No
 					vel partiendo abhorreant vituperatoribus.</p>
 			</header>

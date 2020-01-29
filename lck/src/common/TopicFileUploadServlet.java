@@ -29,7 +29,7 @@ public class TopicFileUploadServlet extends HttpServlet {
 		// rootpath.../.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/lck)
 		String AbsolutePath = request.getSession().getServletContext().getRealPath("contents");
 		// 실제로 서버에 저장되는 path
-		//System.out.println("절대 경로: " + AbsolutePath);
+		// System.out.println("절대 경로: " + AbsolutePath);
 
 		int size = 1024 * 1024 * 100; // 파일 크기 제한. 100Mb
 		String fileName = ""; // 업로드한 파일 이름
@@ -59,28 +59,29 @@ public class TopicFileUploadServlet extends HttpServlet {
 					new DefaultFileRenamePolicy());
 			// System.out.print("업로딩한 파일의 이름: ");
 			String content_file_name = (String) multi.getParameter("Topic_content_filename");
-			//System.out.println(content_file_name);
+			// System.out.println(content_file_name);
 			String substringFileName = "C:\\fakepath\\" + content_file_name;
 			String result = substringFileName.substring(substringFileName.lastIndexOf("\\") + 1);
 
 			// 순수한 파일 이름
-			//System.out.print("순수한 파일 이름: ");
+			// System.out.print("순수한 파일 이름: ");
 			//System.out.println(result);
 			
-			/* deprecated codes.
-			 * String extension = result.substring(result.lastIndexOf('.') + 1);
-			 * 
-			 * ForumVO fvo = ForumVO.getInstance(); String[] photoExtension = { "jpg",
-			 * "png", "gif", "jpeg" }; String[] videoExtension = { "mov", "avi", "mpg",
-			 * "mp4", "mpeg", "wmv", "flv" };
-			 */
-			/*
-			 * if (Arrays.asList(photoExtension).contains(extension)) {
-			 * fvo.setPostPhoto("/contents/" + result); } else if
-			 * (Arrays.asList(videoExtension).contains(extension)) {
-			 * fvo.setPostVideo("/contents/" + result); }
-			 * 
-			 * end of deprecated codes. */
+			
+			// deprecated codes.
+			String extension = result.substring(result.lastIndexOf('.') + 1);
+
+			ForumVO fvo = ForumVO.getInstance();
+			String[] photoExtension = { "jpg", "png", "gif", "jpeg" };
+			String[] videoExtension = { "mov", "avi", "mpg", "mp4", "mpeg", "wmv", "flv" };
+
+			if (Arrays.asList(photoExtension).contains(extension)) {
+				fvo.setPostPhoto("/contents/" + result);
+			} else if (Arrays.asList(videoExtension).contains(extension)) {
+				fvo.setPostVideo("/contents/" + result);
+			}
+
+			// end of deprecated codes.
 
 			// 파일 경로를 저장한다.
 

@@ -130,20 +130,19 @@
 				</div>	
 					
 					<c:if test="${not empty sessionScope.username}">
-						 <div class="col-lg-7 col-sm-7 col-md-7 selecttopic">
+						 <div class="col-lg-7 col-sm-12 col-md-12 col-12 selecttopic">
 						<h3 style="padding-top: 20px; margin: 0px;">
 							${requestScope.postSubject}</h3>
 					</div> 
 						
-						<div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 avt">
+						<div class="col-lg-3 col-xs-3 col-sm-7 col-7 col-md-4 pl-4 float-right avt">
 							<div class="stnt pull-left">
 								<form action="new_topic.jsp" method="post" class="form">
-									<button class="btn btn-primary">Start New Topic</button>
+									<button class="btn btn-primary">New Topic</button>
 								</form>
 							</div>
-							<div class="env pull-left">&nbsp;</div>
 
-							<div class="avatar pull-left dropdown ml-5">
+							<div class="avatar pull-right dropdown ml-2 mt-sm-0">
 								<a data-toggle="dropdown" href="#"><img
 									src="/lck/${request.getContextPath}${sessionScope.profile}"
 									style="height: 37px; width: 37px;" alt="" /></a> <b class="caret"></b>
@@ -212,7 +211,7 @@
 
 										<h2 id="editContentSubject">${requestScope.postSubject}</h2>
 										<br>
-										<form action="forum" method="post">
+										<form action="TopicFileUploadServlet" method="post">
 
 											<div id="postPhotoTag">
 											<c:set var="isNullPhoto" value="${requestScope.postPhoto}"/>
@@ -221,10 +220,14 @@
 												<c:if test="${not fn:containsIgnoreCase(isNullPhoto, 'null') && fn:containsIgnoreCase(isNullPhoto, 'contents')}">
 													<img style="width: 100%; height: 100%;"
 														src="/lck/${isNullPhoto}" />
+														
 												</c:if>
 												</c:if>
+
 											</div>
 											<c:set var="isNullVideo" value="${requestScope.postVideo}"/>
+											<br>
+											
 											<div id="postVideoTag">	
 												<c:if test="${isNullVideo != null}">
 												<c:if test="${not fn:containsIgnoreCase(isNullVideo, 'null') && fn:containsIgnoreCase(isNullVideo, 'contents') }">
@@ -234,6 +237,7 @@
 												</c:if>
 												</c:if>
 											</div>
+											
 
 										</form>
 				
@@ -348,19 +352,25 @@
 		<br>
 		<footer>
 			<div class="container">
-				<div class="row">
-					<div class="col-lg-1 col-xs-3 col-sm-2 logo ">
-						<a href="#"><img src="assets/img/logo.jpg" alt="" /></a>
-					</div>
-					<div class="col-lg-8 col-xs-9 col-sm-5 ">Copyrights 2020,
-						websitename.com</div>
-					<div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
-						<ul class="socialicons">
-							<li><a href="https://www.facebook.com/lcklanguagecenter"><i class="fa fa-facebook-square"></i></a></li>
-						</ul>
+					<div class="row">
+						<div class="col-lg-1 col-xs-3 col-sm-2 col-3 logo ">
+							<a href="#"><img src="assets/img/logo.jpg" alt="" /></a>
+						</div>
+						<div class="col-lg-8 col-xs-6 col-sm-5 col-9">Copyrights 2020,
+							websitename.com &emsp; <a href="https://www.facebook.com/lcklanguagecenter"><i class="fa fa-facebook-square"></i></a></div>
+							
+						<!-- <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
+							<ul class="socialicons">
+								<li></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+							<li><a href="#"><i class="fa fa-cloud"></i></a></li>
+							<li><a href="#"><i class="fa fa-rss"></i></a></li>
+							</ul>
+						</div> -->
 					</div>
 				</div>
-			</div>
 		</footer>
 	</div>
 
@@ -542,7 +552,11 @@
 	function contentEdit(emptyPhotoVideo) {
 	    loginId = ${sessionScope.userId};
 	    postId = ${requestScope.postId};
-
+	    
+	    //if want delete button display not when file is null
+	    //reqPostPhoto = ${requestScope.postPhoto};
+	    //reqPostVideo = ${requestScope.postVideo};
+	    
 	    if (loginId == postId) {
 
 		editContentSubject = document
@@ -557,33 +571,38 @@
 		saveOriginContent = editContent.innerHTML;
 
 		editContent.innerHTML = "";
-		editContent.innerHTML = "<textarea id='ContentText' style='width: 100%; height: 100px;'>"
+		editContent.innerHTML = "<textarea id='ContentText' style='width: 100%; height: 500px;'>"
 			+ saveOriginContent + "</textarea>";
 
-		if (emptyPhotoVideo.includes("emptyPhoto")) {
-		    postPhotoTag = document.getElementById('postPhotoTag');
-		    postPhotoTag.innerHTML += "<label for='uploadPhoto' style='color: #04B431'><i class='fa fa-plus' style='font-size: 20px;'></i> Add Photo</label><input type='file' id='uploadPhoto'><button type=submit' id='uploadPhotoSubmit' hidden='hidden'></button>";
-		} else {
-		    postPhotoTag = document.getElementById('postPhotoTag');
-		    postPhotoTag.innerHTML += "<label for='uploadPhoto' style='color: #04B431'><i class='fa fa-plus' style='font-size: 20px;'></i> Select Change Photo</label><input type='file' id='uploadPhoto'><button type=submit' id='uploadPhotoSubmit' hidden='hidden'></button>"; 
-		}
-
-		if (emptyPhotoVideo.includes("emptyVideo")) {
-		    postVideoTag = document.getElementById('postVideoTag');
-		    postVideoTag.innerHTML += "<br><label for='uploadVideo' style='color: #FF8000'><i class='fa fa-plus' style='font-size: 20px;'></i> Add Video</label><input type='file' id='uploadVideo'><button type=submit' id='uploadVideoSubmit' hidden='hidden'></button>";
-		    $('#postVideoTag').after('<br>');
-
-		}else {
-		    postVideoTag = document.getElementById('postVideoTag');
-		    postVideoTag.innerHTML += "<label for='uploadVideo' style='color: #FF8000'><i class='fa fa-plus' style='font-size: 20px;'></i> Select Change Video</label><input type='file' id='uploadVideo'><button type=submit' id='uploadVideoSubmit' hidden='hidden'></button>"; 
-		    $('#postVideoTag').after('<br>');
-		}
-
+	
+	    postPhotoTag = document.getElementById('postPhotoTag');
+	    postPhotoTag.innerHTML += "<label for='uploadPhoto' style='color: #04B431'><i class='fa fa-plus' style='font-size: 20px;'></i> Select Change Photo</label>"
+	    					   +  "<input type='file' id='uploadPhoto'><button type='button' id='uploadPhotoSubmit' hidden='hidden'></button>"; 
+	    
+	    //if want delete button display not when file is null
+	    //if(reqPostPhoto != null) {
+		 // if(!reqPostPhoto.includes('null') && reqPostPhoto.includes('contents'))	{     
+		    postPhotoTag.innerHTML += "<br><button type='button' id='deletePhotoSubmit' style='color: white; background-color: red; border: none;'>Delete Photo</button>"; 
+		 // }
+		//}
+	    					   
+	    					   
+	    postVideoTag = document.getElementById('postVideoTag');
+	    postVideoTag.innerHTML += "<label for='uploadVideo' style='color: #FF8000'><i class='fa fa-plus' style='font-size: 20px;'></i> Select Change Video</label>"
+	    						+ "<input type='file' id='uploadVideo'><button type='button' id='uploadVideoSubmit' hidden='hidden'></button>"; 
+	    $('#postVideoTag').after('<br>');
+	    
+	    //if want delete button display not when file is null
+	    //if(reqPostVideo != null) {
+	      //if(!reqPostVideo.includes('null') && reqPostVideo.includes('contents'))
+	    	postVideoTag.innerHTML += "<br><button type='button' id='deleteVideoSubmit' style='color: white; background-color: red; border: none;'>Delete Video</button><br>"; 
+	    //}
+	    
 		// change Pedit icon, onclick event, style                             
 		document.getElementById('theEditPostId').setAttribute(
 			'onClick', 'confirmPostEdit()');
 		document.getElementById('theEditPostId').setAttribute('style',
-			'green');
+			'color: lightgreen');
 		document.getElementById('theEditPostId').firstChild
 			.setAttribute('class', 'fa fa-check');
 
@@ -600,27 +619,21 @@
 
 	<script>
 	//upload photo
-	$(document)
-		.on(
-			'change',
-			"#uploadPhoto",
-			function() {
+	$(document).on('change',"#uploadPhoto",function() {
 			    //event.preventDefault();
 			    ext = $(this).val().split('.').pop().toLowerCase();
 			    if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg' ]) == -1) {
 				resetFormElement($(this));
 				window
 					.alert('등록불가! (그림파일은 gif, png, jpg, jpeg 확장자만 등록가능합니다.)');
-			    }
+			    } else {
 
 			    //비동기 업로드를 위해 submit        
-			    $("#uploadPhotoSubmit").submit();
+			    $("#uploadPhotoSubmit").click();
+			    }
 			});
 
-	$(document).on(
-		'submit',
-		'#uploadPhotoSubmit',
-		(function(e) {
+	$(document).on('click','#uploadPhotoSubmit',(function(e) {
 		    //e.preventDefault();
 		    var file = document.getElementById("uploadPhoto");
 		    var fileData = new FormData();
@@ -630,7 +643,9 @@
 		    fileidvalue = fileidvalue.substring(fileidvalue
 			    .lastIndexOf('\\') + 1);
 		    $("#postPhoto").val(fileidvalue);
-
+		    
+		    //console.log("pure photofilename: " + fileidvalue);
+		    
 		    fileData.append('Topic_content_file', file.files[0]);
 		    fileData.append('Topic_content_filename', file.value);
 
@@ -658,28 +673,21 @@
 	}
 
 	//upload video
-	$(document)
-		.on(
-			'change',
-			"#uploadVideo",
-			function() {
+	$(document).on('change',"#uploadVideo",function() {
 			    ext = $(this).val().split('.').pop().toLowerCase();
 			    //event.preventDefault();
 			    if ($.inArray(ext, [ 'mov', 'avi', 'mpg', 'mp4',
 				    'mpeg', 'wmv', 'flv' ]) == -1) {
 				resetFormElement($(this));
-				window
-					.alert('등록불가! (동영상은 mov, avi, mpg, mpeg, mp4, wmv, flv 확장자만 등록가능합니다.)');
-			    }
+				window.alert('등록불가! (동영상은 mov, avi, mpg, mpeg, mp4, wmv, flv 확장자만 등록가능합니다.)');
+			    } else{
 
-			    //비동기 업로드를 위해 submit        
-			    $("#uploadVideoSubmit").submit();
+			    	//비동기 업로드를 위해 submit        
+			    	$("#uploadVideoSubmit").click();
+			    }
 			});
 
-	$(document).on(
-		'submit',
-		'#uploadVideoSubmit',
-		(function(e) {
+	$(document).on('click','#uploadVideoSubmit',(function(e) {
 		    //e.preventDefault();
 		    var file = document.getElementById("uploadVideo");
 		    var fileData = new FormData();
@@ -688,7 +696,9 @@
 		    //get pure filename
 		    fileidvalue = fileidvalue.substring(fileidvalue
 			    .lastIndexOf('\\') + 1);
-		    // 	console.log("purefilename: " + fileidvalue);
+		    
+		    
+		    //console.log("pure videofilename: " + fileidvalue);
 		    $("#postVideo").val(fileidvalue);
 
 		    fileData.append('Topic_content_file', file.files[0]);
@@ -724,10 +734,10 @@
 		    $('#forum_action').val('del');
 		    $('#contentEditForm').submit();
 
-		} else {
+		}
+	    } else {
 		    alert('you do not have any grants to modify this post! please call the writer who wrote this post.');
 		}
-	    }
 	}
     </script>
 
@@ -743,7 +753,23 @@
 
 			contentSub = $('#ContentSub').val();
 			contentText = $('#ContentText').val();
-		
+
+			uploadPhoto = $('#uploadPhoto').val();
+			uploadVideo = $('#uploadVideo').val();	
+			
+			if(uploadPhoto != null) {
+			  if(uploadPhoto.trim() != '') {
+			  	$('#postPhoto').val(uploadPhoto);
+			  }
+			}
+
+			
+			if(uploadVideo != null) {
+			  if(uploadVideo.trim() != '') {
+			  	$('#postVideo').val(uploadVideo);
+			  }
+			}
+			
 			if(contentSub == "") {
 			  
 			 	alert("제목은 필수 입력입니다.");  
@@ -751,14 +777,9 @@
 				return false;
 			 
 			 }
-			
-		
 	
 			$('#postContentSub').val(contentSub);
 			$('#postContentText').val(contentText);
-	
-			//console.log($('#postContentSub').val());
-			//console.log($('#postContentText').val());
 	
 			$('#forum_action').val('edit');
 			$('#contentEditForm').submit();
@@ -766,6 +787,28 @@
 
 	}
     </script>
+
+
+	<script>
+	$(document).on('click','#deletePhotoSubmit',(function() {
+	  if(confirm("Are you really sure to delete photo?") == true) {
+	    $('#postPhoto').val('null');
+	    alert('okay.. it will be deleted when you click check button to confirm edit post.');
+	  }
+
+	
+	}));
+	
+	
+	$(document).on('click','#deleteVideoSubmit',(function() {
+	  if(confirm("Are you really sure to delete video?") == true) {
+	    $('#postVideo').val('null');
+	    alert('okay.. it will be deleted when you click check button to confirm edit post.');
+	  }
+
+	
+	}));
+	</script>
 
 	<script type="text/javascript">
 	 document.getElementById("logout").onclick = function() {

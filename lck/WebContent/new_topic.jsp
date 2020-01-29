@@ -40,22 +40,10 @@
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 <link rel="stylesheet" type="text/css"
 	href="assets/rs-plugin/css/settings.css" media="screen" />
-
-
-
 <!-- fonts -->
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="assets/fonts/css/font-awesome.min.css">
-
-<!-- CSS STYLE-->
-<link rel="stylesheet" type="text/css" href="assets/css/style.css"
-	media="screen" />
-
-<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-<link rel="stylesheet" type="text/css"
-	href="assets/rs-plugin/css/settings.css" media="screen" />
 
 <script src="assets/lib/jquery/jquery.min.js"></script>
 <!-- <script>
@@ -445,21 +433,22 @@ function AddPost() {
 			<footer>
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-1 col-xs-3 col-sm-2 logo ">
+						<div class="col-lg-1 col-xs-3 col-sm-2 col-3 logo ">
 							<a href="#"><img src="assets/img/logo.jpg" alt="" /></a>
 						</div>
-						<div class="col-lg-8 col-xs-9 col-sm-5 ">Copyrights 2020,
-							websitename.com</div>
-						<div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
+						<div class="col-lg-8 col-xs-6 col-sm-5 col-9">Copyrights 2020,
+							websitename.com &emsp; <a href="https://www.facebook.com/lcklanguagecenter"><i class="fa fa-facebook-square"></i></a></div>
+							
+						<!-- <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
 							<ul class="socialicons">
-								<li><a href="https://www.facebook.com/lcklanguagecenter"><i class="fa fa-facebook-square"></i></a></li>
-								<!-- 	<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 							<li><a href="#"><i class="fa fa-cloud"></i></a></li>
-							<li><a href="#"><i class="fa fa-rss"></i></a></li> -->
+							<li><a href="#"><i class="fa fa-rss"></i></a></li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</footer>

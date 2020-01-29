@@ -1017,7 +1017,7 @@ a.down:hover {
 
 @media (max-width: 767px) {
     
-    /*--- index.html ---*/
+    /*--- index.jsp ---*/
     .container-fluid {
         padding: 0;
     }
@@ -1066,6 +1066,7 @@ a.down:hover {
     .avt {
         height: auto; 
         margin-bottom: 15px;
+        
     }
 
     .selecttopic select {
@@ -1075,6 +1076,7 @@ a.down:hover {
     .avatar .dropdown-menu {
         left: auto;
         right: 0;
+        float: right;
     }
 
     .selecttopic .dropdown-menu {
@@ -1093,7 +1095,7 @@ a.down:hover {
         text-align: center;
     }
 
-    /*--- 02_topic.html ---*/
+    /*--- topic.jsp ---*/
 
     .postinfobot {
         padding: 10px;
