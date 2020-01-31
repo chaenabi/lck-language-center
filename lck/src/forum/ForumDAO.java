@@ -168,9 +168,9 @@ public class ForumDAO {
 			pstmt.setInt(1, forumNum);
 			rs = pstmt.executeQuery();
 			
-			rs.next();
-			cnt = rs.getInt("saw_count");
-			
+			if(rs.next()) {
+				cnt = rs.getInt("saw_count");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

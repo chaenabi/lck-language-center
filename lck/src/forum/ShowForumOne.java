@@ -60,8 +60,8 @@ public class ShowForumOne extends HttpServlet {
 				String postVideo = fvo.getPostVideo();
 				
 				
-				System.out.println(postPhoto);
-				System.out.println(postVideo);
+				//System.out.println(postPhoto);
+				//System.out.println(postVideo);
 //				if(postPhoto.contains("contents")) {
 //					postPhoto = postPhoto.substring(postPhoto.lastIndexOf("/") + 1);
 //				}
