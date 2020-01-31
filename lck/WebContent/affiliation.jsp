@@ -182,8 +182,8 @@
 		</div>
 		<br> <br> <br>
 		<div class="container">
-			<header class="section-header">
-				<h3>문의사항이 있으시다면 언제든지 페이스북 채널 채팅을 통해 문의하실 수 있습니다.</h3>
+			<header class="section-header text-center">
+				<h4>문의사항이 있으시다면 언제든지 아래의 연락처로 문의해주시면 감사하겠습니다.</h4>
 			</header>
 			<br>
 			<div class="row">
@@ -197,11 +197,16 @@
 				<div class="col-lg-4 col-md-4 col-4 text-center">
 					<!-- Load Facebook SDK for JavaScript -->
 
-					<script src="js/facebook.chat.js"></script>
-					<!-- Your customer chat code -->
+					<p><i class="fa fa-envelope"></i> lovingjcn@gmail.com  <p>
+
+					<p><i class="fa fa-facebook-square"></i> www.facebook.com/lcklanguagecenter  <p>
+
+
+				<!-- 	<script src="js/facebook.chat.js"></script>
+					Your customer chat code
 					<div id="fb-root"></div>
-					<!-- Your customer chat code -->
-					<div class="fb-customerchat" id="fb-customerchat"></div>
+					Your customer chat code
+					<div class="fb-customerchat" id="fb-customerchat"></div> -->
 
 				</div>
 			</div>

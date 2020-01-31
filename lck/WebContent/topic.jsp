@@ -250,11 +250,9 @@
 									<div class="clearfix"></div>
 								</div>
 							</div>
-
+							
 							&nbsp;
 							<div id="makeCommentListBox"></div>
-
-
 
 
 

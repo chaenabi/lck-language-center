@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/TakeEmailFromClient")
 public class TakeEmailFromClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String EMAIL = "martlalrts@naver.com";
-	private static final String PASS = "npc2023per4@e";
+	private static final String EMAIL = "lovingjcn@gmail.com";
+	private static final String PASS = "cla0269fP";
 
 	public class SMTPAuthenticator extends Authenticator{ 
 	    @Override
@@ -41,28 +41,15 @@ public class TakeEmailFromClient extends HttpServlet {
 		String message = request.getParameter("message");
 		
 		PrintWriter out = response.getWriter();
-		Properties p = new Properties(); // 정보를 담을 객체
 		
 		//mail server 설정
-        String host = "smtp.naver.com";
-
+        
         //SMTP 서버 정보를 설정한다.
-        Properties props = new Properties();
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", 465);
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.ssl.enable", "true");
-        
-        
-		p.put("mail.smtp.host", host);
-
-		p.put("mail.smtp.port", "465");
-		p.put("mail.smtp.starttls.enable", "true");
-		p.put("mail.smtp.auth", "true");
-		p.put("mail.smtp.debug", "true");
-		p.put("mail.smtp.socketFactory.port", "465");
-		p.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		p.put("mail.smtp.socketFactory.fallback", "false");
+        Properties p = System.getProperties();
+        p.put("mail.smtp.starttls.enable", "true"); 	// gmail은 무조건 true 고정
+		p.put("mail.smtp.host", "smtp.gmail.com");		// smtp 서버 주소
+		p.put("mail.smtp.auth","true");    				// gmail은 무조건 true 고정
+		p.put("mail.smtp.port", "587"); 				// gmail 포트
 		// SMTP 서버에 접속하기 위한 정보들
 
 		try{
@@ -79,7 +66,8 @@ public class TakeEmailFromClient extends HttpServlet {
 		    
 		    Address toAddr = new InternetAddress(EMAIL);
 		    msg.addRecipient(Message.RecipientType.TO, toAddr); // 받는 사람
-		    
+
+			msg.setHeader("content-Type", "text/html");
 		    msg.setContent("hello, I'm " + name + ".<br> "+ message, "text/html;charset=UTF-8"); // 내용과 인코딩
 		    
 		    Transport.send(msg); // 전송
@@ -90,7 +78,7 @@ public class TakeEmailFromClient extends HttpServlet {
 		    return;
 		}
 
-		out.println("<script>alert('Send Mail Success!!');location.href='mailForm.html';</script>");
+		out.println("<script>alert('Send Mail Success!!');location.href=index.jsp';</script>");
 		// 성공 시
 		
 		

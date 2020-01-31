@@ -68,7 +68,7 @@ public class ShowForumOne extends HttpServlet {
 //				if(postVideo.contains("contents")) {
 //					postVideo = postVideo.substring(postVideo.lastIndexOf("/") + 1);
 //				}
-				
+				System.out.println(fvo.getComment());
 				request.setAttribute("postId", fvo.getPostId());
 				request.setAttribute("forumNum", fvo.getForumNum());
 				request.setAttribute("profile", fvo.getIdentityPhoto());

@@ -329,7 +329,7 @@
 									<p>
 										Doryang-dong <br /> Gyeongsangbuk-do Gumi-si<br /> South
 										Korea <br /> <strong>Phone:</strong> +82 10 4067 8303<br />
-										<strong>Email:</strong> sweetchocho@gmail.com<br />
+										<strong>Email:</strong> lovingjcn@gmail.com<br />
 									</p>
 								</div>
 
