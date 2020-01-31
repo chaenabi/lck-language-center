@@ -183,7 +183,7 @@
 		<br> <br> <br>
 		<div class="container">
 			<header class="section-header">
-				<h3>문의사항이 있으시다면 언제든지 아래의 링크를 통해 문의하실 수 있습니다.</h3>
+				<h3>문의사항이 있으시다면 언제든지 페이스북 채널 채팅을 통해 문의하실 수 있습니다.</h3>
 			</header>
 			<br>
 			<div class="row">
