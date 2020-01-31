@@ -83,9 +83,10 @@ public class ForumDAO {
 			// System.out.println("pageRow: " +pageRow);
 
 			String sql = "SELECT distinct F1.*, USER.identity_photo as photo "
-					+ "FROM USER, (SELECT * FROM Forum order by post_date asc) F1 " + "WHERE USER.userid = post_id "
+					+ "FROM USER, (SELECT * FROM Forum order by post_date asc) F1 " + "WHERE USER.userid = post_id order by post_date desc "
 					+ "LIMIT ? OFFSET ?"; // LIMIT 10페이지씩, 0번째부터.
 
+			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, pageRow);
 			// offset 0부터 시작

@@ -84,6 +84,10 @@ body a {
 		<div id="topbar">
 			<div class="container">
 				<div class="social-links">
+							<c:if test="${not empty sessionScope.username}">
+						${sessionScope.username}님 로그인중
+					</c:if>
+					
 			<a href="https://www.facebook.com/lcklanguagecenter" class="facebook"><i class="fa fa-facebook"></i></a>
 				</div>
 			</div>

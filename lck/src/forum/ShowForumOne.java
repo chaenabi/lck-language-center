@@ -56,12 +56,24 @@ public class ShowForumOne extends HttpServlet {
 				int cnt = fdao.increaseSawCnt(fvo.getSawCount(), fvo.getForumNum());
 
 				fvo.setSawCount(cnt);
-
+				String postPhoto = fvo.getPostPhoto();
+				String postVideo = fvo.getPostVideo();
+				
+				
+				System.out.println(postPhoto);
+				System.out.println(postVideo);
+//				if(postPhoto.contains("contents")) {
+//					postPhoto = postPhoto.substring(postPhoto.lastIndexOf("/") + 1);
+//				}
+//				if(postVideo.contains("contents")) {
+//					postVideo = postVideo.substring(postVideo.lastIndexOf("/") + 1);
+//				}
+				
 				request.setAttribute("postId", fvo.getPostId());
 				request.setAttribute("forumNum", fvo.getForumNum());
 				request.setAttribute("profile", fvo.getIdentityPhoto());
-				request.setAttribute("postPhoto", fvo.getPostPhoto());
-				request.setAttribute("postVideo", fvo.getPostVideo());
+				request.setAttribute("postPhoto", postPhoto);
+				request.setAttribute("postVideo", postVideo);
 				request.setAttribute("postSubject", fvo.getPostSubject());
 				request.setAttribute("postContent", fvo.getPostContent());
 				request.setAttribute("sawCount", fvo.getSawCount());	

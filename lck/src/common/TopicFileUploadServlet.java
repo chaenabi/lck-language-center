@@ -29,7 +29,7 @@ public class TopicFileUploadServlet extends HttpServlet {
 		// rootpath.../.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/lck)
 		String AbsolutePath = request.getSession().getServletContext().getRealPath("contents");
 		// 실제로 서버에 저장되는 path
-		// System.out.println("절대 경로: " + AbsolutePath);
+		//System.out.println("절대 경로: " + AbsolutePath);
 
 		int size = 1024 * 1024 * 100; // 파일 크기 제한. 100Mb
 		String fileName = ""; // 업로드한 파일 이름
