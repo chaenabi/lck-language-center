@@ -99,7 +99,7 @@
 		<div class="container-fluid">
 			<header class="section-header">
 				<h3>Would you like to join us?</h3>
-
+				<p></p>
 			</header>
 
 			<div class="row">
@@ -196,9 +196,9 @@
 				<div class="col-lg-4 col-md-4 col-4 text-center">
 					<!-- Load Facebook SDK for JavaScript -->
 
-					<p><i class="fa fa-envelope"></i> lovingjcn@gmail.com  <p>
+					<p><a href="mailto:lovingjcn@gmail.com"><i class="fa fa-envelope"></i> lovingjcn@gmail.com </a> <p>
 
-					<p><i class="fa fa-facebook-square"></i> www.facebook.com/lcklanguagecenter  <p>
+					<p><a href="www.facebook.com/lcklanguagecenter" style="color: black;"><i class="fa fa-facebook-square"></i> www.facebook.com/lcklanguagecenter</a><p>
 
 
 				<!-- 	<script src="js/facebook.chat.js"></script>

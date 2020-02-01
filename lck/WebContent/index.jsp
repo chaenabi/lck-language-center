@@ -281,8 +281,7 @@
 
 				<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
 					<div class="member">
-						<img src="assets/img/instructor_5.jpeg" class="img-fluid" alt=""
-							style="height: 255px; width: 255px;" />
+						<img src="assets/img/instructor_5.jpeg" class="img-fluid" alt="" />
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>롬</h4>

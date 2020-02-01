@@ -91,9 +91,9 @@ img {
 						<li class="active"><a href="index.jsp">Home</a></li>
 						<li><a href="aboutus.jsp">About Us</a></li>
 						<li><a href="service.jsp">Services</a></li>
-						<li><a href="#team">Team</a></li>
+						<li><a href="index.jsp#team">Team</a></li>
 						<li><a href="univ.jsp">University</a></li>
-						<li><a href="#footer">Contact Us</a></li>
+						<li><a href="index.jsp#footer">Contact Us</a></li>
 						<li><a href="#" onclick="document.getElementById('forumList').submit()">Forum</a></li>
 						<li><a href="affiliation.jsp">Affiliation</a></li>
 
