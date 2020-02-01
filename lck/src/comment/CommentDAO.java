@@ -22,7 +22,7 @@ public class CommentDAO {
 		try {
 			conn = DBManager.getConnection();
 			stmt = conn.createStatement();
-			String sql = "INSERT INTO Comment(comment_post, comment_id, comment_content, comment_password,comment_date)"
+			String sql = "INSERT INTO comment(comment_post, comment_id, comment_content, comment_password,comment_date)"
 					+ " values(?,?,?,?,now())";
 
 			pstmt = conn.prepareStatement(sql);
@@ -95,7 +95,7 @@ public class CommentDAO {
 		// 그러나 이름은 null 처리하지 않는다
 		try {
 			conn = DBManager.getConnection();
-			String sql = "DELETE FROM COMMENT WHERE comment_num = ? AND comment_id = ?";
+			String sql = "DELETE FROM comment WHERE comment_num = ? AND comment_id = ?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, cnum);

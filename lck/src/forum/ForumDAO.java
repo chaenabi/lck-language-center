@@ -24,7 +24,7 @@ public class ForumDAO {
 		ArrayList<ForumVO> flist = new ArrayList<ForumVO>();
 		try {
 			conn = DBManager.getConnection();
-			String sql = "SELECT DISTINCT forum.*, USER.identity_photo as photo FROM forum, user WHERE post_subject LIKE ? "
+			String sql = "SELECT DISTINCT forum.*, user.identity_photo as photo FROM forum, user WHERE post_subject LIKE ? "
 					+ "AND post_id = user.userid "
 					+ "ORDER BY forum.forum_num desc";
 			pstmt = conn.prepareStatement(sql);
@@ -46,7 +46,7 @@ public class ForumDAO {
 			}
 
 			String howmanycomments = "SELECT count(comment_post) as cnt "
-								   + "FROM COMMENT, forum "
+								   + "FROM comment, forum "
 				         		   + "WHERE forum.forum_num = comment.comment_post";
 				pstmt.clearParameters();
 				pstmt = conn.prepareStatement(howmanycomments);
@@ -82,8 +82,8 @@ public class ForumDAO {
 			// System.out.println("startNum: " +startNum);
 			// System.out.println("pageRow: " +pageRow);
 
-			String sql = "SELECT distinct F1.*, USER.identity_photo as photo "
-					+ "FROM USER, (SELECT * FROM Forum order by post_date asc) F1 " + "WHERE USER.userid = post_id order by post_date desc "
+			String sql = "SELECT distinct F1.*, user.identity_photo as photo "
+					+ "FROM user, (SELECT * FROM forum order by post_date asc) F1 " + "WHERE user.userid = post_id order by post_date desc "
 					+ "LIMIT ? OFFSET ?"; // LIMIT 10페이지씩, 0번째부터.
 
 			
@@ -109,7 +109,7 @@ public class ForumDAO {
 			}
 			
 			String howmanycomments = "SELECT count(comment_post) as cnt "
-								   + "FROM COMMENT, forum "
+								   + "FROM comment, forum "
 		                		   + "WHERE forum.forum_num = comment.comment_post";
 			
 			
@@ -131,7 +131,7 @@ public class ForumDAO {
 
 	// 페이징 처리를 위한 Forum 테이블의 전체 데이터 갯수 조회 (row 갯수)
 	public int getAllCount() throws SQLException {
-		String sql = "SELECT COUNT(post_id) as count FROM Forum";
+		String sql = "SELECT COUNT(post_id) as count FROM forum";
 		conn = DBManager.getConnection();
 		int count = 0;
 		try {
@@ -154,9 +154,9 @@ public class ForumDAO {
 		++cnt;
 		conn = DBManager.getConnection();
 		
-		String updateSql = "UPDATE FORUM SET saw_count = ? where forum_num = ?";
+		String updateSql = "UPDATE forum SET saw_count = ? where forum_num = ?";
 		String selectSql = "SELECT saw_count "
-						 + "FROM FORUM, comment "
+						 + "FROM forum, comment "
 						 + "WHERE forum_num = ? ";
 		try {
 
@@ -254,7 +254,7 @@ public class ForumDAO {
 		try {
 			conn = DBManager.getConnection();
 			stmt = conn.createStatement();
-			String sql = "INSERT INTO Forum(post_id, post_subject, post_content, post_photo, post_video, post_date)"
+			String sql = "INSERT INTO forum(post_id, post_subject, post_content, post_photo, post_video, post_date)"
 					+ " values(?,?,?,?,?,now())";
 
 			pstmt = conn.prepareStatement(sql);
@@ -279,7 +279,7 @@ public class ForumDAO {
 			try {
 				conn = DBManager.getConnection();
 				stmt = conn.createStatement();
-				String sql = "UPDATE FORUM SET post_subject = ?, post_content = ?, post_photo = ?, post_video = ? WHERE forum_num = ?";
+				String sql = "UPDATE forum SET post_subject = ?, post_content = ?, post_photo = ?, post_video = ? WHERE forum_num = ?";
 
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, postContentSub);
@@ -304,7 +304,7 @@ public class ForumDAO {
 			try {
 				conn = DBManager.getConnection();
 				stmt = conn.createStatement();
-				String sql = "DELETE FROM FORUM WHERE forum_num = ?";
+				String sql = "DELETE FROM forum WHERE forum_num = ?";
 
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, postNum);

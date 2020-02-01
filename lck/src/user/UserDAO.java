@@ -24,7 +24,7 @@ public class UserDAO {
 		try {
 			conn = DBManager.getConnection();
 			stmt = conn.createStatement();
-			String sql = "Select * from user where name=? and password=?";
+			String sql = "Select * from user where `name`=? and `password`=?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, uvo.getName());
@@ -52,7 +52,7 @@ public class UserDAO {
 		try {
 			conn = DBManager.getConnection();
 			stmt = conn.createStatement();
-			String sql = "Select * from user where name=?";
+			String sql = "Select * from user where `name`=?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, uvo.getName());
@@ -81,7 +81,7 @@ public class UserDAO {
 		try {
 			conn = DBManager.getConnection();
 			stmt = conn.createStatement();
-			String sql = "INSERT INTO User(name, password, phone, position, address, identity_photo, reg_date)"
+			String sql = "INSERT INTO user(`name`, `password`, `phone`, `position`, `address`, `identity_photo`, `reg_date`)"
 					+ " values(?,?,?,?,?,?,now())";
 
 			pstmt = conn.prepareStatement(sql);
