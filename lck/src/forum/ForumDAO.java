@@ -137,6 +137,7 @@ public class ForumDAO {
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
+			
 			if (rs.next()) {
 				count = rs.getInt("count");
 			}
@@ -196,7 +197,7 @@ public class ForumDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, forum_num);
 			rs = pstmt.executeQuery();
-			
+			rs.next();
 
 			if (!rs.next()) { // if 0 row selected. meanwhile, if there's no any comment at the post.
 				sql = "SELECT forum.*, user.identity_photo as photo FROM forum, user WHERE forum_num = ? AND forum.post_id = user.userid";
@@ -215,7 +216,7 @@ public class ForumDAO {
 			fvo.setPostVideo(rs.getString("post_video"));
 			fvo.setSawCount(rs.getInt("saw_count"));
 			fvo.setPostDate(rs.getDate("post_date"));
-
+			
 		
 			while (rs.next()) {
 

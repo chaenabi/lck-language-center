@@ -25,9 +25,10 @@ public class DBManager {
 			// 1. 드라이버 설정
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			//String ip = "127.0.0.1";
+			String local_ip = "127.0.0.1";
+			String aws_dns = "34.238.115.225";
 			//String port = "3306";
-			String id = "root";
+			String id = "lck";
 			String pw = "mysql";
 	
 			// 2. DB 연결	
@@ -37,7 +38,7 @@ public class DBManager {
 			// win : lckdb
 			String databasename = "lck";
 			
-			String url = "jdbc:mysql://localhost:3306/"+databasename+"?characterEncoding=UTF-8&serverTimezone=UTC";
+			String url = "jdbc:mysql://" +aws_dns+ ":3306/"+databasename+"?characterEncoding=UTF-8&serverTimezone=UTC";
 			
 			
 			conn = DriverManager.getConnection(url, id, pw);

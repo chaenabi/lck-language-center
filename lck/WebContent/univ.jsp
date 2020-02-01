@@ -85,18 +85,22 @@ img {
 				<!-- <a href="#header" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
 			</div>
 
-			<nav class="main-nav float-right d-none d-lg-block">
-				<ul>
-					<li><a href="index.jsp">Home</a></li>
-					<li><a href="aboutus.jsp">About Us</a></li>
-					<li><a href="service.jsp">Services</a></li>
-					<li><a href="index.jsp#team">Team</a></li>
-					<li class="active"><a href="univ.jsp">University</a></li>
-					<li><a href="index.jsp#footer">Contact Us</a></li>
-					<li><a href="forum.jsp">Forum</a></li>
-					<li><a href="affiliation.jsp">affiliation</a></li>
-				</ul>
-			</nav>
+			<form action="ShowForumList" method="post" id="forumList">
+				<nav class="main-nav float-right d-none d-lg-block">
+					<ul>
+						<li class="active"><a href="index.jsp">Home</a></li>
+						<li><a href="aboutus.jsp">About Us</a></li>
+						<li><a href="service.jsp">Services</a></li>
+						<li><a href="#team">Team</a></li>
+						<li><a href="univ.jsp">University</a></li>
+						<li><a href="#footer">Contact Us</a></li>
+						<li><a href="#" onclick="document.getElementById('forumList').submit()">Forum</a></li>
+						<li><a href="affiliation.jsp">Affiliation</a></li>
+
+
+					</ul>
+				</nav>
+			</form>
 			<!-- .main-nav -->
 		</div>
 	</header>
@@ -117,35 +121,35 @@ img {
 			<div class="row">
 				<div class="col-md-4 col-6">
 					<div class="in">
-						<img src="assets/img/clients/daesin.png" alt="" />
+						<a href="https://www.daeshin.ac.kr"><img src="assets/img/clients/daesin.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="col-md-4 col-6">
 					<div class="in">
-						<img src="assets/img/clients/daegu.png" alt="" />
+						<a href="https://www.dhc.ac.kr"><img src="assets/img/clients/daegu.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="col-md-4 col-6">
-					<img src="assets/img/clients/gyeonghi.png" alt="" />
+					<a href="https://www.khu.ac.kr"><img src="assets/img/clients/gyeonghi.png" alt="" /></a>
 				</div>
 
 
 				<div class="col-md-4 col-6">
-					<img src="assets/img/clients/gyeongil.png" alt="" />
+					<a href="https://www.kiu.ac.kr"><img src="assets/img/clients/gyeongil.png" alt="" /></a>
 				</div>
 				<div class="col-md-4 col-6">
-					<img src="assets/img/clients/seoul.png" alt="" />
+					<a href="http://www.snu.ac.kr"><img src="assets/img/clients/seoul.png" alt="" /></a>
 				</div>
 				<div class="col-md-4 col-6">
-					<img src="assets/img/clients/kumoh.jpeg" alt="" />
+					<a href="https://www.kumoh.ac.kr"><img src="assets/img/clients/kumoh.jpeg" alt="" /></a>
 				</div>
 
 
 				<div class="col-md-4 col-6">
-					<img src="assets/img/clients/uone.png" alt="" />
+					<a href="http://www.u1.ac.kr"><img src="assets/img/clients/uone.png" alt="" /></a>
 				</div>
 				<div class="col-md-4 col-6">
-					<img src="assets/img/clients/youngjin.jpg" alt="" />
+					<a href="https://www.yju.ac.kr/"><img src="assets/img/clients/youngjin.jpg" alt="" /></a>
 				</div>
 			</div>
 		</div>
