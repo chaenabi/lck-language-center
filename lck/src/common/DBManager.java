@@ -35,7 +35,8 @@ public class DBManager {
 			
 			// databasename must be defined first ...
 			// mac : lck
-			// win : lckdb
+			// win : lckdb // developer had used on his computer, but it must be deprecated in the future.
+			
 			String databasename = "lck";
 			
 			String url = "jdbc:mysql://" +local_ip+ ":3306/"+databasename+"?characterEncoding=UTF-8&serverTimezone=UTC";

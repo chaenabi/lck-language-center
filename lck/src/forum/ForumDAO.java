@@ -137,7 +137,7 @@ public class ForumDAO {
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			
+	
 			if (rs.next()) {
 				count = rs.getInt("count");
 			}
@@ -146,6 +146,7 @@ public class ForumDAO {
 		} finally {
 			DBclose();
 		}
+
 		return count;
 	}
 	

@@ -141,19 +141,15 @@
 					<img src="assets/img/portfolio/web1.jpg" class="img-fluid" alt="" />
 				</div>
 				<div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-					<h4>LCK Language Center 사이트를 방문해 주셔서 감사합니다.</h4>
+					<h4>LCK 외국인 한국어 센터 사이트를 방문해 주셔서 감사합니다.</h4>
 					<p></p>
-					<p>
-						저희 베트남 지점은 호치민에 위치하고 있으며 그곳에서 한국어 수업 및 유학 코스를 밟으실 수 있습니다.<br>
-						이 사이트를 통해 다양한 정보들과 저희 LCK가 가지고있는 특별한 장점들을 알아보시기 바랍니다.<br> 상담
-						문의도 언제든 환영합니다.
-					</p>
-				
-					<p>
-						저희 센터를 통해 안전하고 성공적인 유학생활을 하실 수 있으며 학생 여러분들의<br> 빛나는 꿈을 활짝
-						펼치시길 바랍니다.
-
-					</p>
+					<p> 저희 LCK 외국인 한국어 센터는 외국인들의 안정적인 고용을 위해 취업상담 및 비자 변경등의 업무를 수행하고있습니다.</p>
+					<p>	특히 어학연수 후 전문학사 및 학사 학위를 취득후 취업 및 비자 문제를 겪고 있는 분들에게 최상의 서비스를 제공해 드리고 있습니다.</p>
+					<p>	또한 임금체불, 산재업무와 관련된 어려움을 겪으신 분들께 무료상담을 제공 해드리고 있습니다.</p>
+					<p>	저희 센터를 통해 다양한 정보들을 알아 보시기 바랍니다.</p>
+					<p>	상담문의 언제든 환영합니다.</p>
+					<p>	저희 센터를 통해 안전하고 성공적인 취업 및 비자 변경을 통하여 외국인 분들의 꿈을 활짝 펼치시길 바랍니다.</p>
+					<h5> LCK 대표 최봉길 </h5>
 				</div>
 			</div>
 
@@ -249,7 +245,7 @@
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>최새민</h4>
-								<span>한국에서 베트남 학생들 담당 및  상담</span>
+								<span>한국에서 베트남 학생 담당 및  상담</span>
 								<div class="social">
 									<!-- <a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
 										class="fa fa-facebook"></i></a> <a href=""><i
@@ -263,7 +259,7 @@
 
 				<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
 					<div class="member">
-						<img src="assets/img/team-4.jpg" class="img-fluid" alt="" />
+						<img src="assets/img/instructor_6.jpeg" class="img-fluid" alt="" />
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>경동수</h4>
@@ -326,9 +322,10 @@
 								<div class="footer-links">
 									<h4>Contact Us</h4>
 									<p>
-										Doryang-dong <br /> Gyeongsangbuk-do Gumi-si<br /> South
-										Korea <br /> <strong>Phone:</strong> +82 10 4067 8303<br />
-										<strong>Email:</strong> lovingjcn@gmail.com<br />
+										Geumgok-dong <br /> Namyangju-si, Gyeonggi-do<br /> South
+										Korea <br /> <strong>Phone:</strong> +82 10 7583 3555<br />
+										<strong>Email:</strong> keumseong3555@gmail.com<br />
+										<strong>Facebook ID: Choi Bong Gil</strong><br />
 									</p>
 								</div>
 
