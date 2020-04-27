@@ -264,12 +264,7 @@
 							<div class="member-info-content">
 								<h4>경동수</h4>
 								<span>실장</span>
-								<div class="social">
-									<!-- <a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
-										class="fa fa-facebook"></i></a> <a href=""><i
-										class="fa fa-google-plus"></i></a> <a href=""><i
-										class="fa fa-linkedin"></i></a>
-							 -->	</div>
+								<div class="social"></div>
 							</div>
 						</div>
 					</div>
@@ -325,7 +320,7 @@
 										Geumgok-dong <br /> Namyangju-si, Gyeonggi-do<br /> South
 										Korea <br /> <strong>Phone:</strong> +82 10 7583 3555<br />
 										<strong>Email:</strong> keumseong3555@gmail.com<br />
-										<strong>Facebook ID: Choi Bong Gil</strong><br />
+										<strong>Facebook ID:</strong> Choi Bong Gil<br />
 									</p>
 								</div>
 
